@@ -16,5 +16,6 @@ public class Napakalaki {
     public static void main(String[] args) {
         // TODO code application logic here
         int a = 1;
+        int b = 1;
     }
 }
