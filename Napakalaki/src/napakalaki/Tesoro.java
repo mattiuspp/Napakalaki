@@ -13,5 +13,13 @@ public class Tesoro {
     private int bonusMinimo;
     private int bonusMaximo;
     private int piezasOro;
+
+    public Tesoro(String nombre, int bonusMinimo, int bonusMaximo, int piezasOro) {
+        this.nombre = nombre;
+        this.bonusMinimo = bonusMinimo;
+        this.bonusMaximo = bonusMaximo;
+        this.piezasOro = piezasOro;
+    }
+    
     
 }
