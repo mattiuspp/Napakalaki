@@ -6,8 +6,12 @@ package napakalaki;
 
 /**
  *
- * @author hhrr
+ * @author antonio
  */
-class Tesoro {
+public class Tesoro {
+    private String nombre;
+    private int bonusMinimo;
+    private int bonusMaximo;
+    private int piezasOro;
     
 }

@@ -8,6 +8,7 @@ package napakalaki;
  *
  * @author antonio
  */
-public class ResultadoCombate {
-    private enum resultado {VENCEYFIN,VENCE,PIERDE,PIERDEYESCAPA,PIERDEYMUERE};
+public class TipoTesoro {
+    private enum tipo {ARMADURA,MANO,DOSMANOS,CASCO,CALZADO,COLLAR};
+    
 }
