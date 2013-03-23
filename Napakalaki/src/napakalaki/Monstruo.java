@@ -1,0 +1,48 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package napakalaki;
+
+/**
+ *
+ * @author hhrr
+ */
+public class Monstruo {
+    private String nombre;
+    private int nivel;
+
+    public Monstruo(String nombre, int nivel) {
+        this.nombre = nombre;
+        this.nivel = nivel;
+    }
+    
+    public String obtenerNombre() {
+        return nombre;
+    }
+
+    public int obtenerNivel() {
+        return nivel;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setNivel(int nivel) {
+        this.nivel = nivel;
+    }
+    
+    public BuenRollo cualEsTuBuenRollo() {
+        // queda implementar
+        return null;
+    }
+    
+    public MalRollo cualEsTuMalRollo() {
+        // queda implementar
+        return null;
+    }
+    
+    
+    
+}
