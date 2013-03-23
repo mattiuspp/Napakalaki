@@ -18,8 +18,8 @@ class MalRollo {
     private boolean muerte;
     
     // Referencias a otras clases
-    private ArrayList<TipoTesoro> tipoOcultosPerdidos;
-    private ArrayList<TipoTesoro> tipoVisiblesPerdidos;
+    private ArrayList<TipoTesoro> tipoOcultosPerdidos = new ArrayList();
+    private ArrayList<TipoTesoro> tipoVisiblesPerdidos = new ArrayList();
     
     public boolean muerte() {
         // queda por implementar

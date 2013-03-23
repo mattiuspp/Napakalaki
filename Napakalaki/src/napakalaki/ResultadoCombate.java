@@ -8,6 +8,4 @@ package napakalaki;
  *
  * @author antonio
  */
-public class ResultadoCombate {
-    enum resultado {VENCEYFIN,VENCE,PIERDE,PIERDEYESCAPA,PIERDEYMUERE};
-}
+enum ResultadoCombate {VENCEYFIN,VENCE,PIERDE,PIERDEYESCAPA,PIERDEYMUERE};

@@ -18,18 +18,15 @@ public class Jugador {
     private static int NIVEL_MAXIMO = 10;
     private static int TESOROS_OCULTOS_MAXIMO = 4;
     
-    
     // Referencias a otras clases
     private MalRollo malRolloPendiente;
-    
     private ArrayList<Tesoro> tesorosOcultos = new ArrayList();
     private ArrayList<Tesoro> tesorosVisibles = new ArrayList();
     
     // Meter la referencia "discontinua" a ResultadoCombate
     
-    public Jugador(String nombre){
-        this.nombre = nombre;
-    }
+    // Todavia no hay que implementar el constructor de jugador!
+
     
     public int obtenerNivel(){
         return nivel;
@@ -40,18 +37,21 @@ public class Jugador {
     }
     
     public int obtenerNivelCombate(){
-        
+        // falta por implementar
+        return 0;
     }
     
     public void robarTesoro(Tesoro unTesoro){
         
     }
     
-    public boolean descartarTesoros(ArrayList<Tesoro> tesorosVisDes, ArrayList<Tesoro> tesorosOcuDes){
+    public boolean descartarTesoros(ArrayList<Tesoro> tesorosVisDes, 
+            ArrayList<Tesoro> tesorosOcuDes){
         return true;
     }
     
-    private boolean cumploMalRollo(ArrayList<Tesoro> tesVisibles, ArrayList<Tesoro> tesOcultos){
+    private boolean cumploMalRollo(ArrayList<Tesoro> tesVisibles, 
+            ArrayList<Tesoro> tesOcultos){
         return true;
     }
     
@@ -64,15 +64,18 @@ public class Jugador {
     }
     
     public int puedoPasar(){
-        
+        //falta por implementar
+        return 0;
     }
     
     public boolean tienesTesoros(){
-        
+        //falta por implementar
+        return true;
     }
     
     public boolean comprarNiveles(ArrayList<Tesoro> tesoros){
-        
+        //falta por implementar
+        return true;
     }
     
     public void incDecNivel(int incDec){
@@ -80,11 +83,13 @@ public class Jugador {
     }
     
     public ResultadoCombate combatir(Monstruo monstruoEnJuego){
-        
+        //falta por implementar
+        return null;
     }
     
     public ArrayList<Tesoro> dameTodosTusTesoros(){
-        
+        //falta por implementar
+        return null;
     }
     
     public void incluirMalRollo(List malRollo){
@@ -92,11 +97,13 @@ public class Jugador {
     }
     
     public Tesoro devuelveElCollar(){
-        
+        //falta por implementar
+        return null;
     }
     
     public boolean tienesCollar(){
-        
+        //falta por implementar
+        return true;
     }
     
     public void aplicarBuenRollo(BuenRollo buenRollo){

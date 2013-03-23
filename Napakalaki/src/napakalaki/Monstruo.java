@@ -16,11 +16,13 @@ public class Monstruo {
     private MalRollo malRollo;
     private BuenRollo buenRollo;
 
-    public Monstruo(String nombre, int nivel) {
+    public Monstruo(String nombre, int nivel, MalRollo malRollo, BuenRollo buenRollo) {
         this.nombre = nombre;
         this.nivel = nivel;
+        this.malRollo = malRollo;
+        this.buenRollo = buenRollo;
     }
-    
+
     public String obtenerNombre() {
         return nombre;
     }
