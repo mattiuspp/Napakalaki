@@ -28,10 +28,6 @@ public class Napakalaki {
         return instance;
     }
     
-    private void crear() {
-        
-    }
-    
     public void comenzarJuego(String[] nombreJugadores) {
         
     }
