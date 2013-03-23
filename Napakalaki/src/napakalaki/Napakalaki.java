@@ -25,6 +25,8 @@ public class Napakalaki {
     
     private static final Napakalaki instance = new Napakalaki();
     
+    // Meter referencia "discontinua" a ResultadoCombate
+    
     // Constructor privado
     private Napakalaki() { }
 
@@ -38,15 +40,15 @@ public class Napakalaki {
     
     private void inicializarJuego() {
         //mazoTesoro
-        mazoTesoros.add (new Tesoro("Si mi amo!",TipoTesoro.CUBRECABEZA ,4,7,0) );
+        mazoTesoros.add (new Tesoro("Sí mi amo!",TipoTesoro.CASCO ,4,7,0) );
         mazoTesoros.add (new Tesoro("Botas de investigación ",TipoTesoro.CALZADO,3,4,600) );
-        mazoTesoros.add (new Tesoro("Capucha de Cthulhu ",TipoTesoro.CUBRECABEZA,3,5,500) );
+        mazoTesoros.add (new Tesoro("Capucha de Cthulhu ",TipoTesoro.CASCO,3,5,500) );
         mazoTesoros.add (new Tesoro("A prueba de babas",TipoTesoro.ARMADURA,3,5,400) );
-        mazoTesoros.add (new Tesoro(" Botas de lluvia  áácida",TipoTesoro.DOSMANOS ,1,1,800) );
-        mazoTesoros.add (new Tesoro("Casco minero",TipoTesoro.CUBRECABEZA,2,4,400) );
+        mazoTesoros.add (new Tesoro("Botas de lluvia áácida",TipoTesoro.DOSMANOS ,1,1,800) );
+        mazoTesoros.add (new Tesoro("Casco minero",TipoTesoro.CASCO,2,4,400) );
         mazoTesoros.add (new Tesoro ("Zapato deja-amigos",TipoTesoro.CALZADO,0,1,500));
-        mazoTesoros.add (new Tesoro ("Fez alópodo" ,TipoTesoro.CUBRECABEZA,3,5,700));
-        mazoTesoros.add (new Tesoro ("Necrotelecom" ,TipoTesoro.CUBRECABEZA,2,3,300));
+        mazoTesoros.add (new Tesoro ("Fez alópodo" ,TipoTesoro.CASCO,3,5,700));
+        mazoTesoros.add (new Tesoro ("Necrotelecom" ,TipoTesoro.CASCO,2,3,300));
         mazoTesoros.add (new Tesoro ("Porra preternatural" ,TipoTesoro.MANO,2,3,200));
         mazoTesoros.add (new Tesoro ("Cuchillo de sushi arcano" ,TipoTesoro.MANO,2,3,300));
         mazoTesoros.add (new Tesoro ("La rebeca metálica" ,TipoTesoro.ARMADURA,2,3,400));
@@ -57,7 +59,7 @@ public class Napakalaki {
         mazoTesoros.add (new Tesoro ("Necronomicón" ,TipoTesoro.DOSMANOS,5,7,800));
         mazoTesoros.add (new Tesoro ("Camiseta de la UGR" ,TipoTesoro.ARMADURA,1,7,100));
         mazoTesoros.add (new Tesoro ("Necrognomicón",TipoTesoro.MANO,2,4,200));
-        mazoTesoros.add (new Tesoro ("Tentáculo de pega",TipoTesoro.CUBRECABEZA,0,1,200));
+        mazoTesoros.add (new Tesoro ("Tentáculo de pega",TipoTesoro.CASCO,0,1,200));
         mazoTesoros.add (new Tesoro ("Lanzallamas",TipoTesoro.DOSMANOS,4,8,800));
         mazoTesoros.add (new Tesoro ("Mazo de los antiguos",TipoTesoro.MANO,3,4,200));
         mazoTesoros.add (new Tesoro ("Insecticida",TipoTesoro.MANO,2,3,300));

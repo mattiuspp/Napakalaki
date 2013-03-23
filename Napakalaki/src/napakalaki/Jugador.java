@@ -18,6 +18,15 @@ public class Jugador {
     private static int NIVEL_MAXIMO = 10;
     private static int TESOROS_OCULTOS_MAXIMO = 4;
     
+    
+    // Referencias a otras clases
+    private MalRollo malRolloPendiente;
+    
+    private ArrayList<Tesoro> tesorosOcultos = new ArrayList();
+    private ArrayList<Tesoro> tesorosVisibles = new ArrayList();
+    
+    // Meter la referencia "discontinua" a ResultadoCombate
+    
     public Jugador(String nombre){
         this.nombre = nombre;
     }

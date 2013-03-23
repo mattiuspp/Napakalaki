@@ -11,6 +11,10 @@ package napakalaki;
 public class Monstruo {
     private String nombre;
     private int nivel;
+    
+    // Referencias a otras clases
+    private MalRollo malRollo;
+    private BuenRollo buenRollo;
 
     public Monstruo(String nombre, int nivel) {
         this.nombre = nombre;

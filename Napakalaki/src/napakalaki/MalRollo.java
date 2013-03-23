@@ -4,6 +4,8 @@
  */
 package napakalaki;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author hhrr
@@ -14,6 +16,10 @@ class MalRollo {
     private int ocultosPerdidos;
     private int visiblesPerdidos;
     private boolean muerte;
+    
+    // Referencias a otras clases
+    private ArrayList<TipoTesoro> tipoOcultosPerdidos;
+    private ArrayList<TipoTesoro> tipoVisiblesPerdidos;
     
     public boolean muerte() {
         // queda por implementar
