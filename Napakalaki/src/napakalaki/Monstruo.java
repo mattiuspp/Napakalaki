@@ -22,11 +22,11 @@ public class Monstruo {
         this.malRollo = malRollo;
         this.buenRollo = buenRollo;
     }
-
+    
     public String obtenerNombre() {
         return nombre;
     }
-
+    
     public int obtenerNivel() {
         return nivel;
     }
