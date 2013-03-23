@@ -5,6 +5,7 @@
 package napakalaki;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -33,23 +34,23 @@ public class Jugador {
         
     }
     
-    public void robarTesoro (Tesoro unTesoro){
+    public void robarTesoro(Tesoro unTesoro){
         
     }
     
-    public boolean descartarTesoros (ArrayList<Tesoro> tesorosVisDes, ArrayList<Tesoro> tesorosOcuDes){
+    public boolean descartarTesoros(ArrayList<Tesoro> tesorosVisDes, ArrayList<Tesoro> tesorosOcuDes){
         return true;
     }
     
-    private boolean cumploMalRollo (ArrayList<Tesoro> tesVisibles, ArrayList<Tesoro> tesOcultos){
+    private boolean cumploMalRollo(ArrayList<Tesoro> tesVisibles, ArrayList<Tesoro> tesOcultos){
         return true;
     }
     
-    public void equiparTesoros (ArrayList<Tesoro> listaTesoro){
+    public void equiparTesoros(ArrayList<Tesoro> listaTesoro){
         
     }
     
-    private boolean puedoEquipar (Tesoro unTesoro){
+    private boolean puedoEquipar(Tesoro unTesoro){
         return true;
     }
     
@@ -61,15 +62,39 @@ public class Jugador {
         
     }
     
-    public boolean comprarNiveles (ArrayList<Tesoro> tesoros){
+    public boolean comprarNiveles(ArrayList<Tesoro> tesoros){
         
     }
     
-    public void incDecNivel (int incDec){
+    public void incDecNivel(int incDec){
         
     }
     
-    public ResultadoCombate combatir (Monstruo monstruoEnJuego){
+    public ResultadoCombate combatir(Monstruo monstruoEnJuego){
+        
+    }
+    
+    public ArrayList<Tesoro> dameTodosTusTesoros(){
+        
+    }
+    
+    public void incluirMalRollo(List malRollo){
+        
+    }
+    
+    public Tesoro devuelveElCollar(){
+        
+    }
+    
+    public boolean tienesCollar(){
+        
+    }
+    
+    public void aplicarBuenRollo(BuenRollo buenRollo){
+        
+    }
+    
+    public void muere(){
         
     }
     
