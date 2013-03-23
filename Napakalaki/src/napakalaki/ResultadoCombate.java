@@ -9,5 +9,5 @@ package napakalaki;
  * @author antonio
  */
 public class ResultadoCombate {
-    private enum resultado {VENCEYFIN,VENCE,PIERDE,PIERDEYESCAPA,PIERDEYMUERE};
+    package enum resultado {VENCEYFIN,VENCE,PIERDE,PIERDEYESCAPA,PIERDEYMUERE};
 }

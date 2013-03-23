@@ -9,6 +9,6 @@ package napakalaki;
  * @author antonio
  */
 public class TipoTesoro {
-    private enum tipo {ARMADURA,MANO,DOSMANOS,CASCO,CALZADO,COLLAR};
+    package enum tipo {ARMADURA,MANO,DOSMANOS,CASCO,CALZADO,COLLAR};
     
 }
