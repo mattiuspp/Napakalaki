@@ -26,7 +26,7 @@ public class Jugador {
     // Meter la referencia "discontinua" a ResultadoCombate
     
     // Todavia no hay que implementar el constructor de jugador!
-
+    // OK!
     
     public int obtenerNivel(){
         return nivel;

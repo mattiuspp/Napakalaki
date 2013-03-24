@@ -2,6 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
+/*
+ * Equipo: Antonio Álvarez Caballero y Adrián Ranea Robles
+ */
 package napakalaki;
 
 import java.util.ArrayList;
@@ -73,9 +76,9 @@ public class Napakalaki {
         mazoTesoros.add (new Tesoro ("Grabato mísitico",TipoTesoro.MANO,2,2,300));
         
         // hay que ajustarlo al constructor
-        mazoMonstruos.add(new Monstruo("Roboggoth",8,2,1,"La quinta directica primaria te obliga a perder 2 niveles y un tesoro 2 manos visibles",2,0,2,isibles,ocultos));
+        mazoMonstruos.add(new Monstruo("Roboggoth",8,2,1,"La quinta directiva primaria te obliga a perder 2 niveles y un tesoro 2 manos visibles",2,0,2,visibles,ocultos));
         mazoMonstruos.add(new Monstruo("La que redacta en las tinieblas",2,1,1,"Toses los pulmones y pierdes 2 niveles",2,0,0,visibles,ocultos));
-        mazoMonstruos.add(new Monstruo("El espia",5,1,1,"Te asusta en la noche .Pierdes un casco visible",0,0,1,visibles,ocultos));
+        mazoMonstruos.add(new Monstruo("El espía",5,1,1,"Te asusta en la noche .Pierdes un casco visible",0,0,1,visibles,ocultos));
         mazoMonstruos.add(new Monstruo("El sopor de Dunwich",2,1,1,"El primordial bostezo contagioso.Pierdes el calzadp visible",0,0,1,visibles,ocultos));
         mazoMonstruos.add(new Monstruo("Yskhtihyssg-Goth",12,3,1,"No le hace gracia que pronuncien mal su nombre .Estas muerto ",-2,-2,-2,visibles,ocultos));
         mazoMonstruos.add(new Monstruo("Bichgooth",2,1,1,"Sientes bichos bajo la ropa.Descarta la armadura viible",0,0,1,visibles,ocultos));
@@ -89,7 +92,8 @@ public class Napakalaki {
         mazoMonstruos.add(new Monstruo("Semillas Cthulhu",4,2,1,"Pierdes 2 niveles y 2 tesoros ocultos",2,2,0,visibles,ocultos));
         mazoMonstruos.add(new Monstruo("H.P. Munchcraft",6,2,1,"Pierdes la armadura visible",0,0,0,visibles,ocultos));
 
-        
+        // Intento de poner bien jaja
+        mazoMonstruos.add(new Monstruo("3 byakhees de bonanza",8,new MalRollo("Pierdes tu armadura visible y otra oculta",0,1,1,false),new BuenRollo(2,1)));
     }
     
     private void inicializarJugadores(String[] nombreJugadores){
