@@ -69,7 +69,7 @@ public class Napakalaki {
         mazoTesoros.add (new Tesoro ("Grabato mísitico",TipoTesoro.MANO,2,2,300));
         
         // hay que ajustarlo al constructor
-        mazoMonstruos.add(new Monstruo("Roboggoth",8,2,1,"La quinta directiva primaria te obliga a perder 2 niveles y un tesoro 2 manos visibles",2,0,2,visibles,ocultos));
+        /*mazoMonstruos.add(new Monstruo("Roboggoth",8,2,1,"La quinta directiva primaria te obliga a perder 2 niveles y un tesoro 2 manos visibles",2,0,2,visibles,ocultos));
         mazoMonstruos.add(new Monstruo("La que redacta en las tinieblas",2,1,1,"Toses los pulmones y pierdes 2 niveles",2,0,0,visibles,ocultos));
         mazoMonstruos.add(new Monstruo("El espía",5,1,1,"Te asusta en la noche .Pierdes un casco visible",0,0,1,visibles,ocultos));
         mazoMonstruos.add(new Monstruo("El sopor de Dunwich",2,1,1,"El primordial bostezo contagioso.Pierdes el calzadp visible",0,0,1,visibles,ocultos));
@@ -84,10 +84,11 @@ public class Napakalaki {
         mazoMonstruos.add(new Monstruo("El gorrón en el umbral",10,3,1,"Pierdes todos tus tesoros visibles",0,0,-1,visibles,ocultos));
         mazoMonstruos.add(new Monstruo("Semillas Cthulhu",4,2,1,"Pierdes 2 niveles y 2 tesoros ocultos",2,2,0,visibles,ocultos));
         mazoMonstruos.add(new Monstruo("H.P. Munchcraft",6,2,1,"Pierdes la armadura visible",0,0,0,visibles,ocultos));
-
+        */ 
+        
         // Se llama al constructor de MalRollo y buen Rollo
         mazoMonstruos.add(new Monstruo(
-            "El gorrón en el umbral",10 //nombre ynivel 
+            "El gorrón en el umbral",10 //nombre y nivel 
             new MalRollo("Pierdes todos tus tesoros visibles",1,0,6,false, 
                         new ArraList(ARMADURA,MANO,DOSMANOS,CASCO,CALZADO,COLLAR), 
                         newArrayList()
@@ -96,9 +97,9 @@ public class Napakalaki {
         ); 
         // Se crea el objeto a fuego
         mazoMonstruos.add(new Monstruo(
-            "El gorrón en el umbral",10,
-             3,1,
-             "Pierdes todos tus tesoros visibles",0,0,-1,visibles,ocultos)
+            "El gorrón en el umbral",10, // nombre y nivel
+             3,1,  // tesoros que ganas, niveles que ganas
+             "Pierdes todos tus tesoros visibles",0,0,-1,visibles,ocultos) // mal rollo
         );
     }
     
