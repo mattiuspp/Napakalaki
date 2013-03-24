@@ -86,7 +86,12 @@ public class Napakalaki {
         mazoMonstruos.add(new Monstruo("H.P. Munchcraft",6,2,1,"Pierdes la armadura visible",0,0,0,visibles,ocultos));
 
         // Intento de poner bien jaja
-        mazoMonstruos.add(new Monstruo("3 byakhees de bonanza",8,new MalRollo("Pierdes tu armadura visible y otra oculta",0,1,1,false),new BuenRollo(2,1)));
+        mazoMonstruos.add(new Monstruo(
+            "El gorrón en el umbral",
+            10,3,1,
+            new MalRollo(),
+            new BuenRollo(),
+        ); 
     }
     
     private void inicializarJugadores(String[] nombreJugadores){
