@@ -86,21 +86,36 @@ public class Napakalaki {
         mazoMonstruos.add(new Monstruo("H.P. Munchcraft",6,2,1,"Pierdes la armadura visible",0,0,0,visibles,ocultos));
         */ 
         
-        // Se llama al constructor de MalRollo y buen Rollo
+        
+        ArrayList<TipoTesoro> tipoOcultosPerdidos = new ArrayList();
+        ArrayList<TipoTesoro> tipoVisiblesPerdidos = new ArrayList();
+    
+        
+        // Ejemplo
+        tipoOcultosPerdidos.clear();
+        tipoVisiblesPerdidos.clear();
+        tipoVisiblesPerdidos.add(TipoTesoro.ARMADURA);
+        tipoVisiblesPerdidos.add(TipoTesoro.CALZADO);
+        tipoVisiblesPerdidos.add(TipoTesoro.CASCO);
+        tipoVisiblesPerdidos.add(TipoTesoro.COLLAR);
+        tipoVisiblesPerdidos.add(TipoTesoro.DOSMANOS);
+        tipoVisiblesPerdidos.add(TipoTesoro.MANO);
         mazoMonstruos.add(new Monstruo(
-            "El gorrón en el umbral",10 //nombre y nivel 
+            "El gorrón en el umbral",10, //nombre y nivel 
             new MalRollo("Pierdes todos tus tesoros visibles",1,0,6,false, 
-                        new ArraList(ARMADURA,MANO,DOSMANOS,CASCO,CALZADO,COLLAR), // tesoros visibles pierdes
-                        new newArrayList()  // tesoros ocultos pierdes
+                        tipoOcultosPerdidos, // tesoros visibles pierdes
+                        tipoVisiblesPerdidos  // tesoros ocultos pierdes
                     ),
-            new BuenRollo(3,1)
-        ); 
+            new BuenRollo(3,1) ) 
+        );
+        // Fin del ejemplo        
+        
         // Se crea el objeto a fuego
-        mazoMonstruos.add(new Monstruo(
+        /*mazoMonstruos.add(new Monstruo(
             "El gorrón en el umbral",10, // nombre y nivel
              3,1,  // tesoros que ganas, niveles que ganas
              "Pierdes todos tus tesoros visibles",0,0,-1,visibles,ocultos) // mal rollo
-        );
+        );*/
     }
     
     private void inicializarJugadores(String[] nombreJugadores){
