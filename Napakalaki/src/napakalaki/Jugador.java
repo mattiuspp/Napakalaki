@@ -13,8 +13,7 @@ public class Jugador {
     private static int NIVEL_MINIMO = 1;
     private static int NIVEL_MAXIMO = 10;
     private static int TESOROS_OCULTOS_MAXIMO = 4;
-    
-    // Atributos de referencia
+ 
     private MalRollo malRolloPendiente;
     private ArrayList<Tesoro> tesorosOcultos = new ArrayList();
     private ArrayList<Tesoro> tesorosVisibles = new ArrayList();

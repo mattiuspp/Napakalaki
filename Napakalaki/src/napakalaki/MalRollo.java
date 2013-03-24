@@ -13,7 +13,6 @@ class MalRollo {
     private int visiblesPerdidos;
     private boolean muerte;
     
-    // Atributos de referencia
     private ArrayList<TipoTesoro> tipoOcultosPerdidos = new ArrayList();
     private ArrayList<TipoTesoro> tipoVisiblesPerdidos = new ArrayList();
     

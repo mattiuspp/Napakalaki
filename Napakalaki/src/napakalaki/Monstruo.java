@@ -7,8 +7,6 @@ package napakalaki;
 public class Monstruo {
     private String nombre;
     private int nivel;
-    
-    // atributos de referencia
     private MalRollo malRollo;
     private BuenRollo buenRollo;
 
