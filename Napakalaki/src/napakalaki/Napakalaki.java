@@ -90,8 +90,8 @@ public class Napakalaki {
         mazoMonstruos.add(new Monstruo(
             "El gorrón en el umbral",10 //nombre y nivel 
             new MalRollo("Pierdes todos tus tesoros visibles",1,0,6,false, 
-                        new ArraList(ARMADURA,MANO,DOSMANOS,CASCO,CALZADO,COLLAR), 
-                        newArrayList()
+                        new ArraList(ARMADURA,MANO,DOSMANOS,CASCO,CALZADO,COLLAR), // tesoros visibles pierdes
+                        new newArrayList()  // tesoros ocultos pierdes
                     ),
             new BuenRollo(3,1)
         ); 
