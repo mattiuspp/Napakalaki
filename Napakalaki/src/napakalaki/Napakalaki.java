@@ -100,6 +100,7 @@ public class Napakalaki {
         tipoVisiblesPerdidos.add(TipoTesoro.COLLAR);
         tipoVisiblesPerdidos.add(TipoTesoro.DOSMANOS);
         tipoVisiblesPerdidos.add(TipoTesoro.MANO);
+        
         mazoMonstruos.add(new Monstruo(
             "El gorrón en el umbral",10, //nombre y nivel 
             new MalRollo("Pierdes todos tus tesoros visibles",1,0,6,false, 
@@ -108,7 +109,9 @@ public class Napakalaki {
                     ),
             new BuenRollo(3,1) ) 
         );
-        // Fin del ejemplo        
+        // Fin del ejemplo  
+        
+          
         
         // Se crea el objeto a fuego
         /*mazoMonstruos.add(new Monstruo(
