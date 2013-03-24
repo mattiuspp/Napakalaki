@@ -1,15 +1,11 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package napakalaki;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
- * @author antonio
+ * CLASE LISTA!
+ * @author Antonio Álvarez y Adrián Ranea
  */
 public class Jugador {
     private String nombre;
@@ -18,21 +14,17 @@ public class Jugador {
     private static int NIVEL_MAXIMO = 10;
     private static int TESOROS_OCULTOS_MAXIMO = 4;
     
-    // Referencias a otras clases
+    // Atributos de referencia
     private MalRollo malRolloPendiente;
     private ArrayList<Tesoro> tesorosOcultos = new ArrayList();
     private ArrayList<Tesoro> tesorosVisibles = new ArrayList();
     
-    // Meter la referencia "discontinua" a ResultadoCombate
-    
-    // Todavia no hay que implementar el constructor de jugador!
-    // OK!
     
     public int obtenerNivel(){
         return nivel;
     }
     
-    public void modificarNivel(int nuevoNivel){
+    public void modificarNivel(int nuevoNivel){   
         
     }
     

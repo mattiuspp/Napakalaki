@@ -1,18 +1,14 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package napakalaki;
 
 /**
- *
- * @author hhrr
+ * CLASE LISTA!
+ * @author Antonio Álvarez y Adrián Ranea
  */
 public class Monstruo {
     private String nombre;
     private int nivel;
     
-    // Referencias a otras clases
+    // atributos de referencia
     private MalRollo malRollo;
     private BuenRollo buenRollo;
 

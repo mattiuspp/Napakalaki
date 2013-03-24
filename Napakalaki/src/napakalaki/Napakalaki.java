@@ -1,8 +1,4 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-/*
  * Equipo: Antonio Álvarez Caballero y Adrián Ranea Robles
  */
 package napakalaki;
@@ -11,10 +7,9 @@ import java.util.ArrayList;
 
 /**
  *
- * @author hhrr
+ * @author Antonio Álvarez y Adrián Ranea
  */
 public class Napakalaki {
-
     private Jugador jugadorActivo;
     private ArrayList<Jugador> Jugadores = new ArrayList();
     
@@ -27,8 +22,6 @@ public class Napakalaki {
     
     
     private static final Napakalaki instance = new Napakalaki();
-    
-    // Meter referencia "discontinua" a ResultadoCombate
     
     // Constructor privado
     private Napakalaki() { }

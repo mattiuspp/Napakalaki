@@ -1,12 +1,8 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package napakalaki;
 
 /**
- *
- * @author antonio
+ * CLASE LISTA!
+ * @author Antonio Álvarez y Adrián Ranea
  */
 public class Tesoro {
     private String nombre;

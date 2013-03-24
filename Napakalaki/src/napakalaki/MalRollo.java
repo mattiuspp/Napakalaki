@@ -1,14 +1,10 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package napakalaki;
 
 import java.util.ArrayList;
 
 /**
- *
- * @author hhrr
+ * CLASE LISTA!
+ * @author Antonio Álvarez y Adrián Ranea
  */
 class MalRollo {
     private String texto;
@@ -17,7 +13,7 @@ class MalRollo {
     private int visiblesPerdidos;
     private boolean muerte;
     
-    // Referencias a otras clases
+    // Atributos de referencia
     private ArrayList<TipoTesoro> tipoOcultosPerdidos = new ArrayList();
     private ArrayList<TipoTesoro> tipoVisiblesPerdidos = new ArrayList();
     
