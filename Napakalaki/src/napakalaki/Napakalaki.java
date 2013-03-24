@@ -20,7 +20,7 @@ public class Napakalaki {
     private ArrayList<Tesoro> descarteTesoros  = new ArrayList();
     private ArrayList<Tesoro> mazoTesoros = new ArrayList();
     
-    
+
     private static final Napakalaki instance = new Napakalaki();
     
     // Constructor privado
@@ -88,8 +88,11 @@ public class Napakalaki {
         // Se llama al constructor de MalRollo y buen Rollo
         mazoMonstruos.add(new Monstruo(
             "El gorrón en el umbral",10 //nombre ynivel 
-            new MalRollo("Pierdes todos tus tesoros visibles",1,0,6,false),
-            new BuenRollo(3,1),
+            new MalRollo("Pierdes todos tus tesoros visibles",1,0,6,false, 
+                        new ArraList(ARMADURA,MANO,DOSMANOS,CASCO,CALZADO,COLLAR), 
+                        newArrayList()
+                    ),
+            new BuenRollo(3,1)
         ); 
         // Se crea el objeto a fuego
         mazoMonstruos.add(new Monstruo(
