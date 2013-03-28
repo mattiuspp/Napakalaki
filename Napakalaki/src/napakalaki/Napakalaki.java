@@ -35,6 +35,8 @@ public class Napakalaki {
     }
     
     private void inicializarJuego() {
+        
+        // Inicializamos las cartas de tesoro
         mazoTesoros.add (new Tesoro ("Sí mi amo!",TipoTesoro.CASCO ,4,7,0) );
         mazoTesoros.add (new Tesoro ("Botas de investigación ",TipoTesoro.CALZADO,3,4,600) );
         mazoTesoros.add (new Tesoro ("Capucha de Cthulhu ",TipoTesoro.CASCO,3,5,500) );
@@ -67,26 +69,8 @@ public class Napakalaki {
         mazoTesoros.add (new Tesoro ("Ametralladora Thomson",TipoTesoro.DOSMANOS,4,8,600));
         mazoTesoros.add (new Tesoro ("Necroplayboycón",TipoTesoro.MANO,3,5,300));
         mazoTesoros.add (new Tesoro ("Grabato mísitico",TipoTesoro.MANO,2,2,300));
-        
-        // hay que ajustarlo al constructor
-        /*mazoMonstruos.add(new Monstruo("Roboggoth",8,2,1,"La quinta directiva primaria te obliga a perder 2 niveles y un tesoro 2 manos visibles",2,0,2,visibles,ocultos));
-        mazoMonstruos.add(new Monstruo("La que redacta en las tinieblas",2,1,1,"Toses los pulmones y pierdes 2 niveles",2,0,0,visibles,ocultos));
-        mazoMonstruos.add(new Monstruo("El espía",5,1,1,"Te asusta en la noche .Pierdes un casco visible",0,0,1,visibles,ocultos));
-        mazoMonstruos.add(new Monstruo("El sopor de Dunwich",2,1,1,"El primordial bostezo contagioso.Pierdes el calzadp visible",0,0,1,visibles,ocultos));
-        mazoMonstruos.add(new Monstruo("Yskhtihyssg-Goth",12,3,1,"No le hace gracia que pronuncien mal su nombre .Estas muerto ",-2,-2,-2,visibles,ocultos));
-        mazoMonstruos.add(new Monstruo("Bichgooth",2,1,1,"Sientes bichos bajo la ropa.Descarta la armadura viible",0,0,1,visibles,ocultos));
-        mazoMonstruos.add(new Monstruo("Ángeles de la noche ibicenca",14,4,1,"Te atrapa para llevarte de fiesta y te dejan caer en la mitad del vuelo .Descarta una mano visible y una mano oculta.",0,1,1,visibles,ocultos));
-        mazoMonstruos.add(new Monstruo("Pollipólipo volante",3,1,1,"Da mucho asquito ",3,0,0,visibles,ocultos));
-        mazoMonstruos.add(new Monstruo("Chibithulhu",2,1,1,"Embobados con el lindo primigenio te descartas de tu casco visible",0,0,1,visibles,ocultos));
-        mazoMonstruos.add(new Monstruo("Los hondos ",8,2,1,"Esos monstruos resultan bastante superficiales y te aburren mortalmente.Estas muerto.",-2,-2,-2,visibles,ocultos));
-        mazoMonstruos.add(new Monstruo("Byakhees de bonanza",8,2,1,"Pierdes tu armadura visible y otra oculta",0,1,1,visibles,ocultos));
-        mazoMonstruos.add(new Monstruo("El rey de rosa",14,4,2,"Pierdes 5 niveles y 3 tesoros visibles",5,0,3,visibles,ocultos));
-        mazoMonstruos.add(new Monstruo("El gorrón en el umbral",10,3,1,"Pierdes todos tus tesoros visibles",0,0,-1,visibles,ocultos));
-        mazoMonstruos.add(new Monstruo("Semillas Cthulhu",4,2,1,"Pierdes 2 niveles y 2 tesoros ocultos",2,2,0,visibles,ocultos));
-        mazoMonstruos.add(new Monstruo("H.P. Munchcraft",6,2,1,"Pierdes la armadura visible",0,0,0,visibles,ocultos));
-        */ 
-        
-        
+                
+        // Inicializamos las cartas de monstruo
         ArrayList<TipoTesoro> tipoOcultosPerdidos = new ArrayList();
         ArrayList<TipoTesoro> tipoVisiblesPerdidos = new ArrayList();
     
@@ -336,6 +320,9 @@ public class Napakalaki {
                 ),
                 new BuenRollo(1,1) )
         );
+        
+        tipoOcultosPerdidos.clear();
+        tipoVisiblesPerdidos.clear();
     }
     
     private void inicializarJugadores(String[] nombreJugadores){
