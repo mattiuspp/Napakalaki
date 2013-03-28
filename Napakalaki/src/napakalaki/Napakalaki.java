@@ -99,7 +99,7 @@ public class Napakalaki {
         
         tipoOcultosPerdidos.clear();
         tipoVisiblesPerdidos.clear();
-        tipoVisiblesPerdidos.add(TipoTesoro.CASCO);
+        tipoVisiblesPerdidos.add(TipoTesoro.CALZADO);
         
         mazoMonstruos.add(new Monstruo(
                 "El sopor de Dunwich",2,
