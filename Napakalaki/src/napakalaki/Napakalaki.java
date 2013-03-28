@@ -138,10 +138,10 @@ public class Napakalaki {
         tipoVisiblesPerdidos.add(TipoTesoro.MANO);
         
         mazoMonstruos.add(new Monstruo(
-            "El gorrón en el umbral",10, //nombre y nivel 
+            "El gorrón en el umbral",10, 
             new MalRollo("Pierdes todos tus tesoros visibles.",0,0,6,false, 
-                        tipoOcultosPerdidos, // tesoros visibles pierdes
-                        tipoVisiblesPerdidos  // tesoros ocultos pierdes
+                        tipoOcultosPerdidos,
+                        tipoVisiblesPerdidos
                     ),
             new BuenRollo(3,1) ) 
         );
