@@ -1,9 +1,5 @@
 package napakalaki;
 
-/**
- * CLASE LISTA!
- * @author Antonio Álvarez y Adrián Ranea
- */
 class BuenRollo {
     private int gananciaTesoros;
     private int gananciaNiveles;
@@ -19,16 +15,5 @@ class BuenRollo {
 
     public int obtenerGananciaNiveles() {
         return gananciaNiveles;
-    }
-
-    public void setGananciaTesoros(int gananciaTesoros) {
-        this.gananciaTesoros = gananciaTesoros;
-    }
-
-    public void setGananciaNiveles(int gananciaNiveles) {
-        this.gananciaNiveles = gananciaNiveles;
-    }
-    
-    
-    
+    }    
 }

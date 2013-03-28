@@ -3,10 +3,6 @@ package napakalaki;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * CLASE LISTA!
- * @author Antonio Álvarez y Adrián Ranea
- */
 public class Jugador {
     private String nombre;
     private int nivel = 1;

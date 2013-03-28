@@ -5,22 +5,17 @@ package napakalaki;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author Antonio Álvarez y Adrián Ranea
- */
 public class Napakalaki {
     private Jugador jugadorActivo;
     private ArrayList<Jugador> Jugadores = new ArrayList();
     
+    private Monstruo monstruoActivo;
     private ArrayList<Monstruo> descarteMonstruos = new ArrayList();
     private ArrayList<Monstruo> mazoMonstruos = new ArrayList();
-    private Monstruo monstruoActivo;
-    
     private ArrayList<Tesoro> descarteTesoros  = new ArrayList();
     private ArrayList<Tesoro> mazoTesoros = new ArrayList();
     
-
+    // Establecemos la clase como singleton
     private static final Napakalaki instance = new Napakalaki();
     
     // Constructor privado
@@ -35,7 +30,6 @@ public class Napakalaki {
     }
     
     private void inicializarJuego() {
-        
         // Inicializamos las cartas de tesoro
         mazoTesoros.add (new Tesoro ("Sí mi amo!",TipoTesoro.CASCO ,4,7,0) );
         mazoTesoros.add (new Tesoro ("Botas de investigación ",TipoTesoro.CALZADO,3,4,600) );
@@ -81,7 +75,8 @@ public class Napakalaki {
         
         mazoMonstruos.add(new Monstruo(
                 "3 Byakhees de bonanza",8,
-                new MalRollo("Pierdes tu armadura visible y otra oculta.",0,1,1,false,
+                new MalRollo("Pierdes tu armadura visible y otra oculta.",
+                    0,1,1,false,
                     tipoOcultosPerdidos,
                     tipoVisiblesPerdidos
                 ),
@@ -94,7 +89,8 @@ public class Napakalaki {
         
         mazoMonstruos.add(new Monstruo(
                 "Chibithulhu",7,
-                new MalRollo("Embobados con el lindo primigenio te descartas de tu casco visible.",0,0,1,false,
+                new MalRollo("Embobados con el lindo primigenio te descartas de tu casco visible.",
+                    0,0,1,false,
                     tipoOcultosPerdidos,
                     tipoVisiblesPerdidos
                 ),
@@ -107,7 +103,8 @@ public class Napakalaki {
         
         mazoMonstruos.add(new Monstruo(
                 "El sopor de Dunwich",2,
-                new MalRollo("El primordial bostezo contagioso. Pierdes el calzado visible.",0,0,1,false,
+                new MalRollo("El primordial bostezo contagioso. Pierdes el calzado visible.",
+                    0,0,1,false,
                     tipoOcultosPerdidos,
                     tipoVisiblesPerdidos
                 ),
@@ -121,7 +118,8 @@ public class Napakalaki {
         
         mazoMonstruos.add(new Monstruo(
                 "Ángeles de la noche ibicenca",14,
-                new MalRollo("Te atrapan para llevarte de fiesta y te dejan caer en mitad del vuelo. Descarta 1 mano visible y 1 mano oculta.",0,1,1,false,
+                new MalRollo("Te atrapan para llevarte de fiesta y te dejan caer en mitad del vuelo. Descarta 1 mano visible y 1 mano oculta.",
+                    0,1,1,false,
                     tipoOcultosPerdidos,
                     tipoVisiblesPerdidos
                 ),
@@ -130,16 +128,11 @@ public class Napakalaki {
         
         tipoOcultosPerdidos.clear();
         tipoVisiblesPerdidos.clear();
-        tipoVisiblesPerdidos.add(TipoTesoro.ARMADURA);
-        tipoVisiblesPerdidos.add(TipoTesoro.CALZADO);
-        tipoVisiblesPerdidos.add(TipoTesoro.CASCO);
-        tipoVisiblesPerdidos.add(TipoTesoro.COLLAR);
-        tipoVisiblesPerdidos.add(TipoTesoro.DOSMANOS);
-        tipoVisiblesPerdidos.add(TipoTesoro.MANO);
         
         mazoMonstruos.add(new Monstruo(
             "El gorrón en el umbral",10, 
-            new MalRollo("Pierdes todos tus tesoros visibles.",0,0,6,false, 
+            new MalRollo("Pierdes todos tus tesoros visibles.",
+                        0,0,6,false, 
                         tipoOcultosPerdidos,
                         tipoVisiblesPerdidos
                     ),
@@ -152,7 +145,8 @@ public class Napakalaki {
         
         mazoMonstruos.add(new Monstruo(
                 "H.P. Munchcraft",6,
-                new MalRollo("Pierdes la armadura visible.",0,0,1,false,
+                new MalRollo("Pierdes la armadura visible.",
+                    0,0,1,false,
                     tipoOcultosPerdidos,
                     tipoVisiblesPerdidos
                 ),
@@ -165,7 +159,8 @@ public class Napakalaki {
         
         mazoMonstruos.add(new Monstruo(
                 "Bichgooth",2,
-                new MalRollo("Sientes bichos bajo la ropa. Descarta la armadura visible.",0,0,1,false,
+                new MalRollo("Sientes bichos bajo la ropa. Descarta la armadura visible.",
+                    0,0,1,false,
                     tipoOcultosPerdidos,
                     tipoVisiblesPerdidos
                 ),
@@ -177,7 +172,8 @@ public class Napakalaki {
         
         mazoMonstruos.add(new Monstruo(
                 "El rey de rosa",13,
-                new MalRollo("Pierdes 5 niveles y 3 tesoros visibles.",5,0,3,false,
+                new MalRollo("Pierdes 5 niveles y 3 tesoros visibles.",
+                    5,0,3,false,
                     tipoOcultosPerdidos,
                     tipoVisiblesPerdidos
                 ),
@@ -189,7 +185,8 @@ public class Napakalaki {
         
         mazoMonstruos.add(new Monstruo(
                 "La que redacta en las tinieblas",2,
-                new MalRollo("Toses los pulmones y pierdes 2 niveles.",2,0,0,false,
+                new MalRollo("Toses los pulmones y pierdes 2 niveles.",
+                    2,0,0,false,
                     tipoOcultosPerdidos,
                     tipoVisiblesPerdidos
                 ),
@@ -201,7 +198,8 @@ public class Napakalaki {
         
         mazoMonstruos.add(new Monstruo(
                 "Los hondos",8,
-                new MalRollo("Estos monstruos resultan bastante superficiales y te aburren mortalmente. Estás muerto.",0,0,0,true,
+                new MalRollo("Estos monstruos resultan bastante superficiales y te aburren mortalmente. Estás muerto.",
+                    0,0,0,true,
                     tipoOcultosPerdidos,
                     tipoVisiblesPerdidos
                 ),
@@ -213,7 +211,8 @@ public class Napakalaki {
         
         mazoMonstruos.add(new Monstruo(
                 "Semillas Cthulhu",4,
-                new MalRollo("Pierdes 2 niveles y 2 tesoros ocultos.",2,2,0,false,
+                new MalRollo("Pierdes 2 niveles y 2 tesoros ocultos.",
+                    2,2,0,false,
                     tipoOcultosPerdidos,
                     tipoVisiblesPerdidos
                 ),
@@ -226,7 +225,8 @@ public class Napakalaki {
         
         mazoMonstruos.add(new Monstruo(
                 "Dameargo",1,
-                new MalRollo("Te intentas escaquear. Pierdes una mano visible.",0,0,1,false,
+                new MalRollo("Te intentas escaquear. Pierdes una mano visible.",
+                    0,0,1,false,
                     tipoOcultosPerdidos,
                     tipoVisiblesPerdidos
                 ),
@@ -238,7 +238,8 @@ public class Napakalaki {
         
         mazoMonstruos.add(new Monstruo(
                 "Pollipólipo volante",3,
-                new MalRollo("Da mucho asquito. Pierdes 3 niveles.",3,0,0,false,
+                new MalRollo("Da mucho asquito. Pierdes 3 niveles.",
+                    3,0,0,false,
                     tipoOcultosPerdidos,
                     tipoVisiblesPerdidos
                 ),
@@ -250,7 +251,8 @@ public class Napakalaki {
         
         mazoMonstruos.add(new Monstruo(
                 "Yskhtihyssg-Goth",12,
-                new MalRollo("No le hace gracia que pronuncien mal su nombre. Estás muerto.",0,0,0,true,
+                new MalRollo("No le hace gracia que pronuncien mal su nombre. Estás muerto.",
+                    0,0,0,true,
                     tipoOcultosPerdidos,
                     tipoVisiblesPerdidos
                 ),
@@ -262,7 +264,8 @@ public class Napakalaki {
         
         mazoMonstruos.add(new Monstruo(
                 "Familia feliz",1,
-                new MalRollo("La familia te atrapa. Estás muerto.",0,0,0,true,
+                new MalRollo("La familia te atrapa. Estás muerto.",
+                    0,0,0,true,
                     tipoOcultosPerdidos,
                     tipoVisiblesPerdidos
                 ),
@@ -275,7 +278,8 @@ public class Napakalaki {
         
         mazoMonstruos.add(new Monstruo(
                 "Roboggoth",8,
-                new MalRollo("La qiunta directiva primaria te obliga a perder 2 niveles y un tesoro 2 manos visibles.",2,0,1,false,
+                new MalRollo("La qiunta directiva primaria te obliga a perder 2 niveles y un tesoro 2 manos visibles.",
+                    2,0,1,false,
                     tipoOcultosPerdidos,
                     tipoVisiblesPerdidos
                 ),
@@ -288,7 +292,8 @@ public class Napakalaki {
         
         mazoMonstruos.add(new Monstruo(
                 "El espía",5,
-                new MalRollo("Te asusta en la noche. Pierdes un casco visible.",0,0,1,false,
+                new MalRollo("Te asusta en la noche. Pierdes un casco visible.",
+                    0,0,1,false,
                     tipoOcultosPerdidos,
                     tipoVisiblesPerdidos
                 ),
@@ -299,8 +304,9 @@ public class Napakalaki {
         tipoVisiblesPerdidos.clear();
         
         mazoMonstruos.add(new Monstruo(
-                "3 Byakhees de bonanza",20,
-                new MalRollo("Menudo susto te llevas. Pierdes 2 niveles y 5 tesoros visibles.",2,0,5,false,
+                "El lenguas",20,
+                new MalRollo("Menudo susto te llevas. Pierdes 2 niveles y 5 tesoros visibles.",
+                    2,0,5,false,
                     tipoOcultosPerdidos,
                     tipoVisiblesPerdidos
                 ),
@@ -314,7 +320,8 @@ public class Napakalaki {
         
         mazoMonstruos.add(new Monstruo(
                 "Bicéfalo",8,
-                new MalRollo("Te faltan manos para tanta cabeza. Pierdes 3 niveles y tus tesoros visibles de las manos.",3,0,6,false,
+                new MalRollo("Te faltan manos para tanta cabeza. Pierdes 3 niveles y tus tesoros visibles de las manos.",
+                    3,0,6,false,
                     tipoOcultosPerdidos,
                     tipoVisiblesPerdidos
                 ),

@@ -1,9 +1,5 @@
 package napakalaki;
 
-/**
- * CLASE LISTA!
- * @author Antonio Álvarez y Adrián Ranea
- */
 public class Monstruo {
     private String nombre;
     private int nivel;
@@ -25,14 +21,6 @@ public class Monstruo {
         return nivel;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public void setNivel(int nivel) {
-        this.nivel = nivel;
-    }
-    
     public BuenRollo cualEsTuBuenRollo() {
         // queda implementar
         return null;
@@ -41,8 +29,5 @@ public class Monstruo {
     public MalRollo cualEsTuMalRollo() {
         // queda implementar
         return null;
-    }
-    
-    
-    
+    }    
 }

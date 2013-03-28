@@ -2,10 +2,6 @@ package napakalaki;
 
 import java.util.ArrayList;
 
-/**
- * CLASE LISTA!
- * @author Antonio Álvarez y Adrián Ranea
- */
 class MalRollo {
     private String texto;
     private int nivelesPerdidos;
@@ -19,7 +15,8 @@ class MalRollo {
     public MalRollo(String texto, int nivelesPerdidos, int ocultosPerdidos, 
             int visiblesPerdidos, boolean muerte,
             ArrayList<TipoTesoro> tipoOcultosPerdidos,
-            ArrayList<TipoTesoro> tipoVisiblesPerdidos) {
+            ArrayList<TipoTesoro> tipoVisiblesPerdidos)
+    {
         this.texto = texto;
         this.nivelesPerdidos = nivelesPerdidos;
         this.ocultosPerdidos = ocultosPerdidos;
@@ -32,6 +29,5 @@ class MalRollo {
     public boolean muerte() {
         // queda por implementar
         return true;
-    }
-    
+    }    
 }
