@@ -13,7 +13,10 @@ public class Jugador {
     private MalRollo malRolloPendiente;
     private ArrayList<Tesoro> tesorosOcultos = new ArrayList();
     private ArrayList<Tesoro> tesorosVisibles = new ArrayList();
-    
+
+    public Jugador(String nombre) {
+        this.nombre = nombre;
+    }
     
     public int obtenerNivel(){
         return nivel;
@@ -33,8 +36,13 @@ public class Jugador {
     }
     
     public boolean descartarTesoros(ArrayList<Tesoro> tesorosVisDes, 
-            ArrayList<Tesoro> tesorosOcuDes){
-        return true;
+            ArrayList<Tesoro> tesorosOcuDes)
+    {
+        
+        
+        
+        
+        
     }
     
     private boolean cumploMalRollo(ArrayList<Tesoro> tesVisibles, 
@@ -43,7 +51,12 @@ public class Jugador {
     }
     
     public void equiparTesoros(ArrayList<Tesoro> listaTesoro){
-        
+        for (Tesoro tesoro: listaTesoro){
+            if (puedoEquipar(tesoro)){
+                tesorosVisibles.add(tesoro);
+                tesorosOcultos.remove(tesoro);
+            }     
+        }
     }
     
     private boolean puedoEquipar(Tesoro unTesoro){

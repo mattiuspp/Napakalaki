@@ -26,7 +26,10 @@ public class Napakalaki {
     }
     
     public void comenzarJuego(String[] nombreJugadores) {
-        
+        inicializarJuego();
+        inicializarJugadores(nombreJugadores); // Poner throw para excepciones
+        repartirCartas();
+        siguienteTurno();        
     }
     
     private void inicializarJuego() {
@@ -333,11 +336,33 @@ public class Napakalaki {
     }
     
     private void inicializarJugadores(String[] nombreJugadores){
-        
+        for (String jugador: nombreJugadores){
+            Jugadores.add(new Jugador(jugador));
+        }
     }
     
     private void repartirCartas() {
-        
+        for (Jugador jugador: Jugadores){
+            int dado = (int) Math.random()*6+1;
+            int numTesoros;
+            switch (dado){
+                    case 1:{
+                        numTesoros = 1;
+                        break;
+                    }
+                    case 6:{
+                        numTesoros = 6;
+                        break;
+                    }
+                    default:{
+                        numTesoros = 2;
+                        break;
+                    }   
+            }
+            for (int i = 1; i <= numTesoros; i++){
+                jugador.robarTesoro(siguienteTesoro());
+            }  
+        }
     }
     
     public int siguienteTurno() {
@@ -371,8 +396,15 @@ public class Napakalaki {
     }
     
     public boolean descartarTesoros(ArrayList<Tesoro> tesorosVisibles, 
-            ArrayList<Tesoro> tesorosOcultos) {
-        return false;       
+            ArrayList<Tesoro> tesorosOcultos) 
+    {
+        boolean cumpleMR;
+        cumpleMR = jugadorActivo.descartarTesoros(tesorosVisibles, tesorosOcultos);
+        
+        descarteTesoros.addAll(tesorosVisibles);
+        descarteTesoros.addAll(tesorosOcultos);
+        
+        return cumpleMR;
     }
     
 }
