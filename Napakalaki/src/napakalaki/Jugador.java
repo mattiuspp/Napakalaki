@@ -38,11 +38,13 @@ public class Jugador {
     public boolean descartarTesoros(ArrayList<Tesoro> tesorosVisDes, 
             ArrayList<Tesoro> tesorosOcuDes)
     {
+        boolean cumpleMR;
+        cumpleMR = cumploMalRollo(tesorosVisibles, tesorosOcultos);
         
+        tesorosVisDes.clear();
+        tesorosOcuDes.clear();
         
-        
-        
-        
+        return cumpleMR;
     }
     
     private boolean cumploMalRollo(ArrayList<Tesoro> tesVisibles, 
@@ -92,7 +94,8 @@ public class Jugador {
         return null;
     }
     
-    public void incluirMalRollo(List malRollo){
+    public void incluirMalRollo(MalRollo malRollo){
+        
         
     }
     
@@ -111,6 +114,17 @@ public class Jugador {
     }
     
     public void muere(){
+        
+    }
+    
+    public void descartaTesorosInteractivo(int numTesoros){
+        // modificar con el modo texto
+        for (int i=0; i<numTesoros; i++){
+            tesorosOcultos.remove((int) Math.random()*tesorosOcultos.size());
+        }
+    }
+    
+    public void cumpleMalRolloInteractivo(){
         
     }
     

@@ -366,8 +366,57 @@ public class Napakalaki {
     }
     
     public int siguienteTurno() {
-        // queda implementar
-        return 0;
+        if(jugadorActivo == null){
+            jugadorActivo = primerJugador();
+            monstruoActivo = siguienteMonstruo();
+        }
+        
+        int fin = jugadorActivo.puedoPasar();
+        
+        // implementacion de prueba a esperar de los metodos interactivos
+        if(fin > 0){
+            jugadorActivo.descartaTesorosInteractivo(fin);
+            fin = 0;
+        }
+        else if(fin < 0){
+            jugadorActivo.cumpleMalRolloInteractivo();
+            fin = 0;
+        }
+        
+        if (fin == 0){
+            jugadorActivo = siguienteJugador();
+            
+            boolean tieneTesoros = jugadorActivo.tienesTesoros();
+            
+            if(!tieneTesoros){
+                int dado = (int) Math.random()*6+1;
+                int numTesoros;
+                switch (dado){
+                        case 1:{
+                            numTesoros = 1;
+                            break;
+                        }
+                        case 6:{
+                            numTesoros = 6;
+                            break;
+                        }
+                        default:{
+                            numTesoros = 2;
+                            break;
+                        }   
+                }
+                for (int i = 1; i <= numTesoros; i++){
+                    jugadorActivo.robarTesoro(siguienteTesoro());
+                }
+                
+                monstruoActivo = siguienteMonstruo();
+            } 
+            
+        }
+        
+        return fin;
+            
+        
     }
     
     private Jugador primerJugador() {
