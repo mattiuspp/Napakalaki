@@ -125,6 +125,7 @@ public class Jugador {
     }
     
     public void cumpleMalRolloInteractivo(){
+        // implementar cumpleMalRollo y incluirMalRollo
         
     }
     
