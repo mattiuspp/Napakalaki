@@ -22,6 +22,15 @@ public class Jugador {
         return nivel;
     }
     
+    public int calcularNiveles(ArrayList<Tesoro> tesoros){
+        int piezasOro = 0;
+        
+        for(Tesoro t: tesoros)
+            piezasOro += t.obtenerPiezasOro();
+                           
+        return piezasOro / 1000;
+    }
+    
     public void modificarNivel(int nuevoNivel){   
         
     }
@@ -76,12 +85,21 @@ public class Jugador {
     }
     
     public boolean comprarNiveles(ArrayList<Tesoro> tesoros){
-        //falta por implementar
-        return true;
+        boolean puedo;
+        
+        int niveles = calcularNiveles(tesoros);
+        puedo = (niveles+nivel)<10;
+        if(puedo){
+            incDecNivel(niveles);
+            tesorosOcultos.removeAll(tesoros);
+            tesorosVisibles.removeAll(tesoros);
+        }
+        
+        return puedo;
     }
     
     public void incDecNivel(int incDec){
-        
+        nivel += incDec;
     }
     
     public ResultadoCombate combatir(Monstruo monstruoEnJuego){

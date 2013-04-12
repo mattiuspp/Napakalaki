@@ -464,7 +464,12 @@ public class Napakalaki {
     }
     
     public boolean comprarNivelesJugador(ArrayList<Tesoro> listaTesoros) {
-        return false;
+        boolean puedo; 
+        puedo = jugadorActivo.comprarNiveles(listaTesoros);
+        if (puedo)
+            descarteTesoros.addAll(listaTesoros);
+        
+        return puedo;
     }
     
     public boolean descartarTesoros(ArrayList<Tesoro> tesorosVisibles, 
