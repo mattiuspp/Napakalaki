@@ -32,16 +32,24 @@ public class Jugador {
     }
     
     public void modificarNivel(int nuevoNivel){   
-        
+        nivel = nuevoNivel;
     }
     
     public int obtenerNivelCombate(){
-        // falta por implementar
-        return 0;
+        int bonus=0;
+        
+        if(tienesCollar())
+            for(Tesoro t: tesorosVisibles)
+                bonus += t.obtenerBonusMaximo();
+        else
+            for(Tesoro t: tesorosVisibles)
+                bonus += t.obtenerBonusMinimo();
+       
+        return bonus + nivel;
     }
     
     public void robarTesoro(Tesoro unTesoro){
-        
+        tesorosOcultos.add(unTesoro);
     }
     
     public boolean descartarTesoros(ArrayList<Tesoro> tesorosVisDes, 
@@ -71,7 +79,42 @@ public class Jugador {
     }
     
     private boolean puedoEquipar(Tesoro unTesoro){
-        return true;
+        boolean puedo;
+        ArrayList<TipoTesoro> tipos = new ArrayList();
+        for(Tesoro t: tesorosVisibles)
+            tipos.add(t.obtenerTipo());
+        
+        if(unTesoro.obtenerTipo() != TipoTesoro.MANO && unTesoro.obtenerTipo() != TipoTesoro.DOSMANOS ){
+            if(tipos.contains(unTesoro.obtenerTipo())){
+                puedo = true;
+                tesorosVisibles.add(unTesoro);
+                tesorosOcultos.remove((unTesoro));
+            }
+            else
+                puedo = false;
+        }
+        else if(unTesoro.obtenerTipo() == TipoTesoro.DOSMANOS){
+            if(!tipos.contains(TipoTesoro.DOSMANOS) && !tipos.contains(TipoTesoro.MANO)){
+                puedo = true;
+                tesorosVisibles.add(unTesoro);
+                tesorosOcultos.remove((unTesoro));
+            }
+            else
+                puedo = false;
+            
+        }
+        else{
+            if( !tipos.contains(TipoTesoro.DOSMANOS) && 
+                    (tipos.indexOf(TipoTesoro.MANO) == tipos.lastIndexOf(TipoTesoro.MANO)   ) ){
+                puedo = true;
+                tesorosVisibles.add(unTesoro);
+                tesorosOcultos.remove((unTesoro));
+            }
+            else
+                puedo = false;
+        }
+           
+        return puedo;
     }
     
     public int puedoPasar(){

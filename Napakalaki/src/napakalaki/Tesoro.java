@@ -20,6 +20,20 @@ public class Tesoro {
     public int obtenerPiezasOro() {
         return piezasOro;
     }
+
+    public int obtenerBonusMinimo() {
+        return bonusMinimo;
+    }
+
+    public int obtenerBonusMaximo() {
+        return bonusMaximo;
+    }
+
+    public TipoTesoro obtenerTipo() {
+        return tipo;
+    }
+    
+    
     
     
 }
