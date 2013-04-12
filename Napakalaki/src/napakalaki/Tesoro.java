@@ -15,5 +15,25 @@ public class Tesoro {
         this.bonusMinimo = bonusMinimo;
         this.bonusMaximo = bonusMaximo;
         this.piezasOro = piezasOro;
-    }       
+    }  
+
+    public int obtenerPiezasOro() {
+        return piezasOro;
+    }
+
+    public int obtenerBonusMinimo() {
+        return bonusMinimo;
+    }
+
+    public int obtenerBonusMaximo() {
+        return bonusMaximo;
+    }
+
+    public TipoTesoro obtenerTipo() {
+        return tipo;
+    }
+    
+    
+    
+    
 }

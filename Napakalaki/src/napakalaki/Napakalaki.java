@@ -32,6 +32,7 @@ public class Napakalaki {
         siguienteTurno();        
     }
     
+    // Hay que cambiar los niveles del buen rollo (soy capullo y puse 0) <- Soy Adrián
     private void inicializarJuego() {
         // Inicializamos las cartas de tesoro
         mazoTesoros.add (new Tesoro ("Sí mi amo!",TipoTesoro.CASCO ,4,7,0) );
@@ -443,12 +444,40 @@ public class Napakalaki {
     }
     
     public ResultadoCombate desarrollarCombate() {
-        return null;
+        ResultadoCombate resultado = jugadorActivo.combatir(monstruoActivo);
+        
+        if (resultado == ResultadoCombate.VENCE)
+        {
+            BuenRollo buenRollo = monstruoActivo.cualEsTuBuenRollo();
+            int tesorosGanados = buenRollo.obtenerTesorosGanados();
+            
+            for (int i = 1; i <= tesorosGanados; i++)
+            {
+                jugadorActivo.robarTesoro(siguienteTesoro());
+            }
+            
+            if (jugadorActivo.tienesCollar())
+            {
+                descarteTesoros.add(jugadorActivo.devuelveElCollar());
+            }
+        }
+        
+        if (resultado == ResultadoCombate.PIERDEYMUERE)
+        {
+            descarteTesoros.addAll(jugadorActivo.dameTodosTusTesoros());
+        }
+        
+        return resultado;
         
     }
     
     public boolean comprarNivelesJugador(ArrayList<Tesoro> listaTesoros) {
-        return false;
+        boolean puedo; 
+        puedo = jugadorActivo.comprarNiveles(listaTesoros);
+        if (puedo)
+            descarteTesoros.addAll(listaTesoros);
+        
+        return puedo;
     }
     
     public boolean descartarTesoros(ArrayList<Tesoro> tesorosVisibles, 

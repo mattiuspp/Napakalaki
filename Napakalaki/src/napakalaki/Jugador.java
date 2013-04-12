@@ -22,17 +22,34 @@ public class Jugador {
         return nivel;
     }
     
-    public void modificarNivel(int nuevoNivel){   
+    public int calcularNiveles(ArrayList<Tesoro> tesoros){
+        int piezasOro = 0;
         
+        for(Tesoro t: tesoros)
+            piezasOro += t.obtenerPiezasOro();
+                           
+        return piezasOro / 1000;
+    }
+    
+    public void modificarNivel(int nuevoNivel){   
+        nivel = nuevoNivel;
     }
     
     public int obtenerNivelCombate(){
-        // falta por implementar
-        return 0;
+        int bonus=0;
+        
+        if(tienesCollar())
+            for(Tesoro t: tesorosVisibles)
+                bonus += t.obtenerBonusMaximo();
+        else
+            for(Tesoro t: tesorosVisibles)
+                bonus += t.obtenerBonusMinimo();
+       
+        return bonus + nivel;
     }
     
     public void robarTesoro(Tesoro unTesoro){
-        
+        tesorosOcultos.add(unTesoro);
     }
     
     public boolean descartarTesoros(ArrayList<Tesoro> tesorosVisDes, 
@@ -62,7 +79,42 @@ public class Jugador {
     }
     
     private boolean puedoEquipar(Tesoro unTesoro){
-        return true;
+        boolean puedo;
+        ArrayList<TipoTesoro> tipos = new ArrayList();
+        for(Tesoro t: tesorosVisibles)
+            tipos.add(t.obtenerTipo());
+        
+        if(unTesoro.obtenerTipo() != TipoTesoro.MANO && unTesoro.obtenerTipo() != TipoTesoro.DOSMANOS ){
+            if(tipos.contains(unTesoro.obtenerTipo())){
+                puedo = true;
+                tesorosVisibles.add(unTesoro);
+                tesorosOcultos.remove((unTesoro));
+            }
+            else
+                puedo = false;
+        }
+        else if(unTesoro.obtenerTipo() == TipoTesoro.DOSMANOS){
+            if(!tipos.contains(TipoTesoro.DOSMANOS) && !tipos.contains(TipoTesoro.MANO)){
+                puedo = true;
+                tesorosVisibles.add(unTesoro);
+                tesorosOcultos.remove((unTesoro));
+            }
+            else
+                puedo = false;
+            
+        }
+        else{
+            if( !tipos.contains(TipoTesoro.DOSMANOS) && 
+                    (tipos.indexOf(TipoTesoro.MANO) == tipos.lastIndexOf(TipoTesoro.MANO)   ) ){
+                puedo = true;
+                tesorosVisibles.add(unTesoro);
+                tesorosOcultos.remove((unTesoro));
+            }
+            else
+                puedo = false;
+        }
+           
+        return puedo;
     }
     
     public int puedoPasar(){
@@ -76,17 +128,61 @@ public class Jugador {
     }
     
     public boolean comprarNiveles(ArrayList<Tesoro> tesoros){
-        //falta por implementar
-        return true;
+        boolean puedo;
+        
+        int niveles = calcularNiveles(tesoros);
+        puedo = (niveles+nivel)<10;
+        if(puedo){
+            incDecNivel(niveles);
+            tesorosOcultos.removeAll(tesoros);
+            tesorosVisibles.removeAll(tesoros);
+        }
+        
+        return puedo;
     }
     
     public void incDecNivel(int incDec){
-        
+        nivel += incDec;
     }
     
     public ResultadoCombate combatir(Monstruo monstruoEnJuego){
-        //falta por implementar
-        return null;
+        ResultadoCombate resultado;
+        int nivelM = monstruoEnJuego.obtenerNivel();
+                
+        if (nivel > nivelM)
+        {
+            aplicarBuenRollo(monstruoEnJuego.cualEsTuBuenRollo());
+            
+            if(nivel >= 10)
+                resultado = ResultadoCombate.VENCEYFIN;
+            else
+                resultado = ResultadoCombate.VENCE;
+        }
+        else{
+            int dado = (int) Math.random()*6+1;
+            
+            if (dado <5)
+            {
+                MalRollo malRollo = monstruoEnJuego.cualEsTuMalRollo();
+                boolean muerte = malRollo.muerte();
+                
+                if(muerte)
+                {
+                    muere();
+                    resultado = ResultadoCombate.PIERDEYMUERE;                    
+                }
+                else
+                {
+                    incluirMalRollo(malRollo);
+                    resultado = ResultadoCombate.PIERDE;
+                }
+                    
+            }
+            else
+                resultado = ResultadoCombate.PIERDEYESCAPA;
+        }
+        
+        return resultado;
     }
     
     public ArrayList<Tesoro> dameTodosTusTesoros(){
@@ -111,7 +207,8 @@ public class Jugador {
     }
     
     public void aplicarBuenRollo(BuenRollo buenRollo){
-        
+        // suponemos que es subir niveles
+        nivel += buenRollo.obtenerNivelesGanados();
     }
     
     public void muere(){
