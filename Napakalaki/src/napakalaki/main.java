@@ -8,6 +8,7 @@ package napakalaki;
  *
  * @author antonio
  */
-public static void class main {
-    
+public class main {
+    public static void main {
+    }
 }
