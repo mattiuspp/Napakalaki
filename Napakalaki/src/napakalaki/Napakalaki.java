@@ -420,15 +420,22 @@ public class Napakalaki {
     }
     
     private Jugador primerJugador() {
-        return null;
+        return Jugadores.get( (int)Math.random() * Jugadores.size() );
     }
     
     private Monstruo siguienteMonstruo() {
-        return null;        
+        Monstruo monstruo = mazoMonstruos.get(mazoMonstruos.size()-1);
+        mazoMonstruos.remove(mazoMonstruos.size()-1);
+        descarteMonstruos.add(monstruo);
+        return monstruo;
+        
     }
     
     private Tesoro siguienteTesoro() {
-        return null;        
+        Tesoro tesoro = mazoTesoros.get(mazoTesoros.size()-1);
+        mazoTesoros.remove(mazoTesoros.size()-1);
+        descarteTesoros.add(tesoro);
+        return tesoro;       
     }
     
     private Jugador siguienteJugador() {
