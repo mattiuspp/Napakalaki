@@ -95,6 +95,7 @@ public class Jugador {
     }
     
     public void incluirMalRollo(MalRollo malRollo){
+        // adaptamos al jugador
         
         
     }
