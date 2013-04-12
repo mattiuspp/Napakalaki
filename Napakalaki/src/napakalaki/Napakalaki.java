@@ -32,6 +32,7 @@ public class Napakalaki {
         siguienteTurno();        
     }
     
+    // Hay que cambiar los niveles del buen rollo (soy capullo y puse 0) <- Soy Adrián
     private void inicializarJuego() {
         // Inicializamos las cartas de tesoro
         mazoTesoros.add (new Tesoro ("Sí mi amo!",TipoTesoro.CASCO ,4,7,0) );

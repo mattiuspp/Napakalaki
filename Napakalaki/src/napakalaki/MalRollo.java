@@ -27,7 +27,6 @@ class MalRollo {
     }
     
     public boolean muerte() {
-        // queda por implementar
-        return true;
+        return muerte;
     }    
 }
