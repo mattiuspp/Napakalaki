@@ -436,7 +436,30 @@ public class Napakalaki {
     }
     
     public ResultadoCombate desarrollarCombate() {
-        return null;
+        ResultadoCombate resultado = jugadorActivo.combatir(monstruoActivo);
+        
+        if (resultado == ResultadoCombate.VENCE)
+        {
+            BuenRollo buenRollo = monstruoActivo.cualEsTuBuenRollo();
+            int tesorosGanados = buenRollo.obtenerTesorosGanados();
+            
+            for (int i = 1; i <= tesorosGanados; i++)
+            {
+                jugadorActivo.robarTesoro(siguienteTesoro());
+            }
+            
+            if (jugadorActivo.tienesCollar())
+            {
+                descarteTesoros.add(jugadorActivo.devuelveElCollar());
+            }
+        }
+        
+        if (resultado == ResultadoCombate.PIERDEYMUERE)
+        {
+            descarteTesoros.addAll(jugadorActivo.dameTodosTusTesoros());
+        }
+        
+        return resultado;
         
     }
     

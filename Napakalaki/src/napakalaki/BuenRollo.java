@@ -9,11 +9,11 @@ class BuenRollo {
         this.gananciaNiveles = gananciaNiveles;
     }
         
-    public int obtenerGananciaTesoros() {
+    public int obtenerTesorosGanados() {
         return gananciaTesoros;
     }
 
-    public int obtenerGananciaNiveles() {
+    public int obtenerNivelesGanados() {
         return gananciaNiveles;
     }    
 }

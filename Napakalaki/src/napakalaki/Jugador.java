@@ -85,8 +85,43 @@ public class Jugador {
     }
     
     public ResultadoCombate combatir(Monstruo monstruoEnJuego){
-        //falta por implementar
-        return null;
+        ResultadoCombate resultado;
+        int nivelM = monstruoEnJuego.obtenerNivel();
+                
+        if (nivel > nivelM)
+        {
+            aplicarBuenRollo(monstruoEnJuego.cualEsTuBuenRollo());
+            
+            if(nivel >= 10)
+                resultado = ResultadoCombate.VENCEYFIN;
+            else
+                resultado = ResultadoCombate.VENCE;
+        }
+        else{
+            int dado = (int) Math.random()*6+1;
+            
+            if (dado <5)
+            {
+                MalRollo malRollo = monstruoEnJuego.cualEsTuMalRollo();
+                boolean muerte = malRollo.muerte();
+                
+                if(muerte)
+                {
+                    muere();
+                    resultado = ResultadoCombate.PIERDEYMUERE;                    
+                }
+                else
+                {
+                    incluirMalRollo(malRollo);
+                    resultado = ResultadoCombate.PIERDE;
+                }
+                    
+            }
+            else
+                resultado = ResultadoCombate.PIERDEYESCAPA;
+        }
+        
+        return resultado;
     }
     
     public ArrayList<Tesoro> dameTodosTusTesoros(){
@@ -110,7 +145,8 @@ public class Jugador {
     }
     
     public void aplicarBuenRollo(BuenRollo buenRollo){
-        
+        // suponemos que es subir niveles
+        nivel += buenRollo.obtenerNivelesGanados();
     }
     
     public void muere(){

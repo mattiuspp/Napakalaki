@@ -22,12 +22,10 @@ public class Monstruo {
     }
 
     public BuenRollo cualEsTuBuenRollo() {
-        // queda implementar
-        return null;
+        return buenRollo;
     }
     
     public MalRollo cualEsTuMalRollo() {
-        // queda implementar
-        return null;
+        return malRollo;
     }    
 }
