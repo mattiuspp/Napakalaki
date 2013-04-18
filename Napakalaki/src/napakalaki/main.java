@@ -13,10 +13,13 @@ public class main {
         juego.desarrollarCombate();
         
         //si quiere comprar
-        juego.comprarNivelesJugador(null);
+        System.out.println("¿Quiere vender objetos? S/N");
+        //captar caracter S/N
+        String letra = "A";
+        if (letra == "S")
+            juego.comprarNivelesJugador(null);
         
         //final del turno se descarta
-        juego.descartarTesoros(null, null);
         
         //Se empieza un nuevo turno
         juego.siguienteTurno();

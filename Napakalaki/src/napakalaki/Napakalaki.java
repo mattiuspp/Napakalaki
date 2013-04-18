@@ -27,7 +27,11 @@ public class Napakalaki {
     
     public void comenzarJuego(String[] nombreJugadores) {
         inicializarJuego();
-        inicializarJugadores(nombreJugadores); // Poner throw para excepciones
+        
+        if(nombreJugadores.length < 3 || nombreJugadores.length > 5)
+            throw new Error("Numero de jugadores incorrecto");
+        
+        inicializarJugadores(nombreJugadores); 
         repartirCartas();
         siguienteTurno();        
     }
