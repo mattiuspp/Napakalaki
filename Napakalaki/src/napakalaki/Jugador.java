@@ -14,6 +14,16 @@ public class Jugador {
     private ArrayList<Tesoro> tesorosOcultos = new ArrayList();
     private ArrayList<Tesoro> tesorosVisibles = new ArrayList();
 
+    public void infoJugador() {
+        System.out.println("Jugador: " + nombre);
+        System.out.println(" > Cartas en mano(ocultas):");
+        for(Tesoro t:tesorosOcultos)
+            System.out.println("" + t.obtenerNombre());
+                System.out.println(" > Cartas equipadas(visibles):");
+        for(Tesoro t:tesorosVisibles)
+            System.out.println("" + t.obtenerNombre());
+        
+    }
     public Jugador(String nombre) {
         this.nombre = nombre;
     }

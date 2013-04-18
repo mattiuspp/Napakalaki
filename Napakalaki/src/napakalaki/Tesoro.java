@@ -17,6 +17,10 @@ public class Tesoro {
         this.piezasOro = piezasOro;
     }  
 
+    public String obtenerNombre() {
+        return nombre;
+    }
+    
     public int obtenerPiezasOro() {
         return piezasOro;
     }

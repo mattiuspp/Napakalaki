@@ -376,6 +376,8 @@ public class Napakalaki {
             monstruoActivo = siguienteMonstruo();
         }
         
+       jugadorActivo.infoJugador();  //Imprimimos las cartas --- DEPURACION
+        
         int fin = jugadorActivo.puedoPasar();
         
         // implementacion de prueba a esperar de los metodos interactivos
@@ -410,18 +412,18 @@ public class Napakalaki {
                             break;
                         }   
                 }
+                System.out.println("Robando tesoros:"); //Imprimimos las cartas --- DEPURACION
                 for (int i = 1; i <= numTesoros; i++){
                     jugadorActivo.robarTesoro(siguienteTesoro());
                 }
+                jugadorActivo.infoJugador();
                 
                 monstruoActivo = siguienteMonstruo();
             } 
             
         }
         
-        return fin;
-            
-        
+        return fin;        
     }
     
     private Jugador primerJugador() {
