@@ -64,6 +64,9 @@ public class Jugador {
         return cumpleMR;
     }
     
+    /**************************** INCOMPLETO ****************************************************/
+    // intenta cumplir el malrollo
+    // si lo cumple entero, devuelve true
     private boolean cumploMalRollo(ArrayList<Tesoro> tesVisibles, 
             ArrayList<Tesoro> tesOcultos){
         return true;
@@ -78,6 +81,7 @@ public class Jugador {
         }
     }
     
+    // ¿Relamente funciona?
     private boolean puedoEquipar(Tesoro unTesoro){
         boolean puedo;
         ArrayList<TipoTesoro> tipos = new ArrayList();
@@ -117,11 +121,13 @@ public class Jugador {
         return puedo;
     }
     
+    /**************************** INCOMPLETO ****************************************************/
     public int puedoPasar(){
         //falta por implementar
         return 0;
     }
     
+    /**************************** INCOMPLETO ****************************************************/
     public boolean tienesTesoros(){
         //falta por implementar
         return true;
@@ -185,22 +191,27 @@ public class Jugador {
         return resultado;
     }
     
+    /**************************** INCOMPLETO ****************************************************/
+    // y esto donde se llama?
     public ArrayList<Tesoro> dameTodosTusTesoros(){
         //falta por implementar
         return null;
     }
     
+    /**************************** INCOMPLETO ****************************************************/
     public void incluirMalRollo(MalRollo malRollo){
         // adaptamos al jugador
         
         
     }
     
+    /**************************** INCOMPLETO ****************************************************/
     public Tesoro devuelveElCollar(){
         //falta por implementar
         return null;
     }
     
+    /**************************** INCOMPLETO ****************************************************/
     public boolean tienesCollar(){
         //falta por implementar
         return true;
@@ -208,13 +219,16 @@ public class Jugador {
     
     public void aplicarBuenRollo(BuenRollo buenRollo){
         // suponemos que es subir niveles
+        // los tesoros los roba la clase napakalaki
         nivel += buenRollo.obtenerNivelesGanados();
     }
     
+    /**************************** INCOMPLETO ****************************************************/
     public void muere(){
         
     }
     
+    /**************************** INCOMPLETO ****************************************************/
     public void descartaTesorosInteractivo(int numTesoros){
         // modificar con el modo texto
         for (int i=0; i<numTesoros; i++){
@@ -222,6 +236,7 @@ public class Jugador {
         }
     }
     
+    /**************************** INCOMPLETO ****************************************************/
     public void cumpleMalRolloInteractivo(){
         // implementar cumpleMalRollo y incluirMalRollo
         
