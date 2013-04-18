@@ -69,6 +69,17 @@ public class Jugador {
     // si lo cumple entero, devuelve true
     private boolean cumploMalRollo(ArrayList<Tesoro> tesVisibles, 
             ArrayList<Tesoro> tesOcultos){
+        boolean cumplo = true;
+        int numVis = tesVisibles.size();
+        int numOcu = tesOcultos.size();
+        
+        int topeVis;
+        if (numVis > tesorosVisibles.size())
+        {
+            cumplo = false;
+            topeVis = tesorosVisibles.size();
+        }
+        if 
         return true;
     }
     
