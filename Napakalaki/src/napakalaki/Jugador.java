@@ -257,14 +257,12 @@ public class Jugador {
         tesorosOcultos.clear();
         tesorosVisibles.clear();
         
-        return null;
+        return tesoros;
     }
     
     /**************************** INCOMPLETO ****************************************************/
     public void incluirMalRollo(MalRollo malRollo){
-        // adaptamos al jugador
-        
-        
+        malRolloPendiente = malRollo;
     }
     
       public Tesoro devuelveElCollar(){
