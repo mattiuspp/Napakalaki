@@ -69,18 +69,58 @@ public class Jugador {
     // si lo cumple entero, devuelve true
     private boolean cumploMalRollo(ArrayList<Tesoro> tesVisibles, 
             ArrayList<Tesoro> tesOcultos){
+        
         boolean cumplo = true;
         int numVis = tesVisibles.size();
         int numOcu = tesOcultos.size();
         
-        int topeVis;
+        int topeVis, topeOcu;
         if (numVis > tesorosVisibles.size())
         {
             cumplo = false;
             topeVis = tesorosVisibles.size();
         }
-        if 
-        return true;
+        else
+            topeVis = numVis;
+        
+        if (numOcu > tesorosOcultos.size())
+        {
+            cumplo = false;
+            topeOcu = tesorosOcultos.size();
+        }
+        else
+            topeOcu = numOcu;
+        
+        for (int i = 0; i < topeVis; i++)
+        {
+            TipoTesoro tipoBorrado = tesVisibles.get(i).obtenerTipo();
+            boolean existe = false;
+            for (int j = 0; j < tesorosVisibles.size() && !existe; j++)
+            {
+                if (tipoBorrado == tesorosVisibles.get(j).obtenerTipo())
+                {
+                    existe = true;
+                    tesorosVisibles.remove(j);
+                }
+            }
+            if (!existe) cumplo = false;
+        }
+        
+        for (int i = 0; i < topeOcu; i++)
+        {
+            TipoTesoro tipoBorrado = tesOcultos.get(i).obtenerTipo();
+            boolean existe = false;
+            for (int j = 0; j < tesorosOcultos.size() && !existe; j++)
+            {
+                if (tipoBorrado == tesorosOcultos.get(j).obtenerTipo())
+                {
+                    existe = true;
+                    tesorosOcultos.remove(j);
+                }
+            }
+            if (!existe) cumplo = false;
+        }
+        return cumplo;
     }
     
     public void equiparTesoros(ArrayList<Tesoro> listaTesoro){
