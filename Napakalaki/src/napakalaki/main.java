@@ -5,13 +5,11 @@ public class main {
 	
         Napakalaki juego = Napakalaki.getInstance();
         
-        String jugadores[] = {"Pepe","Juan"};
+        String jugadores[] = {"Pepe","Juan","Eva"};
         juego.comenzarJuego(jugadores);
         
-        
-        //Ejemplo de turno
-        juego.desarrollarCombate();
-        
+        /* Ejemplo de un turno */
+           
         //si quiere comprar
         System.out.println("¿Quiere vender objetos? S/N");
         //captar caracter S/N
@@ -22,11 +20,7 @@ public class main {
         //final del turno se descarta
         
         //Se empieza un nuevo turno
-        juego.siguienteTurno();
-        
-        
-        
-        
+        juego.siguienteTurno();     
         
     }
 }

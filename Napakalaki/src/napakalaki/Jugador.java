@@ -14,6 +14,16 @@ public class Jugador {
     private ArrayList<Tesoro> tesorosOcultos = new ArrayList();
     private ArrayList<Tesoro> tesorosVisibles = new ArrayList();
 
+    public void infoJugador() {
+        System.out.println("Jugador: " + nombre);
+        System.out.println(" > Cartas en mano(ocultas):");
+        for(Tesoro t:tesorosOcultos)
+            System.out.println("" + t.obtenerNombre());
+                System.out.println(" > Cartas equipadas(visibles):");
+        for(Tesoro t:tesorosVisibles)
+            System.out.println("" + t.obtenerNombre());
+        
+    }
     public Jugador(String nombre) {
         this.nombre = nombre;
     }
@@ -132,7 +142,6 @@ public class Jugador {
         }
     }
     
-    // ¿Relamente funciona?
     private boolean puedoEquipar(Tesoro unTesoro){
         boolean puedo;
         ArrayList<TipoTesoro> tipos = new ArrayList();
@@ -178,10 +187,8 @@ public class Jugador {
         return 0;
     }
     
-    /**************************** INCOMPLETO ****************************************************/
     public boolean tienesTesoros(){
-        //falta por implementar
-        return true;
+        return tesorosOcultos.isEmpty() && tesorosVisibles.isEmpty();
     }
     
     public boolean comprarNiveles(ArrayList<Tesoro> tesoros){
@@ -243,10 +250,13 @@ public class Jugador {
         return resultado;
     }
     
-    /**************************** INCOMPLETO ****************************************************/
-    // y esto donde se llama?
     public ArrayList<Tesoro> dameTodosTusTesoros(){
-        //falta por implementar
+        ArrayList<Tesoro> tesoros = new ArrayList(tesorosOcultos);
+        tesoros.addAll(tesorosVisibles);
+        
+        tesorosOcultos.clear();
+        tesorosVisibles.clear();
+        
         return null;
     }
     
@@ -257,16 +267,19 @@ public class Jugador {
         
     }
     
-    /**************************** INCOMPLETO ****************************************************/
-    public Tesoro devuelveElCollar(){
-        //falta por implementar
+      public Tesoro devuelveElCollar(){
+        for(Tesoro t: tesorosVisibles)
+            if (t.obtenerTipo()==TipoTesoro.COLLAR){
+                tesorosVisibles.remove(t);
+                return t;
+            }
         return null;
     }
     
-    /**************************** INCOMPLETO ****************************************************/
     public boolean tienesCollar(){
-        //falta por implementar
-        return true;
+        for(Tesoro t: tesorosVisibles)
+            return t.obtenerTipo() == TipoTesoro.COLLAR;
+        return false;
     }
     
     public void aplicarBuenRollo(BuenRollo buenRollo){
@@ -275,14 +288,18 @@ public class Jugador {
         nivel += buenRollo.obtenerNivelesGanados();
     }
     
-    /**************************** INCOMPLETO ****************************************************/
+    /**/
     public void muere(){
-        
+        nivel = 1;
+        // habria que descartarlos ----> ¿como los llevo al mazo?
+        tesorosOcultos.clear();;
+        tesorosVisibles.clear();
     }
     
     /**************************** INCOMPLETO ****************************************************/
     public void descartaTesorosInteractivo(int numTesoros){
         // modificar con el modo texto
+        // habria que descartarlos ----> ¿como los llevo al mazo?
         for (int i=0; i<numTesoros; i++){
             tesorosOcultos.remove((int) Math.random()*tesorosOcultos.size());
         }
