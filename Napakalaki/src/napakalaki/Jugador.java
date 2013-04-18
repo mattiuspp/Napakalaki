@@ -264,7 +264,7 @@ public class Jugador {
         malRolloPendiente = malRollo;
     }
     
-      public Tesoro devuelveElCollar(){
+    public Tesoro devuelveElCollar(){
         for(Tesoro t: tesorosVisibles)
             if (t.obtenerTipo()==TipoTesoro.COLLAR){
                 tesorosVisibles.remove(t);
@@ -289,7 +289,7 @@ public class Jugador {
     public void muere(){
         nivel = 1;
         // habria que descartarlos ----> ¿como los llevo al mazo?
-        tesorosOcultos.clear();;
+        tesorosOcultos.clear();
         tesorosVisibles.clear();
     }
     
