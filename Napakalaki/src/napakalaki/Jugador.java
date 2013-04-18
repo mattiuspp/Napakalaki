@@ -1,7 +1,6 @@
 package napakalaki;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Jugador {
     private String nombre;
@@ -74,7 +73,7 @@ public class Jugador {
         return cumpleMR;
     }
     
-    /**************************** INCOMPLETO ****************************************************/
+    /**************************** INCOMPLETO - Intentado jajaja ****************************************************/
     // intenta cumplir el malrollo
     // si lo cumple entero, devuelve true
     private boolean cumploMalRollo(ArrayList<Tesoro> tesVisibles, 
