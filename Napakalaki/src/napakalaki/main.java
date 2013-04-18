@@ -22,11 +22,7 @@ public class main {
         //final del turno se descarta
         
         //Se empieza un nuevo turno
-        juego.siguienteTurno();
-        
-        
-        
-        
+        juego.siguienteTurno();     
         
     }
 }
