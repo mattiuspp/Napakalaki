@@ -149,6 +149,7 @@ public class Jugador {
     
     public void incDecNivel(int incDec){
         nivel += incDec;
+        if (nivel < 1) nivel = 1;
     }
     
     public ResultadoCombate combatir(Monstruo monstruoEnJuego){
