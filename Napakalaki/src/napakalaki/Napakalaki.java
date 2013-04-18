@@ -440,11 +440,11 @@ public class Napakalaki {
         Tesoro tesoro = mazoTesoros.get(mazoTesoros.size()-1);
         mazoTesoros.remove(mazoTesoros.size()-1);
         descarteTesoros.add(tesoro);
-        return tesoro;       
+        return tesoro;
     }
     
     private Jugador siguienteJugador() {
-        return null;     
+        return Jugadores.get((Jugadores.indexOf(jugadorActivo) + 1) % 4);     
     }
     
     public ResultadoCombate desarrollarCombate() {
