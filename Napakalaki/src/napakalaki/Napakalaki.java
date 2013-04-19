@@ -370,64 +370,6 @@ public class Napakalaki {
         }
     }
     
-    public int siguienteTurno() {
-        if(jugadorActivo == null){
-            jugadorActivo = primerJugador();
-            monstruoActivo = siguienteMonstruo();
-        }
-        
-       jugadorActivo.infoJugador();  //Imprimimos las cartas --- DEPURACION
-        
-        int fin = jugadorActivo.puedoPasar();
-        
-        // implementacion de prueba a esperar de los metodos interactivos
-        if(fin > 0){
-            jugadorActivo.descartaTesorosInteractivo(fin);
-            fin = 0;
-        }
-        else if(fin < 0){
-            jugadorActivo.cumpleMalRolloInteractivo();
-            int num_descartadas = jugadorActivo.puedoPasar();
-            jugadorActivo.descartaTesorosInteractivo(num_descartadas);
-            fin = 0;
-        }
-        
-        if (fin == 0){
-            jugadorActivo = siguienteJugador();
-            
-            boolean tieneTesoros = jugadorActivo.tienesTesoros();
-            
-            if(!tieneTesoros){
-                int dado = (int) Math.random()*6+1;
-                int numTesoros;
-                switch (dado){
-                        case 1:{
-                            numTesoros = 1;
-                            break;
-                        }
-                        case 6:{
-                            numTesoros = 6;
-                            break;
-                        }
-                        default:{
-                            numTesoros = 2;
-                            break;
-                        }   
-                }
-                System.out.println("Robando tesoros:"); //Imprimimos las cartas --- DEPURACION
-                for (int i = 1; i <= numTesoros; i++){
-                    jugadorActivo.robarTesoro(siguienteTesoro());
-                }
-                jugadorActivo.infoJugador();
-                
-                monstruoActivo = siguienteMonstruo();
-            } 
-            
-        }
-        
-        return fin;        
-    }
-    
     private Jugador primerJugador() {
         return Jugadores.get( (int)Math.random() * Jugadores.size() );
     }
@@ -488,15 +430,70 @@ public class Napakalaki {
         return puedo;
     }
     
+    public int siguienteTurno() {
+        if(jugadorActivo == null){
+            jugadorActivo = primerJugador();
+            monstruoActivo = siguienteMonstruo();
+        }
+        
+        jugadorActivo.infoJugador();  //Imprimimos las cartas --- DEPURACION
+        
+        int fin = jugadorActivo.puedoPasar();
+        
+        if(fin > 0){
+            descarteTesoros.addAll(jugadorActivo.descartaTesorosRandom(fin));
+            fin = 0;
+        }
+        else if(fin < 0){
+            jugadorActivo.cumpleMalRolloInteractivo();
+            int num_descartadas = jugadorActivo.puedoPasar();
+            jugadorActivo.descartaTesorosInteractivo(num_descartadas);
+            fin = 0;
+        }
+        
+        if (fin == 0){
+            jugadorActivo = siguienteJugador();
+            
+            boolean tieneTesoros = jugadorActivo.tienesTesoros();
+            
+            if(!tieneTesoros){
+                int dado = (int) Math.random()*6+1;
+                int numTesoros;
+                switch (dado){
+                        case 1:{
+                            numTesoros = 1;
+                            break;
+                        }
+                        case 6:{
+                            numTesoros = 6;
+                            break;
+                        }
+                        default:{
+                            numTesoros = 2;
+                            break;
+                        }   
+                }
+                for (int i = 1; i <= numTesoros; i++){
+                    jugadorActivo.robarTesoro(siguienteTesoro());
+                }
+                
+                monstruoActivo = siguienteMonstruo();
+            } 
+            
+        }
+        
+        return fin;        
+    }
+    
     public boolean descartarTesoros(ArrayList<Tesoro> tesorosVisibles, 
             ArrayList<Tesoro> tesorosOcultos) 
     {
-        boolean cumpleMR;
-        cumpleMR = jugadorActivo.descartarTesoros(tesorosVisibles, tesorosOcultos);
+        boolean puedoDescartar;
+        puedoDescartar = jugadorActivo.descartarTesoros(tesorosVisibles, tesorosOcultos);
         
         descarteTesoros.addAll(tesorosVisibles);
         descarteTesoros.addAll(tesorosOcultos);
         
-        return cumpleMR;
+        return puedoDescartar;
     }
 }

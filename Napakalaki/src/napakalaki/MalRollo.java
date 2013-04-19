@@ -26,6 +26,15 @@ class MalRollo {
         this.tipoVisiblesPerdidos.addAll(tipoVisiblesPerdidos);
     }
     
+    public MalRollo (MalRollo malRollo)
+    {
+        this.texto = malRollo.texto;
+        this.nivelesPerdidos = malRollo.nivelesPerdidos;
+        this.ocultosPerdidos = malRollo.ocultosPerdidos;
+        this.visiblesPerdidos = malRollo.visiblesPerdidos;
+        this.muerte = malRollo.muerte;
+    }
+    
     public boolean muerte() {
         return muerte;
     }

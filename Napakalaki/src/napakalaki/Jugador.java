@@ -182,10 +182,6 @@ public class Jugador {
         return tesoros;
     }
     
-    public void incluirMalRollo(MalRollo malRollo){
-        malRolloPendiente = malRollo;
-    }
-    
     public Tesoro devuelveElCollar(){
         for(Tesoro t: tesorosVisibles)
             if (t.obtenerTipo()==TipoTesoro.COLLAR){
@@ -205,35 +201,36 @@ public class Jugador {
         nivel += buenRollo.obtenerNivelesGanados();
     }
     
-    
-    
-    
-    
-    
-    // Falta por implementar
-    
-    
-    
-    
     public void muere(){
         nivel = 1;
-        // habria que descartarlos ----> ¿como los llevo al mazo?
-        tesorosOcultos.clear();
-        tesorosVisibles.clear();
     }
-    
-    /**************************** INCOMPLETO ****************************************************/
-    public void descartaTesorosInteractivo(int numTesoros){
-        infoJugador();
-        // modificar con el modo texto
-        // habria que descartarlos ----> ¿como los llevo al mazo?
+       
+    public ArrayList<Tesoro>  descartaTesorosRandom(int numTesoros)
+    {
+        ArrayList<Tesoro> descartados = new ArrayList();
+        
         for (int i=0; i<numTesoros; i++){
-            tesorosOcultos.remove((int) Math.random()*tesorosOcultos.size());
+            int indice_tesoro = (int) Math.random()*tesorosOcultos.size();
+            descartados.add(tesorosOcultos.get(indice_tesoro));
+            tesorosOcultos.remove(indice_tesoro);
         }
-        infoJugador();
+        
+        return descartados;
+     }
+     
+    public int puedoPasar(){
+        if (malRolloPendiente != null)
+            return -1;
+        else if (tesorosOcultos.size() > TESOROS_OCULTOS_MAXIMO)
+            return tesorosOcultos.size() - TESOROS_OCULTOS_MAXIMO;
+        else
+            return 0;
     }
     
-    /**************************** INCOMPLETO ****************************************************/
+    
+    // --------------
+    
+
     public void cumpleMalRolloInteractivo(){
         int numVis = tesVisibles.size();
         int numOcu = tesOcultos.size();
@@ -263,18 +260,20 @@ public class Jugador {
         }
     }    
 
-    public int puedoPasar(){
-        if (malRolloPendiente != null)
-            return -1;
-        else if (tesorosOcultos.size() > TESOROS_OCULTOS_MAXIMO)
-            return tesorosOcultos.size() - TESOROS_OCULTOS_MAXIMO;
-        else
-            return 0;
-    }
+
     
-    /**************** INCOMPLETO **************************************/
     public void incluirMalRollo(MalRollo malRollo){
-        malRolloPendiente = malRollo;
+        MalRollo p = new MalRollo(malRolloPendiente);
+        
+        //int numVis = malRollo.obtenerTipoVisiblesPerdidos().size();
+        int numOcu = malRollo.obtenerTipoOcultosPerdidos().size(); 
+      
+        if (numOcu > tesorosOcultos.size())
+        {
+            numOcu = tesorosOcultos.size();
+        }
+        
+        
     }
     
     public boolean descartarTesoros(ArrayList<Tesoro> tesorosVisDes, 
@@ -289,9 +288,6 @@ public class Jugador {
         return cumpleMR;
     }
     
-    /**************************** INCOMPLETO - Intentado jajaja ****************************************************/
-    // intenta cumplir el malrollo
-    // si lo cumple entero, devuelve true
     private boolean cumploMalRollo(ArrayList<Tesoro> tesVisibles, 
             ArrayList<Tesoro> tesOcultos){
         

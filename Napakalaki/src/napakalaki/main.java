@@ -19,6 +19,9 @@ public class main {
         
         //final del turno se descarta
         
+        
+        //quiere equipar?
+        jugador.Equipar()
         //Se empieza un nuevo turno
         juego.siguienteTurno();     
         
