@@ -231,7 +231,23 @@ public class Jugador {
     // --------------
     
     public void incluirMalRollo(MalRollo malRollo){
-        MalRollo p = new MalRollo(malRolloPendiente);
+        malRolloPendiente = new MalRollo(malRollo);
+        
+        // MalRolloPendiente se queda con lo que SE PUEDE QUITAR EL JUGADOR, NO CON LO QUE SE QUEDA PENDIENTE
+        int numVis = malRolloPendiente.obtenerVisiblesPerdidos();
+        int numOcu = malRolloPendiente.obtenerOcultosPerdidos();
+        
+        ArrayList<TipoTesoro> tipoVismalRollo = new ArrayList(malRolloPendiente.obtenerTipoVisiblesPerdidos());
+        ArrayList<TipoTesoro> tipoOcumalRollo = new ArrayList(malRolloPendiente.obtenerTipoOcultosPerdidos());
+        
+        for (TipoTesoro t: tipoVismalRollo)
+        {
+            for (Tesoro tes: tesorosVisibles)
+            {
+                if (tes.obtenerTipo() == t)
+                    
+            }
+        }
         
         //int numVis = malRollo.obtenerTipoVisiblesPerdidos().size();
         int numOcu = malRollo.obtenerTipoOcultosPerdidos().size(); 
