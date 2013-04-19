@@ -180,10 +180,13 @@ public class Jugador {
         return puedo;
     }
     
-    /**************************** INCOMPLETO ****************************************************/
     public int puedoPasar(){
-        //falta por implementar
-        return 0;
+        if (malRolloPendiente != null)
+            return -1;
+        else if (tesorosOcultos.size() > 4)
+            return tesorosOcultos.size() - 4;
+        else
+            return 0;
     }
     
     public boolean tienesTesoros(){
