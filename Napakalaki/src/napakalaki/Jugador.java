@@ -21,7 +21,6 @@ public class Jugador {
                 System.out.println(" > Cartas equipadas(visibles):");
         for(Tesoro t:tesorosVisibles)
             System.out.println("" + t.obtenerNombre());
-        
     }
     
     public Jugador(String nombre) {
@@ -296,11 +295,13 @@ public class Jugador {
     
     /**************************** INCOMPLETO ****************************************************/
     public void descartaTesorosInteractivo(int numTesoros){
+        infoJugador();
         // modificar con el modo texto
         // habria que descartarlos ----> ¿como los llevo al mazo?
         for (int i=0; i<numTesoros; i++){
             tesorosOcultos.remove((int) Math.random()*tesorosOcultos.size());
         }
+        infoJugador();
     }
     
     /**************************** INCOMPLETO ****************************************************/
