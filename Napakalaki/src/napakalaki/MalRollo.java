@@ -33,6 +33,8 @@ class MalRollo {
         this.ocultosPerdidos = malRollo.ocultosPerdidos;
         this.visiblesPerdidos = malRollo.visiblesPerdidos;
         this.muerte = malRollo.muerte;
+        this.tipoOcultosPerdidos = new ArrayList(malRollo.tipoOcultosPerdidos);
+        this.tipoVisiblesPerdidos = new ArrayList(malRollo.tipoVisiblesPerdidos);
     }
     
     public boolean muerte() {
@@ -47,4 +49,11 @@ class MalRollo {
         return tipoVisiblesPerdidos;
     }
     
+    public int obtenerVisiblesPerdidos(){
+        return visiblesPerdidos;
+    }
+    
+    public int obtenerOcultosPerdidos(){
+        return ocultosPerdidos;
+    }
 }
