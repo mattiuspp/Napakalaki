@@ -263,7 +263,6 @@ public class Jugador {
         return tesoros;
     }
     
-    /**************************** INCOMPLETO ****************************************************/
     public void incluirMalRollo(MalRollo malRollo){
         malRolloPendiente = malRollo;
     }
@@ -308,7 +307,31 @@ public class Jugador {
     
     /**************************** INCOMPLETO ****************************************************/
     public void cumpleMalRolloInteractivo(){
-        // implementar cumpleMalRollo y incluirMalRollo
+        int numVis = tesVisibles.size();
+        int numOcu = tesOcultos.size();
         
+        int topeVis, topeOcu;
+        if (numVis > tesorosVisibles.size())
+        {
+            cumplo = false;
+            topeVis = tesorosVisibles.size();
+        }
+        else
+            topeVis = numVis;
+        
+        for (int i = 0; i < topeVis; i++)
+        {
+            TipoTesoro tipoBorrado = tesVisibles.get(i).obtenerTipo();
+            boolean existe = false;
+            for (int j = 0; j < tesorosVisibles.size() && !existe; j++)
+            {
+                if (tipoBorrado == tesorosVisibles.get(j).obtenerTipo())
+                {
+                    existe = true;
+                    tesorosVisibles.remove(j);
+                }
+            }
+            if (!existe) cumplo = false;
+        }
     }    
 }
