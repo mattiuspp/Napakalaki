@@ -24,6 +24,7 @@ public class Jugador {
             System.out.println("" + t.obtenerNombre());
         
     }
+    
     public Jugador(String nombre) {
         this.nombre = nombre;
     }
@@ -309,7 +310,5 @@ public class Jugador {
     public void cumpleMalRolloInteractivo(){
         // implementar cumpleMalRollo y incluirMalRollo
         
-    }
-    
-    
+    }    
 }
