@@ -238,8 +238,8 @@ public class Jugador {
     public int puedoPasar(){
         if (malRolloPendiente != null)
             return -1;
-        else if (tesorosOcultos.size() > 4)
-            return tesorosOcultos.size() - 4;
+        else if (tesorosOcultos.size() > TESOROS_OCULTOS_MAXIMO)
+            return tesorosOcultos.size() - TESOROS_OCULTOS_MAXIMO;
         else
             return 0;
     }
