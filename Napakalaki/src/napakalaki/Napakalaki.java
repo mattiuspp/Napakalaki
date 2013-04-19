@@ -440,17 +440,6 @@ public class Napakalaki {
         
         int fin = jugadorActivo.puedoPasar();
         
-        if(fin > 0){
-            descarteTesoros.addAll(jugadorActivo.descartaTesorosRandom(fin));
-            fin = 0;
-        }
-        else if(fin < 0){
-            jugadorActivo.cumpleMalRolloInteractivo();
-            int num_descartadas = jugadorActivo.puedoPasar();
-            jugadorActivo.descartaTesorosInteractivo(num_descartadas);
-            fin = 0;
-        }
-        
         if (fin == 0){
             jugadorActivo = siguienteJugador();
             
@@ -488,12 +477,12 @@ public class Napakalaki {
     public boolean descartarTesoros(ArrayList<Tesoro> tesorosVisibles, 
             ArrayList<Tesoro> tesorosOcultos) 
     {
-        boolean puedoDescartar;
-        puedoDescartar = jugadorActivo.descartarTesoros(tesorosVisibles, tesorosOcultos);
+        boolean cumpleMR;
+        cumpleMR = jugadorActivo.descartarTesoros(tesorosVisibles, tesorosOcultos);
         
         descarteTesoros.addAll(tesorosVisibles);
         descarteTesoros.addAll(tesorosOcultos);
         
-        return puedoDescartar;
+        return cumpleMR;
     }
 }
