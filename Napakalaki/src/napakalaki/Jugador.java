@@ -1,7 +1,6 @@
 package napakalaki;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Jugador {
     private String nombre;
@@ -75,7 +74,7 @@ public class Jugador {
         return cumpleMR;
     }
     
-    /**************************** INCOMPLETO ****************************************************/
+    /**************************** INCOMPLETO - Intentado jajaja ****************************************************/
     // intenta cumplir el malrollo
     // si lo cumple entero, devuelve true
     private boolean cumploMalRollo(ArrayList<Tesoro> tesVisibles, 
@@ -258,17 +257,15 @@ public class Jugador {
         tesorosOcultos.clear();
         tesorosVisibles.clear();
         
-        return null;
+        return tesoros;
     }
     
     /**************************** INCOMPLETO ****************************************************/
     public void incluirMalRollo(MalRollo malRollo){
-        // adaptamos al jugador
-        
-        
+        malRolloPendiente = malRollo;
     }
     
-      public Tesoro devuelveElCollar(){
+    public Tesoro devuelveElCollar(){
         for(Tesoro t: tesorosVisibles)
             if (t.obtenerTipo()==TipoTesoro.COLLAR){
                 tesorosVisibles.remove(t);
@@ -293,7 +290,7 @@ public class Jugador {
     public void muere(){
         nivel = 1;
         // habria que descartarlos ----> ¿como los llevo al mazo?
-        tesorosOcultos.clear();;
+        tesorosOcultos.clear();
         tesorosVisibles.clear();
     }
     
