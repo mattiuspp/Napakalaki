@@ -387,6 +387,8 @@ public class Napakalaki {
         }
         else if(fin < 0){
             jugadorActivo.cumpleMalRolloInteractivo();
+            int num_descartadas = jugadorActivo.puedoPasar();
+            jugadorActivo.descartaTesorosInteractivo(num_descartadas);
             fin = 0;
         }
         
