@@ -40,6 +40,10 @@ class MalRollo {
     public boolean muerte() {
         return muerte;
     }
+    
+    public int obtenerNivelesPerdidos() {
+        return nivelesPerdidos;
+    }
 
     public ArrayList<TipoTesoro> obtenerTipoOcultosPerdidos() {
         return tipoOcultosPerdidos;
