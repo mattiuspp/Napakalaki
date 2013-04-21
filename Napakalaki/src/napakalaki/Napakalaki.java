@@ -488,4 +488,9 @@ public class Napakalaki {
     public Jugador obtenerJugadorActivo() {
         return jugadorActivo;
     }
+    public Monstruo obtenerMonstruoActivo() {
+        return monstruoActivo;
+    }
+    
+    
 }

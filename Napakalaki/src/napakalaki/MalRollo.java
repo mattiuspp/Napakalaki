@@ -64,4 +64,8 @@ class MalRollo {
     public int obtenerOcultosPerdidos(){
         return ocultosPerdidos;
     }
+    
+    public boolean esVacio(){
+        return ocultosPerdidos==0 && visiblesPerdidos==0;
+    }
 }

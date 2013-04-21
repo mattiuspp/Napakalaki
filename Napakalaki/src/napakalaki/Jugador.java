@@ -223,8 +223,9 @@ public class Jugador {
         nivel = 1;
     }
         
+    // Comprobacion malRolloPendiente mejorada
     public int puedoPasar(){
-        if (malRolloPendiente != null)
+        if (! malRolloPendiente.esVacio())
             return -1;
         else if (tesorosOcultos.size() > TESOROS_OCULTOS_MAXIMO)
             return tesorosOcultos.size() - TESOROS_OCULTOS_MAXIMO;
