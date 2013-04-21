@@ -48,7 +48,7 @@ public class main {
             System.out.println("");
             
             // segundo: resolver malrollo del combate (devuelve bool)    
-            System.out.println("// ---CUMPLE MAL ROLLO--- //");
+            System.out.println("// ---CUMPLE MAL ROLLO(COMBATE)--- //");
             System.out.println(juego.obtenerJugadorActivo().toString());
             ArrayList<Tesoro> visDes = lectorCartas.leeCartas(juego.obtenerJugadorActivo().obtenerTesorosVisibles());
             ArrayList<Tesoro> ocuDes = lectorCartas.leeCartas(juego.obtenerJugadorActivo().obtenerTesorosOcultos());
