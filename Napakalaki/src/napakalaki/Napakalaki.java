@@ -435,9 +435,7 @@ public class Napakalaki {
             jugadorActivo = primerJugador();
             monstruoActivo = siguienteMonstruo();
         }
-        
-        jugadorActivo.infoJugador();  //Imprimimos las cartas --- DEPURACION
-        
+                
         int fin = jugadorActivo.puedoPasar();
         
         if (fin == 0){

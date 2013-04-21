@@ -204,20 +204,7 @@ public class Jugador {
     public void muere(){
         nivel = 1;
     }
-       
-    public ArrayList<Tesoro>  descartaTesorosRandom(int numTesoros)
-    {
-        ArrayList<Tesoro> descartados = new ArrayList();
         
-        for (int i=0; i<numTesoros; i++){
-            int indice_tesoro = (int) Math.random()*tesorosOcultos.size();
-            descartados.add(tesorosOcultos.get(indice_tesoro));
-            tesorosOcultos.remove(indice_tesoro);
-        }
-        
-        return descartados;
-     }
-     
     public int puedoPasar(){
         if (malRolloPendiente != null)
             return -1;
@@ -227,8 +214,19 @@ public class Jugador {
             return 0;
     }
     
-    
-    // --------------
+    public boolean descartarTesoros(ArrayList<Tesoro> tesorosVisDes, 
+            ArrayList<Tesoro> tesorosOcuDes)
+    {
+        boolean cumpleMR;
+        cumpleMR = cumploMalRollo(tesorosVisibles, tesorosOcultos);
+        
+        tesorosVisDes.clear();
+        tesorosOcuDes.clear();
+        
+        return cumpleMR;
+    }
+        
+    // -------------- INCOMPLETO ---------
     
     public void incluirMalRollo(MalRollo malRollo){
         malRolloPendiente = new MalRollo(malRollo);
@@ -258,18 +256,6 @@ public class Jugador {
         }
         
         
-    }
-    
-    public boolean descartarTesoros(ArrayList<Tesoro> tesorosVisDes, 
-            ArrayList<Tesoro> tesorosOcuDes)
-    {
-        boolean cumpleMR;
-        cumpleMR = cumploMalRollo(tesorosVisibles, tesorosOcultos);
-        
-        tesorosVisDes.clear();
-        tesorosOcuDes.clear();
-        
-        return cumpleMR;
     }
     
     private boolean cumploMalRollo(ArrayList<Tesoro> tesVisibles, 
@@ -327,6 +313,19 @@ public class Jugador {
         }
         return cumplo;
     } 
+ 
+        /*public ArrayList<Tesoro>  descartaTesorosRandom(int numTesoros)
+    {
+        ArrayList<Tesoro> descartados = new ArrayList();
+        
+        for (int i=0; i<numTesoros; i++){
+            int indice_tesoro = (int) Math.random()*tesorosOcultos.size();
+            descartados.add(tesorosOcultos.get(indice_tesoro));
+            tesorosOcultos.remove(indice_tesoro);
+        }
+        
+        return descartados;
+     }*/
     
 }
     

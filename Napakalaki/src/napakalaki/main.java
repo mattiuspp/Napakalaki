@@ -10,25 +10,34 @@ public class main {
         
         /**************+ Ejemplo de un turno *****************/
         int ronda = 0;
-        while(ronda<10){
-            System.out.println("¿Quiere vender objetos? S/N");
-                     juego.comprarNivelesJugador(null);
-
-            //final del turno se descarta
-            descartasTesoros();
-
-            jugador.comprarNiveles; // comprar niveles
-
-            jugador.Equipar() //intentamos equipar
-
+        while(ronda<10)
+        {
+            // primero: combate
+            ResultadoCombate resultado = juego.desarrollarCombate();
+            if (resultado == ResultadoCombate.VENCEYFIN)
+                break;
+            
+            // segundo: resolver malrollo del combate
+            // imprimir malRolloPendiente del jugador (del monstruo)
+            // dar la opcion al jugador para que se descarte cartas
+            juego.descartarTesoros(null, null);
+            
+            // tercero: equipar
+            // jugador.equiparTesoros(null);
+            
+            // cuarto: comprar niveles
+            juego.comprarNivelesJugador(null);
+            
+            //final del turno: puedo pasar
             int fin = juego.siguienteTurno();
-            while( fin != 0){   
+            while( fin != 0)
+            {   
                 if(fin > 0){
-                    // el jugador elige que cartas descartas
+                    // exceso de cartas: elegir para descartar
                     juego.descartarTesoros(null,null);
                 }
                 else if(fin < 0){
-                    // print infoMalRollo
+                    // malrollo pendiente: elegir para descartar
                     juego.descartarTesoros(null, null);
                 }
 
