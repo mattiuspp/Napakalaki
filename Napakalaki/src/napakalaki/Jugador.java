@@ -248,15 +248,15 @@ public class Jugador {
         ArrayList<TipoTesoro> tipoOcuJug = new ArrayList();
         ArrayList<TipoTesoro> tipoVisJug = new ArrayList();
         
-        if (malRolloPendiente.obtenerVisiblesPerdidos() > tesorosVisibles.size())
+        if (malRollo.obtenerVisiblesPerdidos() > tesorosVisibles.size())
             numVis = tesorosVisibles.size();
         else
-            numVis = malRolloPendiente.obtenerVisiblesPerdidos();
+            numVis = malRollo.obtenerVisiblesPerdidos();
         
-        if (malRolloPendiente.obtenerOcultosPerdidos() > tesorosOcultos.size())
+        if (malRollo.obtenerOcultosPerdidos() > tesorosOcultos.size())
             numOcu = tesorosOcultos.size();
         else
-            numOcu = malRolloPendiente.obtenerOcultosPerdidos();
+            numOcu = malRollo.obtenerOcultosPerdidos();
         
         
         
