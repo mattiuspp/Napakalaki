@@ -1,6 +1,7 @@
 package napakalaki;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public class Jugador {
     private String nombre;
@@ -244,8 +245,8 @@ public class Jugador {
     // Ajusta el malRollo al jugador (le quitamos aquello no pueda descartar)
     public void incluirMalRollo(MalRollo malRollo){
         int numVis, numOcu;
-        ArrayList<TipoTesoro> tipoOcu = new ArrayList();
-        ArrayList<TipoTesoro> tipoVis = new ArrayList();
+        ArrayList<TipoTesoro> tipoOcuJug = new ArrayList();
+        ArrayList<TipoTesoro> tipoVisJug = new ArrayList();
         
         if (malRolloPendiente.obtenerVisiblesPerdidos() > tesorosVisibles.size())
             numVis = tesorosVisibles.size();
@@ -259,7 +260,43 @@ public class Jugador {
         
         
         
-        //Queda ajustar los tipos perdidos
+        // Montamos un array de cada uno de los tipos disponibles
+        
+        for (Tesoro t: tesorosOcultos)
+            tipoOcuJug.add(t.obtenerTipo());
+        for (Tesoro t: tesorosVisibles)
+            tipoVisJug.add(t.obtenerTipo());
+        
+        // Intersecamos esos arrays con los del malRollo
+        
+        ArrayList<TipoTesoro> tipoOcuMalRollo = new ArrayList(malRollo.obtenerTipoOcultosPerdidos());
+        ArrayList<TipoTesoro> tipoVisMalRollo = new ArrayList(malRollo.obtenerTipoVisiblesPerdidos());
+        
+        ArrayList<TipoTesoro> tipoOcu = new ArrayList();
+        ArrayList<TipoTesoro> tipoVis = new ArrayList();
+        
+        for (TipoTesoro t: tipoOcuJug)
+            if (tipoOcuMalRollo.contains(t))
+                tipoOcu.add(t);
+                
+        for (TipoTesoro t: tipoVisJug)
+            if (tipoVisMalRollo.contains(t))
+                tipoVis.add(t);
+        
+        // Quito los repetidos usando un Hashset
+        
+        HashSet aux = new HashSet();
+        aux.addAll(tipoOcu);
+        tipoOcu.clear();
+        tipoOcu.addAll(aux);
+        
+        aux.clear();
+        aux.addAll(tipoVis);
+        tipoVis.clear();
+        tipoVis.addAll(aux);
+        
+        
+        // Montamos un malRolloPendiente
         
         malRolloPendiente = new MalRollo(malRollo.obtenerTexto(),malRollo.obtenerNivelesPerdidos(),
                 numOcu,numVis,malRollo.muerte(),tipoOcu,tipoVis);
