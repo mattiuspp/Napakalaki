@@ -13,6 +13,11 @@ public class Monstruo {
         this.buenRollo = buenRollo;
     }
     
+    @Override
+    public String toString(){
+        return nombre + "\nNivel " + nivel + "\nMal rollo: "+ malRollo.toString() + "\n" + buenRollo.toString();
+    }
+    
     public String obtenerNombre() {
         return nombre;
     }
