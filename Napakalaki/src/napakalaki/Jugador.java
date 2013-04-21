@@ -40,8 +40,11 @@ public class Jugador {
         return piezasOro / 1000;
     }
     
+    
+    // Cambiado!
     public void modificarNivel(int nuevoNivel){   
-        nivel = nuevoNivel;
+        if (nuevoNivel >= NIVEL_MINIMO && nuevoNivel <= NIVEL_MAXIMO)
+            nivel = nuevoNivel;
     }
     
     public int obtenerNivelCombate(){
@@ -109,15 +112,19 @@ public class Jugador {
         return puedo;
     }
     
+    
+    // ¿Esto funciona? ¿No debería ser el negado de todo eso?
     public boolean tienesTesoros(){
         return tesorosOcultos.isEmpty() && tesorosVisibles.isEmpty();
     }
     
+    
+    // Cambiado con variable en vez de 10
     public boolean comprarNiveles(ArrayList<Tesoro> tesoros){
         boolean puedo;
         
         int niveles = calcularNiveles(tesoros);
-        puedo = (niveles+nivel)<10;
+        puedo = (niveles+nivel) < NIVEL_MAXIMO;
         if(puedo){
             incDecNivel(niveles);
             tesorosOcultos.removeAll(tesoros);
@@ -132,6 +139,8 @@ public class Jugador {
         if (nivel < 1) nivel = 1;
     }
     
+    
+    // Cambiado con variable en vez de 10
     public ResultadoCombate combatir(Monstruo monstruoEnJuego){
         ResultadoCombate resultado;
         int nivelM = monstruoEnJuego.obtenerNivel();
@@ -140,7 +149,7 @@ public class Jugador {
         {
             aplicarBuenRollo(monstruoEnJuego.cualEsTuBuenRollo());
             
-            if(nivel >= 10)
+            if(nivel >= NIVEL_MAXIMO)
                 resultado = ResultadoCombate.VENCEYFIN;
             else
                 resultado = ResultadoCombate.VENCE;
@@ -182,6 +191,8 @@ public class Jugador {
         return tesoros;
     }
     
+    // Aquí podríamos controlar que saliera del bucle al sacar el collar. 
+    // Devuelve algo? Devuelve el collar?
     public Tesoro devuelveElCollar(){
         for(Tesoro t: tesorosVisibles)
             if (t.obtenerTipo()==TipoTesoro.COLLAR){
@@ -191,6 +202,8 @@ public class Jugador {
         return null;
     }
     
+    
+    // Esto no va!!!! En la primera iteración se va a salir
     public boolean tienesCollar(){
         for(Tesoro t: tesorosVisibles)
             return t.obtenerTipo() == TipoTesoro.COLLAR;
