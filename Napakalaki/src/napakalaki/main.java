@@ -96,6 +96,7 @@ public class main {
                 }
 
                 fin = juego.siguienteTurno();
+                System.out.println("--------------------------------------");
             }
         }//fin while
     }//fin main
