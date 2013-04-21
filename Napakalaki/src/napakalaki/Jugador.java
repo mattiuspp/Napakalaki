@@ -25,7 +25,7 @@ public class Jugador {
         for(Tesoro t:tesorosVisibles)
             f+=" " + t.obtenerNombre();
         
-        if (!malRolloPendiente.esVacio())
+        if (malRolloPendiente.esVacio())
             f+= "\nMal rollo pendiente: " + malRolloPendiente.toString();
         
         return f;
