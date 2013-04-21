@@ -37,6 +37,10 @@ class MalRollo {
         this.tipoVisiblesPerdidos = new ArrayList(malRollo.tipoVisiblesPerdidos);
     }
     
+    public String obtenerTexto() {
+        return texto;
+    }
+    
     public boolean muerte() {
         return muerte;
     }

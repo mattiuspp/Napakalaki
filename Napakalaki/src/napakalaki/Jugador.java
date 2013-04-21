@@ -243,31 +243,32 @@ public class Jugador {
     
     // Ajusta el malRollo al jugador (le quitamos aquello no pueda descartar)
     public void incluirMalRollo(MalRollo malRollo){
-        malRolloPendiente = new MalRollo(malRollo);
+        int numVis, numOcu;
+        ArrayList<TipoTesoro> tipoOcu = new ArrayList();
+        ArrayList<TipoTesoro> tipoVis = new ArrayList();
+        
+        if (malRolloPendiente.obtenerVisiblesPerdidos() > tesorosVisibles.size())
+            numVis = tesorosVisibles.size();
+        else
+            numVis = malRolloPendiente.obtenerVisiblesPerdidos();
+        
+        if (malRolloPendiente.obtenerOcultosPerdidos() > tesorosOcultos.size())
+            numOcu = tesorosOcultos.size();
+        else
+            numOcu = malRolloPendiente.obtenerOcultosPerdidos();
+        
+        
+        
+        //Queda ajustar los tipos perdidos
+        
+        malRolloPendiente = new MalRollo(malRollo.obtenerTexto(),malRollo.obtenerNivelesPerdidos(),
+                numOcu,numVis,malRollo.muerte(),tipoOcu,tipoVis);
+        
+        
+        
         
         // MalRolloPendiente se queda con lo que SE PUEDE QUITAR EL JUGADOR, NO CON LO QUE SE QUEDA PENDIENTE
-        int numVis = malRolloPendiente.obtenerVisiblesPerdidos();
-        int numOcu = malRolloPendiente.obtenerOcultosPerdidos();
-        
-        ArrayList<TipoTesoro> tipoVismalRollo = new ArrayList(malRolloPendiente.obtenerTipoVisiblesPerdidos());
-        ArrayList<TipoTesoro> tipoOcumalRollo = new ArrayList(malRolloPendiente.obtenerTipoOcultosPerdidos());
-        
-        for (TipoTesoro t: tipoVismalRollo)
-        {
-            for (Tesoro tes: tesorosVisibles)
-            {
-                if (tes.obtenerTipo() == t);
-                    
-            }
-        }
-        
-        //int numVis = malRollo.obtenerTipoVisiblesPerdidos().size();
-        //int numOcu = malRollo.obtenerTipoOcultosPerdidos().size(); 
-      
-        if (numOcu > tesorosOcultos.size())
-        {
-            numOcu = tesorosOcultos.size();
-        }
+
         
         
     }
