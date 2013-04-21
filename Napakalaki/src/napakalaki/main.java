@@ -16,7 +16,7 @@ public class main {
             System.out.println("Indices de cartas a descartar, -1 para finalizar");
             indiceCarta = sc.nextInt();
             while(indiceCarta != -1){
-                if(indiceCarta < listaTesoros.size())
+                if(indiceCarta < listaTesoros.size() && indiceCarta != -1)
                     cartasLeidas.add(listaTesoros.get(indiceCarta));
                 indiceCarta = sc.nextInt();
             }
