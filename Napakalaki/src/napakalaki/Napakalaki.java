@@ -390,7 +390,7 @@ public class Napakalaki {
     }
     
     private Jugador siguienteJugador() {
-        return Jugadores.get((Jugadores.indexOf(jugadorActivo) + 1) % 4);     
+        return Jugadores.get((Jugadores.indexOf(jugadorActivo) + 1) % Jugadores.size());     
     }
     
     public ResultadoCombate desarrollarCombate() {
