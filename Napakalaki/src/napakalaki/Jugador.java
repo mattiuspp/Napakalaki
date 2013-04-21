@@ -113,9 +113,9 @@ public class Jugador {
     }
     
     
-    // ¿Esto funciona? ¿No debería ser el negado de todo eso?
+    // CAMBIADO. No estaba el negado
     public boolean tienesTesoros(){
-        return tesorosOcultos.isEmpty() && tesorosVisibles.isEmpty();
+        return !(tesorosOcultos.isEmpty() && tesorosVisibles.isEmpty());
     }
     
     
@@ -191,8 +191,7 @@ public class Jugador {
         return tesoros;
     }
     
-    // Aquí podríamos controlar que saliera del bucle al sacar el collar. 
-    // Devuelve algo? Devuelve el collar?
+
     public Tesoro devuelveElCollar(){
         for(Tesoro t: tesorosVisibles)
             if (t.obtenerTipo()==TipoTesoro.COLLAR){
@@ -203,10 +202,11 @@ public class Jugador {
     }
     
     
-    // Esto no va!!!! En la primera iteración se va a salir
+    // Corregido (se salía en la primera iteración)
     public boolean tienesCollar(){
         for(Tesoro t: tesorosVisibles)
-            return t.obtenerTipo() == TipoTesoro.COLLAR;
+            if (t.obtenerTipo() == TipoTesoro.COLLAR)
+                return true;
         return false;
     }
     
