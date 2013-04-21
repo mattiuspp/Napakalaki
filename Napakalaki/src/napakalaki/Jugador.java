@@ -228,6 +228,7 @@ public class Jugador {
         
     // -------------- INCOMPLETO ---------
     
+    // Ajusta el malRollo al jugador (le quitamos aquello no pueda descartar)
     public void incluirMalRollo(MalRollo malRollo){
         malRolloPendiente = new MalRollo(malRollo);
         
@@ -242,13 +243,13 @@ public class Jugador {
         {
             for (Tesoro tes: tesorosVisibles)
             {
-                if (tes.obtenerTipo() == t)
+                if (tes.obtenerTipo() == t);
                     
             }
         }
         
         //int numVis = malRollo.obtenerTipoVisiblesPerdidos().size();
-        int numOcu = malRollo.obtenerTipoOcultosPerdidos().size(); 
+        //int numOcu = malRollo.obtenerTipoOcultosPerdidos().size(); 
       
         if (numOcu > tesorosOcultos.size())
         {
@@ -258,6 +259,7 @@ public class Jugador {
         
     }
     
+    // Ejecuta el descarte. Comprueba si se actualiza malRolloPendiente
     private boolean cumploMalRollo(ArrayList<Tesoro> tesVisibles, 
             ArrayList<Tesoro> tesOcultos){
         
@@ -314,7 +316,8 @@ public class Jugador {
         return cumplo;
     } 
  
-        /*public ArrayList<Tesoro>  descartaTesorosRandom(int numTesoros)
+    // Metodo innecesario
+    /*public ArrayList<Tesoro>  descartaTesorosRandom(int numTesoros)
     {
         ArrayList<Tesoro> descartados = new ArrayList();
         

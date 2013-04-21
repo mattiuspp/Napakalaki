@@ -20,12 +20,16 @@ public class main {
             // segundo: resolver malrollo del combate
             // imprimir malRolloPendiente del jugador (del monstruo)
             // dar la opcion al jugador para que se descarte cartas
+            //      devuelve un bool si completa malRolo
             juego.descartarTesoros(null, null);
             
             // tercero: equipar
+            // problema: napakalaki no tiene un metodo para hacerlo desde fuera
+            //      devuelve un bool si pudiera equipar
             // jugador.equiparTesoros(null);
             
             // cuarto: comprar niveles
+            //      devuelve un bool si pudiera comprar niveles
             juego.comprarNivelesJugador(null);
             
             //final del turno: puedo pasar
