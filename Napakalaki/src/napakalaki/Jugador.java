@@ -34,7 +34,7 @@ public class Jugador {
     
     public int calcularNiveles(ArrayList<Tesoro> tesoros){
         int piezasOro = 0;
-        
+                
         for(Tesoro t: tesoros)
             piezasOro += t.obtenerPiezasOro();
                            
