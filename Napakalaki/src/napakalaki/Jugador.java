@@ -17,11 +17,11 @@ public class Jugador {
     @Override
     public String toString() {
         String f = new String();
-        f+="Jugador: " + nombre;
-        f+=" > Cartas en mano(ocultas):";
+        f+="Jugador: " + nombre + "\nNivel: " + nivel;
+        f+="\nCartas en mano(ocultas):";
         for(Tesoro t:tesorosOcultos)
             f+=" " + t.obtenerNombre();
-                f+=" > Cartas equipadas(visibles):";
+                f+="\nCartas equipadas(visibles):";
         for(Tesoro t:tesorosVisibles)
             f+=" " + t.obtenerNombre();
         
