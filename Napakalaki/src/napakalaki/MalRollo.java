@@ -52,6 +52,8 @@ class MalRollo {
         return f;
     }
     
+    
+    
     public String obtenerTexto() {
         return texto;
     }
