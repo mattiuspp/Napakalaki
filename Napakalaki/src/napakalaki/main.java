@@ -3,11 +3,30 @@ package napakalaki;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class main {
-    public static void main(String args[]) {
-        Scanner sc = new Scanner(System.in);
 
-	
+
+public class main {
+    public static class LectorCartas{
+        public Scanner sc = new Scanner(System.in);
+
+        public ArrayList<Tesoro> leeCartas(ArrayList<Tesoro> listaTesoros){
+            ArrayList<Tesoro> cartasLeidas = new ArrayList();
+            int indiceCarta;
+
+            System.out.println("Indices de cartas a descartar, -1 para finalizar");
+            indiceCarta = sc.nextInt();
+            while(indiceCarta != -1){
+                if(indiceCarta < listaTesoros.size())
+                    cartasLeidas.add(listaTesoros.get(indiceCarta));
+                indiceCarta = sc.nextInt();
+            }
+
+            return cartasLeidas;
+        }    
+}
+        
+    public static void main(String args[]) {
+	LectorCartas lectorCartas = new LectorCartas();
         Napakalaki juego = Napakalaki.getInstance();
         
         String jugadores[] = {"Pepe","Juan","Eva"};
@@ -25,55 +44,23 @@ public class main {
             // imprimir malRolloPendiente del jugador (del monstruo)
             // dar la opcion al jugador para que se descarte cartas
             //      devuelve un bool si completa malRolo
-            int indice;
-            ArrayList<Tesoro> visDes = new ArrayList();
-            ArrayList<Tesoro> ocuDes = new ArrayList(); 
-            
-            System.out.println("Indices de cartas visibles a descartar, -1 para finalizar");
-            indice = sc.nextInt();
-            while(indice != -1){
-                visDes.add(juego.obtenerJugadorActivo().obtenerTesorosOcultos().get(indice));
-                indice = sc.nextInt();
-            }
-            
-            System.out.println("Indices de cartas ocultas a descartar, -1 para finalizar");
-            indice = sc.nextInt();
-            while(indice != -1){
-                visDes.add(juego.obtenerJugadorActivo().obtenerTesorosVisibles().get(indice));
-                indice = sc.nextInt();
-            }
-            
-            juego.descartarTesoros(visDes, ocuDes);
-            // tengo mis dudas.... ¿hace falta eliminar los array?
-            // ¿se hace un clear dentro?
+            ArrayList<Tesoro> visDes = lectorCartas.leeCartas(juego.obtenerJugadorActivo().obtenerTesorosVisibles());
+            ArrayList<Tesoro> ocuDes = lectorCartas.leeCartas(juego.obtenerJugadorActivo().obtenerTesorosOcultos());
+       
+            juego.descartarTesoros(visDes, ocuDes); // tengo mis dudas.... ¿hace falta eliminar los array?
             
             
             // tercero: equipar
             // problema: napakalaki no tiene un metodo para hacerlo desde fuera
             //           solucion: creamos metodo obtener jugador 
             //      devuelve un bool si pudiera equipar
-            ArrayList<Tesoro> cartasaEquipar = new ArrayList();
-            
-            System.out.println("Indices de cartas visibles a equipar, -1 para finalizar");
-            indice = sc.nextInt();
-            while(indice != -1){
-                cartasaEquipar.add(juego.obtenerJugadorActivo().obtenerTesorosOcultos().get(indice));
-                indice = sc.nextInt();
-            }
+            ArrayList<Tesoro> cartasaEquipar = lectorCartas.leeCartas(juego.obtenerJugadorActivo().obtenerTesorosOcultos());
             juego.obtenerJugadorActivo().equiparTesoros(cartasaEquipar);
             
             // cuarto: comprar niveles
             //      devuelve un bool si pudiera comprar niveles
-            ArrayList<Tesoro> cartasaVender = new ArrayList();
-            
-            // por ahora no damos la opcion de vender cartas equipadas (visibles)
-            // ¿se puede?
-            System.out.println("Indices de cartas ocultas a vender, -1 para finalizar");
-            indice = sc.nextInt();
-            while(indice != -1){
-                cartasaVender.add(juego.obtenerJugadorActivo().obtenerTesorosOcultos().get(indice));
-                indice = sc.nextInt();
-            }
+            ArrayList<Tesoro> cartasaVender = lectorCartas.leeCartas(juego.obtenerJugadorActivo().obtenerTesorosVisibles());
+            cartasaVender.addAll(lectorCartas.leeCartas(juego.obtenerJugadorActivo().obtenerTesorosOcultos()));
             juego.comprarNivelesJugador(cartasaVender);
             
             //final del turno: puedo pasar
@@ -81,44 +68,19 @@ public class main {
             while( fin != 0)
             {   
                 if(fin > 0){
-                    System.out.println("Indices de cartas visibles a descartar, -1 para finalizar");
-                    indice = sc.nextInt();
-                    while(indice != -1){
-                        visDes.add(juego.obtenerJugadorActivo().obtenerTesorosOcultos().get(indice));
-                        indice = sc.nextInt();
-                    }
+                    ArrayList<Tesoro> visDes1 = lectorCartas.leeCartas(juego.obtenerJugadorActivo().obtenerTesorosVisibles());
+                    ArrayList<Tesoro> ocuDes1 = lectorCartas.leeCartas(juego.obtenerJugadorActivo().obtenerTesorosOcultos());
 
-                    System.out.println("Indices de cartas ocultas a descartar, -1 para finalizar");
-                    indice = sc.nextInt();
-                    while(indice != -1){
-                        visDes.add(juego.obtenerJugadorActivo().obtenerTesorosVisibles().get(indice));
-                        indice = sc.nextInt();
-                        
-                    juego.descartarTesoros(visDes, ocuDes);
-            }
-            
-            
-                }
+                    juego.descartarTesoros(visDes1, ocuDes1); // tengo mis dudas.... ¿hace falta eliminar los array?
+                } 
                 else if(fin < 0){
-                    System.out.println("Indices de cartas visibles a descartar, -1 para finalizar");
-                    indice = sc.nextInt();
-                    while(indice != -1){
-                        visDes.add(juego.obtenerJugadorActivo().obtenerTesorosOcultos().get(indice));
-                        indice = sc.nextInt();
-                    }
+                    ArrayList<Tesoro> visDes2 = lectorCartas.leeCartas(juego.obtenerJugadorActivo().obtenerTesorosVisibles());
+                    ArrayList<Tesoro> ocuDes2 = lectorCartas.leeCartas(juego.obtenerJugadorActivo().obtenerTesorosOcultos());
 
-                    System.out.println("Indices de cartas ocultas a descartar, -1 para finalizar");
-                    indice = sc.nextInt();
-                    while(indice != -1){
-                        visDes.add(juego.obtenerJugadorActivo().obtenerTesorosVisibles().get(indice));
-                        indice = sc.nextInt();
-                    }
-
-                    juego.descartarTesoros(visDes, ocuDes);
+                    juego.descartarTesoros(visDes2, ocuDes2); // tengo mis dudas.... ¿hace falta eliminar los array?
                 }
 
                 fin = juego.siguienteTurno();
             }
-            
-    }
-}
+    }//fin main
+}//fin class
