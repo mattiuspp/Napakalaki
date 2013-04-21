@@ -371,16 +371,24 @@ public class Jugador {
     // Metodo innecesario
     /*public ArrayList<Tesoro>  descartaTesorosRandom(int numTesoros)
     {
-        ArrayList<Tesoro> descartados = new ArrayList();
-        
-        for (int i=0; i<numTesoros; i++){
-            int indice_tesoro = (int) Math.random()*tesorosOcultos.size();
-            descartados.add(tesorosOcultos.get(indice_tesoro));
-            tesorosOcultos.remove(indice_tesoro);
-        }
-        
-        return descartados;
-     }*/
+    ArrayList<Tesoro> descartados = new ArrayList();
+    for (int i=0; i<numTesoros; i++){
+    int indice_tesoro = (int) Math.random()*tesorosOcultos.size();
+    descartados.add(tesorosOcultos.get(indice_tesoro));
+    tesorosOcultos.remove(indice_tesoro);
+    }
+    return descartados;
+    }*/
+    
+    
+    // Testin!!
+    public ArrayList<Tesoro> obtenerTesorosOcultos() {
+        return tesorosOcultos;
+    }
+
+    public ArrayList<Tesoro> obtenerTesorosVisibles() {
+        return tesorosVisibles;
+    }
     
 }
     

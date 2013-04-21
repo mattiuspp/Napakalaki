@@ -483,4 +483,9 @@ public class Napakalaki {
         
         return cumpleMR;
     }
+    
+    //Testin!
+    public Jugador obtenerJugadorActivo() {
+        return jugadorActivo;
+    }
 }
