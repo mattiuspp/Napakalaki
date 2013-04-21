@@ -37,6 +37,21 @@ class MalRollo {
         this.tipoVisiblesPerdidos = new ArrayList(malRollo.tipoVisiblesPerdidos);
     }
     
+    @Override
+    public String toString() {
+        String f = new String();
+        f+= texto + "\nNiveles perdidos = " + nivelesPerdidos + "\nTesoros ocultos perdidos = " + ocultosPerdidos +
+                "\nTipo de tesoros ocultos perdidos = ";
+        for (TipoTesoro t: tipoOcultosPerdidos)
+            f+= t.toString() + " ";
+        f+= "\nTesoros visibles perdidos = " + visiblesPerdidos + "\nTipo de tesoros visibles perdidos = ";
+        for (TipoTesoro t: tipoVisiblesPerdidos)
+            f+= t.toString() + " ";
+        f+= muerte ? "\nMueres" : "\nNo mueres";
+        
+        return f;
+    }
+    
     public String obtenerTexto() {
         return texto;
     }

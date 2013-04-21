@@ -15,7 +15,13 @@ public class Tesoro {
         this.bonusMinimo = bonusMinimo;
         this.bonusMaximo = bonusMaximo;
         this.piezasOro = piezasOro;
-    }  
+    }
+    
+    @Override
+    public String toString() {
+        return nombre + " (" + tipo.toString() + ") " + "\nBonus mínimo = " + bonusMinimo +
+                "\nBonus máximo = " + bonusMaximo + "\nPiezas de Oro = " + piezasOro;
+    }
 
     public String obtenerNombre() {
         return nombre;

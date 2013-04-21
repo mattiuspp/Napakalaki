@@ -9,6 +9,10 @@ class BuenRollo {
         this.gananciaNiveles = gananciaNiveles;
     }
         
+    @Override
+    public String toString() {
+        return "Tesoros ganados: " + gananciaTesoros + "\nNiveles ganados: " + gananciaNiveles;
+    }
     public int obtenerTesorosGanados() {
         return gananciaTesoros;
     }
