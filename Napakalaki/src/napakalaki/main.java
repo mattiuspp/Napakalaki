@@ -13,7 +13,6 @@ public class main {
             ArrayList<Tesoro> cartasLeidas = new ArrayList();
             int indiceCarta;
 
-            System.out.println("Indices de cartas a descartar, -1 para finalizar");
             indiceCarta = sc.nextInt();
             while(indiceCarta != -1){
                 if(indiceCarta<listaTesoros.size())
@@ -28,6 +27,8 @@ public class main {
     public static void main(String args[]) {
 	LectorCartas lectorCartas = new LectorCartas();
         Napakalaki juego = Napakalaki.getInstance();
+        ArrayList<Tesoro> visDes = new ArrayList();
+        ArrayList<Tesoro> ocuDes = new ArrayList();
         
         String jugadores[] = {"Pepe","Juan","Eva"};
         juego.comenzarJuego(jugadores);
@@ -50,8 +51,10 @@ public class main {
             // segundo: resolver malrollo del combate (devuelve bool)    
             System.out.println("// ---CUMPLE MAL ROLLO(COMBATE)--- //");
             System.out.println(juego.obtenerJugadorActivo().toString());
-            ArrayList<Tesoro> visDes = lectorCartas.leeCartas(juego.obtenerJugadorActivo().obtenerTesorosVisibles());
-            ArrayList<Tesoro> ocuDes = lectorCartas.leeCartas(juego.obtenerJugadorActivo().obtenerTesorosOcultos());
+            System.out.println("Indices de las cartas visibles a descartar (-1 abortar)");
+            visDes = lectorCartas.leeCartas(juego.obtenerJugadorActivo().obtenerTesorosVisibles());
+            System.out.println("Indices de las cartas ocultas a descartar (-1 abortar)");
+            ocuDes =  lectorCartas.leeCartas(juego.obtenerJugadorActivo().obtenerTesorosOcultos());
             juego.descartarTesoros(visDes, ocuDes); // tengo mis dudas.... ¿hace falta eliminar los array?
             System.out.println("");
             
@@ -59,6 +62,7 @@ public class main {
             // tercero: equipar (devuelve bool)
             System.out.println("// ---EQUIPO--- //");
             System.out.println(juego.obtenerJugadorActivo().toString());
+            System.out.println("Indices de las cartas ocultas a equipar (-1 abortar)");
             ArrayList<Tesoro> cartasaEquipar = lectorCartas.leeCartas(juego.obtenerJugadorActivo().obtenerTesorosOcultos());
             juego.obtenerJugadorActivo().equiparTesoros(cartasaEquipar);
             System.out.println("");
@@ -67,7 +71,9 @@ public class main {
             //      devuelve un bool si pudiera comprar niveles
             System.out.println("// ---VENTA--- //");
             System.out.println(juego.obtenerJugadorActivo().toString());
+            System.out.println("Indices de las cartas visibles a vender (-1 abortar)");
             ArrayList<Tesoro> cartasaVender = lectorCartas.leeCartas(juego.obtenerJugadorActivo().obtenerTesorosVisibles());
+            System.out.println("Indices de las cartas ocultas a vender (-1 abortar)");
             cartasaVender.addAll(lectorCartas.leeCartas(juego.obtenerJugadorActivo().obtenerTesorosOcultos()));
             juego.comprarNivelesJugador(cartasaVender);
             System.out.println("");
@@ -79,26 +85,29 @@ public class main {
                 if(fin > 0){
                     System.out.println("// ---EXCESO DE CARTAS--- //");
                     System.out.println(juego.obtenerJugadorActivo().toString());
-                    ArrayList<Tesoro> visDes1 = lectorCartas.leeCartas(juego.obtenerJugadorActivo().obtenerTesorosVisibles());
-                    ArrayList<Tesoro> ocuDes1 = lectorCartas.leeCartas(juego.obtenerJugadorActivo().obtenerTesorosOcultos());
-
-                    juego.descartarTesoros(visDes1, ocuDes1);
+                    System.out.println("Indices de las cartas visibles a descartar (-1 abortar)");
+                    visDes = lectorCartas.leeCartas(juego.obtenerJugadorActivo().obtenerTesorosVisibles());
+                    System.out.println("Indices de las cartas ocultas a descartar (-1 abortar)");
+                    ocuDes = lectorCartas.leeCartas(juego.obtenerJugadorActivo().obtenerTesorosOcultos());
+                    
+                    juego.descartarTesoros(visDes, ocuDes);
                     System.out.println("");
                 } 
                 else if(fin < 0){
                     System.out.println("// ---CUMPLE MAL ROLLO (EOT)--- //");
                     System.out.println(juego.obtenerJugadorActivo().toString());
-                    ArrayList<Tesoro> visDes2 = lectorCartas.leeCartas(juego.obtenerJugadorActivo().obtenerTesorosVisibles());
-                    ArrayList<Tesoro> ocuDes2 = lectorCartas.leeCartas(juego.obtenerJugadorActivo().obtenerTesorosOcultos());
+                    System.out.println("Indices de las cartas visibles a descartar (-1 abortar)");
+                    visDes = lectorCartas.leeCartas(juego.obtenerJugadorActivo().obtenerTesorosVisibles());
+                    System.out.println("Indices de las cartas ocultas a descartar (-1 abortar)");
+                    ocuDes = lectorCartas.leeCartas(juego.obtenerJugadorActivo().obtenerTesorosOcultos());
 
-                    juego.descartarTesoros(visDes2, ocuDes2); 
+                    juego.descartarTesoros(visDes, ocuDes); 
                     System.out.println("");
                 }
 
-                fin = juego.siguienteTurno();
-                
+                fin = juego.siguienteTurno();                
             }
-            System.out.println("--------------------------------------");
+            System.out.println("\n\n-----------------------------------------------------\n\n");
         }//fin while
     }//fin main
 }//fin class

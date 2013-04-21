@@ -375,10 +375,12 @@ public class Napakalaki {
     }
     
     private Monstruo siguienteMonstruo() {
-        Monstruo monstruo = mazoMonstruos.get(mazoMonstruos.size()-1);
-        mazoMonstruos.remove(mazoMonstruos.size()-1);
-        descarteMonstruos.add(monstruo);
-        return monstruo;
+        if(monstruoActivo != null){
+            mazoMonstruos.add(monstruoActivo);
+            mazoMonstruos.remove(monstruoActivo);
+        }
+        monstruoActivo = mazoMonstruos.get((int)Math.random()*mazoMonstruos.size());
+        return monstruoActivo;
         
     }
     

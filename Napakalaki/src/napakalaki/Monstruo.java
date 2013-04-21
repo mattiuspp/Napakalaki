@@ -15,7 +15,7 @@ public class Monstruo {
     
     @Override
     public String toString(){
-        return nombre + "\nNivel " + nivel + "\nMal rollo: "+ malRollo.toString() + "\n" + buenRollo.toString();
+        return nombre + ", nivel: " + nivel + malRollo.toString() + "\n" + buenRollo.toString();
     }
     
     public String obtenerNombre() {

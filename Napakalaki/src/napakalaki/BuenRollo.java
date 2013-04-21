@@ -11,7 +11,7 @@ class BuenRollo {
         
     @Override
     public String toString() {
-        return "Tesoros ganados: " + gananciaTesoros + "\nNiveles ganados: " + gananciaNiveles;
+        return "\tTesoros ganados: " + gananciaTesoros + "\n\tNiveles ganados: " + gananciaNiveles;
     }
     public int obtenerTesorosGanados() {
         return gananciaTesoros;
