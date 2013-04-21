@@ -301,9 +301,6 @@ public class Jugador {
         malRolloPendiente = new MalRollo(malRollo.obtenerTexto(),malRollo.obtenerNivelesPerdidos(),
                 numOcu,numVis,malRollo.muerte(),tipoOcu,tipoVis);
         
-        
-        
-        
         // MalRolloPendiente se queda con lo que SE PUEDE QUITAR EL JUGADOR, NO CON LO QUE SE QUEDA PENDIENTE
 
         
