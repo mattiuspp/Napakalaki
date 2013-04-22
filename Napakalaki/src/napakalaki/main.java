@@ -17,6 +17,8 @@ public class main {
             while(indiceCarta != -1){
                 if(indiceCarta<listaTesoros.size())
                     cartasLeidas.add(listaTesoros.get(indiceCarta));
+                else
+                    System.out.println("Indice invalido!");
                 indiceCarta = sc.nextInt();
             }
 
@@ -30,7 +32,7 @@ public class main {
         ArrayList<Tesoro> visDes = new ArrayList();
         ArrayList<Tesoro> ocuDes = new ArrayList();
         
-        String jugadores[] = {"Pepe","Juan","Eva"};
+        String jugadores[] = {"Juan","Eva","Pepe"};
         juego.comenzarJuego(jugadores);
         
         /**************+ Ejemplo de un turno *****************/

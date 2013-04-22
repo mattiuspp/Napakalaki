@@ -48,8 +48,6 @@ public class Jugador {
         return piezasOro / 1000;
     }
     
-    
-    // Cambiado!
     public void modificarNivel(int nuevoNivel){   
         if (nuevoNivel >= NIVEL_MINIMO && nuevoNivel <= NIVEL_MAXIMO)
             nivel = nuevoNivel;
@@ -120,14 +118,10 @@ public class Jugador {
         return puedo;
     }
     
-    
-    // CAMBIADO. No estaba el negado
     public boolean tienesTesoros(){
         return !(tesorosOcultos.isEmpty() && tesorosVisibles.isEmpty());
     }
     
-    
-    // Cambiado con variable en vez de 10
     public boolean comprarNiveles(ArrayList<Tesoro> tesoros){
         boolean puedo;
         
@@ -147,8 +141,6 @@ public class Jugador {
         if (nivel < 1) nivel = 1;
     }
     
-    
-    // Cambiado con variable en vez de 10
     public ResultadoCombate combatir(Monstruo monstruoEnJuego){
         ResultadoCombate resultado;
         int nivelM = monstruoEnJuego.obtenerNivel();
@@ -199,7 +191,6 @@ public class Jugador {
         return tesoros;
     }
     
-
     public Tesoro devuelveElCollar(){
         for(Tesoro t: tesorosVisibles)
             if (t.obtenerTipo()==TipoTesoro.COLLAR){
@@ -209,8 +200,6 @@ public class Jugador {
         return null;
     }
     
-    
-    // Corregido (se salía en la primera iteración)
     public boolean tienesCollar(){
         for(Tesoro t: tesorosVisibles)
             if (t.obtenerTipo() == TipoTesoro.COLLAR)
@@ -226,7 +215,6 @@ public class Jugador {
         nivel = 1;
     }
         
-    // Comprobacion malRolloPendiente mejorada
     public int puedoPasar(){
         if(malRolloPendiente != null && !malRolloPendiente.esVacio())
                 return -1;
@@ -237,8 +225,7 @@ public class Jugador {
     }
     
     public boolean descartarTesoros(ArrayList<Tesoro> tesorosVisDes, 
-            ArrayList<Tesoro> tesorosOcuDes)
-    {
+            ArrayList<Tesoro> tesorosOcuDes){
         boolean cumpleMR;
         cumpleMR = cumploMalRollo(tesorosVisibles, tesorosOcultos);
         
@@ -248,7 +235,9 @@ public class Jugador {
         return cumpleMR;
     }
         
-    // -------------- INCOMPLETO ---------
+    
+    
+    // ----------------------- INCOMPLETO -------------
     
     // Ajusta el malRollo al jugador (le quitamos aquello no pueda descartar)
     public void incluirMalRollo(MalRollo malRollo){
@@ -316,6 +305,7 @@ public class Jugador {
     }
     
     // Ejecuta el descarte. Comprueba si se actualiza malRolloPendiente
+    // ERROR: no actualiza malRollopendiente!!
     private boolean cumploMalRollo(ArrayList<Tesoro> tesVisibles, 
             ArrayList<Tesoro> tesOcultos){
         
@@ -373,15 +363,15 @@ public class Jugador {
     } 
  
     // Metodo innecesario
-    /*public ArrayList<Tesoro>  descartaTesorosRandom(int numTesoros)
-    {
-    ArrayList<Tesoro> descartados = new ArrayList();
-    for (int i=0; i<numTesoros; i++){
-    int indice_tesoro = (int) Math.random()*tesorosOcultos.size();
-    descartados.add(tesorosOcultos.get(indice_tesoro));
-    tesorosOcultos.remove(indice_tesoro);
-    }
-    return descartados;
+   /*public ArrayList<Tesoro>  descartaTesorosRandom(int numTesoros)
+        {
+        ArrayList<Tesoro> descartados = new ArrayList();
+        for (int i=0; i<numTesoros; i++){
+        int indice_tesoro = (int) Math.random()*tesorosOcultos.size();
+        descartados.add(tesorosOcultos.get(indice_tesoro));
+        tesorosOcultos.remove(indice_tesoro);
+        }
+        return descartados;
     }*/
     
     
@@ -389,7 +379,6 @@ public class Jugador {
     public ArrayList<Tesoro> obtenerTesorosOcultos() {
         return tesorosOcultos;
     }
-
     public ArrayList<Tesoro> obtenerTesorosVisibles() {
         return tesorosVisibles;
     }

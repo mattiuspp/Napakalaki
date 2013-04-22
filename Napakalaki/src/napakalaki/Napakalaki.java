@@ -374,20 +374,19 @@ public class Napakalaki {
         return Jugadores.get( (int)Math.random() * Jugadores.size() );
     }
     
+    // ALEATORIO HORRIBLE
     private Monstruo siguienteMonstruo() {
-        if(monstruoActivo != null){
-            mazoMonstruos.add(monstruoActivo);
-            mazoMonstruos.remove(monstruoActivo);
-        }
         monstruoActivo = mazoMonstruos.get((int)Math.random()*mazoMonstruos.size());
+        descarteMonstruos.add(monstruoActivo);
+        mazoMonstruos.remove(monstruoActivo);
         return monstruoActivo;
         
     }
     
     private Tesoro siguienteTesoro() {
-        Tesoro tesoro = mazoTesoros.get(mazoTesoros.size()-1);
-        mazoTesoros.remove(mazoTesoros.size()-1);
+        Tesoro tesoro = mazoTesoros.get((int)Math.random()*mazoTesoros.size());
         descarteTesoros.add(tesoro);
+        mazoTesoros.remove(tesoro);
         return tesoro;
     }
     
