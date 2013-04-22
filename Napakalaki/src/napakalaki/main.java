@@ -1,3 +1,8 @@
+/* BUG 22-04-14 Adrián
+ *  -   Aleatorio Horrible(mirar metodos siguienteMonstruo()
+ *  -   CumpleMalRollo de jugador no cambia malRolloPendiente
+ */
+
 package napakalaki;
 
 import java.util.ArrayList;
