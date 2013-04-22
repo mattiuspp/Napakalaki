@@ -4,6 +4,7 @@
 package napakalaki;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Napakalaki {
     private Jugador jugadorActivo;
@@ -14,6 +15,9 @@ public class Napakalaki {
     private ArrayList<Monstruo> mazoMonstruos = new ArrayList();
     private ArrayList<Tesoro> descarteTesoros  = new ArrayList();
     private ArrayList<Tesoro> mazoTesoros = new ArrayList();
+    
+    // Creo un atributo dado privado como un objeto de la clase Random
+    private Random dado = new Random();
     
     // Establecemos la clase como singleton
     private static final Napakalaki instance = new Napakalaki();
@@ -348,9 +352,9 @@ public class Napakalaki {
     
     private void repartirCartas() {
         for (Jugador jugador: Jugadores){
-            int dado = (int) Math.random()*6+1;
+            //int dado = (int) Math.random()*6+1;
             int numTesoros;
-            switch (dado){
+            switch (dado.nextInt(6)+1){ // Aleatorio nuevo
                     case 1:{
                         numTesoros = 1;
                         break;
@@ -371,12 +375,18 @@ public class Napakalaki {
     }
     
     private Jugador primerJugador() {
-        return Jugadores.get( (int)Math.random() * Jugadores.size() );
+        /* Pruebo nuevo aleatorio */
+        //return Jugadores.get( (int)Math.random() * Jugadores.size() );
+        return Jugadores.get(dado.nextInt(Jugadores.size()));
     }
     
     // ALEATORIO HORRIBLE
     private Monstruo siguienteMonstruo() {
-        monstruoActivo = mazoMonstruos.get((int)Math.random()*mazoMonstruos.size());
+        /* Pruebo nuevo aleatorio */
+        
+        /* Genera un número entre 0 y mazoMonstruos.size()-1 */
+        //monstruoActivo = mazoMonstruos.get((int)Math.random()*mazoMonstruos.size());
+        monstruoActivo = mazoMonstruos.get(dado.nextInt(mazoMonstruos.size()));
         descarteMonstruos.add(monstruoActivo);
         mazoMonstruos.remove(monstruoActivo);
         return monstruoActivo;
@@ -384,7 +394,7 @@ public class Napakalaki {
     }
     
     private Tesoro siguienteTesoro() {
-        Tesoro tesoro = mazoTesoros.get((int)Math.random()*mazoTesoros.size());
+        Tesoro tesoro = mazoTesoros.get(dado.nextInt(mazoTesoros.size()));
         descarteTesoros.add(tesoro);
         mazoTesoros.remove(tesoro);
         return tesoro;
@@ -445,9 +455,9 @@ public class Napakalaki {
             boolean tieneTesoros = jugadorActivo.tienesTesoros();
             
             if(!tieneTesoros){
-                int dado = (int) Math.random()*6+1;
+                //int dado = (int) Math.random()*6+1;
                 int numTesoros;
-                switch (dado){
+                switch (dado.nextInt(6)+1){
                         case 1:{
                             numTesoros = 1;
                             break;
