@@ -1,6 +1,9 @@
 /* BUG 22-04-14 Adrián
  *  -   Aleatorio Horrible(mirar metodos siguienteMonstruo()
  *  -   CumpleMalRollo de jugador no cambia malRolloPendiente
+ *  Antonio
+ *  -   Si no se quitan todos los objetos da IndexOutOfBoundsException
+ *  -   A todos les asigna el mismo monstruo cada turno... Aleatorio funciona bien pero parece no cambiar hasta que no cambia el turno
  */
 
 package napakalaki;
