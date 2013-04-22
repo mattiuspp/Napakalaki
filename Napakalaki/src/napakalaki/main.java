@@ -34,14 +34,13 @@ public class main {
     public static void main(String args[]) {
 	LectorCartas lectorCartas = new LectorCartas();
         Napakalaki juego = Napakalaki.getInstance();
-        ArrayList<Tesoro> visDes = new ArrayList();
-        ArrayList<Tesoro> ocuDes = new ArrayList();
+        ArrayList<Tesoro> visDes;
+        ArrayList<Tesoro> ocuDes;
         
         String jugadores[] = {"Juan","Eva","Pepe"};
         juego.comenzarJuego(jugadores);
         
         /**************+ Ejemplo de un turno *****************/
-        // esta todo tabulado porque se ejecuta en un bucle
         while(true){
             
             // primero: combate
