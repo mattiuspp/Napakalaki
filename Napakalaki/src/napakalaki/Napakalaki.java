@@ -354,7 +354,9 @@ public class Napakalaki {
         for (Jugador jugador: Jugadores){
             //int dado = (int) Math.random()*6+1;
             int numTesoros;
-            switch (dado.nextInt(6)+1){ // Aleatorio nuevo
+            // int randomNum = rand.nextInt(max - min + 1) + min; Hay que sumar 1 ya que nextInt devuelve
+            // un entero en el rango [0,n)
+            switch (dado.nextInt(6)+1){ // Aleatorio nuevo entre 1 y 6
                     case 1:{
                         numTesoros = 1;
                         break;
