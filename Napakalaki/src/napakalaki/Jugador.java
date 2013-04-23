@@ -18,12 +18,12 @@ public class Jugador {
     public String toString() {
         String f = new String();
         f+=nombre + ", nivel: " + nivel;
-        f+="\n\tCartas en mano(ocultas):";
+        f+="\n\tCartas en mano(ocultas): ";
         for(Tesoro t:tesorosOcultos)
-            f+=" " + t.obtenerNombre();
-                f+="\n\tCartas equipadas(visibles):";
+            f+=t.obtenerNombre() + " | ";
+                f+="\n\tCartas equipadas(visibles): ";
         for(Tesoro t:tesorosVisibles)
-            f+=" " + t.obtenerNombre();
+            f+=t.obtenerNombre() + " | ";
         
         if (malRolloPendiente != null)
             f+= "\nMal rollo pendiente: " + malRolloPendiente.toString();
@@ -291,6 +291,7 @@ public class Jugador {
         aux.addAll(tipoVis);
         tipoVis.clear();
         tipoVis.addAll(aux);
+        aux.clear();
         
         
         // Montamos un malRolloPendiente

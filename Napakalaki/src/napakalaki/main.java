@@ -1,5 +1,5 @@
 /* BUG 22-04-14 Adrián
- *  -   Aleatorio Horrible(mirar metodos siguienteMonstruo()
+ *  -   Aleatorio Horrible(mirar metodos siguienteMonstruo() -> Se supone que arreglado
  *  -   CumpleMalRollo de jugador no cambia malRolloPendiente
  *  Antonio
  *  -   Si no se quitan todos los objetos da IndexOutOfBoundsException
