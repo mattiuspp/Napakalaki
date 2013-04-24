@@ -81,7 +81,6 @@ public class main {
             visDes = lectorCartas.leeCartas(juego.obtenerJugadorActivo().obtenerTesorosVisibles());
 
             cumplioMalRollo = juego.descartarTesoros(visDes, ocuDes);
-            System.out.println(cumplioMalRollo);
             
             if(cumplioMalRollo)
             {
@@ -112,10 +111,9 @@ public class main {
                 System.out.println("\n// -----TRAS VENTA----- //");
                 System.out.println(juego.obtenerJugadorActivo().toString());
             }
-            else{
-                System.out.println("¡No puedes equipar ni vender si tienes un malrollo pendiente!");
-                System.out.println("Este turno perdiste la opcion :(");
-            }
+            else
+                System.out.println("\n¡No puedes equipar ni vender si tienes un malrollo pendiente!"
+                        + "--> Este turno perdiste la opcion ");
 
             
             //final del turno: puedo pasar
