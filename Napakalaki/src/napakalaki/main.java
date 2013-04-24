@@ -81,7 +81,7 @@ public class main {
             visDes = lectorCartas.leeCartas(juego.obtenerJugadorActivo().obtenerTesorosVisibles());
 
             cumplioMalRollo = juego.descartarTesoros(visDes, ocuDes);
-            
+            System.out.println(cumplioMalRollo);
             
             if(cumplioMalRollo)
             {

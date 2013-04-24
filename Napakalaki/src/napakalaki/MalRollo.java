@@ -54,9 +54,9 @@ class MalRollo {
                     f+= t.toString() + " ";
                 f+="|";
             }
-            if(muerte==true)
-                f+= "\nMuerte ON";
         }
+        if(muerte==true)
+            f+= "\nMuerte ON";
         
         return f;
     }
