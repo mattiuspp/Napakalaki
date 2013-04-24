@@ -82,6 +82,7 @@ public class Jugador {
     private boolean puedoEquipar(Tesoro unTesoro){
         boolean puedo;
         ArrayList<TipoTesoro> tipos = new ArrayList();
+        
         for(Tesoro t: tesorosVisibles)
             tipos.add(t.obtenerTipo());
         
