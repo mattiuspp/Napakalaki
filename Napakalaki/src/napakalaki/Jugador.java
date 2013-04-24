@@ -81,39 +81,38 @@ public class Jugador {
     
     private boolean puedoEquipar(Tesoro unTesoro){
         boolean puedo;
+        
         ArrayList<TipoTesoro> tipos = new ArrayList();
         
         for(Tesoro t: tesorosVisibles)
             tipos.add(t.obtenerTipo());
         
-        if(unTesoro.obtenerTipo() != TipoTesoro.MANO && unTesoro.obtenerTipo() != TipoTesoro.DOSMANOS ){
-            if(!tipos.contains(unTesoro.obtenerTipo())){
+        if(unTesoro.obtenerTipo() != TipoTesoro.MANO && 
+                unTesoro.obtenerTipo() != TipoTesoro.DOSMANOS )
+        {
+            puedo = !tipos.contains(unTesoro.obtenerTipo());
+            /*if(!tipos.contains(unTesoro.obtenerTipo()))
                 puedo = true;
-                tesorosVisibles.add(unTesoro);
-                tesorosOcultos.remove((unTesoro));
-            }
             else
-                puedo = false;
+                puedo = false;*/
         }
-        else if(unTesoro.obtenerTipo() == TipoTesoro.DOSMANOS){
-            if(!tipos.contains(TipoTesoro.DOSMANOS) && !tipos.contains(TipoTesoro.MANO)){
-                puedo = true;
-                tesorosVisibles.add(unTesoro);
-                tesorosOcultos.remove((unTesoro));
-            }
+        else if(unTesoro.obtenerTipo() == TipoTesoro.DOSMANOS)
+        {
+            puedo = !tipos.contains(TipoTesoro.DOSMANOS) && !tipos.contains(TipoTesoro.MANO);
+            /*if(!tipos.contains(TipoTesoro.DOSMANOS) && !tipos.contains(TipoTesoro.MANO))
+                puedo = true
             else
-                puedo = false;
-            
+                puedo = false;  */          
         }
-        else{
-            if( !tipos.contains(TipoTesoro.DOSMANOS) && 
-                    (tipos.indexOf(TipoTesoro.MANO) == tipos.lastIndexOf(TipoTesoro.MANO)   ) ){
+        else
+        {
+            puedo = !tipos.contains(TipoTesoro.DOSMANOS) &&
+                    (tipos.indexOf(TipoTesoro.MANO) == tipos.lastIndexOf(TipoTesoro.MANO));
+            /*if(!tipos.contains(TipoTesoro.DOSMANOS) &&
+                    (tipos.indexOf(TipoTesoro.MANO) == tipos.lastIndexOf(TipoTesoro.MANO)) )
                 puedo = true;
-                tesorosVisibles.add(unTesoro);
-                tesorosOcultos.remove((unTesoro));
-            }
             else
-                puedo = false;
+                puedo = false;*/
         }
            
         return puedo;
