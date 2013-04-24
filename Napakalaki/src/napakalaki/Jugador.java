@@ -305,8 +305,42 @@ public class Jugador {
         
     }
     
+    private boolean cumploMalRollo(ArrayList<Tesoro> tesVisibles, 
+            ArrayList<Tesoro> tesOcultos){
+        
+        int visiblesRestantes;
+        for(Tesoro t:tesVisibles)
+        {
+            tesorosVisibles.remove(t);
+            
+            visiblesRestantes = malRolloPendiente.obtenerVisiblesPerdidos();
+            if(visiblesRestantes>0)
+                malRolloPendiente.modificarVisiblesPerdidos(visiblesRestantes-1);
+            
+            malRolloPendiente.obtenerTipoVisiblesPerdidos().remove(t.obtenerTipo());
+        }
+        
+        int ocultosRestantes;
+        for(Tesoro t:tesOcultos)
+        {
+            tesorosOcultos.remove(t);
+            
+            ocultosRestantes = malRolloPendiente.obtenerOcultosPerdidos();
+            if(ocultosRestantes>0)
+                malRolloPendiente.modificarOcultosPerdidos(ocultosRestantes-1);
+            
+            malRolloPendiente.obtenerTipoOcultosPerdidos().remove(t.obtenerTipo());
+        }        
+        
+        //tesOcultos.clear(); lo elimina descartarTesoros()
+        //tesVisibles.clear(); lo elimina descartarTesoros()
+        
+        return malRolloPendiente.esVacio();
+    }
+    
     // Ejecuta el descarte. Comprueba si se actualiza malRolloPendiente
     // ERROR: no actualiza malRollopendiente!!
+    /*
     private boolean cumploMalRollo(ArrayList<Tesoro> tesVisibles, 
             ArrayList<Tesoro> tesOcultos){
         
@@ -362,7 +396,8 @@ public class Jugador {
         }
         return cumplo;
     } 
- 
+     */
+    
     // Metodo innecesario
    /*public ArrayList<Tesoro>  descartaTesorosRandom(int numTesoros)
         {

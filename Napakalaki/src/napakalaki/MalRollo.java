@@ -88,6 +88,16 @@ class MalRollo {
     public int obtenerOcultosPerdidos(){
         return ocultosPerdidos;
     }
+
+    public void modificarVisiblesPerdidos(int VisiblesPerdidos) {
+        this.visiblesPerdidos = VisiblesPerdidos;
+    }
+
+    public void modificarOcultosPerdidos(int ocultosPerdidos) {
+        this.ocultosPerdidos = ocultosPerdidos;
+    }
+    
+    
     
     public boolean esVacio(){
         return ocultosPerdidos==0 && visiblesPerdidos==0;
