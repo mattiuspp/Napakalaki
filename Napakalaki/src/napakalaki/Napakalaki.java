@@ -362,7 +362,7 @@ public class Napakalaki {
                         break;
                     }
                     case 6:{
-                        numTesoros = 6;
+                        numTesoros = 3;
                         break;
                     }
                     default:{
@@ -465,7 +465,7 @@ public class Napakalaki {
                             break;
                         }
                         case 6:{
-                            numTesoros = 6;
+                            numTesoros = 3;
                             break;
                         }
                         default:{
