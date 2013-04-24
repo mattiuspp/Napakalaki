@@ -13,6 +13,10 @@
  *          - piensalo ;)
  */
 
+/*
+ * ARREGLATO TODO. VERIFICAR SI FUNCIONA
+ */
+
 package napakalaki;
 
 import java.util.ArrayList;
