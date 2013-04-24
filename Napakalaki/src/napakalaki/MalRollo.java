@@ -40,21 +40,23 @@ class MalRollo {
     @Override
     public String toString() {
         String f = new String();
-        f+= "\n\tNiveles perdidos = " + nivelesPerdidos;
-        if(ocultosPerdidos!=0){
-            f+="\n\tTesoros ocultos perdidos = " + ocultosPerdidos + "  | ";
-            for (TipoTesoro t: tipoOcultosPerdidos)
-                f+= t.toString() + " ";
-            f+="|";
-         }
-        if(visiblesPerdidos!=0){
-            f+= "\n\tTesoros visibles perdidos = " + visiblesPerdidos + "  | ";
-            for (TipoTesoro t: tipoVisiblesPerdidos)
-                f+= t.toString() + " ";
-            f+="|";
+        if(!esVacio()){
+            //f+= "\n\tNiveles perdidos = " + nivelesPerdidos;
+            if(ocultosPerdidos!=0){
+                f+="\n\tTesoros ocultos perdidos = " + ocultosPerdidos + "  | ";
+                for (TipoTesoro t: tipoOcultosPerdidos)
+                    f+= t.toString() + " ";
+                f+="|";
+             }
+            if(visiblesPerdidos!=0){
+                f+= "\n\tTesoros visibles perdidos = " + visiblesPerdidos + "  | ";
+                for (TipoTesoro t: tipoVisiblesPerdidos)
+                    f+= t.toString() + " ";
+                f+="|";
+            }
+            if(muerte==true)
+                f+= "\nMuerte ON";
         }
-        if(muerte==true)
-            f+= "\nMuerte ON";
         
         return f;
     }

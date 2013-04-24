@@ -309,27 +309,25 @@ public class Jugador {
             ArrayList<Tesoro> tesOcultos){
         
         int visiblesRestantes;
-        for(Tesoro t:tesVisibles)
-        {
-            tesorosVisibles.remove(t);
+        for(int i=0; i<tesVisibles.size(); i++){
+            tesorosVisibles.remove(tesVisibles.get(i));
             
             visiblesRestantes = malRolloPendiente.obtenerVisiblesPerdidos();
             if(visiblesRestantes>0)
                 malRolloPendiente.modificarVisiblesPerdidos(visiblesRestantes-1);
             
-            malRolloPendiente.obtenerTipoVisiblesPerdidos().remove(t.obtenerTipo());
+            malRolloPendiente.obtenerTipoVisiblesPerdidos().remove(tesVisibles.get(i).obtenerTipo());           
         }
         
         int ocultosRestantes;
-        for(Tesoro t:tesOcultos)
-        {
-            tesorosOcultos.remove(t);
+        for(int i=0; i<tesOcultos.size(); i++){
+            tesorosOcultos.remove(tesOcultos.get(i));
             
             ocultosRestantes = malRolloPendiente.obtenerOcultosPerdidos();
             if(ocultosRestantes>0)
                 malRolloPendiente.modificarOcultosPerdidos(ocultosRestantes-1);
             
-            malRolloPendiente.obtenerTipoOcultosPerdidos().remove(t.obtenerTipo());
+            malRolloPendiente.obtenerTipoOcultosPerdidos().remove(tesOcultos.get(i).obtenerTipo());
         }        
         
         //tesOcultos.clear(); lo elimina descartarTesoros()

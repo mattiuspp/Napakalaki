@@ -83,6 +83,9 @@ public class main {
             cartasaVender.addAll(lectorCartas.leeCartas(juego.obtenerJugadorActivo().obtenerTesorosOcultos()));
             juego.comprarNivelesJugador(cartasaVender);
             System.out.println("");
+            System.out.println("// ---TRAS VENTA--- //");
+            System.out.println(juego.obtenerJugadorActivo().toString());
+            System.out.println(""); 
             
             //final del turno: puedo pasar
             int fin = juego.siguienteTurno();
