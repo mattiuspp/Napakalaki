@@ -6,6 +6,11 @@
  *  -   venta funciona 100%
  * BUGS:
  *  -   equipar NO FUNCIONA ----> Arreglar
+ * PROBLEMA:
+ *  -   el malRollo se puede hacer al final del turno y esta ajustado con las cartas que tiene...
+ *      ¿que pasa si un jugador se equipar y/o vende cartas? -> ya nunca podría librarse del malRollo
+ *          - solucion? -> limitar la venta de cartas y/o equipar a cuando no haya malRollo o no afecte al malRollo
+ *          - piensalo ;)
  */
 
 package napakalaki;
