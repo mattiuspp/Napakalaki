@@ -1,6 +1,9 @@
 /* BUG 24-04-14 Adrián
  *  -   siguienteMonstruo() funcionado 100%
  *  -   cumpleMalRollo parece que funciona -> Comprobar
+ *  -   venta funciona 100%
+ *  -   equipar NO FUNCIONA ----> Arreglar
+ *  -   cumploMalRollo funciona si el ArrayTesoros tiene mas de un elemento -> Arreglar!!
  */
 
 package napakalaki;
