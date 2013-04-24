@@ -86,7 +86,8 @@ public class Jugador {
         for(Tesoro t: tesorosVisibles)
             tipos.add(t.obtenerTipo());
         
-        if(unTesoro.obtenerTipo() != TipoTesoro.MANO && unTesoro.obtenerTipo() != TipoTesoro.DOSMANOS ){
+        if(unTesoro.obtenerTipo() != TipoTesoro.MANO && unTesoro.obtenerTipo() != TipoTesoro.DOSMANOS )
+        {
             if(tipos.contains(unTesoro.obtenerTipo())){
                 puedo = true;
                 tesorosVisibles.add(unTesoro);
