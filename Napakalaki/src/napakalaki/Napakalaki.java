@@ -475,11 +475,10 @@ public class Napakalaki {
                 }
                 for (int i = 1; i <= numTesoros; i++){
                     jugadorActivo.robarTesoro(siguienteTesoro());
-                }
-                
-                monstruoActivo = siguienteMonstruo();
+                }      
             } 
             
+            monstruoActivo = siguienteMonstruo();
         }
         
         return fin;        

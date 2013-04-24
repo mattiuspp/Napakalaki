@@ -3,7 +3,9 @@
  *  -   CumpleMalRollo de jugador no cambia malRolloPendiente
  *  Antonio
  *  -   Si no se quitan todos los objetos da IndexOutOfBoundsException
- *  -   A todos les asigna el mismo monstruo cada turno... Aleatorio funciona bien pero parece no cambiar hasta que no cambia el turno
+ *  -   A todos les asigna el mismo monstruo cada turno... Aleatorio funciona bien pero parece no cambiar hasta que no
+ *  Adrian
+ *  - Monstruo-aletoriedad arreglado. sigueinte turno estaba mal!
  */
 
 package napakalaki;
