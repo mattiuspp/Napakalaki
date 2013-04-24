@@ -25,7 +25,7 @@ public class Jugador {
         for(Tesoro t:tesorosVisibles)
             f+=t.obtenerNombre() + " | ";
         
-        if (malRolloPendiente != null)
+        if (malRolloPendiente != null && !malRolloPendiente.esVacio())
             f+= "\nMal rollo pendiente: " + malRolloPendiente.toString();
         
         return f;
@@ -316,7 +316,8 @@ public class Jugador {
             if(visiblesRestantes>0)
                 malRolloPendiente.modificarVisiblesPerdidos(visiblesRestantes-1);
             
-            malRolloPendiente.obtenerTipoVisiblesPerdidos().remove(tesVisibles.get(i).obtenerTipo());           
+            if(malRolloPendiente.obtenerTipoVisiblesPerdidos().size()>0)
+                malRolloPendiente.obtenerTipoVisiblesPerdidos().remove(tesVisibles.get(i).obtenerTipo());           
         }
         
         int ocultosRestantes;
@@ -327,7 +328,8 @@ public class Jugador {
             if(ocultosRestantes>0)
                 malRolloPendiente.modificarOcultosPerdidos(ocultosRestantes-1);
             
-            malRolloPendiente.obtenerTipoOcultosPerdidos().remove(tesOcultos.get(i).obtenerTipo());
+            if(malRolloPendiente.obtenerTipoOcultosPerdidos().size()>0)
+                malRolloPendiente.obtenerTipoOcultosPerdidos().remove(tesOcultos.get(i).obtenerTipo());
         }        
         
         //tesOcultos.clear(); lo elimina descartarTesoros()

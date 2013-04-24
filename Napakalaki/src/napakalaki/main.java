@@ -1,9 +1,11 @@
 /* BUG 24-04-14 Adrián
+ * ARREGLADO.
  *  -   siguienteMonstruo() funcionado 100%
- *  -   cumpleMalRollo parece que funciona -> Comprobar
+ *  -   cumpleMalRollo parece que funciona -> funcionando 99% (no me ha dado errores)
+ *              si el ArrayTesoros tiene mas de un elemento -> Arreglado!
  *  -   venta funciona 100%
+ * BUGS:
  *  -   equipar NO FUNCIONA ----> Arreglar
- *  -   cumploMalRollo funciona si el ArrayTesoros tiene mas de un elemento -> Arreglar!!
  */
 
 package napakalaki;
@@ -97,12 +99,10 @@ public class main {
                 if(fin > 0){
                     System.out.println("// ---EXCESO DE CARTAS--- //");
                     System.out.println(juego.obtenerJugadorActivo().toString());
-                    System.out.println("Indices de las cartas visibles a descartar (-1 abortar)");
-                    visDes = lectorCartas.leeCartas(juego.obtenerJugadorActivo().obtenerTesorosVisibles());
                     System.out.println("Indices de las cartas ocultas a descartar (-1 abortar)");
                     ocuDes = lectorCartas.leeCartas(juego.obtenerJugadorActivo().obtenerTesorosOcultos());
                     
-                    juego.descartarTesoros(visDes, ocuDes);
+                    juego.descartarTesoros(new ArrayList(), ocuDes);
                     System.out.println("");
                 } 
                 else if(fin < 0){
