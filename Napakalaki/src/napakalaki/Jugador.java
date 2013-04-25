@@ -87,33 +87,13 @@ public class Jugador {
         for(Tesoro t: tesorosVisibles)
             tipos.add(t.obtenerTipo());
         
-        if(unTesoro.obtenerTipo() != TipoTesoro.MANO && 
-                unTesoro.obtenerTipo() != TipoTesoro.DOSMANOS )
-        {
+        if(unTesoro.obtenerTipo() != TipoTesoro.MANO && unTesoro.obtenerTipo() != TipoTesoro.DOSMANOS )
             puedo = !tipos.contains(unTesoro.obtenerTipo());
-            /*if(!tipos.contains(unTesoro.obtenerTipo()))
-                puedo = true;
-            else
-                puedo = false;*/
-        }
         else if(unTesoro.obtenerTipo() == TipoTesoro.DOSMANOS)
-        {
             puedo = !tipos.contains(TipoTesoro.DOSMANOS) && !tipos.contains(TipoTesoro.MANO);
-            /*if(!tipos.contains(TipoTesoro.DOSMANOS) && !tipos.contains(TipoTesoro.MANO))
-                puedo = true
-            else
-                puedo = false;  */          
-        }
         else
-        {
             puedo = !tipos.contains(TipoTesoro.DOSMANOS) &&
                     (tipos.indexOf(TipoTesoro.MANO) == tipos.lastIndexOf(TipoTesoro.MANO));
-            /*if(!tipos.contains(TipoTesoro.DOSMANOS) &&
-                    (tipos.indexOf(TipoTesoro.MANO) == tipos.lastIndexOf(TipoTesoro.MANO)) )
-                puedo = true;
-            else
-                puedo = false;*/
-        }
            
         return puedo;
     }
@@ -232,7 +212,7 @@ public class Jugador {
         if(tesorosVisDes.isEmpty() && tesorosOcuDes.isEmpty())
             return malRolloPendiente.esVacio();
         
-        cumpleMR = cumploMalRollo(tesorosVisibles, tesorosOcultos);
+        cumpleMR = cumploMalRollo(tesorosVisDes, tesorosOcuDes);
         
         tesorosVisDes.clear();
         tesorosOcuDes.clear();

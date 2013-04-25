@@ -130,7 +130,7 @@ public class main {
                     System.out.println("Indices de las cartas ocultas a descartar (-1 abortar)");
                     ocuDes = lectorCartas.leeCartas(juego.obtenerJugadorActivo().obtenerTesorosOcultos());
                     
-                    juego.descartarTesoros(new ArrayList(), ocuDes); //no le pasamos null
+                    juego.descartarTesoros(new ArrayList(), ocuDes); 
                 } 
                 else if(fin < 0)
                 {
