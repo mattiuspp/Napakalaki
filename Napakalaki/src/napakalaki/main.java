@@ -38,6 +38,7 @@ public class main {
                     cartasLeidas.add(listaTesoros.get(indiceCarta));
                 else
                     System.out.println("Indice invalido!");
+                
                 indiceCarta = sc.nextInt();
             }
 
@@ -82,8 +83,9 @@ public class main {
 
             cumplioMalRollo = juego.descartarTesoros(visDes, ocuDes);
             
-            if(cumplioMalRollo)
-            {
+            
+            //if(cumplioMalRollo)
+            //{
                 // tercero: equipar
                 System.out.println("\n// -----EQUIPO----- //");
                 System.out.println(juego.obtenerJugadorActivo().toString());
@@ -110,10 +112,10 @@ public class main {
                 // final del turno
                 System.out.println("\n// -----TRAS VENTA----- //");
                 System.out.println(juego.obtenerJugadorActivo().toString());
-            }
-            else
-                System.out.println("\n¡No puedes equipar ni vender si tienes un malrollo pendiente!"
-                        + "--> Este turno perdiste la opcion ");
+            //}
+            //else
+            //    System.out.println("\n¡No puedes equipar ni vender si tienes un malrollo pendiente!"
+            //           + "--> Este turno perdiste la opcion ");
 
             
             //final del turno: puedo pasar
