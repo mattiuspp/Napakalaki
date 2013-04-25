@@ -44,7 +44,6 @@ public class main {
                 
                 indiceCarta = sc.nextInt();
             }
-
             return cartasLeidas;
         }    
 }
