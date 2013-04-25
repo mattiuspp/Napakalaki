@@ -248,7 +248,8 @@ public class Jugador {
         }
                 
         if(malRollo.obtenerTipoOcultosPerdidos().isEmpty()){ 
-            malRolloPendiente.modificarOcultosPerdidos(Math.max(malRollo.obtenerOcultosPerdidos(), tesorosOcultos.size()));
+            malRolloPendiente.modificarOcultosPerdidos
+                    (Math.max(malRollo.obtenerOcultosPerdidos(), tesorosOcultos.size()));
         }
         
         
