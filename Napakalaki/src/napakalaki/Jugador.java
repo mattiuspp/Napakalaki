@@ -227,6 +227,38 @@ public class Jugador {
     // Ajusta el malRollo al jugador (le quitamos aquello no pueda descartar)
     public void incluirMalRollo(MalRollo malRollo){
         int numVis, numOcu;
+        
+        ArrayList<TipoTesoro> tipoOcu = new ArrayList();
+        
+        for (Tesoro t: tesorosOcultos)
+            tipoOcu.add(t.obtenerTipo());
+        
+        if(malRollo.obtenerTipoOcultosPerdidos().size() == 1){ //caso normal
+            TipoTesoro tipo = malRollo.obtenerTipoOcultosPerdidos().get(0);
+            if(tipoOcu.contains(tipo)){     // por defecto es 0
+                malRolloPendiente.modificarOcultosPerdidos(1);    
+                malRolloPendiente.obtenerTipoOcultosPerdidos().add(tipo);
+            }                
+        }
+        
+        if(malRollo.obtenerTipoOcultosPerdidos().size() > 1){ //caso bicefalo
+            if(!tipoOcu.contains(malRollo.obtenerTipoOcultosPerdidos().get(0))){
+                System.out.println("");
+            }                
+        }
+                
+        if(malRollo.obtenerTipoOcultosPerdidos().isEmpty()){ 
+            malRolloPendiente.modificarOcultosPerdidos(Math.max(malRollo.obtenerOcultosPerdidos(), tesorosOcultos.size()));
+        }
+        
+        
+        ArrayList<TipoTesoro> tipoVis = new ArrayList();
+        
+        for (Tesoro t: tesorosVisibles)
+            tipoVis.add(t.obtenerTipo());
+        
+        
+        /*
         ArrayList<TipoTesoro> tipoOcuJug = new ArrayList();
         ArrayList<TipoTesoro> tipoVisJug = new ArrayList();
         
@@ -285,7 +317,7 @@ public class Jugador {
                 numOcu,numVis,malRollo.muerte(),tipoOcu,tipoVis);
         
         // MalRolloPendiente se queda con lo que SE PUEDE QUITAR EL JUGADOR, NO CON LO QUE SE QUEDA PENDIENTE
-
+        */
         
         
     }
