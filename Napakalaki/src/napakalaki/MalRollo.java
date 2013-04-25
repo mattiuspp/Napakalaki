@@ -11,6 +11,12 @@ class MalRollo {
     
     private ArrayList<TipoTesoro> tipoOcultosPerdidos = new ArrayList();
     private ArrayList<TipoTesoro> tipoVisiblesPerdidos = new ArrayList();
+    
+    public MalRollo(){
+        texto = "";
+        nivelesPerdidos = ocultosPerdidos = visiblesPerdidos = 0;
+        muerte = false;
+    }
 
     public MalRollo(String texto, int nivelesPerdidos, int ocultosPerdidos, 
             int visiblesPerdidos, boolean muerte,

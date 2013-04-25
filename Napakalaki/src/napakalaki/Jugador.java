@@ -10,7 +10,7 @@ public class Jugador {
     private static int NIVEL_MAXIMO = 10;
     private static int TESOROS_OCULTOS_MAXIMO = 4;
  
-    private MalRollo malRolloPendiente;
+    private MalRollo malRolloPendiente = new MalRollo();
     private ArrayList<Tesoro> tesorosOcultos = new ArrayList();
     private ArrayList<Tesoro> tesorosVisibles = new ArrayList();
 
@@ -226,6 +226,7 @@ public class Jugador {
     
     public boolean descartarTesoros(ArrayList<Tesoro> tesorosVisDes, 
             ArrayList<Tesoro> tesorosOcuDes){
+        
         boolean cumpleMR;
         cumpleMR = cumploMalRollo(tesorosVisibles, tesorosOcultos);
         
@@ -307,6 +308,9 @@ public class Jugador {
     
     private boolean cumploMalRollo(ArrayList<Tesoro> tesVisibles, 
             ArrayList<Tesoro> tesOcultos){
+        
+        if(tesVisibles.isEmpty() && tesOcultos.isEmpty())
+            return malRolloPendiente.esVacio();
         
         int visiblesRestantes;
         for(int i=0; i<tesVisibles.size(); i++){

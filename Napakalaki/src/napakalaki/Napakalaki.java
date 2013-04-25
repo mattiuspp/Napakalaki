@@ -489,10 +489,6 @@ public class Napakalaki {
     {
         boolean cumpleMR;
         
-        if(tesorosVisibles.isEmpty() && tesorosOcultos.isEmpty()){
-            return true;
-        }
-        
         cumpleMR = jugadorActivo.descartarTesoros(tesorosVisibles, tesorosOcultos);
         
         descarteTesoros.addAll(tesorosVisibles);
