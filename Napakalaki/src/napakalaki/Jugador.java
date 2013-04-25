@@ -25,7 +25,7 @@ public class Jugador {
         for(Tesoro t:tesorosVisibles)
             f+=t.obtenerNombre() + " | ";
         
-        if (malRolloPendiente != null && !malRolloPendiente.esVacio())
+        if (!malRolloPendiente.esVacio())
             f+= "\nMal rollo pendiente: " + malRolloPendiente.toString();
         
         return f;
@@ -216,7 +216,7 @@ public class Jugador {
     }
         
     public int puedoPasar(){
-        if(malRolloPendiente != null && !malRolloPendiente.esVacio())
+        if(!malRolloPendiente.esVacio())
                 return -1;
         else if (tesorosOcultos.size() > TESOROS_OCULTOS_MAXIMO)
             return tesorosOcultos.size() - TESOROS_OCULTOS_MAXIMO;
@@ -228,6 +228,10 @@ public class Jugador {
             ArrayList<Tesoro> tesorosOcuDes){
         
         boolean cumpleMR;
+        
+        if(tesorosVisDes.isEmpty() && tesorosOcuDes.isEmpty())
+            return malRolloPendiente.esVacio();
+        
         cumpleMR = cumploMalRollo(tesorosVisibles, tesorosOcultos);
         
         tesorosVisDes.clear();
@@ -309,9 +313,6 @@ public class Jugador {
     private boolean cumploMalRollo(ArrayList<Tesoro> tesVisibles, 
             ArrayList<Tesoro> tesOcultos){
         
-        if(tesVisibles.isEmpty() && tesOcultos.isEmpty())
-            return malRolloPendiente.esVacio();
-        
         int visiblesRestantes;
         for(int i=0; i<tesVisibles.size(); i++){
             tesorosVisibles.remove(tesVisibles.get(i));
@@ -334,10 +335,7 @@ public class Jugador {
             
             if(malRolloPendiente.obtenerTipoOcultosPerdidos().size()>0)
                 malRolloPendiente.obtenerTipoOcultosPerdidos().remove(tesOcultos.get(i).obtenerTipo());
-        }        
-        
-        //tesOcultos.clear(); lo elimina descartarTesoros()
-        //tesVisibles.clear(); lo elimina descartarTesoros()
+        }   
         
         return malRolloPendiente.esVacio();
     }
