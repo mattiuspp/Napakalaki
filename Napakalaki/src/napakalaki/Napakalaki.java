@@ -382,7 +382,6 @@ public class Napakalaki {
         return Jugadores.get(dado.nextInt(Jugadores.size()));
     }
     
-    // ALEATORIO HORRIBLE
     private Monstruo siguienteMonstruo() {
         /* Pruebo nuevo aleatorio */
         
