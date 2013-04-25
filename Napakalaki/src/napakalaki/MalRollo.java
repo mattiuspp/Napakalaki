@@ -46,8 +46,8 @@ class MalRollo {
     @Override
     public String toString() {
         String f = new String();
-        if(!esVacio()){
-            //f+= "\n\tNiveles perdidos = " + nivelesPerdidos;
+        //if(!esVacio()){
+            f+= "\n\tNiveles perdidos = " + nivelesPerdidos;
             if(ocultosPerdidos!=0){
                 f+="\n\tTesoros ocultos perdidos = " + ocultosPerdidos + "  | ";
                 for (TipoTesoro t: tipoOcultosPerdidos)
@@ -60,8 +60,8 @@ class MalRollo {
                     f+= t.toString() + " ";
                 f+="|";
             }
-        }
-        if(muerte==true)
+        //}
+        //if(muerte==true)
             f+= "\nMuerte ON";
         
         return f;
