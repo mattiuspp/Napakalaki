@@ -61,7 +61,7 @@ class MalRollo {
                 f+="|";
             }
         //}
-        //if(muerte==true)
+        if(muerte==true)
             f+= "\nMuerte ON";
         
         return f;
