@@ -17,6 +17,9 @@
  * ARREGLATO TODO. VERIFICAR SI FUNCIONA
  */
 
+/*
+ * MODIFICAR MONSTRUOS Y/O INCLUIRMALROLLO (PROBAR VICEFALO)
+ */
 package napakalaki;
 
 import java.util.ArrayList;
