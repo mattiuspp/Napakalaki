@@ -226,6 +226,7 @@ public class Jugador {
     
     // Ajusta el malRollo al jugador (le quitamos aquello no pueda descartar)
     public void incluirMalRollo(MalRollo malRollo){
+        /*
         int numVis, numOcu;
         
         ArrayList<TipoTesoro> tipoOcu = new ArrayList();
@@ -258,7 +259,7 @@ public class Jugador {
         for (Tesoro t: tesorosVisibles)
             tipoVis.add(t.obtenerTipo());
         
-        
+        */
         /*
         ArrayList<TipoTesoro> tipoOcuJug = new ArrayList();
         ArrayList<TipoTesoro> tipoVisJug = new ArrayList();
