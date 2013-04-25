@@ -331,7 +331,7 @@ public class Napakalaki {
         tipoVisiblesPerdidos.add(TipoTesoro.DOSMANOS);
         
         mazoMonstruos.add(new Monstruo(
-                "Bicéfalo",8,
+                "Bicéfalo",20,
                 new MalRollo("Te faltan manos para tanta cabeza. Pierdes 3 niveles y tus tesoros visibles de las manos.",
                     3,0,6,false,
                     tipoOcultosPerdidos,
