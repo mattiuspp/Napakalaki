@@ -149,10 +149,10 @@ public class main {
                     System.out.println(juego.obtenerJugadorActivo().toString());
                     
                     System.out.println("Indices de las cartas ocultas a descartar (-1 abortar)");
-                    visDes = lectorCartas.leeCartas(juego.obtenerJugadorActivo().obtenerTesorosOcultos());
+                    ocuDes = lectorCartas.leeCartas(juego.obtenerJugadorActivo().obtenerTesorosOcultos());
                     System.out.println("Indices de las cartas equipadas(visibles) a descartar (-1 abortar)");
-                    ocuDes = lectorCartas.leeCartas(juego.obtenerJugadorActivo().obtenerTesorosVisibles());
-
+                    visDes = lectorCartas.leeCartas(juego.obtenerJugadorActivo().obtenerTesorosVisibles());
+                    
                     if (juego.descartarTesoros(visDes, ocuDes))
                         System.out.println("Esto ha devuelto true");
                     else
