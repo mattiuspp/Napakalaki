@@ -226,23 +226,79 @@ public class Jugador {
     
     // Ajusta el malRollo al jugador (le quitamos aquello no pueda descartar)
     public void incluirMalRollo(MalRollo malRollo){
-        int numVis, numOcu;
         
-        ArrayList<TipoTesoro> tipoOcu = new ArrayList();
+        int ocuPerdidos = Math.min(tesorosOcultos.size(), malRollo.obtenerOcultosPerdidos());
+        int visPerdidos = Math.min(tesorosVisibles.size(), malRollo.obtenerVisiblesPerdidos());
         
+        /* Caso sin restricción de tipos */
+        if (malRollo.obtenerTipoOcultosPerdidos().isEmpty() && malRollo.obtenerTipoVisiblesPerdidos().isEmpty())
+        {
+           malRolloPendiente = new MalRollo (malRollo.obtenerTexto(), malRollo.obtenerNivelesPerdidos(),
+                                ocuPerdidos,visPerdidos,malRollo.muerte(),null,null);
+        }
+        
+        /* Caso con un tipo perdido (oculto o visible) */
+        else if (malRollo.obtenerTipoOcultosPerdidos().size() == 1 || malRollo.obtenerTipoVisiblesPerdidos().size() == 1)
+        {
+            ArrayList<TipoTesoro> tipoOcuJug = new ArrayList();
+            ArrayList<TipoTesoro> tipoVisJug = new ArrayList();
+            
+            /* Comprobamos si ha perdido tipos ocultos */
+            if (!malRollo.obtenerTipoOcultosPerdidos().isEmpty())
+            {
+                /* Si tiene el que corresponde con el mal rollo, lo agregamos */
+                for (Tesoro t: tesorosOcultos)
+                    if (t.obtenerTipo() == malRollo.obtenerTipoOcultosPerdidos().get(0))
+                        tipoOcuJug.add(t.obtenerTipo());
+            }
+            
+            /* Ídem para los visibles */
+            if (!malRollo.obtenerTipoVisiblesPerdidos().isEmpty())
+            {
+                /* Si tiene el que corresponde con el mal rollo, lo agregamos */
+                for (Tesoro t: tesorosVisibles)
+                    if (t.obtenerTipo() == malRollo.obtenerTipoVisiblesPerdidos().get(0))
+                    {
+                        tipoVisJug.add(t.obtenerTipo());
+                        break;
+                    }
+            }
+            
+            /* Creamos el malRollo pendiente */
+            malRolloPendiente = new MalRollo (malRollo.obtenerTexto(), malRollo.obtenerNivelesPerdidos(),
+                                ocuPerdidos,visPerdidos,malRollo.muerte(),tipoOcuJug,tipoVisJug);
+   
+        }
+        
+        /* Caso de 2 tipos perdidos (Bicéfalo) */
+        else
+        {
+            /* Comprobamos si tiene tesoro visible de una o dos manos */
+            ArrayList<TipoTesoro> tipoVisJug = new ArrayList();
+            
+            for (Tesoro t: tesorosVisibles)
+                if (t.obtenerTipo() == TipoTesoro.MANO || t.obtenerTipo() == TipoTesoro.DOSMANOS)
+                    tipoVisJug.add(t.obtenerTipo());
+            
+            malRolloPendiente = new MalRollo (malRollo.obtenerTexto(), malRollo.obtenerNivelesPerdidos(),
+                                ocuPerdidos,visPerdidos,malRollo.muerte(),null,tipoVisJug);
+        }
+        
+        
+        /*
         for (Tesoro t: tesorosOcultos)
-            tipoOcu.add(t.obtenerTipo());
+            tipoOcuJug.add(t.obtenerTipo());
         
         if(malRollo.obtenerTipoOcultosPerdidos().size() == 1){ //caso normal
             TipoTesoro tipo = malRollo.obtenerTipoOcultosPerdidos().get(0);
-            if(tipoOcu.contains(tipo)){     // por defecto es 0
+            if(tipoOcuJug.contains(tipo)){     // por defecto es 0
                 malRolloPendiente.modificarOcultosPerdidos(1);    
                 malRolloPendiente.obtenerTipoOcultosPerdidos().add(tipo);
             }                
         }
         
         if(malRollo.obtenerTipoOcultosPerdidos().size() > 1){ //caso bicefalo
-            if(!tipoOcu.contains(malRollo.obtenerTipoOcultosPerdidos().get(0))){
+            if(!tipoOcuJug.contains(malRollo.obtenerTipoOcultosPerdidos().get(0))){
                 System.out.println("");
             }                
         }
@@ -257,9 +313,12 @@ public class Jugador {
         
         for (Tesoro t: tesorosVisibles)
             tipoVis.add(t.obtenerTipo());
-        
+        */
         
         /*
+        
+        * ESTA MANERA ME SIGUE PARECIENDO BUENA, NO SÉ POR QUÉ FALLA, Y ME PARECE MÁS GENERAL *
+        
         ArrayList<TipoTesoro> tipoOcuJug = new ArrayList();
         ArrayList<TipoTesoro> tipoVisJug = new ArrayList();
         
