@@ -20,6 +20,14 @@
 /*
  * MODIFICAR MONSTRUOS Y/O INCLUIRMALROLLO (PROBAR VICEFALO)
  */
+
+/*
+ * Arreglado todo, pero la parte del main de CUMPLE MAL ROLLO (EOT) es un 
+ * bucle infinito, no sale nunca de ahí ni actualiza bien el mal rollo pendiente
+ * Es un caso para expediente X.
+ */
+
+
 package napakalaki;
 
 import java.util.ArrayList;
@@ -68,6 +76,7 @@ public class main {
             System.out.println(juego.obtenerMonstruoActivo().toString());
             
             ResultadoCombate resultado = juego.desarrollarCombate();
+            System.out.println(resultado);
             if (resultado == ResultadoCombate.VENCEYFIN){
                 System.out.println("GANO!"); 
                 break;
@@ -144,7 +153,10 @@ public class main {
                     System.out.println("Indices de las cartas equipadas(visibles) a descartar (-1 abortar)");
                     ocuDes = lectorCartas.leeCartas(juego.obtenerJugadorActivo().obtenerTesorosVisibles());
 
-                    juego.descartarTesoros(visDes, ocuDes); 
+                    if (juego.descartarTesoros(visDes, ocuDes))
+                        System.out.println("Esto ha devuelto true");
+                    else
+                        System.out.println("Esto ha devuelto false");
                 }
 
                 fin = juego.siguienteTurno();                

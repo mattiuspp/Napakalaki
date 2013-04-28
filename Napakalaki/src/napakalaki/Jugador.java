@@ -2,6 +2,7 @@ package napakalaki;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Random;
 
 public class Jugador {
     private String nombre;
@@ -123,9 +124,11 @@ public class Jugador {
     
     public ResultadoCombate combatir(Monstruo monstruoEnJuego){
         ResultadoCombate resultado;
+        // Agregado nivel de combate (si no no gana nadie nunca XD)
+        int nivelC = obtenerNivelCombate();
         int nivelM = monstruoEnJuego.obtenerNivel();
                 
-        if (nivel > nivelM)
+        if (nivelC > nivelM)
         {
             aplicarBuenRollo(monstruoEnJuego.cualEsTuBuenRollo());
             
@@ -135,9 +138,8 @@ public class Jugador {
                 resultado = ResultadoCombate.VENCE;
         }
         else{
-            int dado = (int) Math.random()*6+1;
-            
-            if (dado <5)
+            Random dado = new Random();
+            if ((dado.nextInt(6)+1) < 5)
             {
                 MalRollo malRollo = monstruoEnJuego.cualEsTuMalRollo();
                 boolean muerte = malRollo.muerte();
@@ -335,20 +337,18 @@ public class Jugador {
             
             if (tipoVis.isEmpty()) numVis = 0; // Si el jugador no tiene el tipo a perder, no pierde objetos
         }
-        
-        
-        
-        
+
         // Montamos un malRolloPendiente
         
         malRolloPendiente = new MalRollo(malRollo.obtenerTexto(),malRollo.obtenerNivelesPerdidos(),
                 numOcu,numVis,malRollo.muerte(),tipoOcu,tipoVis);
         
         // MalRolloPendiente se queda con lo que SE PUEDE QUITAR EL JUGADOR, NO CON LO QUE SE QUEDA PENDIENTE
-        
-        
+
     }
     
+    
+    // Actualiza el malRolloPendiente y devuelve su estado
     private boolean cumploMalRollo(ArrayList<Tesoro> tesVisibles, 
             ArrayList<Tesoro> tesOcultos){
         

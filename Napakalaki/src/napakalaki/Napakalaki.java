@@ -456,7 +456,6 @@ public class Napakalaki {
             boolean tieneTesoros = jugadorActivo.tienesTesoros();
             
             if(!tieneTesoros){
-                //int dado = (int) Math.random()*6+1;
                 int numTesoros;
                 switch (dado.nextInt(6)+1){
                         case 1:{
@@ -503,6 +502,5 @@ public class Napakalaki {
     public Monstruo obtenerMonstruoActivo() {
         return monstruoActivo;
     }
-    
     
 }
