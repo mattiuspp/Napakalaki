@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
-
 public class main {
     public static class LectorCartas{
         public Scanner sc = new Scanner(System.in);
@@ -55,7 +54,7 @@ public class main {
             ResultadoCombate resultado = juego.desarrollarCombate();
             System.out.println("\n» Resultado del combate: " + resultado);
             if (resultado == ResultadoCombate.VENCEYFIN){
-                System.out.println("GANO!"); 
+                System.out.println("» FIN DEL JUEGO"); 
                 break;
             }
             

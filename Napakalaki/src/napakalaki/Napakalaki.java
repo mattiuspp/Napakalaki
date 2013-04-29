@@ -16,7 +16,6 @@ public class Napakalaki {
     private ArrayList<Tesoro> descarteTesoros  = new ArrayList();
     private ArrayList<Tesoro> mazoTesoros = new ArrayList();
     
-    // Creo un atributo dado privado como un objeto de la clase Random
     private Random dado = new Random();
     
     // Establecemos la clase como singleton
@@ -40,7 +39,6 @@ public class Napakalaki {
         siguienteTurno();        
     }
     
-    // Hay que cambiar los niveles del buen rollo (soy capullo y puse 0) <- Soy Adrián
     private void inicializarJuego() {
         // Inicializamos las cartas de tesoro
         mazoTesoros.add (new Tesoro ("Sí mi amo!",TipoTesoro.CASCO ,4,7,0) );
@@ -324,12 +322,11 @@ public class Napakalaki {
     }
     
     private void repartirCartas() {
-        for (Jugador jugador: Jugadores){
-            //int dado = (int) Math.random()*6+1;
+        for (Jugador jugador: Jugadores)
+        {
             int numTesoros;
-            // int randomNum = rand.nextInt(max - min + 1) + min; Hay que sumar 1 ya que nextInt devuelve
-            // un entero en el rango [0,n)
-            switch (dado.nextInt(6)+1){ // Aleatorio nuevo entre 1 y 6
+            
+            switch (dado.nextInt(6)+1){ 
                     case 1:{
                         numTesoros = 1;
                         break;
@@ -343,9 +340,9 @@ public class Napakalaki {
                         break;
                     }   
             }
-            for (int i = 1; i <= numTesoros; i++){
-                jugador.robarTesoro(siguienteTesoro());
-            }  
+            
+            for (int i = 1; i <= numTesoros; i++)
+                jugador.robarTesoro(siguienteTesoro());    
         }
     }
     
@@ -354,10 +351,9 @@ public class Napakalaki {
     }
     
     private Monstruo siguienteMonstruo() {
-        // Controlando 
-        if (mazoMonstruos.isEmpty())
+        if (mazoMonstruos.isEmpty()) //barajamos mazo de tesoros
         {
-            mazoMonstruos = new ArrayList(descarteMonstruos); //barajamos mazo de tesoros
+            mazoMonstruos = new ArrayList(descarteMonstruos); 
             descarteMonstruos.clear();
         }
         monstruoActivo = mazoMonstruos.get(dado.nextInt(mazoMonstruos.size()));
@@ -368,10 +364,9 @@ public class Napakalaki {
     }
     
     private Tesoro siguienteTesoro() {
-        // Controlando
-        if (mazoTesoros.isEmpty())
+        if (mazoTesoros.isEmpty()) //barajamos mazo de monstruos
         {
-            mazoTesoros = new ArrayList(descarteTesoros); //barajamos mazo de monstruos
+            mazoTesoros = new ArrayList(descarteTesoros); 
             descarteTesoros.clear();
         }
         Tesoro tesoro = mazoTesoros.get(dado.nextInt(mazoTesoros.size()));
@@ -415,6 +410,7 @@ public class Napakalaki {
     public boolean comprarNivelesJugador(ArrayList<Tesoro> listaTesoros) {
         boolean puedo; 
         puedo = jugadorActivo.comprarNiveles(listaTesoros);
+        
         if (puedo)
             descarteTesoros.addAll(listaTesoros);
         
@@ -450,9 +446,8 @@ public class Napakalaki {
                             break;
                         }   
                 }
-                for (int i = 1; i <= numTesoros; i++){
+                for (int i = 1; i <= numTesoros; i++)
                     jugadorActivo.robarTesoro(siguienteTesoro());
-                }      
             } 
             
             monstruoActivo = siguienteMonstruo();
