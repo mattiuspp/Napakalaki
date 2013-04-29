@@ -148,7 +148,7 @@ public class Jugador {
                     muere();
                     resultado = ResultadoCombate.PIERDEYMUERE;                    
                 }else{
-                    incDecNivel(malRollo.obtenerNivelesPerdidos());
+                    incDecNivel(-malRollo.obtenerNivelesPerdidos());
                     incluirMalRollo(malRollo);
                     resultado = ResultadoCombate.PIERDE;
                 }
