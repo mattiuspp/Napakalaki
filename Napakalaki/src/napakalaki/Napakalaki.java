@@ -383,10 +383,13 @@ public class Napakalaki {
     }
     
     private Monstruo siguienteMonstruo() {
-        /* Pruebo nuevo aleatorio */
-        
-        /* Genera un número entre 0 y mazoMonstruos.size()-1 */
-        //monstruoActivo = mazoMonstruos.get((int)Math.random()*mazoMonstruos.size());
+        // Controlando 
+        if (mazoMonstruos.isEmpty())
+        {
+            System.out.println("------Barajando mazo de monstruos!!!------");
+            mazoMonstruos = new ArrayList(descarteMonstruos);
+            descarteMonstruos.clear();
+        }
         monstruoActivo = mazoMonstruos.get(dado.nextInt(mazoMonstruos.size()));
         descarteMonstruos.add(monstruoActivo);
         mazoMonstruos.remove(monstruoActivo);
@@ -395,6 +398,13 @@ public class Napakalaki {
     }
     
     private Tesoro siguienteTesoro() {
+        // Controlando
+        if (mazoTesoros.isEmpty())
+        {
+            System.out.println("------Barajando mazo de tesoros!!!------");
+            mazoTesoros = new ArrayList(descarteTesoros);
+            descarteTesoros.clear();
+        }
         Tesoro tesoro = mazoTesoros.get(dado.nextInt(mazoTesoros.size()));
         descarteTesoros.add(tesoro);
         mazoTesoros.remove(tesoro);

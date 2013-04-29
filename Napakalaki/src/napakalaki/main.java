@@ -1,30 +1,8 @@
-/* BUG 24-04-14 Adrián
- * ARREGLADO.
- *  -   siguienteMonstruo() funcionado 100%
- *  -   cumpleMalRollo parece que funciona -> funcionando 99% (no me ha dado errores)
- *              si el ArrayTesoros tiene mas de un elemento -> Arreglado!
- *  -   venta funciona 100%
- * BUGS:
- *  -   equipar NO FUNCIONA ----> Arreglar
- * PROBLEMA:
- *  -   el malRollo se puede hacer al final del turno y esta ajustado con las cartas que tiene...
- *      ¿que pasa si un jugador se equipar y/o vende cartas? -> ya nunca podría librarse del malRollo
- *          - solucion? -> limitar la venta de cartas y/o equipar a cuando no haya malRollo o no afecte al malRollo
- *          - piensalo ;)
- */
-
 /*
- * ARREGLATO TODO. VERIFICAR SI FUNCIONA
- */
-
-/*
- * MODIFICAR MONSTRUOS Y/O INCLUIRMALROLLO (PROBAR VICEFALO)
- */
-
-/*
- * Arreglado todo, pero la parte del main de CUMPLE MAL ROLLO (EOT) es un 
- * bucle infinito, no sale nunca de ahí ni actualiza bien el mal rollo pendiente
- * Es un caso para expediente X.
+ * 29-04-2013
+ * Arreglado "todo". Mira si te gusta o si crees que puede fallar (con la baraja
+ * que tenemos no puede fallar, pero yo creo que vale para el caso que me comentaste
+ * en clase)
  */
 
 
