@@ -26,7 +26,7 @@ public class main {
                 if(indiceCarta<listaTesoros.size())
                     cartasLeidas.add(listaTesoros.get(indiceCarta));
                 else
-                    System.out.println("Indice invalido!");
+                    System.out.println("» Indice invalido.");
                 
                 indiceCarta = sc.nextInt();
             }
@@ -43,52 +43,52 @@ public class main {
         String jugadores[] = {"Juan"};
         juego.comenzarJuego(jugadores);
         
-        /**************+ Ejemplo de un turno *****************/
         while(true)
         {
             boolean cumplioMalRollo;
             
-            // primero: combate
-            System.out.println("\n// -----COMBATE----- //");
-            System.out.println(juego.obtenerJugadorActivo().toString());
-            System.out.println(juego.obtenerMonstruoActivo().toString());
+            // 1 - Combate
+            System.out.println("\n// ------- COMBATE ------- //" + "\n" + 
+                                juego.obtenerJugadorActivo().toString() + "\n" + 
+                                juego.obtenerMonstruoActivo().toString());   
             
             ResultadoCombate resultado = juego.desarrollarCombate();
+            
             System.out.println("\n» Resultado del combate: " + resultado);
             if (resultado == ResultadoCombate.VENCEYFIN){
-                System.out.println("» FIN DEL JUEGO"); 
-                break;
+                System.out.println("» FIN DEL JUEGO"); break;
             }
             
             
-            // segundo: resolver malrollo del combate (devuelve bool)    
-            System.out.println("\n// -----CUMPLE MAL ROLLO(COMBATE)----- //");
-            System.out.println(juego.obtenerJugadorActivo().toString());
-            
-            System.out.println("Indices de las cartas ocultas a descartar (-1 abortar)");
+            // 2 - Resolver malrollo (1er intento) 
+            System.out.println("\n// ------- CUMPLE MAL ROLLO(COMBATE) ------- //"
+                                +  "\n" + juego.obtenerJugadorActivo().toString());
+            System.out.println("Indices de las cartas ocultas a descartar (-1 aborta)");
             ocuDes =  lectorCartas.leeCartas(juego.obtenerJugadorActivo().obtenerTesorosOcultos());
-            System.out.println("Indices de las cartas equipadas(visibles) a descartar (-1 abortar)");
+            System.out.println("Indices de las cartas equipadas(visibles) a descartar (-1 aborta)");
             visDes = lectorCartas.leeCartas(juego.obtenerJugadorActivo().obtenerTesorosVisibles());
 
             cumplioMalRollo = juego.descartarTesoros(visDes, ocuDes);
             
             
-            if(cumplioMalRollo)
+            if(!cumplioMalRollo)
+                System.out.println("\n» No puedes equipar ni vender si tienes un malrollo pendiente: "
+                                    + "este turno perdiste la opcion ");    
+            else
             {
-                // tercero: equipar
-                System.out.println("\n// -----EQUIPO----- //");
-                System.out.println(juego.obtenerJugadorActivo().toString());
+                // 3 - Equipar
+                System.out.println("\n// ------- EQUIPO ------- //" + "\n" +
+                                   juego.obtenerJugadorActivo().toString());
                 
                 System.out.println("Indices de las cartas ocultas a equipar (-1 abortar)");
                 ArrayList<Tesoro> cartasaEquipar = lectorCartas.leeCartas(juego.obtenerJugadorActivo().obtenerTesorosOcultos());
                 
                 juego.obtenerJugadorActivo().equiparTesoros(cartasaEquipar);
-                System.out.println("");
 
                 
-                // cuarto: comprar niveles
-                System.out.println("\n// -----VENTA----- //");
-                System.out.println(juego.obtenerJugadorActivo().toString());
+                // 4 - Comprar de niveles
+                System.out.println("\n// ------- VENTA ------- //" + "\n" +
+                                   juego.obtenerJugadorActivo().toString());
                 
                 System.out.println("Indices de las cartas ocultas a vender (-1 abortar)");
                 ArrayList<Tesoro> cartasaVender = lectorCartas.leeCartas(juego.obtenerJugadorActivo().obtenerTesorosOcultos());
@@ -98,49 +98,44 @@ public class main {
                 juego.comprarNivelesJugador(cartasaVender);
                 
                 
-                // final del turno
-                System.out.println("\n// -----TRAS VENTA----- //");
-                System.out.println(juego.obtenerJugadorActivo().toString());
+                System.out.println("\n// ------- TRAS VENTA ------- //" + "\n" +
+                                    juego.obtenerJugadorActivo().toString());
             }
-            else
-                System.out.println("\n» No puedes equipar ni vender si tienes un malrollo pendiente: "
-                       + "este turno perdiste la opcion ");
+                
 
-            
-            //final del turno: puedo pasar
+            // 5 - Finalizacion del turno
             int fin = juego.siguienteTurno();
             while( fin != 0)
             {   
                 if(fin > 0)
                 {
-                    System.out.println("\n// ---EXCESO DE CARTAS--- //");
-                    System.out.println(juego.obtenerJugadorActivo().toString());
+                    System.out.println("\n// ------- EXCESO DE CARTAS ------- //" + "\n"
+                                        + juego.obtenerJugadorActivo().toString());
                     
                     System.out.println("Indices de las cartas ocultas a descartar (-1 abortar)");
                     ocuDes = lectorCartas.leeCartas(juego.obtenerJugadorActivo().obtenerTesorosOcultos());
                     
                     juego.descartarTesoros(new ArrayList(), ocuDes); 
                 } 
+                
                 else if(fin < 0)
                 {
-                    System.out.println("\n// ---CUMPLE MAL ROLLO (EOT)--- //");
-                    System.out.println(juego.obtenerJugadorActivo().toString());
+                    System.out.println("\n// ------- CUMPLE MALROLLO(FIN DEL TURNO) ------- //" + 
+                                        "\n" + juego.obtenerJugadorActivo().toString());
                     
                     System.out.println("Indices de las cartas ocultas a descartar (-1 abortar)");
                     ocuDes = lectorCartas.leeCartas(juego.obtenerJugadorActivo().obtenerTesorosOcultos());
                     System.out.println("Indices de las cartas equipadas(visibles) a descartar (-1 abortar)");
                     visDes = lectorCartas.leeCartas(juego.obtenerJugadorActivo().obtenerTesorosVisibles());
                     
-                    if (juego.descartarTesoros(visDes, ocuDes))
-                        System.out.println("Esto ha devuelto true");
-                    else
-                        System.out.println("Esto ha devuelto false");
+                    juego.descartarTesoros(visDes, ocuDes);
                 }
 
                 fin = juego.siguienteTurno();                
             }
             
-            System.out.println("\n----------------------------------------------------------------\n");
+            System.out.println("\n\n----------------------------------------------------------------\n\n");
         }//fin while
+        
     }//fin main
-}//fin class
+}
