@@ -32,7 +32,7 @@ public class Napakalaki {
     public void comenzarJuego(String[] nombreJugadores) {
         inicializarJuego();
         
-        if(nombreJugadores.length < 2 || nombreJugadores.length > 5)
+        if(nombreJugadores.length < 0 || nombreJugadores.length > 5)
             throw new Error("Numero de jugadores incorrecto");
         
         inicializarJugadores(nombreJugadores); 

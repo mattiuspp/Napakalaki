@@ -1,15 +1,7 @@
 /*
- * 29-04-2013
- * Arreglado "todo". Mira si te gusta o si crees que puede fallar (con la baraja
- * que tenemos no puede fallar, pero yo creo que vale para el caso que me comentaste
- * en clase)
- * 
- * Agregados public a class MalRollo, BuenRollo, enum TipoTesoro y enum ResultadoCombate.
- * No afecta a absolutamente nada, pero saltaba un aviso en NetBeans y creo que se 
- * puede considerar un fallo de diseño.
- * 
- * Ah, y Set existe, pero es una clase abstracta y no se puede instanciar como tal.
- * Dejo HashSet hasta que encuentres algo con lo que puedas dar por culo jajajaja =D
+ * Parece que todo funciona
+ * Iniciando limpieza.
+ * NOTA: establecido el numero de jugadores a 1 para ayudar en la depuracion
  */
 
 
@@ -47,7 +39,7 @@ public class main {
         ArrayList<Tesoro> visDes;
         ArrayList<Tesoro> ocuDes;
         
-        String jugadores[] = {"Juan","Eva","Pepe"};
+        String jugadores[] = {"Juan"};
         juego.comenzarJuego(jugadores);
         
         /**************+ Ejemplo de un turno *****************/
