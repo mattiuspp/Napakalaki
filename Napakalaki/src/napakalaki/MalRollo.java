@@ -2,7 +2,7 @@ package napakalaki;
 
 import java.util.ArrayList;
 
-class MalRollo {
+public class MalRollo {
     private String texto;
     private int nivelesPerdidos;
     private int ocultosPerdidos;

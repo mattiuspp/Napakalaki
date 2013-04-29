@@ -1,6 +1,6 @@
 package napakalaki;
 
-class BuenRollo {
+public class BuenRollo {
     private int gananciaTesoros;
     private int gananciaNiveles;
 

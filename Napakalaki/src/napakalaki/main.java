@@ -3,6 +3,10 @@
  * Arreglado "todo". Mira si te gusta o si crees que puede fallar (con la baraja
  * que tenemos no puede fallar, pero yo creo que vale para el caso que me comentaste
  * en clase)
+ * 
+ * Agregados public a class MalRollo, BuenRollo, enum TipoTesoro y enum ResultadoCombate.
+ * No afecta a absolutamente nada, pero saltaba un aviso en NetBeans y creo que se 
+ * puede considerar un fallo de diseño.
  */
 
 
