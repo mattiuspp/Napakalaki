@@ -326,8 +326,7 @@ public class Jugador {
                 if (tipoOcuMalRollo.contains(t))
                     tipoOcu.add(t);
             
-            if (tipoOcu.isEmpty()) numOcu = 0; // Si el jugador no tiene el tipo a perder, no pierde objetos
-            else if (tipoOcu.size() < tipoOcuMalRollo.size() && 
+            if (tipoOcu.size() < tipoOcuMalRollo.size() && // El jugador sólo pierde de los que puede
                     tipoOcuMalRollo.size() != TESOROS_OCULTOS_MAXIMO) numOcu = tipoOcu.size();
         }
           
@@ -337,9 +336,8 @@ public class Jugador {
                 if (tipoVisMalRollo.contains(t))
                     tipoVis.add(t);
             
-            if (tipoVis.isEmpty()) numVis = 0; // Si el jugador no tiene el tipo a perder, no pierde objetos
-            else if (tipoVis.size() < tipoVisMalRollo.size() && 
-                    tipoVisMalRollo.size() != 6) numVis = tipoVis.size();
+            if (tipoVis.size() < tipoVisMalRollo.size() && 
+                    tipoVisMalRollo.size() != 6) numVis = tipoVis.size(); // El jugador sólo pierde de los que puede
         }
 
         // Montamos un malRolloPendiente
