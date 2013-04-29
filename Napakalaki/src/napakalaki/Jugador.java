@@ -294,61 +294,6 @@ public class Jugador {
                 ocuPerdidos,visPerdidos,malRollo.muerte(),tipoOcuPerdidos,tipoVisPerdidos);
         
         
-        
-        
-        /*
-        int ocuPerdidos = 
-        int visPerdidos = Math.min(tesorosVisibles.size(), malRollo.obtenerVisiblesPerdidos());
-        
-        ArrayList<TipoTesoro> tipoOcuJug = new ArrayList();
-        ArrayList<TipoTesoro> tipoVisJug = new ArrayList();
-        
-        // Caso con un tipo perdido (oculto o visible)
-        if (malRollo.obtenerTipoOcultosPerdidos().size() == 1 || malRollo.obtenerTipoVisiblesPerdidos().size() == 1)
-        {
-            
-            
-            // Comprobamos si ha perdido tipos ocultos
-            if (!malRollo.obtenerTipoOcultosPerdidos().isEmpty())
-            {
-                // Si tiene el que corresponde con el mal rollo, lo agregamos
-                for (Tesoro t: tesorosOcultos)
-                    if (t.obtenerTipo() == malRollo.obtenerTipoOcultosPerdidos().get(0))
-                        tipoOcuJug.add(t.obtenerTipo());
-            }
-            
-            // Ídem para los visibles 
-            if (!malRollo.obtenerTipoVisiblesPerdidos().isEmpty())
-            {
-                // Si tiene el que corresponde con el mal rollo, lo agregamos
-                for (Tesoro t: tesorosVisibles)
-                    if (t.obtenerTipo() == malRollo.obtenerTipoVisiblesPerdidos().get(0))
-                    {
-                        tipoVisJug.add(t.obtenerTipo());
-                        break;
-                    }
-            }
-        }
-        
-        // Caso de 2 tipos visibles perdidos (Bicéfalo)
-        else if (malRollo.obtenerTipoVisiblesPerdidos().size() == 2)
-        {
-            // Comprobamos si tiene tesoro visible de una o dos manos
-            
-            for (Tesoro t: tesorosVisibles)
-                if (t.obtenerTipo() == TipoTesoro.MANO || t.obtenerTipo() == TipoTesoro.DOSMANOS)
-                    tipoVisJug.add(t.obtenerTipo());
-            
-        }
-        
-        malRolloPendiente = new MalRollo (malRollo.obtenerTexto(), malRollo.obtenerNivelesPerdidos(),
-                                ocuPerdidos,visPerdidos,malRollo.muerte(),tipoOcuJug,tipoVisJug);
-        
-        
-        */
-        
-        
-        
         /*
         // * ESTA MANERA ME SIGUE PARECIENDO BUENA, NO SÉ POR QUÉ FALLA, Y ME PARECE MÁS GENERAL *
         
