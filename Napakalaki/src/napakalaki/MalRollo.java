@@ -62,7 +62,7 @@ public class MalRollo {
             }
         //}
         if(muerte==true)
-            f+= "\nMuerte ON";
+            f+= "\n\tMuerte ON";
         
         return f;
     }

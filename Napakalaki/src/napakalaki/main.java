@@ -61,7 +61,7 @@ public class main {
             System.out.println(juego.obtenerMonstruoActivo().toString());
             
             ResultadoCombate resultado = juego.desarrollarCombate();
-            System.out.println(resultado);
+            System.out.println("\n» Resultado del combate: " + resultado);
             if (resultado == ResultadoCombate.VENCEYFIN){
                 System.out.println("GANO!"); 
                 break;
