@@ -67,12 +67,6 @@ public class MalRollo {
         return f;
     }
     
-    
-    
-    public String obtenerTexto() {
-        return texto;
-    }
-    
     public boolean muerte() {
         return muerte;
     }

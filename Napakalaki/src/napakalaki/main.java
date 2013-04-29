@@ -1,6 +1,8 @@
 /*
  * Parece que todo funciona
  * Iniciando limpieza.
+ * 
+ *  -   El unico archivo que contiene comentarios es este y jugador.java
  * NOTA: establecido el numero de jugadores a 1 para ayudar en la depuracion
  */
 

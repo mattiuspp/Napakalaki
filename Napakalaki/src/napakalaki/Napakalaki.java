@@ -74,6 +74,8 @@ public class Napakalaki {
         mazoTesoros.add (new Tesoro ("Necroplayboycón",TipoTesoro.MANO,3,5,300));
         mazoTesoros.add (new Tesoro ("Grabato mísitico",TipoTesoro.MANO,2,2,300));
                 
+        
+        
         // Inicializamos las cartas de monstruo
         ArrayList<TipoTesoro> tipoOcultosPerdidos = new ArrayList();
         ArrayList<TipoTesoro> tipoVisiblesPerdidos = new ArrayList();
