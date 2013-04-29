@@ -157,7 +157,6 @@ public class Jugador {
             else
                 resultado = ResultadoCombate.PIERDEYESCAPA;
         }
-        
         return resultado;
     }
     
