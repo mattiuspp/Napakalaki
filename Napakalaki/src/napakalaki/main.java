@@ -110,8 +110,8 @@ public class main {
                 System.out.println(juego.obtenerJugadorActivo().toString());
             }
             else
-                System.out.println("\n¡No puedes equipar ni vender si tienes un malrollo pendiente!"
-                       + "--> Este turno perdiste la opcion ");
+                System.out.println("\n» No puedes equipar ni vender si tienes un malrollo pendiente: "
+                       + "este turno perdiste la opcion ");
 
             
             //final del turno: puedo pasar
