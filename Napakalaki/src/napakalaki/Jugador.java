@@ -119,12 +119,12 @@ public class Jugador {
     
     public void incDecNivel(int incDec){
         nivel += incDec;
-        if (nivel < 1) nivel = 1;
+        if (nivel < NIVEL_MINIMO) 
+            nivel =  NIVEL_MINIMO;
     }
     
     public ResultadoCombate combatir(Monstruo monstruoEnJuego){
         ResultadoCombate resultado;
-        // Agregado nivel de combate (si no no gana nadie nunca XD)
         int nivelC = obtenerNivelCombate();
         int nivelM = monstruoEnJuego.obtenerNivel();
                 
@@ -144,13 +144,10 @@ public class Jugador {
                 MalRollo malRollo = monstruoEnJuego.cualEsTuMalRollo();
                 boolean muerte = malRollo.muerte();
                 
-                if(muerte)
-                {
+                if(muerte){
                     muere();
                     resultado = ResultadoCombate.PIERDEYMUERE;                    
-                }
-                else
-                {
+                }else{
                     incluirMalRollo(malRollo);
                     resultado = ResultadoCombate.PIERDE;
                 }
@@ -175,10 +172,13 @@ public class Jugador {
     
     public Tesoro devuelveElCollar(){
         for(Tesoro t: tesorosVisibles)
-            if (t.obtenerTipo()==TipoTesoro.COLLAR){
+            if (t.obtenerTipo()==TipoTesoro.COLLAR)
+            {
                 tesorosVisibles.remove(t);
                 return t;
             }
+        
+        
         return null;
     }
     
@@ -194,12 +194,12 @@ public class Jugador {
     }
     
     public void muere(){
-        nivel = 1;
+        nivel = NIVEL_MINIMO;
     }
         
     public int puedoPasar(){
         if(!malRolloPendiente.esVacio())
-                return -1;
+            return -1;
         else if (tesorosOcultos.size() > TESOROS_OCULTOS_MAXIMO)
             return tesorosOcultos.size() - TESOROS_OCULTOS_MAXIMO;
         else
@@ -228,10 +228,83 @@ public class Jugador {
     
     // Ajusta el malRollo al jugador (le quitamos aquello no pueda descartar)
     public void incluirMalRollo(MalRollo malRollo){
+        //Datos que se incluiran en el malRollo del jugador
+        int ocuPerdidos = 0;
+        int visPerdidos = 0;
+        ArrayList<TipoTesoro> tipoOcuPerdidos = new ArrayList();
+        ArrayList<TipoTesoro> tipoVisPerdidos = new ArrayList();
+        
+        //Datos de los que parte el jugador;
+        ArrayList<TipoTesoro> tipoOcuJug = new ArrayList();
+        ArrayList<TipoTesoro> tipoVisJug = new ArrayList();
+        for (Tesoro t: tesorosOcultos)
+            tipoOcuJug.add(t.obtenerTipo());
+        for (Tesoro t: tesorosVisibles)
+            tipoVisJug.add(t.obtenerTipo());
+        
+        // CARTAS OCULTAS
+        //Caso 1: descartamos cartas cualesquiera
+        if(malRollo.obtenerTipoOcultosPerdidos().isEmpty()){ 
+            ocuPerdidos = Math.min(tesorosOcultos.size(),malRollo.obtenerOcultosPerdidos());
+        }
+        else{
+            //Caso 2: descartamos uno por cada tipo
+            if(malRollo.obtenerTipoOcultosPerdidos().size()==malRollo.obtenerOcultosPerdidos()){
+                for (TipoTesoro tipo:malRollo.obtenerTipoOcultosPerdidos())
+                    if(tipoOcuJug.contains(tipo)){
+                        tipoOcuPerdidos.add(tipo);
+                        ocuPerdidos++;
+                    }
+            }
+            //Caso 3: descartamos todos los posibles por cada tipo
+            else{    
+                for (TipoTesoro tipo:malRollo.obtenerTipoOcultosPerdidos()){
+                    tipoOcuPerdidos.add(tipo); //lo añadimos de antemano
+                    
+                    for(TipoTesoro tipoJugador:tipoOcuJug)
+                        if(tipo == tipoJugador)
+                            ocuPerdidos++;
+                    
+                    if(ocuPerdidos==0) //si no hubo ocurrencias lo eliminamos
+                        tipoOcuPerdidos.remove(tipo);
+                }
+            }
+        }
+        
+        // CARTAS VISIBLES - Analogo
+        if(malRollo.obtenerTipoVisiblesPerdidos().isEmpty()){ 
+            visPerdidos = Math.min(tesorosVisibles.size(),malRollo.obtenerVisiblesPerdidos());
+        }
+        else{
+            if(malRollo.obtenerTipoVisiblesPerdidos().size()==malRollo.obtenerVisiblesPerdidos()){
+                for (TipoTesoro tipo:malRollo.obtenerTipoVisiblesPerdidos())
+                    if(tipoVisJug.contains(tipo)){
+                        tipoVisPerdidos.add(tipo);
+                        visPerdidos++;
+                    }
+            }
+            else{    
+                for (TipoTesoro tipo:malRollo.obtenerTipoVisiblesPerdidos()){
+                    tipoVisPerdidos.add(tipo); 
+                    
+                    for(TipoTesoro tipoJugador:tipoVisPerdidos)
+                        if(tipo == tipoJugador)
+                            visPerdidos++;
+                    
+                    if(visPerdidos==0) 
+                        tipoVisPerdidos.remove(tipo);
+                }
+            }
+        }
+        
+        malRolloPendiente = new MalRollo("MalRollo pendiente",malRollo.obtenerNivelesPerdidos(),
+                ocuPerdidos,visPerdidos,malRollo.muerte(),tipoOcuPerdidos,tipoVisPerdidos);
+        
+        
         
         
         /*
-        int ocuPerdidos = Math.min(tesorosOcultos.size(), malRollo.obtenerOcultosPerdidos());
+        int ocuPerdidos = 
         int visPerdidos = Math.min(tesorosVisibles.size(), malRollo.obtenerVisiblesPerdidos());
         
         ArrayList<TipoTesoro> tipoOcuJug = new ArrayList();
@@ -278,11 +351,12 @@ public class Jugador {
         malRolloPendiente = new MalRollo (malRollo.obtenerTexto(), malRollo.obtenerNivelesPerdidos(),
                                 ocuPerdidos,visPerdidos,malRollo.muerte(),tipoOcuJug,tipoVisJug);
         
+        
         */
         
         
         
-        
+        /*
         // * ESTA MANERA ME SIGUE PARECIENDO BUENA, NO SÉ POR QUÉ FALLA, Y ME PARECE MÁS GENERAL *
         
         int numVis = Math.min(malRollo.obtenerVisiblesPerdidos(),tesorosVisibles.size());
@@ -346,6 +420,7 @@ public class Jugador {
                 numOcu,numVis,malRollo.muerte(),tipoOcu,tipoVis);
         
         // MalRolloPendiente se queda con lo que SE PUEDE QUITAR EL JUGADOR, NO CON LO QUE SE QUEDA PENDIENTE
+        */
 
     }
     
