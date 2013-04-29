@@ -353,7 +353,7 @@ public class Napakalaki {
     }
     
     private Monstruo siguienteMonstruo() {
-        if (mazoMonstruos.isEmpty()) //barajamos mazo de tesoros
+        if (mazoMonstruos.isEmpty()) //reciclamos mazo de tesoros
         {
             mazoMonstruos = new ArrayList(descarteMonstruos); 
             descarteMonstruos.clear();
@@ -366,7 +366,7 @@ public class Napakalaki {
     }
     
     private Tesoro siguienteTesoro() {
-        if (mazoTesoros.isEmpty()) //barajamos mazo de monstruos
+        if (mazoTesoros.isEmpty()) //reciclamos mazo de monstruos
         {
             mazoTesoros = new ArrayList(descarteTesoros); 
             descarteTesoros.clear();
