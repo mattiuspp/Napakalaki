@@ -222,11 +222,6 @@ public class Jugador {
         return cumpleMR;
     }
         
-    
-    
-    // ----------------------- INCOMPLETO -------------
-    
-    // Ajusta el malRollo al jugador (le quitamos aquello no pueda descartar)
     public void incluirMalRollo(MalRollo malRollo){
         //Datos que se incluiran en el malRollo del jugador
         int ocuPerdidos = 0;
@@ -258,15 +253,14 @@ public class Jugador {
             }
             //Caso 3: descartamos todos los posibles por cada tipo
             else{    
-                for (TipoTesoro tipo:malRollo.obtenerTipoOcultosPerdidos()){
-                    tipoOcuPerdidos.add(tipo); //lo añadimos de antemano
-                    
+                for (TipoTesoro tipo:malRollo.obtenerTipoOcultosPerdidos()){                    
                     for(TipoTesoro tipoJugador:tipoOcuJug)
-                        if(tipo == tipoJugador)
+                        if(tipo == tipoJugador && ocuPerdidos<malRollo.obtenerOcultosPerdidos()){
+                            if(!tipoOcuPerdidos.contains(tipo)) //lo añadimos solo una vez
+                                tipoOcuPerdidos.add(tipo);
+                            
                             ocuPerdidos++;
-                    
-                    if(ocuPerdidos==0) //si no hubo ocurrencias lo eliminamos
-                        tipoOcuPerdidos.remove(tipo);
+                        }
                 }
             }
         }
@@ -284,15 +278,14 @@ public class Jugador {
                     }
             }
             else{    
-                for (TipoTesoro tipo:malRollo.obtenerTipoVisiblesPerdidos()){
-                    tipoVisPerdidos.add(tipo); 
-                    
+                for (TipoTesoro tipo:malRollo.obtenerTipoVisiblesPerdidos()){                    
                     for(TipoTesoro tipoJugador:tipoVisPerdidos)
-                        if(tipo == tipoJugador)
+                        if(tipo == tipoJugador && visPerdidos<malRollo.obtenerVisiblesPerdidos()){
+                            if(!tipoVisPerdidos.contains(tipo)) 
+                                tipoVisPerdidos.add(tipo);
+                            
                             visPerdidos++;
-                    
-                    if(visPerdidos==0) 
-                        tipoVisPerdidos.remove(tipo);
+                        }
                 }
             }
         }
@@ -424,8 +417,6 @@ public class Jugador {
 
     }
     
-    
-    // Actualiza el malRolloPendiente y devuelve su estado
     private boolean cumploMalRollo(ArrayList<Tesoro> tesVisibles, 
             ArrayList<Tesoro> tesOcultos){
         
@@ -456,80 +447,7 @@ public class Jugador {
         return malRolloPendiente.esVacio();
     }
     
-    // Ejecuta el descarte. Comprueba si se actualiza malRolloPendiente
-    // ERROR: no actualiza malRollopendiente!!
-    /*
-    private boolean cumploMalRollo(ArrayList<Tesoro> tesVisibles, 
-            ArrayList<Tesoro> tesOcultos){
-        
-        boolean cumplo = true;
-        int numVis = tesVisibles.size();
-        int numOcu = tesOcultos.size();
-        
-        int topeVis, topeOcu;
-        if (numVis > tesorosVisibles.size())
-        {
-            cumplo = false;
-            topeVis = tesorosVisibles.size();
-        }
-        else
-            topeVis = numVis;
-        
-        if (numOcu > tesorosOcultos.size())
-        {
-            cumplo = false;
-            topeOcu = tesorosOcultos.size();
-        }
-        else
-            topeOcu = numOcu;
-        
-        for (int i = 0; i < topeVis; i++)
-        {
-            TipoTesoro tipoBorrado = tesVisibles.get(i).obtenerTipo();
-            boolean existe = false;
-            for (int j = 0; j < tesorosVisibles.size() && !existe; j++)
-            {
-                if (tipoBorrado == tesorosVisibles.get(j).obtenerTipo())
-                {
-                    existe = true;
-                    tesorosVisibles.remove(j);
-                }
-            }
-            if (!existe) cumplo = false;
-        }
-        
-        for (int i = 0; i < topeOcu; i++)
-        {
-            TipoTesoro tipoBorrado = tesOcultos.get(i).obtenerTipo();
-            boolean existe = false;
-            for (int j = 0; j < tesorosOcultos.size() && !existe; j++)
-            {
-                if (tipoBorrado == tesorosOcultos.get(j).obtenerTipo())
-                {
-                    existe = true;
-                    tesorosOcultos.remove(j);
-                }
-            }
-            if (!existe) cumplo = false;
-        }
-        return cumplo;
-    } 
-     */
-    
-    // Metodo innecesario
-   /*public ArrayList<Tesoro>  descartaTesorosRandom(int numTesoros)
-        {
-        ArrayList<Tesoro> descartados = new ArrayList();
-        for (int i=0; i<numTesoros; i++){
-        int indice_tesoro = (int) Math.random()*tesorosOcultos.size();
-        descartados.add(tesorosOcultos.get(indice_tesoro));
-        tesorosOcultos.remove(indice_tesoro);
-        }
-        return descartados;
-    }*/
-    
-    
-    // Testin!!
+    // Metodos auxiliares para la prueba del main
     public ArrayList<Tesoro> obtenerTesorosOcultos() {
         return tesorosOcultos;
     }
