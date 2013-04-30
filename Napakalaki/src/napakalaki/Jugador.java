@@ -294,7 +294,7 @@ public class Jugador {
         
         
         /*
-        // * ESTA MANERA ME SIGUE PARECIENDO BUENA, NO SÉ POR QUÉ FALLA, Y ME PARECE MÁS GENERAL *
+        // * MANERA ALTERNATIVA (TAMBIÉN FUNCIONA) *
         
         int numVis = Math.min(malRollo.obtenerVisiblesPerdidos(),tesorosVisibles.size());
         int numOcu = Math.min(malRollo.obtenerOcultosPerdidos(),tesorosOcultos.size());
@@ -356,7 +356,6 @@ public class Jugador {
         malRolloPendiente = new MalRollo(malRollo.obtenerTexto(),malRollo.obtenerNivelesPerdidos(),
                 numOcu,numVis,malRollo.muerte(),tipoOcu,tipoVis);
         
-        // MalRolloPendiente se queda con lo que SE PUEDE QUITAR EL JUGADOR, NO CON LO QUE SE QUEDA PENDIENTE
         */
 
     }

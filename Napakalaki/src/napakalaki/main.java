@@ -40,7 +40,7 @@ public class main {
         ArrayList<Tesoro> visDes;
         ArrayList<Tesoro> ocuDes;
         
-        String jugadores[] = {"Juan"};
+        String jugadores[] = {"Antonio", "Adrián", "Eva"};
         juego.comenzarJuego(jugadores);
         
         while(true)
