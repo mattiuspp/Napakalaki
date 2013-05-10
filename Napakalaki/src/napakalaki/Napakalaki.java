@@ -32,7 +32,7 @@ public class Napakalaki {
     public void comenzarJuego(String[] nombreJugadores) {
         inicializarJuego();
         
-        if(nombreJugadores.length < 3 || nombreJugadores.length > 5)
+        if(nombreJugadores.length < 1 || nombreJugadores.length > 5)
             throw new Error("Numero de jugadores incorrecto");
         
         inicializarJugadores(nombreJugadores); 
@@ -499,13 +499,13 @@ public class Napakalaki {
         }
         
         else if( resultado == ResultadoCombate.PIERDE){
-            System.out.println("\n\tConvertiendose en sectario...");
+            System.out.println("\nConvertiendose en sectario...");
             if(jugadorActivo.puedoConvertirme()){
-                System.out.println("\t\t... con exito!");
+                System.out.println("... con exito!");
                 JugadorSectario jugadorSectario = jugadorActivo.convertirme(siguienteSectario());
                 Jugadores.set(Jugadores.indexOf(jugadorActivo), jugadorSectario);
             }
-            System.out.println("\t\t... sin exito");
+            System.out.println("... sin exito");
         }
         
         return resultado;
