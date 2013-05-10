@@ -5,7 +5,7 @@ public class Monstruo implements Carta {
     private int nivel;
     private MalRollo malRollo;
     private BuenRollo buenRollo;
-    private int nivelContraSectarios; 
+    private int nivelContraSectarios = 0; 
 
     public Monstruo(String nombre, int nivel, MalRollo malRollo, BuenRollo buenRollo) {
         this.nombre = nombre;
@@ -24,7 +24,7 @@ public class Monstruo implements Carta {
     
     @Override
     public String toString(){
-        return nombre + ", nivel: " + nivel + malRollo.toString() + "\n" + buenRollo.toString();
+        return nombre + ", nivel: " + nivel + malRollo.toString() + "\n" + buenRollo.toString() + "\nNivel contra sectarios: " + nivelContraSectarios;
     }
     
     @Override

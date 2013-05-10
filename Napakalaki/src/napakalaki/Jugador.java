@@ -416,7 +416,7 @@ public class Jugador {
     public boolean puedoConvertirme(){
         Random dado = new Random();
         
-        if(dado.nextInt(6)+1 == 6)
+        if(6 == 6)
             return true;
         else
             return false;

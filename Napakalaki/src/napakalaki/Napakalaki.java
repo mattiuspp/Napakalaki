@@ -505,7 +505,8 @@ public class Napakalaki {
                 JugadorSectario jugadorSectario = jugadorActivo.convertirme(siguienteSectario());
                 Jugadores.set(Jugadores.indexOf(jugadorActivo), jugadorSectario);
             }
-            System.out.println("... sin exito");
+            else
+                System.out.println("... sin exito");
         }
         
         return resultado;
