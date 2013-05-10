@@ -23,7 +23,8 @@ public class Tesoro implements Carta {
                 "\nBonus máximo = " + bonusMaximo + "\nPiezas de Oro = " + piezasOro;
     }
 
-    public String obtenerNombre() {
+    @Override
+    public String getNombre() {
         return nombre;
     }
     
@@ -31,11 +32,13 @@ public class Tesoro implements Carta {
         return piezasOro;
     }
 
-    public int obtenerBonusMinimo() {
+    @Override
+    public int getValorBasico() {
         return bonusMinimo;
     }
 
-    public int obtenerBonusMaximo() {
+    @Override
+    public int getValorEspecial() {
         return bonusMaximo;
     }
 
@@ -43,20 +46,20 @@ public class Tesoro implements Carta {
         return tipo;
     }
 
-    @Override
-    public String getNombre() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+//    @Override
+//    public String getNombre() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
 
-    @Override
-    public int getValorBasico() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public int getValorEspecial() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+//    @Override
+//    public int getValorBasico() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
+//
+//    @Override
+//    public int getValorEspecial() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
     
     
     

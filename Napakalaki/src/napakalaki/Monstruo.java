@@ -14,16 +14,26 @@ public class Monstruo implements Carta {
         this.buenRollo = buenRollo;
     }
     
+    public Monstruo(String nombre, int nivel, MalRollo malRollo, BuenRollo buenRollo, int nivelContraSectarios) {
+        this.nombre = nombre;
+        this.nivel = nivel;
+        this.malRollo = malRollo;
+        this.buenRollo = buenRollo;
+        this.nivelContraSectarios = nivelContraSectarios;
+    }
+    
     @Override
     public String toString(){
         return nombre + ", nivel: " + nivel + malRollo.toString() + "\n" + buenRollo.toString();
     }
     
-    public String obtenerNombre() {
+    @Override
+    public String getNombre() {
         return nombre;
     }
     
-    public int obtenerNivel() {
+    @Override
+    public int getValorBasico() {
         return nivel;
     }
 
@@ -35,18 +45,18 @@ public class Monstruo implements Carta {
         return malRollo;
     }    
 
-    @Override
-    public String getNombre() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+//    @Override
+//    public String getNombre() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
 
-    @Override
-    public int getValorBasico() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+//    @Override
+//    public int getValorBasico() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
 
     @Override
     public int getValorEspecial() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return getValorBasico() + nivelContraSectarios;
     }
 }
