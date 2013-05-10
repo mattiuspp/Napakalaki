@@ -16,7 +16,6 @@ public class Napakalaki {
     private ArrayList<Tesoro> descarteTesoros  = new ArrayList();
     private ArrayList<Tesoro> mazoTesoros = new ArrayList();
     
-    // Creo un atributo dado privado como un objeto de la clase Random
     private Random dado = new Random();
     
     // Establecemos la clase como singleton
@@ -32,7 +31,7 @@ public class Napakalaki {
     public void comenzarJuego(String[] nombreJugadores) {
         inicializarJuego();
         
-        if(nombreJugadores.length < 2 || nombreJugadores.length > 5)
+        if(nombreJugadores.length < 3 || nombreJugadores.length > 5)
             throw new Error("Numero de jugadores incorrecto");
         
         inicializarJugadores(nombreJugadores); 
@@ -40,7 +39,6 @@ public class Napakalaki {
         siguienteTurno();        
     }
     
-    // Hay que cambiar los niveles del buen rollo (soy capullo y puse 0) <- Soy Adrián
     private void inicializarJuego() {
         // Inicializamos las cartas de tesoro
         mazoTesoros.add (new Tesoro ("Sí mi amo!",TipoTesoro.CASCO ,4,7,0) );
@@ -76,272 +74,247 @@ public class Napakalaki {
         mazoTesoros.add (new Tesoro ("Necroplayboycón",TipoTesoro.MANO,3,5,300));
         mazoTesoros.add (new Tesoro ("Grabato mísitico",TipoTesoro.MANO,2,2,300));
                 
+        
+        
         // Inicializamos las cartas de monstruo
         ArrayList<TipoTesoro> tipoOcultosPerdidos = new ArrayList();
         ArrayList<TipoTesoro> tipoVisiblesPerdidos = new ArrayList();
     
-        tipoOcultosPerdidos.clear();
-        tipoVisiblesPerdidos.clear();
+
         tipoVisiblesPerdidos.add(TipoTesoro.ARMADURA);
         tipoOcultosPerdidos.add(TipoTesoro.ARMADURA);
-        
         mazoMonstruos.add(new Monstruo(
                 "3 Byakhees de bonanza",8,
                 new MalRollo("Pierdes tu armadura visible y otra oculta.",
-                    0,1,1,false,
+                    1,1,1,false,
                     tipoOcultosPerdidos,
                     tipoVisiblesPerdidos
                 ),
                 new BuenRollo(3,1) )
         );
         
-        tipoOcultosPerdidos.clear();
+        
         tipoVisiblesPerdidos.clear();
         tipoVisiblesPerdidos.add(TipoTesoro.CASCO);
-        
         mazoMonstruos.add(new Monstruo(
                 "Chibithulhu",7,
                 new MalRollo("Embobados con el lindo primigenio te descartas de tu casco visible.",
-                    0,0,1,false,
-                    tipoOcultosPerdidos,
+                    1,0,1,false,
+                    new ArrayList(),
                     tipoVisiblesPerdidos
                 ),
                 new BuenRollo(1,1) )
         );
         
-        tipoOcultosPerdidos.clear();
+        
         tipoVisiblesPerdidos.clear();
         tipoVisiblesPerdidos.add(TipoTesoro.CALZADO);
-        
         mazoMonstruos.add(new Monstruo(
                 "El sopor de Dunwich",2,
                 new MalRollo("El primordial bostezo contagioso. Pierdes el calzado visible.",
-                    0,0,1,false,
-                    tipoOcultosPerdidos,
+                    1,0,1,false,
+                    new ArrayList(),
                     tipoVisiblesPerdidos
                 ),
                 new BuenRollo(1,1) )
         );
         
+        
         tipoOcultosPerdidos.clear();
         tipoVisiblesPerdidos.clear();
-        tipoVisiblesPerdidos.add(TipoTesoro.MANO);
         tipoOcultosPerdidos.add(TipoTesoro.MANO);
-        
+        tipoVisiblesPerdidos.add(TipoTesoro.MANO);
         mazoMonstruos.add(new Monstruo(
                 "Ángeles de la noche ibicenca",14,
                 new MalRollo("Te atrapan para llevarte de fiesta y te dejan caer en mitad del vuelo. Descarta 1 mano visible y 1 mano oculta.",
-                    0,1,1,false,
+                    1,1,1,false,
                     tipoOcultosPerdidos,
                     tipoVisiblesPerdidos
                 ),
                 new BuenRollo(4,1) )
        );    
         
-        tipoOcultosPerdidos.clear();
-        tipoVisiblesPerdidos.clear();
-        
+
         mazoMonstruos.add(new Monstruo(
             "El gorrón en el umbral",10, 
             new MalRollo("Pierdes todos tus tesoros visibles.",
-                        0,0,6,false, 
-                        tipoOcultosPerdidos,
-                        tipoVisiblesPerdidos
+                        1,0,6,false, 
+                        new ArrayList(),
+                        new ArrayList()
                     ),
             new BuenRollo(3,1) ) 
         );
         
-        tipoOcultosPerdidos.clear();
+        
         tipoVisiblesPerdidos.clear();
         tipoVisiblesPerdidos.add(TipoTesoro.ARMADURA);
-        
         mazoMonstruos.add(new Monstruo(
                 "H.P. Munchcraft",6,
                 new MalRollo("Pierdes la armadura visible.",
-                    0,0,1,false,
-                    tipoOcultosPerdidos,
+                    1,0,1,false,
+                    new ArrayList(),
                     tipoVisiblesPerdidos
                 ),
                 new BuenRollo(2,1) )
         );
         
-        tipoOcultosPerdidos.clear();
+        
         tipoVisiblesPerdidos.clear();
         tipoVisiblesPerdidos.add(TipoTesoro.ARMADURA);
-        
         mazoMonstruos.add(new Monstruo(
                 "Bichgooth",2,
                 new MalRollo("Sientes bichos bajo la ropa. Descarta la armadura visible.",
-                    0,0,1,false,
-                    tipoOcultosPerdidos,
+                    1,0,1,false,
+                    new ArrayList(),
                     tipoVisiblesPerdidos
                 ),
                 new BuenRollo(1,1) )
         );
         
-        tipoOcultosPerdidos.clear();
-        tipoVisiblesPerdidos.clear();
-        
+
         mazoMonstruos.add(new Monstruo(
                 "El rey de rosa",13,
                 new MalRollo("Pierdes 5 niveles y 3 tesoros visibles.",
                     5,0,3,false,
-                    tipoOcultosPerdidos,
-                    tipoVisiblesPerdidos
+                    new ArrayList(),
+                    new ArrayList()
                 ),
                 new BuenRollo(4,2) )
         );
         
-        tipoOcultosPerdidos.clear();
-        tipoVisiblesPerdidos.clear();
+
         
         mazoMonstruos.add(new Monstruo(
                 "La que redacta en las tinieblas",2,
                 new MalRollo("Toses los pulmones y pierdes 2 niveles.",
                     2,0,0,false,
-                    tipoOcultosPerdidos,
-                    tipoVisiblesPerdidos
+                    new ArrayList(),
+                    new ArrayList()
                 ),
                 new BuenRollo(1,1) )
         );
         
-        tipoOcultosPerdidos.clear();
-        tipoVisiblesPerdidos.clear();
+
         
         mazoMonstruos.add(new Monstruo(
                 "Los hondos",8,
                 new MalRollo("Estos monstruos resultan bastante superficiales y te aburren mortalmente. Estás muerto.",
-                    0,0,0,true,
-                    tipoOcultosPerdidos,
-                    tipoVisiblesPerdidos
+                    1,0,0,true,
+                    new ArrayList(),
+                    new ArrayList()
                 ),
                 new BuenRollo(2,1) )
         );
         
-        tipoOcultosPerdidos.clear();
-        tipoVisiblesPerdidos.clear();
+  
         
         mazoMonstruos.add(new Monstruo(
                 "Semillas Cthulhu",4,
                 new MalRollo("Pierdes 2 niveles y 2 tesoros ocultos.",
                     2,2,0,false,
-                    tipoOcultosPerdidos,
-                    tipoVisiblesPerdidos
+                    new ArrayList(),
+                    new ArrayList()
                 ),
                 new BuenRollo(2,1) )
         );
         
-        tipoOcultosPerdidos.clear();
+        
         tipoVisiblesPerdidos.clear();
         tipoVisiblesPerdidos.add(TipoTesoro.MANO);
-        
         mazoMonstruos.add(new Monstruo(
                 "Dameargo",1,
                 new MalRollo("Te intentas escaquear. Pierdes una mano visible.",
-                    0,0,1,false,
-                    tipoOcultosPerdidos,
+                    1,0,1,false,
+                    new ArrayList(),
                     tipoVisiblesPerdidos
                 ),
                 new BuenRollo(2,1) )
         );
         
-        tipoOcultosPerdidos.clear();
-        tipoVisiblesPerdidos.clear();
-        
+
         mazoMonstruos.add(new Monstruo(
                 "Pollipólipo volante",3,
                 new MalRollo("Da mucho asquito. Pierdes 3 niveles.",
                     3,0,0,false,
-                    tipoOcultosPerdidos,
-                    tipoVisiblesPerdidos
+                    new ArrayList(),
+                    new ArrayList()
                 ),
                 new BuenRollo(1,1) )
         );
         
-        tipoOcultosPerdidos.clear();
-        tipoVisiblesPerdidos.clear();
-        
+
         mazoMonstruos.add(new Monstruo(
                 "Yskhtihyssg-Goth",12,
                 new MalRollo("No le hace gracia que pronuncien mal su nombre. Estás muerto.",
-                    0,0,0,true,
-                    tipoOcultosPerdidos,
-                    tipoVisiblesPerdidos
+                    1,0,0,true,
+                    new ArrayList(),
+                    new ArrayList()
                 ),
                 new BuenRollo(3,1) )
         );
         
-        tipoOcultosPerdidos.clear();
-        tipoVisiblesPerdidos.clear();
+
         
         mazoMonstruos.add(new Monstruo(
                 "Familia feliz",1,
                 new MalRollo("La familia te atrapa. Estás muerto.",
-                    0,0,0,true,
-                    tipoOcultosPerdidos,
-                    tipoVisiblesPerdidos
+                    1,0,0,true,
+                    new ArrayList(),
+                    new ArrayList()
                 ),
                 new BuenRollo(4,1) )
         );
         
-        tipoOcultosPerdidos.clear();
+        
         tipoVisiblesPerdidos.clear();
         tipoVisiblesPerdidos.add(TipoTesoro.DOSMANOS);
-        
         mazoMonstruos.add(new Monstruo(
                 "Roboggoth",8,
                 new MalRollo("La qiunta directiva primaria te obliga a perder 2 niveles y un tesoro 2 manos visibles.",
                     2,0,1,false,
-                    tipoOcultosPerdidos,
+                    new ArrayList(),
                     tipoVisiblesPerdidos
                 ),
                 new BuenRollo(2,1) )
         );
         
-        tipoOcultosPerdidos.clear();
+
         tipoVisiblesPerdidos.clear();
         tipoVisiblesPerdidos.add(TipoTesoro.CASCO);
-        
         mazoMonstruos.add(new Monstruo(
                 "El espía",5,
                 new MalRollo("Te asusta en la noche. Pierdes un casco visible.",
-                    0,0,1,false,
-                    tipoOcultosPerdidos,
+                    1,0,1,false,
+                    new ArrayList(),
                     tipoVisiblesPerdidos
                 ),
                 new BuenRollo(1,1) )
         );
         
-        tipoOcultosPerdidos.clear();
-        tipoVisiblesPerdidos.clear();
-        
+     
         mazoMonstruos.add(new Monstruo(
                 "El lenguas",20,
                 new MalRollo("Menudo susto te llevas. Pierdes 2 niveles y 5 tesoros visibles.",
                     2,0,5,false,
-                    tipoOcultosPerdidos,
-                    tipoVisiblesPerdidos
+                    new ArrayList(),
+                    new ArrayList()
                 ),
                 new BuenRollo(1,1) )
         );
         
-        tipoOcultosPerdidos.clear();
+
         tipoVisiblesPerdidos.clear();
         tipoVisiblesPerdidos.add(TipoTesoro.MANO);
         tipoVisiblesPerdidos.add(TipoTesoro.DOSMANOS);
-        
         mazoMonstruos.add(new Monstruo(
-                "Bicéfalo",8,
+                "Bicéfalo",20,
                 new MalRollo("Te faltan manos para tanta cabeza. Pierdes 3 niveles y tus tesoros visibles de las manos.",
                     3,0,6,false,
-                    tipoOcultosPerdidos,
+                    new ArrayList(),
                     tipoVisiblesPerdidos
                 ),
                 new BuenRollo(1,1) )
         );
-        
-        tipoOcultosPerdidos.clear();
-        tipoVisiblesPerdidos.clear();
     }
     
     private void inicializarJugadores(String[] nombreJugadores){
@@ -351,12 +324,11 @@ public class Napakalaki {
     }
     
     private void repartirCartas() {
-        for (Jugador jugador: Jugadores){
-            //int dado = (int) Math.random()*6+1;
+        for (Jugador jugador: Jugadores)
+        {
             int numTesoros;
-            // int randomNum = rand.nextInt(max - min + 1) + min; Hay que sumar 1 ya que nextInt devuelve
-            // un entero en el rango [0,n)
-            switch (dado.nextInt(6)+1){ // Aleatorio nuevo entre 1 y 6
+            
+            switch (dado.nextInt(6)+1){ 
                     case 1:{
                         numTesoros = 1;
                         break;
@@ -370,23 +342,22 @@ public class Napakalaki {
                         break;
                     }   
             }
-            for (int i = 1; i <= numTesoros; i++){
-                jugador.robarTesoro(siguienteTesoro());
-            }  
+            
+            for (int i = 1; i <= numTesoros; i++)
+                jugador.robarTesoro(siguienteTesoro());    
         }
     }
     
     private Jugador primerJugador() {
-        /* Pruebo nuevo aleatorio */
-        //return Jugadores.get( (int)Math.random() * Jugadores.size() );
         return Jugadores.get(dado.nextInt(Jugadores.size()));
     }
     
     private Monstruo siguienteMonstruo() {
-        /* Pruebo nuevo aleatorio */
-        
-        /* Genera un número entre 0 y mazoMonstruos.size()-1 */
-        //monstruoActivo = mazoMonstruos.get((int)Math.random()*mazoMonstruos.size());
+        if (mazoMonstruos.isEmpty()) //reciclamos mazo de tesoros
+        {
+            mazoMonstruos = new ArrayList(descarteMonstruos); 
+            descarteMonstruos.clear();
+        }
         monstruoActivo = mazoMonstruos.get(dado.nextInt(mazoMonstruos.size()));
         descarteMonstruos.add(monstruoActivo);
         mazoMonstruos.remove(monstruoActivo);
@@ -395,6 +366,11 @@ public class Napakalaki {
     }
     
     private Tesoro siguienteTesoro() {
+        if (mazoTesoros.isEmpty()) //reciclamos mazo de monstruos
+        {
+            mazoTesoros = new ArrayList(descarteTesoros); 
+            descarteTesoros.clear();
+        }
         Tesoro tesoro = mazoTesoros.get(dado.nextInt(mazoTesoros.size()));
         descarteTesoros.add(tesoro);
         mazoTesoros.remove(tesoro);
@@ -436,6 +412,7 @@ public class Napakalaki {
     public boolean comprarNivelesJugador(ArrayList<Tesoro> listaTesoros) {
         boolean puedo; 
         puedo = jugadorActivo.comprarNiveles(listaTesoros);
+        
         if (puedo)
             descarteTesoros.addAll(listaTesoros);
         
@@ -456,7 +433,6 @@ public class Napakalaki {
             boolean tieneTesoros = jugadorActivo.tienesTesoros();
             
             if(!tieneTesoros){
-                //int dado = (int) Math.random()*6+1;
                 int numTesoros;
                 switch (dado.nextInt(6)+1){
                         case 1:{
@@ -472,9 +448,8 @@ public class Napakalaki {
                             break;
                         }   
                 }
-                for (int i = 1; i <= numTesoros; i++){
+                for (int i = 1; i <= numTesoros; i++)
                     jugadorActivo.robarTesoro(siguienteTesoro());
-                }      
             } 
             
             monstruoActivo = siguienteMonstruo();
@@ -496,13 +471,12 @@ public class Napakalaki {
         return cumpleMR;
     }
     
-    //Testin!
+    // Metodos auxiliares para la prueba del main
     public Jugador obtenerJugadorActivo() {
         return jugadorActivo;
     }
     public Monstruo obtenerMonstruoActivo() {
         return monstruoActivo;
     }
-    
     
 }

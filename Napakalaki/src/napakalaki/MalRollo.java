@@ -2,7 +2,7 @@ package napakalaki;
 
 import java.util.ArrayList;
 
-class MalRollo {
+public class MalRollo {
     private String texto;
     private int nivelesPerdidos;
     private int ocultosPerdidos;
@@ -46,7 +46,6 @@ class MalRollo {
     @Override
     public String toString() {
         String f = new String();
-        //if(!esVacio()){
             f+= "\n\tNiveles perdidos = " + nivelesPerdidos;
             if(ocultosPerdidos!=0){
                 f+="\n\tTesoros ocultos perdidos = " + ocultosPerdidos + "  | ";
@@ -60,17 +59,10 @@ class MalRollo {
                     f+= t.toString() + " ";
                 f+="|";
             }
-        //}
-        //if(muerte==true)
-            f+= "\nMuerte ON";
+        if(muerte==true)
+            f+= "\n\tMuerte ON";
         
         return f;
-    }
-    
-    
-    
-    public String obtenerTexto() {
-        return texto;
     }
     
     public boolean muerte() {
