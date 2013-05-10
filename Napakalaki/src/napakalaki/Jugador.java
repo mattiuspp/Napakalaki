@@ -13,6 +13,7 @@ public class Jugador {
     private MalRollo malRolloPendiente = new MalRollo();
     private ArrayList<Tesoro> tesorosOcultos = new ArrayList();
     private ArrayList<Tesoro> tesorosVisibles = new ArrayList();
+    
 
     @Override
     public String toString() {
@@ -20,10 +21,10 @@ public class Jugador {
         f+=nombre + ", nivel: " + nivel;
         f+="\n\tCartas en mano(ocultas): ";
         for(Tesoro t:tesorosOcultos)
-            f+=t.obtenerNombre() + " | ";
+            f+=t.getNombre() + " | ";
                 f+="\n\tCartas equipadas(visibles): ";
         for(Tesoro t:tesorosVisibles)
-            f+=t.obtenerNombre() + " | ";
+            f+=t.getNombre() + " | ";
         
         if (!malRolloPendiente.esVacio())
             f+= "\nMal rollo pendiente: " + malRolloPendiente.toString();
@@ -34,6 +35,15 @@ public class Jugador {
     public Jugador(String nombre) {
         this.nombre = nombre;
     }
+    
+    public Jugador(Jugador jugador){
+        this.nombre = jugador.nombre;
+        this.nivel = jugador.nivel;
+        this.malRolloPendiente = new MalRollo(jugador.malRolloPendiente);
+        tesorosOcultos.addAll(jugador.tesorosOcultos);
+        tesorosVisibles.addAll(jugador.tesorosVisibles);
+    }
+    
     
     public int obtenerNivel(){
         return nivel;
@@ -58,10 +68,10 @@ public class Jugador {
         
         if(tienesCollar())
             for(Tesoro t: tesorosVisibles)
-                bonus += t.obtenerBonusMaximo();
+                bonus += t.getValorEspecial();
         else
             for(Tesoro t: tesorosVisibles)
-                bonus += t.obtenerBonusMinimo();
+                bonus += t.getValorBasico();
        
         return bonus + nivel;
     }
@@ -125,7 +135,7 @@ public class Jugador {
     public ResultadoCombate combatir(Monstruo monstruoEnJuego){
         ResultadoCombate resultado;
         int nivelC = obtenerNivelCombate();
-        int nivelM = monstruoEnJuego.obtenerNivel();
+        int nivelM = obtenerNivelContrincante(monstruoEnJuego);
                 
         if (nivelC > nivelM)
         {
@@ -396,6 +406,24 @@ public class Jugador {
     }
     public ArrayList<Tesoro> obtenerTesorosVisibles() {
         return tesorosVisibles;
+    }
+    
+    // ultima practica
+    public JugadorSectario convertirme(Sectario cartaSectario){
+        return new JugadorSectario(this, cartaSectario);
+    }
+    
+    public boolean puedoConvertirme(){
+        Random dado = new Random();
+        
+        if(dado.nextInt(6)+1 == 6)
+            return true;
+        else
+            return false;
+    }
+    
+    protected int obtenerNivelContrincante(Monstruo monstruo) {
+        return monstruo.getValorBasico();
     }
     
 }

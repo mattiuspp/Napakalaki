@@ -15,6 +15,7 @@ public class Napakalaki {
     private ArrayList<Monstruo> mazoMonstruos = new ArrayList();
     private ArrayList<Tesoro> descarteTesoros  = new ArrayList();
     private ArrayList<Tesoro> mazoTesoros = new ArrayList();
+    private ArrayList<Sectario> mazoSectarios = new ArrayList();
     
     private Random dado = new Random();
     
@@ -72,9 +73,7 @@ public class Napakalaki {
         mazoTesoros.add (new Tesoro ("La fuerza de Mr.T",TipoTesoro.COLLAR,0,0,1000));
         mazoTesoros.add (new Tesoro ("Ametralladora Thomson",TipoTesoro.DOSMANOS,4,8,600));
         mazoTesoros.add (new Tesoro ("Necroplayboycón",TipoTesoro.MANO,3,5,300));
-        mazoTesoros.add (new Tesoro ("Grabato mísitico",TipoTesoro.MANO,2,2,300));
-                
-        
+        mazoTesoros.add (new Tesoro ("Grabato mísitico",TipoTesoro.MANO,2,2,300));        
         
         // Inicializamos las cartas de monstruo
         ArrayList<TipoTesoro> tipoOcultosPerdidos = new ArrayList();
@@ -315,6 +314,100 @@ public class Napakalaki {
                 ),
                 new BuenRollo(1,1) )
         );
+        
+        tipoVisiblesPerdidos.clear();
+        tipoVisiblesPerdidos.add(TipoTesoro.MANO);
+        mazoMonstruos.add(new Monstruo(
+                "El mal indecible impronunciable",10,
+                new MalRollo("Pierdes una mano visible.",
+                    1,0,1,false,
+                    new ArrayList(),
+                    tipoVisiblesPerdidos
+                ),
+                new BuenRollo(3,1), 
+                -2)
+        );
+        
+
+        mazoMonstruos.add(new Monstruo(
+                "Testigos oculares",6,
+                new MalRollo("Pierdes tus tesoros visibles. Jajaja.",
+                    1,0,6,false,
+                    new ArrayList(),
+                    new ArrayList()
+                ),
+                new BuenRollo(2,1), 
+                2)
+        );
+        
+        mazoMonstruos.add(new Monstruo(
+                "El gran cthulhu",20,
+                new MalRollo("Hoy no es tu día de suerte. Mueres.",
+                    1,0,0,true,
+                    new ArrayList(),
+                    new ArrayList()
+                ),
+                new BuenRollo(2,5), 
+                4)
+        );
+        
+        mazoMonstruos.add(new Monstruo(
+                "Serpiente Político",8,
+                new MalRollo("Tu gobierno te recorta 2 niveles.",
+                    2,0,0,false,
+                    new ArrayList(),
+                    new ArrayList()
+                ),
+                new BuenRollo(2,1), 
+                -2)
+        );
+        
+        tipoVisiblesPerdidos.clear();
+        tipoVisiblesPerdidos.add(TipoTesoro.CASCO);
+        tipoVisiblesPerdidos.add(TipoTesoro.ARMADURA);
+        mazoMonstruos.add(new Monstruo(
+                "Felpuggoth",2,
+                new MalRollo("Pierdes tu casco y tu armadura visible. Pierdes 3 tesoros ocultos.",
+                    1,3,2,false,
+                    new ArrayList(),
+                    tipoVisiblesPerdidos
+                ),
+                new BuenRollo(1,1), 
+                5)
+        );
+        
+        mazoMonstruos.add(new Monstruo(
+                "Shoggoth",16,
+                new MalRollo("Pierdes 2 niveles.",
+                    2,0,0,false,
+                    new ArrayList(),
+                    new ArrayList()
+                ),
+                new BuenRollo(4,2), 
+                -4)
+        );
+                
+        mazoMonstruos.add(new Monstruo(
+                "Lolitagooth",2,
+                new MalRollo("Pintalabios negro. Pierdes 2 niveles.",
+                    2,0,0,false,
+                    new ArrayList(),
+                    new ArrayList()
+                ),
+                new BuenRollo(1,1), 
+                3)
+        );
+        
+        
+        
+        
+        mazoSectarios.add(new Sectario("Sectario", 1));
+        mazoSectarios.add(new Sectario("Sectario", 2));
+        mazoSectarios.add(new Sectario("Sectario", 1));
+        mazoSectarios.add(new Sectario("Sectario", 2));
+        mazoSectarios.add(new Sectario("Sectario", 1));
+        mazoSectarios.add(new Sectario("Sectario", 1));
+        
     }
     
     private void inicializarJugadores(String[] nombreJugadores){
@@ -400,9 +493,16 @@ public class Napakalaki {
             }
         }
         
-        if (resultado == ResultadoCombate.PIERDEYMUERE)
+        else if (resultado == ResultadoCombate.PIERDEYMUERE)
         {
             descarteTesoros.addAll(jugadorActivo.dameTodosTusTesoros());
+        }
+        
+        else if( resultado == ResultadoCombate.PIERDE){
+            if(jugadorActivo.puedoConvertirme()){
+                JugadorSectario jugadorSectario = jugadorActivo.convertirme(siguienteSectario());
+                Jugadores.set(Jugadores.indexOf(jugadorActivo), jugadorSectario);
+            }
         }
         
         return resultado;
@@ -477,6 +577,13 @@ public class Napakalaki {
     }
     public Monstruo obtenerMonstruoActivo() {
         return monstruoActivo;
+    }
+    
+    //ultmapractica
+    public Sectario siguienteSectario(){
+        Sectario sectario = mazoSectarios.get(dado.nextInt(mazoSectarios.size()));
+        mazoSectarios.remove(sectario);
+        return sectario;
     }
     
 }
