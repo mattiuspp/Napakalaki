@@ -1,10 +1,11 @@
 package napakalaki;
 
-public class Monstruo {
+public class Monstruo implements Carta {
     private String nombre;
     private int nivel;
     private MalRollo malRollo;
     private BuenRollo buenRollo;
+    private int nivelContraSectarios; 
 
     public Monstruo(String nombre, int nivel, MalRollo malRollo, BuenRollo buenRollo) {
         this.nombre = nombre;
@@ -33,4 +34,19 @@ public class Monstruo {
     public MalRollo cualEsTuMalRollo() {
         return malRollo;
     }    
+
+    @Override
+    public String getNombre() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int getValorBasico() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int getValorEspecial() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

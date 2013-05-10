@@ -1,6 +1,6 @@
 package napakalaki;
 
-public class Tesoro {
+public class Tesoro implements Carta {
     private String nombre;
     private TipoTesoro tipo;
     private int bonusMinimo;
@@ -41,6 +41,21 @@ public class Tesoro {
 
     public TipoTesoro obtenerTipo() {
         return tipo;
+    }
+
+    @Override
+    public String getNombre() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int getValorBasico() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int getValorEspecial() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     
