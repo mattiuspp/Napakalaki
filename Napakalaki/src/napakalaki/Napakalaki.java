@@ -499,10 +499,13 @@ public class Napakalaki {
         }
         
         else if( resultado == ResultadoCombate.PIERDE){
+            System.out.println("\n\tConvertiendose en sectario...");
             if(jugadorActivo.puedoConvertirme()){
+                System.out.println("\t\t... con exito!");
                 JugadorSectario jugadorSectario = jugadorActivo.convertirme(siguienteSectario());
                 Jugadores.set(Jugadores.indexOf(jugadorActivo), jugadorSectario);
             }
+            System.out.println("\t\t... sin exito");
         }
         
         return resultado;
