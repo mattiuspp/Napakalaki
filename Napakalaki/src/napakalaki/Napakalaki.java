@@ -18,6 +18,7 @@ public class Napakalaki {
     private ArrayList<Sectario> mazoSectarios = new ArrayList();
     
     private Random dado = new Random();
+    private Vista vista;
     
     // Establecemos la clase como singleton
     private static final Napakalaki instance = new Napakalaki();
@@ -592,5 +593,11 @@ public class Napakalaki {
         mazoSectarios.remove(sectario);
         return sectario;
     }
+    
+    // Sesion interfaz grafica
+    public void setVista(Vista vista) {
+        this.vista = vista;
+    }
+    
     
 }

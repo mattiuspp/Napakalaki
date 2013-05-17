@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
-public class main {
+public class maincopia {
     public static class LectorCartas{
         public Scanner sc = new Scanner(System.in);
 
@@ -132,5 +132,5 @@ public class main {
             System.out.println("\n\n----------------------------------------------------------------\n\n");
         }//fin while
         
-    }//fin main
+    }//fin maincopia
 }
