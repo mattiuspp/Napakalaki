@@ -32,7 +32,7 @@ public class Napakalaki {
     public void comenzarJuego(String[] nombreJugadores) {
         inicializarJuego();
         
-        if(nombreJugadores.length < 1 || nombreJugadores.length > 5)
+        if(nombreJugadores.length < 3 || nombreJugadores.length > 4)
             throw new Error("Numero de jugadores incorrecto");
         
         inicializarJugadores(nombreJugadores); 
@@ -315,6 +315,9 @@ public class Napakalaki {
                 new BuenRollo(1,1) )
         );
         
+        // Monstruos con Sectarios
+        
+        
         tipoVisiblesPerdidos.clear();
         tipoVisiblesPerdidos.add(TipoTesoro.MANO);
         mazoMonstruos.add(new Monstruo(
@@ -583,7 +586,7 @@ public class Napakalaki {
         return monstruoActivo;
     }
     
-    //ultmapractica
+    // Sesión sectarios
     public Sectario siguienteSectario(){
         Sectario sectario = mazoSectarios.get(dado.nextInt(mazoSectarios.size()));
         mazoSectarios.remove(sectario);

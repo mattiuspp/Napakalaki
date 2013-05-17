@@ -44,24 +44,5 @@ public class Tesoro implements Carta {
 
     public TipoTesoro obtenerTipo() {
         return tipo;
-    }
-
-//    @Override
-//    public String getNombre() {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//    }
-
-//    @Override
-//    public int getValorBasico() {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//    }
-//
-//    @Override
-//    public int getValorEspecial() {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//    }
-    
-    
-    
-    
+    }    
 }

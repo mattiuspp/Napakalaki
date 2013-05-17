@@ -1,17 +1,9 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package napakalaki;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author antonio
- */
 public class JugadorSectario extends Jugador{
-    private static int numeroSectarios = 0; //como se el valor que tengo
+    private static int numeroSectarios = 0; 
     private Sectario miCartaSectario;
 
     public JugadorSectario(Jugador jugador, Sectario carta) {
@@ -24,7 +16,7 @@ public class JugadorSectario extends Jugador{
     public String toString() {
         return super.toString() + "\n\tJugador sectario: " 
                 + "\n\t\tBonus basico: " + miCartaSectario.getValorBasico() 
-                + "| Bonus especial: " + miCartaSectario.getValorEspecial();
+                + " | Bonus especial: " + miCartaSectario.getValorEspecial();
     }
 
     public static int getNumeroSectarios() {

@@ -1,11 +1,6 @@
 /*
- * Parece que todo funciona
- * Iniciando limpieza.
- * 
- *  -   El unico archivo que contiene comentarios es este y jugador.java
- * NOTA: establecido el numero de jugadores a 1 para ayudar en la depuracion
+ * Autores: Antonio Álvarez Caballero y Adrián Ranea Robles
  */
-
 
 package napakalaki;
 
@@ -40,8 +35,7 @@ public class main {
         ArrayList<Tesoro> visDes;
         ArrayList<Tesoro> ocuDes;
         
-//        String jugadores[] = {"Antonio", "Adrián", "Eva"};
-        String jugadores[] = {"Yo"};
+        String jugadores[] = {"Antonio", "Adrián", "Eva"};
         juego.comenzarJuego(jugadores);
         
         while(true)

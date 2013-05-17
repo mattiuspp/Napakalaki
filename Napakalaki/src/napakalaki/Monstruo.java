@@ -24,7 +24,7 @@ public class Monstruo implements Carta {
     
     @Override
     public String toString(){
-        return nombre + ", nivel: " + nivel + malRollo.toString() + "\n" + buenRollo.toString() + "\nNivel contra sectarios: " + nivelContraSectarios;
+        return nombre + ", nivel: " + nivel + malRollo.toString() + "\n" + buenRollo.toString() + "\n\tBonus contra sectarios: " + nivelContraSectarios;
     }
     
     @Override
@@ -43,17 +43,7 @@ public class Monstruo implements Carta {
     
     public MalRollo cualEsTuMalRollo() {
         return malRollo;
-    }    
-
-//    @Override
-//    public String getNombre() {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//    }
-
-//    @Override
-//    public int getValorBasico() {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//    }
+    }
 
     @Override
     public int getValorEspecial() {

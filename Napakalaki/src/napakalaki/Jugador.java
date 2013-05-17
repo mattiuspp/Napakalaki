@@ -28,6 +28,7 @@ public class Jugador {
         
         if (!malRolloPendiente.esVacio())
             f+= "\nMal rollo pendiente: " + malRolloPendiente.toString();
+        f+="\n\tNivel de combate: " + obtenerNivelCombate();
         
         return f;
     }
@@ -301,72 +302,6 @@ public class Jugador {
         
         malRolloPendiente = new MalRollo("MalRollo pendiente",malRollo.obtenerNivelesPerdidos(),
                 ocuPerdidos,visPerdidos,malRollo.muerte(),tipoOcuPerdidos,tipoVisPerdidos);
-        
-        
-        /*
-        // * MANERA ALTERNATIVA (TAMBIÉN FUNCIONA) *
-        
-        int numVis = Math.min(malRollo.obtenerVisiblesPerdidos(),tesorosVisibles.size());
-        int numOcu = Math.min(malRollo.obtenerOcultosPerdidos(),tesorosOcultos.size());
-        
-        ArrayList<TipoTesoro> tipoOcuJug = new ArrayList();
-        ArrayList<TipoTesoro> tipoVisJug = new ArrayList();
-  
-        // Montamos un array de cada uno de los tipos disponibles
-        
-        for (Tesoro t: tesorosOcultos)
-            tipoOcuJug.add(t.obtenerTipo());
-        for (Tesoro t: tesorosVisibles)
-            tipoVisJug.add(t.obtenerTipo());
-        
-        // Quito los repetidos usando un Hashset
-        
-        HashSet aux = new HashSet();
-        aux.addAll(tipoOcuJug);
-        tipoOcuJug.clear();
-        tipoOcuJug.addAll(aux);
-        
-        aux.clear();
-        aux.addAll(tipoVisJug);
-        tipoVisJug.clear();
-        tipoVisJug.addAll(aux);
-        aux.clear();
-        
-        // Intersecamos esos arrays con los del malRollo
-        
-        ArrayList<TipoTesoro> tipoOcuMalRollo = new ArrayList(malRollo.obtenerTipoOcultosPerdidos());
-        ArrayList<TipoTesoro> tipoVisMalRollo = new ArrayList(malRollo.obtenerTipoVisiblesPerdidos());
-        
-        ArrayList<TipoTesoro> tipoOcu = new ArrayList();
-        ArrayList<TipoTesoro> tipoVis = new ArrayList();
-        
-        // Sólo intentamos intersecar si no es vacío
-        if (!tipoOcuMalRollo.isEmpty())
-        {
-            for (TipoTesoro t: tipoOcuJug)
-                if (tipoOcuMalRollo.contains(t))
-                    tipoOcu.add(t);
-            
-            if (tipoOcu.size() < tipoOcuMalRollo.size() && // El jugador sólo pierde de los que puede
-                    tipoOcuMalRollo.size() != TESOROS_OCULTOS_MAXIMO) numOcu = tipoOcu.size();
-        }
-          
-        if (!tipoVisMalRollo.isEmpty())
-        {
-            for (TipoTesoro t: tipoVisJug)
-                if (tipoVisMalRollo.contains(t))
-                    tipoVis.add(t);
-            
-            if (tipoVis.size() < tipoVisMalRollo.size() && 
-                    tipoVisMalRollo.size() != 6) numVis = tipoVis.size(); // El jugador sólo pierde de los que puede
-        }
-
-        // Montamos un malRolloPendiente
-        
-        malRolloPendiente = new MalRollo(malRollo.obtenerTexto(),malRollo.obtenerNivelesPerdidos(),
-                numOcu,numVis,malRollo.muerte(),tipoOcu,tipoVis);
-        
-        */
 
     }
     
@@ -408,7 +343,7 @@ public class Jugador {
         return tesorosVisibles;
     }
     
-    // ultima practica
+    // Sesión sectarios
     public JugadorSectario convertirme(Sectario cartaSectario){
         return new JugadorSectario(this, cartaSectario);
     }
@@ -416,7 +351,7 @@ public class Jugador {
     public boolean puedoConvertirme(){
         Random dado = new Random();
         
-        if(6 == 6)
+        if(dado.nextInt(6) + 1 ==  6)
             return true;
         else
             return false;
