@@ -8,13 +8,13 @@ package napakalaki;
  *
  * @author antonio
  */
-public class JD_nombreJugadores extends javax.swing.JDialog {
+public class JD_nombresJugadores extends javax.swing.JDialog {
 
     private String[] nombres;
     /**
-     * Creates new form JD_nombreJugadores
+     * Creates new form JD_nombresJugadores
      */
-    public JD_nombreJugadores(java.awt.Frame parent, boolean modal) {
+    public JD_nombresJugadores(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         this.addWindowListener(new java.awt.event.WindowAdapter() {

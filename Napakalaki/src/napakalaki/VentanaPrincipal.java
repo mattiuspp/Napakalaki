@@ -2,6 +2,8 @@ package napakalaki;
 
 public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
     private Napakalaki juego;
+    private JD_dado dado;
+    private String[] nombresJugadores;
     
     public VentanaPrincipal(Napakalaki unJuego) {
         juego = unJuego;
@@ -18,46 +20,43 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        jL_malRollo = new javax.swing.JLabel();
+        jL_nombreMonstruo = new javax.swing.JLabel();
+        territorioMonstrio = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel2.setText("Hola");
+        jL_malRollo.setText("jLabel1");
 
-        jLabel3.setText("jLabel3");
-
-        jLabel4.setText("jLabel4");
+        jL_nombreMonstruo.setText("jLabel1");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(91, 91, 91)
+                        .addComponent(jL_malRollo))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(71, 71, 71)
+                        .addComponent(jL_nombreMonstruo)))
+                .addContainerGap(674, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel4)
-                .addContainerGap(67, Short.MAX_VALUE))
+                .addGap(45, 45, 45)
+                .addComponent(jL_nombreMonstruo)
+                .addGap(39, 39, 39)
+                .addComponent(jL_malRollo)
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
-        jLabel1.setText("jLabel1");
+        territorioMonstrio.setText("Territorio Monstruo");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -68,15 +67,15 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(jLabel1)
-                .addContainerGap(756, Short.MAX_VALUE))
+                .addGap(28, 28, 28)
+                .addComponent(territorioMonstrio)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addComponent(jLabel1)
+                .addComponent(territorioMonstrio)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(272, Short.MAX_VALUE))
@@ -120,20 +119,36 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
 //        });
 //    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jL_malRollo;
+    private javax.swing.JLabel jL_nombreMonstruo;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel territorioMonstrio;
     // End of variables declaration//GEN-END:variables
 
     @Override
     public void  mostrar(String[] args) {
+        JD_nombresJugadores dialogoNombres;
+        dado = new JD_dado (this,true);
+        dialogoNombres = new JD_nombresJugadores (this,true);
+        nombresJugadores = dialogoNombres.getNombres();
+        // Añadir aquí el código para comunicarse con la clase Napakalaki
+        // y comenzar el juego
+        // Por ejemplo, juego.comenzarJuego(nombresJugadores);
+
         this.setVisible(true);
     }
 
     @Override
     public int getDado(String s1, String s2) {
-        return -1;
+        return dado.getValor(s1, s2);
+    }
+    
+    private void actualizarMonstruo()
+    {
+        jL_nombreMonstruo.setText (juego.obtenerMonstruoActivo().getNombre());
+        jL_malRollo.setText (juego.obtenerMonstruoActivo().cualEsTuMalRollo().toString()); // Obtener texto
+        // etc.
+        pack();
+
     }
 }
