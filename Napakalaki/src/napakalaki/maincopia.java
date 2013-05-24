@@ -2,6 +2,14 @@
  * Autores: Antonio Álvarez Caballero y Adrián Ranea Robles
  */
 
+/*
+ * Meter shuffle
+ * Modificar interfaz (Mal Rollo)
+ * Completar actualizarJugador
+ * pagina 5 informacion vista
+ * cambiar dado por getvista
+ */
+
 package napakalaki;
 
 import java.util.ArrayList;

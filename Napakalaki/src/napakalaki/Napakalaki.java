@@ -30,6 +30,11 @@ public class Napakalaki {
         return instance;
     }
     
+    public Vista getVista()
+    {
+        return vista;
+    }
+    
     public void comenzarJuego(String[] nombreJugadores) {
         inicializarJuego();
         
