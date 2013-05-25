@@ -3,8 +3,8 @@
  */
 
 /*
- * Meter shuffle
- * Modificar interfaz (Mal Rollo)
+ * Meter shuffle - HECHO!!!
+ * Modificar interfaz (Mal Rollo) - obtenerTexto hecho, sólo falta crear la interfaz
  * Completar actualizarJugador
  * pagina 5 informacion vista
  * cambiar dado por getvista

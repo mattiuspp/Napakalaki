@@ -4,6 +4,7 @@
 package napakalaki;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 
 public class Napakalaki {
@@ -79,7 +80,9 @@ public class Napakalaki {
         mazoTesoros.add (new Tesoro ("La fuerza de Mr.T",TipoTesoro.COLLAR,0,0,1000));
         mazoTesoros.add (new Tesoro ("Ametralladora Thomson",TipoTesoro.DOSMANOS,4,8,600));
         mazoTesoros.add (new Tesoro ("Necroplayboycón",TipoTesoro.MANO,3,5,300));
-        mazoTesoros.add (new Tesoro ("Grabato mísitico",TipoTesoro.MANO,2,2,300));        
+        mazoTesoros.add (new Tesoro ("Grabato mísitico",TipoTesoro.MANO,2,2,300));
+        
+        Collections.shuffle(mazoTesoros);
         
         // Inicializamos las cartas de monstruo
         ArrayList<TipoTesoro> tipoOcultosPerdidos = new ArrayList();
@@ -407,7 +410,7 @@ public class Napakalaki {
                 3)
         );
         
-        
+        Collections.shuffle(mazoMonstruos);
         
         
         mazoSectarios.add(new Sectario("Sectario", 1));
@@ -416,6 +419,8 @@ public class Napakalaki {
         mazoSectarios.add(new Sectario("Sectario", 2));
         mazoSectarios.add(new Sectario("Sectario", 1));
         mazoSectarios.add(new Sectario("Sectario", 1));
+        
+        Collections.shuffle(mazoSectarios);
         
     }
     
@@ -460,7 +465,7 @@ public class Napakalaki {
             mazoMonstruos = new ArrayList(descarteMonstruos); 
             descarteMonstruos.clear();
         }
-        monstruoActivo = mazoMonstruos.get(dado.nextInt(mazoMonstruos.size()));
+        monstruoActivo = mazoMonstruos.get(mazoMonstruos.size()-1);
         descarteMonstruos.add(monstruoActivo);
         mazoMonstruos.remove(monstruoActivo);
         return monstruoActivo;
@@ -473,7 +478,7 @@ public class Napakalaki {
             mazoTesoros = new ArrayList(descarteTesoros); 
             descarteTesoros.clear();
         }
-        Tesoro tesoro = mazoTesoros.get(dado.nextInt(mazoTesoros.size()));
+        Tesoro tesoro = mazoTesoros.get(mazoTesoros.size());
         descarteTesoros.add(tesoro);
         mazoTesoros.remove(tesoro);
         return tesoro;
@@ -594,7 +599,7 @@ public class Napakalaki {
     
     // Sesión sectarios
     public Sectario siguienteSectario(){
-        Sectario sectario = mazoSectarios.get(dado.nextInt(mazoSectarios.size()));
+        Sectario sectario = mazoSectarios.get(mazoSectarios.size()-1);
         mazoSectarios.remove(sectario);
         return sectario;
     }

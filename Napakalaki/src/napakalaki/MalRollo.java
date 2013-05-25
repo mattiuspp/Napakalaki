@@ -69,6 +69,10 @@ public class MalRollo {
         return muerte;
     }
     
+    public String obtenerTexto() {
+        return texto;
+    }
+    
     public int obtenerNivelesPerdidos() {
         return nivelesPerdidos;
     }
