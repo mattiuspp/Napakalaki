@@ -64,11 +64,21 @@ public class JD_nombresJugadores extends javax.swing.JDialog {
 
         jugador4.setText("Jugador 4");
 
-        nombre1.setText("...");
+        nombre1.setText("Juan1");
+        nombre1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nombre1ActionPerformed(evt);
+            }
+        });
 
-        nombre2.setText("...");
+        nombre2.setText("Pepe2");
+        nombre2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nombre2ActionPerformed(evt);
+            }
+        });
 
-        nombre3.setText("...");
+        nombre3.setText("Adrian3");
 
         nombre4.setText("...");
         nombre4.setEnabled(false);
@@ -162,13 +172,13 @@ public class JD_nombresJugadores extends javax.swing.JDialog {
     private void comenzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comenzarActionPerformed
         if (cuatroJugadores.isSelected()) {
             nombres = new String[4];
-            nombres[3] = jugador4.getText();
+            nombres[3] = nombre4.getText();
         } else
             nombres = new String[3];
         
-        nombres[0] = jugador1.getText();
-        nombres[1] = jugador2.getText();
-        nombres[2] = jugador3.getText();
+        nombres[0] = nombre1.getText();
+        nombres[1] = nombre2.getText();
+        nombres[2] = nombre3.getText();
         this.dispose();
 
     }//GEN-LAST:event_comenzarActionPerformed
@@ -176,6 +186,14 @@ public class JD_nombresJugadores extends javax.swing.JDialog {
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
         System.exit(0);
     }//GEN-LAST:event_cancelarActionPerformed
+
+    private void nombre1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombre1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nombre1ActionPerformed
+
+    private void nombre2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombre2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nombre2ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -10,6 +10,8 @@ public class Main {
             juego.setVista(v);
             
             v.mostrar(args);
+            
+//            ((VentanaPrincipal)v).actu
 
 //            String jugadores[] = {"Antonio", "Adrián", "Eva"};
 //            juego.comenzarJuego(jugadores);

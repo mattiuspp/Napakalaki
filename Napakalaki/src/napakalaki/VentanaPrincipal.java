@@ -10,10 +10,10 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
     private String[] nombresJugadores;
     private Monstruo monstruoEnJuego;
     private Jugador jugadorActivo;
-    private ArrayList<TesoroGrafico> tesorosVisiblesAlimpiar;
-    private ArrayList<TesoroGrafico> tesorosVisiblesSeleccionados;
-    private ArrayList<TesoroGrafico> tesorosOcultosAlimpiar;
-    private ArrayList<TesoroGrafico> tesorosOcultosSeleccionados;
+    private ArrayList<TesoroGrafico> tesorosVisiblesAlimpiar = new ArrayList();
+    private ArrayList<TesoroGrafico> tesorosVisiblesSeleccionados = new ArrayList();
+    private ArrayList<TesoroGrafico> tesorosOcultosAlimpiar = new ArrayList();
+    private ArrayList<TesoroGrafico> tesorosOcultosSeleccionados = new ArrayList();
     
     private class TesoroGrafico extends JPanel {
         protected Tesoro tesoro; // asociación con el tesoro que representa 
@@ -202,10 +202,10 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
                     .addComponent(jL_esSectario)
                     .addComponent(jL_nivelCombate)
                     .addComponent(jL_bonusSectario))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                .addComponent(jP_tesorosVisibles, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jP_tesorosOcultos, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addComponent(jP_tesorosVisibles, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addComponent(jP_tesorosOcultos, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -247,7 +247,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
                 .addComponent(jP_monstruos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addComponent(jP_jugadores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jB_equiparse)
                     .addComponent(jB_comprarNivel)
@@ -326,6 +326,8 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
         // Añadir aquí el código para comunicarse con la clase Napakalaki
         // y comenzar el juego
         juego.comenzarJuego(nombresJugadores);
+        actualizarJugador();
+        actualizarMonstruo();
 
         this.setVisible(true);
     }
@@ -359,7 +361,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
     ////INCLUIR instrucciones para actualizar el nombre, el nivel, u otra
     // información del jugador activo distinta a los tesoros
     jugadorActivo = juego.obtenerJugadorActivo();
-    jL_nombreJugador.setText(jugadorActivo.toString());
+    jL_nombreJugador.setText("" + jugadorActivo.obtenerNombre());
     jL_nivelCombate.setText("Nivel de combate: " + jugadorActivo.obtenerNivelCombate());
     
     

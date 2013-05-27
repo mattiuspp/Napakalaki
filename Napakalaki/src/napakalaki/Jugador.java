@@ -52,6 +52,10 @@ public class Jugador {
         tesorosVisibles.addAll(jugador.tesorosVisibles);
     }
     
+    public String obtenerNombre(){
+        return nombre;
+    }
+    
     
     public int obtenerNivel(){
         return nivel;

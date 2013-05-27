@@ -51,7 +51,7 @@
               <Component id="jP_monstruos" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               <Component id="jP_jugadores" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="30" max="32767" attributes="0"/>
+              <EmptySpace pref="32" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jB_equiparse" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jB_comprarNivel" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -209,9 +209,9 @@
                       <Component id="jL_bonusSectario" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="30" max="32767" attributes="0"/>
-                  <Component id="jP_tesorosVisibles" min="-2" pref="56" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jP_tesorosOcultos" min="-2" pref="119" max="-2" attributes="0"/>
+                  <Component id="jP_tesorosVisibles" min="-2" pref="80" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                  <Component id="jP_tesorosOcultos" min="-2" pref="80" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>

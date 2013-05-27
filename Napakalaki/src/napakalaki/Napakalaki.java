@@ -456,7 +456,7 @@ public class Napakalaki {
     }
     
     private Jugador primerJugador() {
-        return Jugadores.get(getVista().getDado("Primer Jugador","OLA K ASE")%4);
+        return Jugadores.get(getVista().getDado("Primer Jugador","OLA K ASE") %Jugadores.size() );
     }
     
     private Monstruo siguienteMonstruo() {
@@ -478,7 +478,7 @@ public class Napakalaki {
             mazoTesoros = new ArrayList(descarteTesoros); 
             descarteTesoros.clear();
         }
-        Tesoro tesoro = mazoTesoros.get(mazoTesoros.size());
+        Tesoro tesoro = mazoTesoros.get(mazoTesoros.size()-1);
         descarteTesoros.add(tesoro);
         mazoTesoros.remove(tesoro);
         return tesoro;
