@@ -51,7 +51,7 @@
               <Component id="jP_monstruos" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               <Component id="jP_jugadores" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="32" max="32767" attributes="0"/>
+              <EmptySpace pref="34" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jB_equiparse" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jB_comprarNivel" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -266,6 +266,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Equiparse"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB_equiparseActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jB_comprarNivel">
       <Properties>
@@ -276,6 +279,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Descartarse Tesoros"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB_descartarseTesorosActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jB_combatir">
       <Properties>

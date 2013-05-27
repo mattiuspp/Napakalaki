@@ -10,6 +10,7 @@
  * cambiar dado por getvista - HECHO
  * 
  * Ver alternativa a instanceof
+ * CAMBIAR MALROLLO
  * IMPRIMIR EN JUEGO RESULTADO DEL COMBATE
  */
 

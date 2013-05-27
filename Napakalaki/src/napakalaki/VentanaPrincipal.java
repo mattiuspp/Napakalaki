@@ -11,9 +11,9 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
     private Monstruo monstruoEnJuego;
     private Jugador jugadorActivo;
     private ArrayList<TesoroGrafico> tesorosVisiblesAlimpiar = new ArrayList();
-    private ArrayList<TesoroGrafico> tesorosVisiblesSeleccionados = new ArrayList();
+    private ArrayList<Tesoro> tesorosVisiblesSeleccionados = new ArrayList();
     private ArrayList<TesoroGrafico> tesorosOcultosAlimpiar = new ArrayList();
-    private ArrayList<TesoroGrafico> tesorosOcultosSeleccionados = new ArrayList();
+    private ArrayList<Tesoro> tesorosOcultosSeleccionados = new ArrayList();
     
     private class TesoroGrafico extends JPanel {
         protected Tesoro tesoro; // asociación con el tesoro que representa 
@@ -40,9 +40,22 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
                 @Override
                 public void mouseClicked(java.awt.event.MouseEvent evt) {
                  // instrucciones para procesar la selección de un tesoro visible
-                    tesorosVisiblesAlimpiar.add(TesoroGraficoVisible.this);
-                    TesoroGraficoVisible.this.setOpaque(true);
-                    TesoroGraficoVisible.this.setEnabled(false);
+//                    TesoroGraficoVisible.this.setOpaque(true); 
+//                    TesoroGraficoVisible.this.setEnabled(false);
+                    if (tesorosVisiblesAlimpiar.contains(TesoroGraficoVisible.this))
+                    {
+                        tesorosVisiblesAlimpiar.remove(TesoroGraficoVisible.this);
+                        tesorosVisiblesSeleccionados.remove(TesoroGraficoVisible.this.tesoro);
+                        TesoroGraficoVisible.this.setOpaque(false);
+                    }
+                    else
+                    {
+                        tesorosVisiblesAlimpiar.add(TesoroGraficoVisible.this);
+                        tesorosVisiblesSeleccionados.add(TesoroGraficoVisible.this.tesoro);
+                        TesoroGraficoVisible.this.setOpaque(true); 
+                        TesoroGraficoVisible.this.setEnabled(false);
+                    }
+                    //
                 }
             });
          }
@@ -55,10 +68,23 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
             {
                 @Override
                 public void mouseClicked(java.awt.event.MouseEvent evt) {
-                    // instrucciones para procesar la selección de un tesoro visible
-                    tesorosOcultosAlimpiar.add(TesoroGraficoOculto.this);
-                    TesoroGraficoOculto.this.setOpaque(true);
-                    TesoroGraficoOculto.this.setEnabled(false);
+//                    TesoroGraficoOculto.this.setOpaque(true); 
+//                    TesoroGraficoOculto.this.setEnabled(false);
+                    
+                    if(tesorosOcultosAlimpiar.contains(TesoroGraficoOculto.this))
+                    {
+                        tesorosOcultosAlimpiar.remove(TesoroGraficoOculto.this);
+                        tesorosOcultosSeleccionados.remove(TesoroGraficoOculto.this.tesoro);
+                        TesoroGraficoOculto.this.setOpaque(false);
+                        TesoroGraficoOculto.this.setEnabled(true);
+                    }
+                    else
+                    {
+                        tesorosOcultosAlimpiar.add(TesoroGraficoOculto.this);
+                        tesorosOcultosSeleccionados.add(TesoroGraficoOculto.this.tesoro);
+                        TesoroGraficoOculto.this.setOpaque(true); 
+                        TesoroGraficoOculto.this.setEnabled(false);
+                    }
                 }
             });
          }
@@ -210,10 +236,20 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
         );
 
         jB_equiparse.setText("Equiparse");
+        jB_equiparse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_equiparseActionPerformed(evt);
+            }
+        });
 
         jB_comprarNivel.setText("Comprar Nivel");
 
         jB_descartarseTesoros.setText("Descartarse Tesoros");
+        jB_descartarseTesoros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_descartarseTesorosActionPerformed(evt);
+            }
+        });
 
         jB_combatir.setText("¡COMBATIR!");
 
@@ -247,7 +283,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
                 .addComponent(jP_monstruos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addComponent(jP_jugadores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jB_equiparse)
                     .addComponent(jB_comprarNivel)
@@ -259,6 +295,16 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jB_equiparseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_equiparseActionPerformed
+        juego.obtenerJugadorActivo().equiparTesoros(tesorosOcultosSeleccionados);
+        actualizarJugador();
+    }//GEN-LAST:event_jB_equiparseActionPerformed
+
+    private void jB_descartarseTesorosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_descartarseTesorosActionPerformed
+        juego.descartarTesoros(tesorosVisiblesSeleccionados, tesorosOcultosSeleccionados);
+        actualizarJugador();
+    }//GEN-LAST:event_jB_descartarseTesorosActionPerformed
 
 //    /**
 //     * @param args the command line arguments
@@ -384,9 +430,13 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
     // Esos tesoros se encuentran en tesorosVisiblesAlimpiar
     // (atributo de tipo List<TesoroGrafico> de la clase VentanaPrincipal
     for (TesoroGrafico tg : tesorosVisiblesAlimpiar)
-        jP_tesorosVisibles.remove (tg);
+        jP_tesorosVisibles.remove(tg);
     // Se vacía tesorosAlimpiar para incluirle los del jugador activo
     tesorosVisiblesAlimpiar.clear();
+    
+    // El jugador que acaba de recibir el turno no debe tener ningun tesoro
+    // visible seleccionado
+    tesorosVisiblesSeleccionados.clear();
 
     // Ahora se añaden los tesoros visibles del jugador actual
     for (Tesoro t : jugadorActivo.obtenerTesorosVisibles()) {
@@ -398,14 +448,14 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
         tesorosVisiblesAlimpiar.add(unTesoroGrafico);
     }
     
-    // El jugador que acaba de recibir el turno no debe tener ningun tesoro
-    // visible seleccionado
-    tesorosVisiblesSeleccionados.clear();
+
     
     // PROCEDER de forma similar con los tesoros ocultos
     // INCLUIR otras instrucciones que se estimen necesarias
+    tesorosOcultosSeleccionados.clear();
+        
     for (TesoroGrafico tg : tesorosOcultosAlimpiar)
-        jP_tesorosOcultos.remove (tg);
+        jP_tesorosOcultos.remove(tg);
     tesorosOcultosAlimpiar.clear();
 
     for (Tesoro t : jugadorActivo.obtenerTesorosOcultos()) {
@@ -413,7 +463,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
         jP_tesorosOcultos.add (unTesoroGrafico);
         tesorosOcultosAlimpiar.add(unTesoroGrafico);
     }
-    
+
     
     
     // Se han estado añadiendo y quitando componentes del JPanel, no solo
