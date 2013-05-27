@@ -12,15 +12,7 @@ public class Jugador {
  
     private MalRollo malRolloPendiente = new MalRollo();
     private ArrayList<Tesoro> tesorosOcultos = new ArrayList();
-    private ArrayList<Tesoro> tesorosVisibles = new ArrayList();
-    
-    private Vista vista;
-    
-    public Vista getVista()
-    {
-        return vista;
-    }
-    
+    private ArrayList<Tesoro> tesorosVisibles = new ArrayList();    
 
     @Override
     public String toString() {
@@ -59,6 +51,11 @@ public class Jugador {
     
     public int obtenerNivel(){
         return nivel;
+    }
+    
+    public MalRollo obtenerMalRolloPendiente()
+    {
+        return malRolloPendiente;
     }
     
     public int calcularNiveles(ArrayList<Tesoro> tesoros){
@@ -159,7 +156,7 @@ public class Jugador {
                 resultado = ResultadoCombate.VENCE;
         }
         else{
-            if (getVista().getDado("Tira para huir.", "5-6 huyes") < 5)
+            if (Napakalaki.getInstance().getVista().getDado("Tira para huir.", "5-6 huyes") < 5)
             {
                 MalRollo malRollo = monstruoEnJuego.cualEsTuMalRollo();
                 boolean muerte = malRollo.muerte();
@@ -359,7 +356,7 @@ public class Jugador {
     }
     
     public boolean puedoConvertirme(){        
-        if(getVista().getDado("Tira para convertirte.", "6 te conviertes") ==  6)
+        if(Napakalaki.getInstance().getVista().getDado("Tira para convertirte.", "6 te conviertes") ==  6)
             return true;
         else
             return false;

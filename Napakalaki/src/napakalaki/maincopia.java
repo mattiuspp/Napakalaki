@@ -8,10 +8,12 @@
  * Completar actualizarJugador - HECHO
  * pagina 5 informacion vista - HECHO
  * cambiar dado por getvista - HECHO
+ * IMPRIMIR EN JUEGO RESULTADO DEL COMBATE - HECHO
+ * CAMBIAR MALROLLO - HECHO
  * 
  * Ver alternativa a instanceof
- * CAMBIAR MALROLLO
- * IMPRIMIR EN JUEGO RESULTADO DEL COMBATE
+ * MODIFICAR DADOS EXISTENTES
+ * Arreglar tesoros
  */
 
 package napakalaki;

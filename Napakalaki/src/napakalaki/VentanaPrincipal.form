@@ -47,11 +47,11 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="jP_monstruos" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-              <Component id="jP_jugadores" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="34" max="32767" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="jP_jugadores" max="32767" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jB_equiparse" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jB_comprarNivel" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -77,28 +77,22 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" attributes="0">
                   <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jL_nombreMonstruo" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jL_nivelesGanados" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jL_tesorosGanados" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="145" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jL_nivelesPerdidos" min="-2" max="-2" attributes="0"/>
-                              <Component id="jL_nivel" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jL_nivelContraSectarios" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                          <Component id="jL_malRollo" min="-2" pref="377" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="jL_nombreMonstruo" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jL_nivelesGanados" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jL_tesorosGanados" alignment="0" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="129" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jL_nivelContraSectarios" min="-2" max="-2" attributes="0"/>
+                      <Component id="jL_nivel" min="-2" max="-2" attributes="0"/>
+                      <Component id="jL_nivelesPerdidos" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
+                  <Component id="jL_malRollo" min="-2" pref="323" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -106,23 +100,26 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jL_nombreMonstruo" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jL_nivel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="jL_malRollo" pref="63" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jL_nombreMonstruo" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jL_nivel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jL_nivelesGanados" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jL_nivelContraSectarios" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jL_nivelesPerdidos" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jL_tesorosGanados" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jL_nivelesGanados" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jL_nivelContraSectarios" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jL_tesorosGanados" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jL_nivelesPerdidos" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="jL_malRollo" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="37" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -131,6 +128,7 @@
         <Component class="javax.swing.JLabel" name="jL_malRollo">
           <Properties>
             <Property name="text" type="java.lang.String" value="Mal Rollo del monstruo"/>
+            <Property name="verticalAlignment" type="int" value="1"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jL_nombreMonstruo">
@@ -178,40 +176,64 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="jP_tesorosOcultos" min="-2" pref="483" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="jL_nombreJugador" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                              <Component id="jL_nivelCombate" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
-                              <Component id="jL_esSectario" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="jP_tesorosOcultos" min="-2" pref="552" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="jPanel1" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="jP_tesorosVisibles" min="-2" pref="552" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <Component id="jL_malRolloPendiente" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="jL_resultadoCombate" alignment="0" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="jP_tesorosVisibles" min="-2" pref="483" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jL_nombreJugador" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                          <Component id="jL_nivelCombate" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                          <Component id="jL_esSectario" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="169" max="-2" attributes="0"/>
+                          <Component id="jL_bonusSectario" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-                  <Component id="jL_bonusSectario" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="128" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jL_nombreJugador" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jL_esSectario" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jL_nivelCombate" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jL_bonusSectario" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jL_nivelCombate" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jL_esSectario" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="30" max="32767" attributes="0"/>
-                  <Component id="jP_tesorosVisibles" min="-2" pref="80" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                  <Component id="jP_tesorosOcultos" min="-2" pref="80" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                          <Component id="jL_resultadoCombate" min="-2" pref="51" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                          <Component id="jL_malRolloPendiente" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="44" max="32767" attributes="0"/>
+                          <Component id="jPanel1" min="-2" pref="128" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="jP_tesorosVisibles" min="-2" pref="129" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jP_tesorosOcultos" min="-2" pref="135" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -226,8 +248,8 @@
         <Container class="javax.swing.JPanel" name="jP_tesorosVisibles">
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                <LineBorder/>
+              <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                <TitledBorder title="Equipo"/>
               </Border>
             </Property>
           </Properties>
@@ -237,8 +259,8 @@
         <Container class="javax.swing.JPanel" name="jP_tesorosOcultos">
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                <LineBorder/>
+              <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                <TitledBorder title="Cartas Ocultas"/>
               </Border>
             </Property>
           </Properties>
@@ -260,11 +282,88 @@
             <Property name="text" type="java.lang.String" value="Bonus Sectario"/>
           </Properties>
         </Component>
+        <Component class="javax.swing.JLabel" name="jL_malRolloPendiente">
+        </Component>
+        <Container class="javax.swing.JPanel" name="jPanel1">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                <TitledBorder title="MalRollo Pendiente"/>
+              </Border>
+            </Property>
+          </Properties>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jL_ocultosPerdidos" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jL_tipoOcultosPerdidos" max="32767" attributes="0"/>
+                                  <Component id="jL_visiblesPerdidos" pref="224" max="32767" attributes="0"/>
+                                  <Component id="jL_tipoVisiblesPerdidos" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jL_ocultosPerdidos" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jL_tipoOcultosPerdidos" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="jL_visiblesPerdidos" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jL_tipoVisiblesPerdidos" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="jL_ocultosPerdidos">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="N&#xba; Ocultos a perder:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jL_tipoOcultosPerdidos">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Tipo:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jL_visiblesPerdidos">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="N&#xba; Visibles a perder"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jL_tipoVisiblesPerdidos">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Tipo:"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Component class="javax.swing.JLabel" name="jL_resultadoCombate">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Resultado del Combate: "/>
+            <Property name="verticalAlignment" type="int" value="1"/>
+          </Properties>
+        </Component>
       </SubComponents>
     </Container>
     <Component class="javax.swing.JButton" name="jB_equiparse">
       <Properties>
         <Property name="text" type="java.lang.String" value="Equiparse"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB_equiparseActionPerformed"/>
@@ -273,11 +372,16 @@
     <Component class="javax.swing.JButton" name="jB_comprarNivel">
       <Properties>
         <Property name="text" type="java.lang.String" value="Comprar Nivel"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB_comprarNivelActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jB_descartarseTesoros">
       <Properties>
         <Property name="text" type="java.lang.String" value="Descartarse Tesoros"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB_descartarseTesorosActionPerformed"/>
@@ -287,11 +391,18 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="&#xa1;COMBATIR!"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB_combatirActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jB_siguiente">
       <Properties>
         <Property name="text" type="java.lang.String" value="Siguiente"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB_siguienteActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

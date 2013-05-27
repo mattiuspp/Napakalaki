@@ -278,7 +278,7 @@ public class Napakalaki {
         tipoVisiblesPerdidos.add(TipoTesoro.DOSMANOS);
         mazoMonstruos.add(new Monstruo(
                 "Roboggoth",8,
-                new MalRollo("La qiunta directiva primaria te obliga a perder 2 niveles y un tesoro 2 manos visibles.",
+                new MalRollo("La quinta directiva primaria te obliga a perder 2 niveles y un tesoro 2 manos visibles.",
                     2,0,1,false,
                     new ArrayList(),
                     tipoVisiblesPerdidos
@@ -513,14 +513,10 @@ public class Napakalaki {
         }
         
         else if( resultado == ResultadoCombate.PIERDE){
-            System.out.println("\nConvertiendose en sectario...");
             if(jugadorActivo.puedoConvertirme()){
-                System.out.println("... con exito!");
                 JugadorSectario jugadorSectario = jugadorActivo.convertirme(siguienteSectario());
                 Jugadores.set(Jugadores.indexOf(jugadorActivo), jugadorSectario);
             }
-            else
-                System.out.println("... sin exito");
         }
         
         return resultado;
