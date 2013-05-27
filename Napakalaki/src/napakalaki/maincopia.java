@@ -4,10 +4,11 @@
 
 /*
  * Meter shuffle - HECHO!!! (Se accede siempre a la última carta, es más eficiente)
- * Modificar interfaz (Mal Rollo) - obtenerTexto hecho, sólo falta crear la interfaz
+ * Modificar interfaz (Mal Rollo) - HECHO obtenerTexto hecho, sólo falta crear la interfaz
  * Completar actualizarJugador
  * pagina 5 informacion vista
  * cambiar dado por getvista
+ * Ver alternativa a instanceof
  */
 
 package napakalaki;

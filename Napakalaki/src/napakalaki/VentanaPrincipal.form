@@ -23,28 +23,23 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
-                      <Component id="jL_territorioJugadores" min="-2" max="-2" attributes="0"/>
+                  <Component id="jP_monstruos" max="32767" attributes="0"/>
+                  <Component id="jP_jugadores" alignment="0" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jB_equiparse" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="jB_comprarNivel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="jB_descartarseTesoros" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="jB_combatir" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="jP_monstruos" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jB_siguiente" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-          </Group>
-          <Group type="102" attributes="0">
-              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-              <Component id="territorioMonstrio" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jP_jugadores" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -52,14 +47,18 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-              <Component id="territorioMonstrio" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
               <Component id="jP_monstruos" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jL_territorioJugadores" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jP_jugadores" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+              <Component id="jP_jugadores" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="28" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jB_equiparse" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jB_comprarNivel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jB_descartarseTesoros" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jB_combatir" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jB_siguiente" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -69,8 +68,108 @@
     <Container class="javax.swing.JPanel" name="jP_monstruos">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-            <LineBorder/>
+          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+            <TitledBorder title="Territorio del Terrible Monstruo"/>
+          </Border>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jL_nombreMonstruo" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jL_nivelesGanados" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jL_tesorosGanados" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="145" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jL_nivelesPerdidos" min="-2" max="-2" attributes="0"/>
+                              <Component id="jL_nivel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jL_nivelContraSectarios" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                          <Component id="jL_malRollo" min="-2" pref="377" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jL_nombreMonstruo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jL_nivel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jL_nivelesGanados" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jL_nivelContraSectarios" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jL_tesorosGanados" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jL_nivelesPerdidos" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="jL_malRollo" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="37" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="jL_malRollo">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Mal Rollo del monstruo"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jL_nombreMonstruo">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Nombre Monstruo"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jL_nivelesGanados">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Niveles Ganados"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jL_tesorosGanados">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Tesoros Ganados"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jL_nivel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Nivel"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jL_nivelContraSectarios">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Nivel contra Sectarios"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jL_nivelesPerdidos">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Niveles Perdidos"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="jP_jugadores">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+            <TitledBorder title="Parcelita de los d&#xe9;biles jugadores"/>
           </Border>
         </Property>
       </Properties>
@@ -79,95 +178,41 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
-                          <Component id="jL_malRollo" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
-                          <Component id="jL_nombreMonstruo" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <EmptySpace pref="688" max="32767" attributes="0"/>
-              </Group>
-          </Group>
-        </DimensionLayout>
-        <DimensionLayout dim="1">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                  <Component id="jL_nombreMonstruo" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                  <Component id="jL_malRollo" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="34" max="32767" attributes="0"/>
-              </Group>
-          </Group>
-        </DimensionLayout>
-      </Layout>
-      <SubComponents>
-        <Component class="javax.swing.JLabel" name="jL_malRollo">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel1"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jL_nombreMonstruo">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel1"/>
-          </Properties>
-        </Component>
-      </SubComponents>
-    </Container>
-    <Component class="javax.swing.JLabel" name="territorioMonstrio">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Territorio Monstruo"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jL_territorioJugadores">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Territorio Jugadores"/>
-      </Properties>
-    </Component>
-    <Container class="javax.swing.JPanel" name="jP_jugadores">
-      <Properties>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-            <LineBorder/>
-          </Border>
-        </Property>
-      </Properties>
-
-      <Layout>
-        <DimensionLayout dim="0">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="jP_tesorosOcultos" min="-2" max="-2" attributes="0"/>
+                      <Component id="jP_tesorosOcultos" min="-2" pref="483" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                               <Component id="jL_nombreJugador" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="jL_nivelCombate" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
+                              <Component id="jL_esSectario" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
-                              <Component id="jP_tesorosVisibles" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="jP_tesorosVisibles" min="-2" pref="483" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="681" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                  <Component id="jL_bonusSectario" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="128" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jL_nombreJugador" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jL_esSectario" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jL_nivelCombate" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jL_bonusSectario" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="28" max="32767" attributes="0"/>
+                  <Component id="jP_tesorosVisibles" min="-2" pref="56" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="jP_tesorosOcultos" min="-2" pref="119" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jL_nombreJugador" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jP_tesorosVisibles" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jP_tesorosOcultos" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="246" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -200,7 +245,47 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
         </Container>
+        <Component class="javax.swing.JLabel" name="jL_esSectario">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Humano"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jL_nivelCombate">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Nivel de Combate"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jL_bonusSectario">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Bonus Sectario"/>
+          </Properties>
+        </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JButton" name="jB_equiparse">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Equiparse"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jB_comprarNivel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Comprar Nivel"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jB_descartarseTesoros">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Descartarse Tesoros"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jB_combatir">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xa1;COMBATIR!"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jB_siguiente">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Siguiente"/>
+      </Properties>
+    </Component>
   </SubComponents>
 </Form>

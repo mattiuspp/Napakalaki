@@ -11,6 +11,10 @@ public class JugadorSectario extends Jugador{
         miCartaSectario = new Sectario(carta.getNombre(), carta.getValorBasico());
         incrementarSectarios();
     }
+
+    public Sectario getMiCartaSectario() {
+        return miCartaSectario;
+    }
     
     @Override
     public String toString() {
