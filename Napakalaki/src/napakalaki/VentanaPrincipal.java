@@ -39,18 +39,13 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
             {
                 @Override
                 public void mouseClicked(java.awt.event.MouseEvent evt) {
-                 // instrucciones para procesar la selección de un tesoro visible
-//                    TesoroGraficoVisible.this.setOpaque(true); 
-//                    TesoroGraficoVisible.this.setEnabled(false);
-                    if (tesorosVisiblesAlimpiar.contains(TesoroGraficoVisible.this))
+                    if (tesorosVisiblesSeleccionados.contains(TesoroGraficoVisible.this.tesoro))
                     {
-                        tesorosVisiblesAlimpiar.remove(TesoroGraficoVisible.this);
                         tesorosVisiblesSeleccionados.remove(TesoroGraficoVisible.this.tesoro);
                         TesoroGraficoVisible.this.setOpaque(false);
                     }
                     else
                     {
-                        tesorosVisiblesAlimpiar.add(TesoroGraficoVisible.this);
                         tesorosVisiblesSeleccionados.add(TesoroGraficoVisible.this.tesoro);
                         TesoroGraficoVisible.this.setOpaque(true); 
                         TesoroGraficoVisible.this.setEnabled(false);
@@ -71,16 +66,14 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
 //                    TesoroGraficoOculto.this.setOpaque(true); 
 //                    TesoroGraficoOculto.this.setEnabled(false);
                     
-                    if(tesorosOcultosAlimpiar.contains(TesoroGraficoOculto.this))
+                    if(tesorosOcultosSeleccionados.contains(TesoroGraficoOculto.this.tesoro))
                     {
-                        tesorosOcultosAlimpiar.remove(TesoroGraficoOculto.this);
                         tesorosOcultosSeleccionados.remove(TesoroGraficoOculto.this.tesoro);
                         TesoroGraficoOculto.this.setOpaque(false);
                         TesoroGraficoOculto.this.setEnabled(true);
                     }
                     else
                     {
-                        tesorosOcultosAlimpiar.add(TesoroGraficoOculto.this);
                         tesorosOcultosSeleccionados.add(TesoroGraficoOculto.this.tesoro);
                         TesoroGraficoOculto.this.setOpaque(true); 
                         TesoroGraficoOculto.this.setEnabled(false);
@@ -422,49 +415,34 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
         jL_esSectario.setText("Humano");
         jL_bonusSectario.setText("");
     }
-    
-    
-    // Antes de añadir los tesoros visibles de este jugador a su JPanel
-    // de tesoros visibles, se eliminan los tesoros que ya tenía este
-    // JPanel que pertenen al jugador anterior.
-    // Esos tesoros se encuentran en tesorosVisiblesAlimpiar
-    // (atributo de tipo List<TesoroGrafico> de la clase VentanaPrincipal
+   
     for (TesoroGrafico tg : tesorosVisiblesAlimpiar)
         jP_tesorosVisibles.remove(tg);
-    // Se vacía tesorosAlimpiar para incluirle los del jugador activo
     tesorosVisiblesAlimpiar.clear();
     
-    // El jugador que acaba de recibir el turno no debe tener ningun tesoro
-    // visible seleccionado
-    tesorosVisiblesSeleccionados.clear();
-
     // Ahora se añaden los tesoros visibles del jugador actual
     for (Tesoro t : jugadorActivo.obtenerTesorosVisibles()) {
         unTesoroGrafico = new TesoroGraficoVisible(t);
-        // El tesoro gráfico se añade a su JPanel
         jP_tesorosVisibles.add (unTesoroGrafico);
-        // También se incluye en tesorosVisiblesAlimpiar para la
-        // actualización del próximo jugador
         tesorosVisiblesAlimpiar.add(unTesoroGrafico);
     }
-    
-
-    
+      
     // PROCEDER de forma similar con los tesoros ocultos
     // INCLUIR otras instrucciones que se estimen necesarias
-    tesorosOcultosSeleccionados.clear();
-        
     for (TesoroGrafico tg : tesorosOcultosAlimpiar)
         jP_tesorosOcultos.remove(tg);
     tesorosOcultosAlimpiar.clear();
 
     for (Tesoro t : jugadorActivo.obtenerTesorosOcultos()) {
         unTesoroGrafico = new TesoroGraficoOculto(t);
-        jP_tesorosOcultos.add (unTesoroGrafico);
+        jP_tesorosOcultos.add(unTesoroGrafico);
         tesorosOcultosAlimpiar.add(unTesoroGrafico);
     }
 
-    
+    // El jugador que acaba de recibir el turno no debe tener ningun tesoro
+    // visible ni oculto seleccionado
+    tesorosVisiblesSeleccionados.clear();
+    tesorosOcultosSeleccionados.clear();
     
     // Se han estado añadiendo y quitando componentes del JPanel, no solo
     // modificando algún atributo de un componente existente.
