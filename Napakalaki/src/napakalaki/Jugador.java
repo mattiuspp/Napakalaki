@@ -14,6 +14,13 @@ public class Jugador {
     private ArrayList<Tesoro> tesorosOcultos = new ArrayList();
     private ArrayList<Tesoro> tesorosVisibles = new ArrayList();
     
+    private Vista vista;
+    
+    public Vista getVista()
+    {
+        return vista;
+    }
+    
 
     @Override
     public String toString() {
@@ -148,8 +155,7 @@ public class Jugador {
                 resultado = ResultadoCombate.VENCE;
         }
         else{
-            Random dado = new Random();
-            if ((dado.nextInt(6)+1) < 5)
+            if (getVista().getDado("Tira para huir.", "5-6 huyes") < 5)
             {
                 MalRollo malRollo = monstruoEnJuego.cualEsTuMalRollo();
                 boolean muerte = malRollo.muerte();
@@ -348,10 +354,8 @@ public class Jugador {
         return new JugadorSectario(this, cartaSectario);
     }
     
-    public boolean puedoConvertirme(){
-        Random dado = new Random();
-        
-        if(dado.nextInt(6) + 1 ==  6)
+    public boolean puedoConvertirme(){        
+        if(getVista().getDado("Tira para convertirte.", "6 te conviertes") ==  6)
             return true;
         else
             return false;

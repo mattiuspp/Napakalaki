@@ -99,8 +99,8 @@ public class JD_dado extends javax.swing.JDialog {
         jL_texto1.setText("jLabel1");
         getContentPane().add(jL_texto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 350, 30));
 
-        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
-        setBounds((screenSize.width-400)/2, (screenSize.height-284)/2, 400, 284);
+        setSize(new java.awt.Dimension(400, 284));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
   private void jL_dadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_dadoMouseClicked

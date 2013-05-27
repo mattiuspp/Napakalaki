@@ -1,5 +1,6 @@
 package napakalaki;
 
+import java.util.ArrayList;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -9,6 +10,10 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
     private String[] nombresJugadores;
     private Monstruo monstruoEnJuego;
     private Jugador jugadorActivo;
+    private ArrayList<TesoroGrafico> tesorosVisiblesAlimpiar;
+    private ArrayList<TesoroGrafico> tesorosVisiblesSeleccionados;
+    private ArrayList<TesoroGrafico> tesorosOcultosAlimpiar;
+    private ArrayList<TesoroGrafico> tesorosOcultosSeleccionados;
     
     private class TesoroGrafico extends JPanel {
         protected Tesoro tesoro; // asociación con el tesoro que representa 
@@ -35,6 +40,9 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
                 @Override
                 public void mouseClicked(java.awt.event.MouseEvent evt) {
                  // instrucciones para procesar la selección de un tesoro visible
+                    tesorosVisiblesAlimpiar.add(TesoroGraficoVisible.this);
+                    TesoroGraficoVisible.this.setOpaque(true);
+                    TesoroGraficoVisible.this.setEnabled(false);
                 }
             });
          }
@@ -47,17 +55,15 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
             {
                 @Override
                 public void mouseClicked(java.awt.event.MouseEvent evt) {
-                 // instrucciones para procesar la selección de un tesoro visible
+                    // instrucciones para procesar la selección de un tesoro visible
+                    tesorosOcultosAlimpiar.add(TesoroGraficoOculto.this);
+                    TesoroGraficoOculto.this.setOpaque(true);
+                    TesoroGraficoOculto.this.setEnabled(false);
                 }
             });
          }
     }
 
-
-    
-    
-    
-    
     public VentanaPrincipal(Napakalaki unJuego) {
         juego = unJuego;
         initComponents();
@@ -196,7 +202,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
                     .addComponent(jL_esSectario)
                     .addComponent(jL_nivelCombate)
                     .addComponent(jL_bonusSectario))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addComponent(jP_tesorosVisibles, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jP_tesorosOcultos, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -241,7 +247,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
                 .addComponent(jP_monstruos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addComponent(jP_jugadores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jB_equiparse)
                     .addComponent(jB_comprarNivel)
@@ -338,12 +344,9 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
         jL_nivel.setText("Nivel: " + monstruoEnJuego.getValorBasico());
         jL_nivelContraSectarios.setText("Nivel contra Sectarios: " + monstruoEnJuego.getValorEspecial());
         jL_nivelesPerdidos.setText("Niveles perdidos: " + monstruoEnJuego.cualEsTuMalRollo().obtenerNivelesPerdidos());
-        
-        
-        
+
         jL_malRollo.setText (monstruoEnJuego.cualEsTuMalRollo().obtenerTexto()); 
-        // Obtener texto
-        // etc.
+        
         pack();
 
     }
@@ -377,15 +380,14 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
     // de tesoros visibles, se eliminan los tesoros que ya tenía este
     // JPanel que pertenen al jugador anterior.
     // Esos tesoros se encuentran en tesorosVisiblesAlimpiar
-    // (atributo de tipo List<TesoroGrafico> de la clase
-    // VentanaPrincipal
+    // (atributo de tipo List<TesoroGrafico> de la clase VentanaPrincipal
     for (TesoroGrafico tg : tesorosVisiblesAlimpiar)
         jP_tesorosVisibles.remove (tg);
     // Se vacía tesorosAlimpiar para incluirle los del jugador activo
     tesorosVisiblesAlimpiar.clear();
 
     // Ahora se añaden los tesoros visibles del jugador actual
-    for (Tesoro t : jugadorActivo.getTesorosVisibles()) {
+    for (Tesoro t : jugadorActivo.obtenerTesorosVisibles()) {
         unTesoroGrafico = new TesoroGraficoVisible(t);
         // El tesoro gráfico se añade a su JPanel
         jP_tesorosVisibles.add (unTesoroGrafico);
@@ -400,7 +402,18 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
     
     // PROCEDER de forma similar con los tesoros ocultos
     // INCLUIR otras instrucciones que se estimen necesarias
-    //
+    for (TesoroGrafico tg : tesorosOcultosAlimpiar)
+        jP_tesorosOcultos.remove (tg);
+    tesorosOcultosAlimpiar.clear();
+
+    for (Tesoro t : jugadorActivo.obtenerTesorosOcultos()) {
+        unTesoroGrafico = new TesoroGraficoOculto(t);
+        jP_tesorosOcultos.add (unTesoroGrafico);
+        tesorosOcultosAlimpiar.add(unTesoroGrafico);
+    }
+    
+    
+    
     // Se han estado añadiendo y quitando componentes del JPanel, no solo
     // modificando algún atributo de un componente existente.
     // No sólo se requiere pack(), sino también repaint()

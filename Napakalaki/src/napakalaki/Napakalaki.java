@@ -18,7 +18,7 @@ public class Napakalaki {
     private ArrayList<Tesoro> mazoTesoros = new ArrayList();
     private ArrayList<Sectario> mazoSectarios = new ArrayList();
     
-    private Random dado = new Random();
+//    private Random dado = new Random();
     private Vista vista;
     
     // Establecemos la clase como singleton
@@ -435,7 +435,7 @@ public class Napakalaki {
         {
             int numTesoros;
             
-            switch (dado.nextInt(6)+1){ 
+            switch (getVista().getDado("Repartiendo cartas", "1:1,6:3,*:2")){ 
                     case 1:{
                         numTesoros = 1;
                         break;
@@ -456,7 +456,7 @@ public class Napakalaki {
     }
     
     private Jugador primerJugador() {
-        return Jugadores.get(dado.nextInt(Jugadores.size()));
+        return Jugadores.get(getVista().getDado("Primer Jugador","OLA K ASE")%4);
     }
     
     private Monstruo siguienteMonstruo() {
@@ -552,7 +552,7 @@ public class Napakalaki {
             
             if(!tieneTesoros){
                 int numTesoros;
-                switch (dado.nextInt(6)+1){
+                switch (getVista().getDado("Numero de Tesoros a repartir", "1:1,6:3,*:2")){
                         case 1:{
                             numTesoros = 1;
                             break;
