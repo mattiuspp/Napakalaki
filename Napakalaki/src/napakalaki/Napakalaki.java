@@ -468,6 +468,7 @@ public class Napakalaki {
         {
             mazoMonstruos = new ArrayList(descarteMonstruos); 
             descarteMonstruos.clear();
+            Collections.shuffle(mazoMonstruos);
         }
         monstruoActivo = mazoMonstruos.get(mazoMonstruos.size()-1);
         descarteMonstruos.add(monstruoActivo);
@@ -481,6 +482,7 @@ public class Napakalaki {
         {
             mazoTesoros = new ArrayList(descarteTesoros); 
             descarteTesoros.clear();
+            Collections.shuffle(mazoTesoros);
         }
         Tesoro tesoro = mazoTesoros.get(mazoTesoros.size()-1);
         descarteTesoros.add(tesoro);

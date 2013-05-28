@@ -18,7 +18,7 @@
  *      Si sale 3, coge Juan1
  *      No sé por qué pasa esto...
  * Arreglar tesoros
- * Mostrar en la interfaz cuántos tesoros sobran
+ * Mostrar en la interfaz cuántos tesoros sobran - HECHO
  * Algo de miMalRollo de la profesora o algo me dijiste xDDD
  */
 
