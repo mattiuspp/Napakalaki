@@ -2,6 +2,7 @@ package napakalaki;
 
 import java.util.ArrayList;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
@@ -58,6 +59,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
                     {
                         tesorosVisiblesSeleccionados.remove(TesoroGraficoVisible.this.tesoro);
                         TesoroGraficoVisible.this.setOpaque(false);
+                        TesoroGraficoVisible.this.setEnabled(true);
                     }
                     else
                     {
@@ -120,6 +122,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
         jL_nivel = new javax.swing.JLabel();
         jL_nivelContraSectarios = new javax.swing.JLabel();
         jL_nivelesPerdidos = new javax.swing.JLabel();
+        jL_muerte = new javax.swing.JLabel();
         jP_jugadores = new javax.swing.JPanel();
         jL_nombreJugador = new javax.swing.JLabel();
         jP_tesorosVisibles = new javax.swing.JPanel();
@@ -128,12 +131,14 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
         jL_nivelCombate = new javax.swing.JLabel();
         jL_bonusSectario = new javax.swing.JLabel();
         jL_malRolloPendiente = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        jP_malRolloPendiente = new javax.swing.JPanel();
         jL_ocultosPerdidos = new javax.swing.JLabel();
         jL_tipoOcultosPerdidos = new javax.swing.JLabel();
         jL_visiblesPerdidos = new javax.swing.JLabel();
         jL_tipoVisiblesPerdidos = new javax.swing.JLabel();
         jL_resultadoCombate = new javax.swing.JLabel();
+        jL_nivelBasico = new javax.swing.JLabel();
+        jL_excesoCartas = new javax.swing.JLabel();
         jB_equiparse = new javax.swing.JButton();
         jB_comprarNivel = new javax.swing.JButton();
         jB_descartarseTesoros = new javax.swing.JButton();
@@ -159,6 +164,8 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
 
         jL_nivelesPerdidos.setText("Niveles Perdidos");
 
+        jL_muerte.setText("Mueres");
+
         javax.swing.GroupLayout jP_monstruosLayout = new javax.swing.GroupLayout(jP_monstruos);
         jP_monstruos.setLayout(jP_monstruosLayout);
         jP_monstruosLayout.setHorizontalGroup(
@@ -174,8 +181,12 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
                     .addComponent(jL_nivelContraSectarios)
                     .addComponent(jL_nivel)
                     .addComponent(jL_nivelesPerdidos))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jL_malRollo, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(87, 87, 87)
+                .addGroup(jP_monstruosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jL_malRollo, javax.swing.GroupLayout.DEFAULT_SIZE, 323, Short.MAX_VALUE)
+                    .addGroup(jP_monstruosLayout.createSequentialGroup()
+                        .addComponent(jL_muerte)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jP_monstruosLayout.setVerticalGroup(
@@ -183,7 +194,6 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
             .addGroup(jP_monstruosLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jP_monstruosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jL_malRollo, javax.swing.GroupLayout.DEFAULT_SIZE, 63, Short.MAX_VALUE)
                     .addGroup(jP_monstruosLayout.createSequentialGroup()
                         .addGroup(jP_monstruosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jL_nombreMonstruo)
@@ -191,12 +201,14 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jP_monstruosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jL_nivelesGanados)
-                            .addComponent(jL_nivelContraSectarios))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jP_monstruosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jL_nivelesPerdidos)
-                            .addComponent(jL_tesorosGanados))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jL_nivelContraSectarios)))
+                    .addComponent(jL_malRollo, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jP_monstruosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jL_nivelesPerdidos)
+                    .addComponent(jL_tesorosGanados)
+                    .addComponent(jL_muerte))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         jP_jugadores.setBorder(javax.swing.BorderFactory.createTitledBorder("Parcelita de los débiles jugadores"));
@@ -213,7 +225,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
 
         jL_bonusSectario.setText("Bonus Sectario");
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("MalRollo Pendiente"));
+        jP_malRolloPendiente.setBorder(javax.swing.BorderFactory.createTitledBorder("MalRollo Pendiente"));
 
         jL_ocultosPerdidos.setText("Nº Ocultos a perder:");
 
@@ -223,25 +235,25 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
 
         jL_tipoVisiblesPerdidos.setText("Tipo:");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout jP_malRolloPendienteLayout = new javax.swing.GroupLayout(jP_malRolloPendiente);
+        jP_malRolloPendiente.setLayout(jP_malRolloPendienteLayout);
+        jP_malRolloPendienteLayout.setHorizontalGroup(
+            jP_malRolloPendienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jP_malRolloPendienteLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jP_malRolloPendienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jL_ocultosPerdidos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jP_malRolloPendienteLayout.createSequentialGroup()
+                        .addGroup(jP_malRolloPendienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jL_tipoOcultosPerdidos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jL_visiblesPerdidos, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
                             .addComponent(jL_tipoVisiblesPerdidos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        jP_malRolloPendienteLayout.setVerticalGroup(
+            jP_malRolloPendienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jP_malRolloPendienteLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jL_ocultosPerdidos)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -256,6 +268,10 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
         jL_resultadoCombate.setText("Resultado del Combate: ");
         jL_resultadoCombate.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
+        jL_nivelBasico.setText("Nivel Básico");
+
+        jL_excesoCartas.setText("Exceso de cartas");
+
         javax.swing.GroupLayout jP_jugadoresLayout = new javax.swing.GroupLayout(jP_jugadores);
         jP_jugadores.setLayout(jP_jugadoresLayout);
         jP_jugadoresLayout.setHorizontalGroup(
@@ -266,7 +282,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
                     .addGroup(jP_jugadoresLayout.createSequentialGroup()
                         .addComponent(jP_tesorosOcultos, javax.swing.GroupLayout.PREFERRED_SIZE, 552, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jP_malRolloPendiente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jP_jugadoresLayout.createSequentialGroup()
                         .addComponent(jP_tesorosVisibles, javax.swing.GroupLayout.PREFERRED_SIZE, 552, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -274,14 +290,19 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
                             .addGroup(jP_jugadoresLayout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(jL_malRolloPendiente))
-                            .addComponent(jL_resultadoCombate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(jL_resultadoCombate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jP_jugadoresLayout.createSequentialGroup()
+                                .addComponent(jL_excesoCartas)
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jP_jugadoresLayout.createSequentialGroup()
                         .addComponent(jL_nombreJugador)
-                        .addGap(46, 46, 46)
+                        .addGap(39, 39, 39)
+                        .addComponent(jL_nivelBasico)
+                        .addGap(59, 59, 59)
                         .addComponent(jL_nivelCombate)
-                        .addGap(60, 60, 60)
+                        .addGap(42, 42, 42)
                         .addComponent(jL_esSectario)
-                        .addGap(169, 169, 169)
+                        .addGap(84, 84, 84)
                         .addComponent(jL_bonusSectario)))
                 .addContainerGap())
         );
@@ -293,15 +314,18 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
                     .addComponent(jL_nombreJugador)
                     .addComponent(jL_bonusSectario)
                     .addComponent(jL_nivelCombate)
-                    .addComponent(jL_esSectario))
+                    .addComponent(jL_esSectario)
+                    .addComponent(jL_nivelBasico))
                 .addGroup(jP_jugadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jP_jugadoresLayout.createSequentialGroup()
                         .addGap(52, 52, 52)
                         .addComponent(jL_resultadoCombate, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(8, 8, 8)
                         .addComponent(jL_malRolloPendiente)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jL_excesoCartas)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jP_malRolloPendiente, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jP_jugadoresLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jP_tesorosVisibles, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -410,6 +434,11 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
     private void jB_combatirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_combatirActionPerformed
         ResultadoCombate resultado = juego.desarrollarCombate();
         jL_resultadoCombate.setText("Resultado combate: \n" + resultado);
+        if (resultado == ResultadoCombate.VENCEYFIN)
+        {
+            JOptionPane.showMessageDialog(this,"El jugador " + jugadorActivo.obtenerNombre() + " ha ganado la partida!!!", "Ganador!!!", JOptionPane.INFORMATION_MESSAGE);
+            System.exit(0);
+        }
         boolean cumplioMalRollo = jugadorActivo.obtenerMalRolloPendiente().esVacio();
         if(cumplioMalRollo == true)
         {
@@ -434,9 +463,15 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
                 jB_siguiente.setEnabled(false);
                 jB_combatir.setEnabled(true);
                 jL_malRolloPendiente.setText("");
+                jL_excesoCartas.setText("");
                 actualizarJugador();
                 actualizarMonstruo();
-            }                
+            }
+            else if (fin > 0)
+            {
+                jL_excesoCartas.setText("Exceso de cartas: " + fin);
+                actualizarJugador();
+            }
     }//GEN-LAST:event_jB_siguienteActionPerformed
 
 //    /**
@@ -481,9 +516,12 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
     private javax.swing.JButton jB_siguiente;
     private javax.swing.JLabel jL_bonusSectario;
     private javax.swing.JLabel jL_esSectario;
+    private javax.swing.JLabel jL_excesoCartas;
     private javax.swing.JLabel jL_malRollo;
     private javax.swing.JLabel jL_malRolloPendiente;
+    private javax.swing.JLabel jL_muerte;
     private javax.swing.JLabel jL_nivel;
+    private javax.swing.JLabel jL_nivelBasico;
     private javax.swing.JLabel jL_nivelCombate;
     private javax.swing.JLabel jL_nivelContraSectarios;
     private javax.swing.JLabel jL_nivelesGanados;
@@ -497,10 +535,10 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
     private javax.swing.JLabel jL_tipoVisiblesPerdidos;
     private javax.swing.JLabel jL_visiblesPerdidos;
     private javax.swing.JPanel jP_jugadores;
+    private javax.swing.JPanel jP_malRolloPendiente;
     private javax.swing.JPanel jP_monstruos;
     private javax.swing.JPanel jP_tesorosOcultos;
     private javax.swing.JPanel jP_tesorosVisibles;
-    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 
     @Override
@@ -512,6 +550,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
         // Añadir aquí el código para comunicarse con la clase Napakalaki
         // y comenzar el juego
         juego.comenzarJuego(nombresJugadores);
+        jL_excesoCartas.setText(""); // No me gusta NADA ponerlo aquí, pero no sé cómo hacerlo si no, actualizarJugador no se encarga de esto =(
         actualizarJugador();
         actualizarMonstruo();
 
@@ -533,8 +572,11 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
         jL_nivelContraSectarios.setText("Nivel contra Sectarios: " + monstruoEnJuego.getValorEspecial());
         jL_nivelesPerdidos.setText("Niveles perdidos: " + monstruoEnJuego.cualEsTuMalRollo().obtenerNivelesPerdidos());
         jL_resultadoCombate.setText("");
-
-        jL_malRollo.setText (monstruoEnJuego.cualEsTuMalRollo().obtenerTexto()); 
+        jL_malRollo.setText (monstruoEnJuego.cualEsTuMalRollo().obtenerTexto());
+        if (monstruoEnJuego.cualEsTuMalRollo().muerte())
+            jL_muerte.setText("MUERES");
+        else
+            jL_muerte.setText("");
         
         pack();
 
@@ -549,6 +591,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
         // información del jugador activo distinta a los tesoros
         jugadorActivo = juego.obtenerJugadorActivo();
         jL_nombreJugador.setText("" + jugadorActivo.obtenerNombre());
+        jL_nivelBasico.setText("Nivel Básico: " + jugadorActivo.obtenerNivel());
         jL_nivelCombate.setText("Nivel de combate: " + jugadorActivo.obtenerNivelCombate());
 
 
