@@ -12,7 +12,11 @@
  * CAMBIAR MALROLLO - HECHO
  * 
  * Ver alternativa a instanceof
- * MODIFICAR DADOS EXISTENTES
+ * MODIFICAR DADOS EXISTENTES - PrimerJugador no lo hace bien (Adrián, míralo porque no sé por qué no lo hace bien)
+ *      Si sale 1, coge Pepe2
+ *      Si sale 2, coge Adrian3
+ *      Si sale 3, coge Juan1
+ *      No sé por qué pasa esto...
  * Arreglar tesoros
  * Algo de miMalRollo de la profesora o algo me dijiste xDDD
  */

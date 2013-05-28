@@ -542,93 +542,98 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
     
     private void actualizarJugador()
     {        
-    TesoroGrafico unTesoroGrafico; // variable auxiliar para varios usos
-    jugadorActivo = juego.obtenerJugadorActivo(); // asociación con el modelo
-    
-    ////INCLUIR instrucciones para actualizar el nombre, el nivel, u otra
-    // información del jugador activo distinta a los tesoros
-    jugadorActivo = juego.obtenerJugadorActivo();
-    jL_nombreJugador.setText("" + jugadorActivo.obtenerNombre());
-    jL_nivelCombate.setText("Nivel de combate: " + jugadorActivo.obtenerNivelCombate());
-    
-    
-    if (jugadorActivo instanceof JugadorSectario)
-    {
-        jL_esSectario.setText("Sectario");
-        jL_bonusSectario.setText("+" + ((JugadorSectario)jugadorActivo).getMiCartaSectario().getValorBasico() 
-                                  + " por cada sectario en juego.");
-    }
-    else{
-        jL_esSectario.setText("Humano");
-        jL_bonusSectario.setText("");
-    }
-   
-    for (TesoroGrafico tg : tesorosVisiblesAlimpiar)
-        jP_tesorosVisibles.remove(tg);
-    tesorosVisiblesAlimpiar.clear();
-    
-    // Ahora se añaden los tesoros visibles del jugador actual
-    for (Tesoro t : jugadorActivo.obtenerTesorosVisibles()) {
-        unTesoroGrafico = new TesoroGraficoVisible(t);
-        jP_tesorosVisibles.add (unTesoroGrafico);
-        tesorosVisiblesAlimpiar.add(unTesoroGrafico);
-    }
-      
-    // PROCEDER de forma similar con los tesoros ocultos
-    // INCLUIR otras instrucciones que se estimen necesarias
-    for (TesoroGrafico tg : tesorosOcultosAlimpiar)
-        jP_tesorosOcultos.remove(tg);
-    tesorosOcultosAlimpiar.clear();
+        TesoroGrafico unTesoroGrafico; // variable auxiliar para varios usos
+        jugadorActivo = juego.obtenerJugadorActivo(); // asociación con el modelo
 
-    for (Tesoro t : jugadorActivo.obtenerTesorosOcultos()) {
-        unTesoroGrafico = new TesoroGraficoOculto(t);
-        jP_tesorosOcultos.add(unTesoroGrafico);
-        tesorosOcultosAlimpiar.add(unTesoroGrafico);
-    }
+        ////INCLUIR instrucciones para actualizar el nombre, el nivel, u otra
+        // información del jugador activo distinta a los tesoros
+        jugadorActivo = juego.obtenerJugadorActivo();
+        jL_nombreJugador.setText("" + jugadorActivo.obtenerNombre());
+        jL_nivelCombate.setText("Nivel de combate: " + jugadorActivo.obtenerNivelCombate());
 
-    // El jugador que acaba de recibir el turno no debe tener ningun tesoro
-    // visible ni oculto seleccionado
-    tesorosVisiblesSeleccionados.clear();
-    tesorosOcultosSeleccionados.clear();
-    
-    // Actualizamos malRolloPendiente
-    if (!jugadorActivo.obtenerMalRolloPendiente().esVacio()){
+
+        if (jugadorActivo instanceof JugadorSectario)
+        {
+            jL_esSectario.setText("Sectario");
+            jL_bonusSectario.setText("+" + ((JugadorSectario)jugadorActivo).getMiCartaSectario().getValorBasico() 
+                                      + " por cada sectario en juego.");
+        }
+        else
+        {
+            jL_esSectario.setText("Humano");
+            jL_bonusSectario.setText("");
+        }
+
+        for (TesoroGrafico tg : tesorosVisiblesAlimpiar)
+            jP_tesorosVisibles.remove(tg);
+        tesorosVisiblesAlimpiar.clear();
+
+        // Ahora se añaden los tesoros visibles del jugador actual
+        for (Tesoro t : jugadorActivo.obtenerTesorosVisibles()) 
+        {
+            unTesoroGrafico = new TesoroGraficoVisible(t);
+            jP_tesorosVisibles.add (unTesoroGrafico);
+            tesorosVisiblesAlimpiar.add(unTesoroGrafico);
+        }
+
+        // PROCEDER de forma similar con los tesoros ocultos
+        // INCLUIR otras instrucciones que se estimen necesarias
+        for (TesoroGrafico tg : tesorosOcultosAlimpiar)
+            jP_tesorosOcultos.remove(tg);
+        tesorosOcultosAlimpiar.clear();
+
+        for (Tesoro t : jugadorActivo.obtenerTesorosOcultos()) 
+        {
+            unTesoroGrafico = new TesoroGraficoOculto(t);
+            jP_tesorosOcultos.add(unTesoroGrafico);
+            tesorosOcultosAlimpiar.add(unTesoroGrafico);
+        }
+
+        // El jugador que acaba de recibir el turno no debe tener ningun tesoro
+        // visible ni oculto seleccionado
+        tesorosVisiblesSeleccionados.clear();
+        tesorosOcultosSeleccionados.clear();
+
+        // Actualizamos malRolloPendiente
+        if (!jugadorActivo.obtenerMalRolloPendiente().esVacio())
+        {
             jL_ocultosPerdidos.setText("Ocultos perdidos: " + jugadorActivo.obtenerMalRolloPendiente().obtenerOcultosPerdidos());
-    String f = new String();
-    
-    f += "Tipos ocultos perdidos: ";
-    
-    for (TipoTesoro t: jugadorActivo.obtenerMalRolloPendiente().obtenerTipoOcultosPerdidos())
-    {
-        f += t + " | ";
-    }
-    jL_tipoOcultosPerdidos.setText(f);
-    
-    jL_visiblesPerdidos.setText("Visibles perdidos: " + jugadorActivo.obtenerMalRolloPendiente().obtenerVisiblesPerdidos());
-    f = "Tipos visibles perdidos: ";
-    
-    for (TipoTesoro t: jugadorActivo.obtenerMalRolloPendiente().obtenerTipoVisiblesPerdidos())
-    {
-        f += t + " | ";
-    }
-    jL_tipoVisiblesPerdidos.setText(f);
-        
-    }
-    else{
-                jL_ocultosPerdidos.setText("");
-  
-        jL_tipoOcultosPerdidos.setText("");
+            String f = new String();
 
-        jL_visiblesPerdidos.setText(""); 
-        jL_tipoVisiblesPerdidos.setText("");
-    }
+            f += "Tipos ocultos perdidos: ";
 
-    
-    // Se han estado añadiendo y quitando componentes del JPanel, no solo
-    // modificando algún atributo de un componente existente.
-    // No sólo se requiere pack(), sino también repaint()
-    repaint();
-    pack();
+            for (TipoTesoro t: jugadorActivo.obtenerMalRolloPendiente().obtenerTipoOcultosPerdidos())
+            {
+                f += t + " | ";
+            }
+            jL_tipoOcultosPerdidos.setText(f);
+
+            jL_visiblesPerdidos.setText("Visibles perdidos: " + jugadorActivo.obtenerMalRolloPendiente().obtenerVisiblesPerdidos());
+            f = "Tipos visibles perdidos: ";
+
+            for (TipoTesoro t: jugadorActivo.obtenerMalRolloPendiente().obtenerTipoVisiblesPerdidos())
+            {
+                f += t + " | ";
+            }
+            jL_tipoVisiblesPerdidos.setText(f);
+
+        }
+        else
+        {
+            jL_ocultosPerdidos.setText("");
+
+            jL_tipoOcultosPerdidos.setText("");
+
+            jL_visiblesPerdidos.setText(""); 
+            jL_tipoVisiblesPerdidos.setText("");
+        }
+
+
+        // Se han estado añadiendo y quitando componentes del JPanel, no solo
+        // modificando algún atributo de un componente existente.
+        // No sólo se requiere pack(), sino también repaint()
+        repaint();
+        pack();
 
 
 

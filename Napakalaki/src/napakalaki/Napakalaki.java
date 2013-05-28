@@ -435,7 +435,7 @@ public class Napakalaki {
         {
             int numTesoros;
             
-            switch (getVista().getDado("Repartiendo cartas", "1:1,6:3,*:2")){ 
+            switch (getVista().getDado("Repartiendo cartas | 1:1,6:3,*:2","Jugador: " + jugador.obtenerNombre())){ 
                     case 1:{
                         numTesoros = 1;
                         break;
@@ -456,7 +456,11 @@ public class Napakalaki {
     }
     
     private Jugador primerJugador() {
-        return Jugadores.get(getVista().getDado("Primer Jugador","OLA K ASE") %Jugadores.size() );
+        int primerJugador;
+        do {
+            primerJugador = getVista().getDado("Primer Jugador","Se repite hasta que salga un índice menor que " + Jugadores.size());
+        } while (primerJugador > Jugadores.size());
+        return Jugadores.get(primerJugador - 1);
     }
     
     private Monstruo siguienteMonstruo() {
@@ -548,7 +552,7 @@ public class Napakalaki {
             
             if(!tieneTesoros){
                 int numTesoros;
-                switch (getVista().getDado("Numero de Tesoros a repartir", "1:1,6:3,*:2")){
+                switch (getVista().getDado("Numero de Tesoros a repartir | 1:1,6:3,*:2", "Jugador: " + jugadorActivo.obtenerNombre())){
                         case 1:{
                             numTesoros = 1;
                             break;
