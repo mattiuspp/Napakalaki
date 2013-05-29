@@ -39,7 +39,7 @@
                   </Group>
                   <Group type="102" attributes="0">
                       <Component id="jP_jugadores" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="6" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
                   <Component id="jP_monstruos" max="32767" attributes="0"/>
               </Group>
@@ -62,7 +62,7 @@
                   <Component id="jB_comprarNivel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jB_equiparse" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="26" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -94,7 +94,7 @@
                       <Component id="jL_nivelesPerdidos" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
-                  <Component id="jScrollPane1" min="-2" pref="351" max="-2" attributes="0"/>
+                  <Component id="jScrollPane1" min="-2" pref="464" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -173,7 +173,7 @@
                 </Property>
                 <Property name="columns" type="int" value="20"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Dialog" size="12" style="1"/>
+                  <Font name="Dialog" size="12" style="3"/>
                 </Property>
                 <Property name="lineWrap" type="boolean" value="true"/>
                 <Property name="rows" type="int" value="4"/>
@@ -201,19 +201,19 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jP_tesorosVisibles" min="-2" pref="564" max="-2" attributes="0"/>
-                      <Component id="jP_tesorosOcultos" alignment="0" min="-2" pref="564" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="jP_tesorosVisibles" pref="649" max="32767" attributes="0"/>
+                      <Component id="jP_tesorosOcultos" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jP_malRolloPendiente" max="32767" attributes="0"/>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           <Component id="jL_malRolloPendiente" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jP_malRolloPendiente" min="-2" max="-2" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -253,21 +253,20 @@
                           <Component id="jL_bonusSectario" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jL_excesoCartas" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="60" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jP_tesorosVisibles" max="32767" attributes="0"/>
+                          <Component id="jP_tesorosVisibles" min="-2" pref="193" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="102" attributes="0">
                           <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace min="-2" max="-2" attributes="0"/>
                           <Component id="jP_malRolloPendiente" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="jP_tesorosOcultos" min="-2" pref="217" max="-2" attributes="0"/>
+                      <Component id="jP_tesorosOcultos" min="-2" pref="195" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
               </Group>
@@ -334,32 +333,29 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jL_ocultosPerdidos" max="32767" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jL_tipoOcultosPerdidos" max="32767" attributes="0"/>
-                                  <Component id="jL_visiblesPerdidos" pref="224" max="32767" attributes="0"/>
-                                  <Component id="jL_tipoVisiblesPerdidos" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Component id="jL_ocultosPerdidos" min="-2" pref="236" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="jL_tipoOcultosPerdidos" max="32767" attributes="0"/>
+                              <Component id="jL_visiblesPerdidos" pref="224" max="32767" attributes="0"/>
+                              <Component id="jL_tipoVisiblesPerdidos" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Component id="jL_ocultosPerdidos" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jL_tipoOcultosPerdidos" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jL_visiblesPerdidos" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jL_tipoVisiblesPerdidos" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="22" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -429,7 +425,7 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jL_resultadoCombate">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Resultado del Combate: "/>
+                <Property name="text" type="java.lang.String" value="Resultado del Combate"/>
                 <Property name="verticalAlignment" type="int" value="1"/>
               </Properties>
             </Component>
