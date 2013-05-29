@@ -115,14 +115,14 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
     private void initComponents() {
 
         jP_monstruos = new javax.swing.JPanel();
-        jL_malRollo = new javax.swing.JLabel();
         jL_nombreMonstruo = new javax.swing.JLabel();
         jL_nivelesGanados = new javax.swing.JLabel();
         jL_tesorosGanados = new javax.swing.JLabel();
         jL_nivel = new javax.swing.JLabel();
         jL_nivelContraSectarios = new javax.swing.JLabel();
         jL_nivelesPerdidos = new javax.swing.JLabel();
-        jL_muerte = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jL_malRollo = new javax.swing.JTextArea();
         jP_jugadores = new javax.swing.JPanel();
         jL_nombreJugador = new javax.swing.JLabel();
         jP_tesorosVisibles = new javax.swing.JPanel();
@@ -138,19 +138,17 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
         jL_tipoVisiblesPerdidos = new javax.swing.JLabel();
         jL_nivelBasico = new javax.swing.JLabel();
         jL_excesoCartas = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jL_resultadoCombate = new javax.swing.JLabel();
         jB_equiparse = new javax.swing.JButton();
         jB_comprarNivel = new javax.swing.JButton();
         jB_descartarseTesoros = new javax.swing.JButton();
         jB_combatir = new javax.swing.JButton();
         jB_siguiente = new javax.swing.JButton();
-        jL_resultadoCombate = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jP_monstruos.setBorder(javax.swing.BorderFactory.createTitledBorder("Territorio del Terrible Monstruo"));
-
-        jL_malRollo.setText("Mal Rollo del monstruo");
-        jL_malRollo.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         jL_nombreMonstruo.setText("Nombre Monstruo");
 
@@ -164,7 +162,17 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
 
         jL_nivelesPerdidos.setText("Niveles Perdidos");
 
-        jL_muerte.setText("Mueres");
+        jL_malRollo.setEditable(false);
+        jL_malRollo.setBackground(new java.awt.Color(238, 238, 238));
+        jL_malRollo.setColumns(20);
+        jL_malRollo.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jL_malRollo.setLineWrap(true);
+        jL_malRollo.setRows(4);
+        jL_malRollo.setText("Mal Rollo del Monstruo");
+        jL_malRollo.setToolTipText("");
+        jL_malRollo.setWrapStyleWord(true);
+        jL_malRollo.setAutoscrolls(false);
+        jScrollPane1.setViewportView(jL_malRollo);
 
         javax.swing.GroupLayout jP_monstruosLayout = new javax.swing.GroupLayout(jP_monstruos);
         jP_monstruos.setLayout(jP_monstruosLayout);
@@ -176,40 +184,34 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
                     .addComponent(jL_nombreMonstruo, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
                     .addComponent(jL_nivelesGanados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jL_tesorosGanados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(76, 76, 76)
+                .addGap(75, 75, 75)
                 .addGroup(jP_monstruosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jL_nivel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jL_nivelContraSectarios, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
                     .addComponent(jL_nivelesPerdidos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(75, 75, 75)
-                .addGroup(jP_monstruosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jP_monstruosLayout.createSequentialGroup()
-                        .addComponent(jL_malRollo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(193, 193, 193))
-                    .addGroup(jP_monstruosLayout.createSequentialGroup()
-                        .addComponent(jL_muerte, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(304, 304, 304))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jP_monstruosLayout.setVerticalGroup(
             jP_monstruosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jP_monstruosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jP_monstruosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jP_monstruosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jP_monstruosLayout.createSequentialGroup()
                         .addGroup(jP_monstruosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jL_nombreMonstruo)
                             .addComponent(jL_nivel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(7, 7, 7)
                         .addGroup(jP_monstruosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jL_nivelesGanados)
-                            .addComponent(jL_nivelContraSectarios)))
-                    .addComponent(jL_malRollo))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jP_monstruosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jL_nivelesPerdidos)
-                    .addComponent(jL_tesorosGanados)
-                    .addComponent(jL_muerte))
-                .addContainerGap(47, Short.MAX_VALUE))
+                            .addComponent(jL_nivelContraSectarios))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jP_monstruosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jL_nivelesPerdidos)
+                            .addComponent(jL_tesorosGanados))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jP_jugadores.setBorder(javax.swing.BorderFactory.createTitledBorder("Parcelita de los débiles jugadores"));
@@ -255,20 +257,42 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
         jP_malRolloPendienteLayout.setVerticalGroup(
             jP_malRolloPendienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jP_malRolloPendienteLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(18, 18, 18)
                 .addComponent(jL_ocultosPerdidos)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jL_tipoOcultosPerdidos)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jL_visiblesPerdidos)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jL_tipoVisiblesPerdidos)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         jL_nivelBasico.setText("Nivel Básico");
 
         jL_excesoCartas.setText("Exceso de cartas");
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Resultado del Combate"));
+
+        jL_resultadoCombate.setText("Resultado del Combate: ");
+        jL_resultadoCombate.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jL_resultadoCombate, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(59, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jL_resultadoCombate)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout jP_jugadoresLayout = new javax.swing.GroupLayout(jP_jugadores);
         jP_jugadores.setLayout(jP_jugadoresLayout);
@@ -277,58 +301,59 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
             .addGroup(jP_jugadoresLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jP_jugadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jP_tesorosVisibles, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jP_tesorosOcultos, javax.swing.GroupLayout.DEFAULT_SIZE, 564, Short.MAX_VALUE))
+                    .addComponent(jP_tesorosVisibles, javax.swing.GroupLayout.PREFERRED_SIZE, 564, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jP_tesorosOcultos, javax.swing.GroupLayout.PREFERRED_SIZE, 564, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jP_jugadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jP_malRolloPendiente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jP_jugadoresLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jP_jugadoresLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jL_malRolloPendiente))
                     .addGroup(jP_jugadoresLayout.createSequentialGroup()
-                        .addGroup(jP_jugadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jL_esSectario, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jP_jugadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jP_jugadoresLayout.createSequentialGroup()
-                                    .addGap(12, 12, 12)
-                                    .addComponent(jL_excesoCartas, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jP_jugadoresLayout.createSequentialGroup()
-                                    .addGap(12, 12, 12)
-                                    .addComponent(jL_bonusSectario, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jL_nivelCombate, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jL_nivelBasico, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jL_nombreJugador, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jP_jugadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jP_jugadoresLayout.createSequentialGroup()
+                                .addGap(15, 15, 15)
+                                .addGroup(jP_jugadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jL_nivelCombate, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jL_esSectario, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jL_nivelBasico, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jL_nombreJugador, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jL_bonusSectario, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jL_excesoCartas, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jP_jugadoresLayout.setVerticalGroup(
             jP_jugadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jP_jugadoresLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jP_jugadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jP_jugadoresLayout.createSequentialGroup()
-                        .addGroup(jP_jugadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jP_jugadoresLayout.createSequentialGroup()
-                                .addGap(126, 126, 126)
-                                .addComponent(jL_malRolloPendiente))
-                            .addGroup(jP_jugadoresLayout.createSequentialGroup()
-                                .addComponent(jL_nombreJugador)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jL_nivelBasico)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jL_nivelCombate)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jL_esSectario)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jL_bonusSectario)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jL_excesoCartas)))
-                        .addGap(18, 18, 18)
-                        .addComponent(jP_malRolloPendiente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jP_jugadoresLayout.createSequentialGroup()
-                        .addComponent(jP_tesorosVisibles, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(27, 27, 27)
+                        .addComponent(jL_nombreJugador)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jP_tesorosOcultos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jL_nivelBasico)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jL_nivelCombate)
+                        .addGap(12, 12, 12)
+                        .addComponent(jL_malRolloPendiente)
+                        .addGap(18, 18, 18)
+                        .addComponent(jL_esSectario)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jL_bonusSectario)
+                        .addGap(18, 18, 18)
+                        .addComponent(jL_excesoCartas)
+                        .addGap(0, 60, Short.MAX_VALUE))
+                    .addGroup(jP_jugadoresLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jP_tesorosVisibles, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(18, 18, 18)
+                .addGroup(jP_jugadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jP_jugadoresLayout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jP_malRolloPendiente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jP_tesorosOcultos, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -371,9 +396,6 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
             }
         });
 
-        jL_resultadoCombate.setText("Resultado del Combate: ");
-        jL_resultadoCombate.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -392,33 +414,26 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
                         .addGap(201, 201, 201)
                         .addComponent(jB_siguiente))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jP_monstruos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jP_jugadores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(jP_jugadores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 6, Short.MAX_VALUE))
+                    .addComponent(jP_monstruos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(276, 276, 276)
-                .addComponent(jL_resultadoCombate, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jP_monstruos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jP_monstruos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jL_resultadoCombate)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jP_jugadores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jB_siguiente)
                     .addComponent(jB_combatir)
                     .addComponent(jB_descartarseTesoros)
                     .addComponent(jB_comprarNivel)
                     .addComponent(jB_equiparse))
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -443,7 +458,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
 
     private void jB_combatirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_combatirActionPerformed
         ResultadoCombate resultado = juego.desarrollarCombate();
-        jL_resultadoCombate.setText("Resultado combate: \n" + resultado);
+        jL_resultadoCombate.setText(""+resultado);
         if (resultado == ResultadoCombate.VENCEYFIN)
         {
             JOptionPane.showMessageDialog(this,"El jugador " + jugadorActivo.obtenerNombre() + " ha ganado la partida!!!", "Ganador!!!", JOptionPane.INFORMATION_MESSAGE);
@@ -527,9 +542,8 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
     private javax.swing.JLabel jL_bonusSectario;
     private javax.swing.JLabel jL_esSectario;
     private javax.swing.JLabel jL_excesoCartas;
-    private javax.swing.JLabel jL_malRollo;
+    private javax.swing.JTextArea jL_malRollo;
     private javax.swing.JLabel jL_malRolloPendiente;
-    private javax.swing.JLabel jL_muerte;
     private javax.swing.JLabel jL_nivel;
     private javax.swing.JLabel jL_nivelBasico;
     private javax.swing.JLabel jL_nivelCombate;
@@ -549,6 +563,8 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
     private javax.swing.JPanel jP_monstruos;
     private javax.swing.JPanel jP_tesorosOcultos;
     private javax.swing.JPanel jP_tesorosVisibles;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 
     @Override
@@ -583,10 +599,6 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
         jL_nivelesPerdidos.setText("Niveles perdidos: " + monstruoEnJuego.cualEsTuMalRollo().obtenerNivelesPerdidos());
         jL_resultadoCombate.setText("");
         jL_malRollo.setText (monstruoEnJuego.cualEsTuMalRollo().obtenerTexto());
-        if (monstruoEnJuego.cualEsTuMalRollo().muerte())
-            jL_muerte.setText("MUERES");
-        else
-            jL_muerte.setText("");
         
         pack();
 
