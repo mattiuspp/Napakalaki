@@ -672,9 +672,13 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
         tesorosOcultosSeleccionados.clear();
 
         // Actualizamos malRolloPendiente
-        if(jugadorActivo.obtenerMalRolloPendiente().obtenerOcultosPerdidos()!=0 
-                || jugadorActivo.obtenerMalRolloPendiente().obtenerTipoOcultosPerdidos().size()!=0)
+        if(jugadorActivo.obtenerMalRolloPendiente().obtenerOcultosPerdidos()==0 
+                && jugadorActivo.obtenerMalRolloPendiente().obtenerTipoOcultosPerdidos().isEmpty())
         {
+            jL_ocultosPerdidos.setText("");
+            jL_tipoOcultosPerdidos.setText("");
+        }
+        else{
             jL_ocultosPerdidos.setText("Nº ocultos perdidos: " + jugadorActivo.obtenerMalRolloPendiente().obtenerOcultosPerdidos());
            
             String f = new String();
@@ -685,18 +689,13 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
             }
             jL_tipoOcultosPerdidos.setText(f);
         }
-        else{
-            jL_ocultosPerdidos.setText("");
-            jL_tipoOcultosPerdidos.setText("");
-        }
         
         if(jugadorActivo.obtenerMalRolloPendiente().obtenerVisiblesPerdidos()!=0 
                 || jugadorActivo.obtenerMalRolloPendiente().obtenerTipoVisiblesPerdidos().isEmpty())
         {
             jL_visiblesPerdidos.setText("Nº visibles perdidos: " + jugadorActivo.obtenerMalRolloPendiente().obtenerVisiblesPerdidos());
             
-            String f = new String();
-            f = "Tipos: ";
+            String f = "Tipos: ";
             for (TipoTesoro t: jugadorActivo.obtenerMalRolloPendiente().obtenerTipoVisiblesPerdidos())
             {
                 f += t + " | ";

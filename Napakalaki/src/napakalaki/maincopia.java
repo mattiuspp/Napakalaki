@@ -16,7 +16,8 @@
  * Comentado MalRollo para que la profe lo entienda - HECHO
  * 
  * Ver alternativa a instanceof
- * Eliminar metodos toString() comentados (o no?)
+ * Eliminar metodos toString() comentados (o no?) - Para qué quitarlos? Pueden servir para otra interfaz distinta xD.
+ *      Creo que no está de más...
  */
 
 package napakalaki;
