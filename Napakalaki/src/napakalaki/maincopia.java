@@ -10,6 +10,8 @@
  * cambiar dado por getvista - HECHO
  * IMPRIMIR EN JUEGO RESULTADO DEL COMBATE - HECHO
  * CAMBIAR MALROLLO - HECHO
+ * Arreglar tesoros - HECHO
+ * Mostrar en la interfaz cuántos tesoros sobran - HECHO
  * 
  * Ver alternativa a instanceof
  * MODIFICAR DADOS EXISTENTES - PrimerJugador no lo hace bien (Adrián, míralo porque no sé por qué no lo hace bien)
@@ -17,8 +19,7 @@
  *      Si sale 2, coge Adrian3
  *      Si sale 3, coge Juan1
  *      No sé por qué pasa esto...
- * Arreglar tesoros
- * Mostrar en la interfaz cuántos tesoros sobran - HECHO
+
  * Algo de miMalRollo de la profesora o algo me dijiste xDDD
  */
 
