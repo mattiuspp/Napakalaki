@@ -22,10 +22,10 @@ public class Monstruo implements Carta {
         this.nivelContraSectarios = nivelContraSectarios;
     }
     
-    @Override
-    public String toString(){
-        return nombre + ", nivel: " + nivel + malRollo.toString() + "\n" + buenRollo.toString() + "\n\tBonus contra sectarios: " + nivelContraSectarios;
-    }
+//    @Override
+//    public String toString(){
+//        return nombre + ", nivel: " + nivel + malRollo.toString() + "\n" + buenRollo.toString() + "\n\tBonus contra sectarios: " + nivelContraSectarios;
+//    }
     
     @Override
     public String getNombre() {

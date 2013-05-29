@@ -14,23 +14,23 @@ public class Jugador {
     private ArrayList<Tesoro> tesorosOcultos = new ArrayList();
     private ArrayList<Tesoro> tesorosVisibles = new ArrayList();    
 
-    @Override
-    public String toString() {
-        String f = new String();
-        f+=nombre + ", nivel: " + nivel;
-        f+="\n\tCartas en mano(ocultas): ";
-        for(Tesoro t:tesorosOcultos)
-            f+=t.getNombre() + " | ";
-                f+="\n\tCartas equipadas(visibles): ";
-        for(Tesoro t:tesorosVisibles)
-            f+=t.getNombre() + " | ";
-        
-        if (!malRolloPendiente.esVacio())
-            f+= "\nMal rollo pendiente: " + malRolloPendiente.toString();
-        f+="\n\tNivel de combate: " + obtenerNivelCombate();
-        
-        return f;
-    }
+//    @Override
+//    public String toString() {
+//        String f = new String();
+//        f+=nombre + ", nivel: " + nivel;
+//        f+="\n\tCartas en mano(ocultas): ";
+//        for(Tesoro t:tesorosOcultos)
+//            f+=t.getNombre() + " | ";
+//                f+="\n\tCartas equipadas(visibles): ";
+//        for(Tesoro t:tesorosVisibles)
+//            f+=t.getNombre() + " | ";
+//        
+//        if (!malRolloPendiente.esVacio())
+//            f+= "\nMal rollo pendiente: " + malRolloPendiente.toString();
+//        f+="\n\tNivel de combate: " + obtenerNivelCombate();
+//        
+//        return f;
+//    }
     
     public Jugador(String nombre) {
         this.nombre = nombre;
@@ -48,9 +48,15 @@ public class Jugador {
         return nombre;
     }
     
-    
     public int obtenerNivel(){
         return nivel;
+    }
+    
+    public ArrayList<Tesoro> obtenerTesorosOcultos() {
+        return tesorosOcultos;
+    }
+    public ArrayList<Tesoro> obtenerTesorosVisibles() {
+        return tesorosVisibles;
     }
     
     public MalRollo obtenerMalRolloPendiente()
@@ -341,14 +347,7 @@ public class Jugador {
         
         return malRolloPendiente.esVacio();
     }
-    
-    // Metodos auxiliares para la prueba del main
-    public ArrayList<Tesoro> obtenerTesorosOcultos() {
-        return tesorosOcultos;
-    }
-    public ArrayList<Tesoro> obtenerTesorosVisibles() {
-        return tesorosVisibles;
-    }
+
     
     // Sesión sectarios
     public JugadorSectario convertirme(Sectario cartaSectario){

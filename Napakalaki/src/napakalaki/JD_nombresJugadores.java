@@ -36,14 +36,14 @@ public class JD_nombresJugadores extends javax.swing.JDialog {
     private void initComponents() {
 
         cuatroJugadores = new javax.swing.JCheckBox();
-        jugador1 = new javax.swing.JLabel();
-        jugador2 = new javax.swing.JLabel();
-        jugador3 = new javax.swing.JLabel();
-        jugador4 = new javax.swing.JLabel();
-        nombre1 = new javax.swing.JTextField();
-        nombre2 = new javax.swing.JTextField();
-        nombre3 = new javax.swing.JTextField();
-        nombre4 = new javax.swing.JTextField();
+        jL_jugador0 = new javax.swing.JLabel();
+        jL_jugador1 = new javax.swing.JLabel();
+        jL_jugador2 = new javax.swing.JLabel();
+        jL_jugador3 = new javax.swing.JLabel();
+        jT_nombreJugador0 = new javax.swing.JTextField();
+        jT_nombreJugador1 = new javax.swing.JTextField();
+        jT_nombreJugador2 = new javax.swing.JTextField();
+        jT_nombreJugador3 = new javax.swing.JTextField();
         cancelar = new javax.swing.JButton();
         comenzar = new javax.swing.JButton();
 
@@ -56,32 +56,32 @@ public class JD_nombresJugadores extends javax.swing.JDialog {
             }
         });
 
-        jugador1.setText("Jugador 1");
+        jL_jugador0.setText("Jugador 1");
 
-        jugador2.setText("Jugador 2");
+        jL_jugador1.setText("Jugador 2");
 
-        jugador3.setText("Jugador 3");
+        jL_jugador2.setText("Jugador 3");
 
-        jugador4.setText("Jugador 4");
+        jL_jugador3.setText("Jugador 4");
 
-        nombre1.setText("Juan1");
-        nombre1.addActionListener(new java.awt.event.ActionListener() {
+        jT_nombreJugador0.setText("Juan1");
+        jT_nombreJugador0.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nombre1ActionPerformed(evt);
+                jT_nombreJugador0ActionPerformed(evt);
             }
         });
 
-        nombre2.setText("Pepe2");
-        nombre2.addActionListener(new java.awt.event.ActionListener() {
+        jT_nombreJugador1.setText("Pepe2");
+        jT_nombreJugador1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nombre2ActionPerformed(evt);
+                jT_nombreJugador1ActionPerformed(evt);
             }
         });
 
-        nombre3.setText("Adrian3");
+        jT_nombreJugador2.setText("Adrian3");
 
-        nombre4.setText("...");
-        nombre4.setEnabled(false);
+        jT_nombreJugador3.setText("...");
+        jT_nombreJugador3.setEnabled(false);
 
         cancelar.setText("Cancelar");
         cancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -114,22 +114,22 @@ public class JD_nombresJugadores extends javax.swing.JDialog {
                                 .addGap(51, 51, 51)
                                 .addComponent(comenzar))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jugador1)
+                                .addComponent(jL_jugador0)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(nombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jT_nombreJugador0, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(jugador4)
+                                    .addComponent(jL_jugador3)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(nombre4))
+                                    .addComponent(jT_nombreJugador3))
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(jugador3)
+                                    .addComponent(jL_jugador2)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(nombre3))
+                                    .addComponent(jT_nombreJugador2))
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(jugador2)
+                                    .addComponent(jL_jugador1)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(nombre2, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addComponent(jT_nombreJugador1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(124, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -139,20 +139,20 @@ public class JD_nombresJugadores extends javax.swing.JDialog {
                 .addComponent(cuatroJugadores)
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jugador1)
-                    .addComponent(nombre1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jL_jugador0)
+                    .addComponent(jT_nombreJugador0, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jugador2)
-                    .addComponent(nombre2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jL_jugador1)
+                    .addComponent(jT_nombreJugador1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jugador3)
-                    .addComponent(nombre3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jL_jugador2)
+                    .addComponent(jT_nombreJugador2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jugador4)
-                    .addComponent(nombre4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jL_jugador3)
+                    .addComponent(jT_nombreJugador3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(74, 74, 74)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cancelar)
@@ -164,21 +164,21 @@ public class JD_nombresJugadores extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cuatroJugadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cuatroJugadoresActionPerformed
-        jugador4.setEnabled(cuatroJugadores.isSelected());
-        nombre4.setEnabled(cuatroJugadores.isSelected());
+        jL_jugador3.setEnabled(cuatroJugadores.isSelected()); //los indices empiezan desde cero
+        jT_nombreJugador3.setEnabled(cuatroJugadores.isSelected());
 
     }//GEN-LAST:event_cuatroJugadoresActionPerformed
 
     private void comenzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comenzarActionPerformed
         if (cuatroJugadores.isSelected()) {
             nombres = new String[4];
-            nombres[3] = nombre4.getText();
+            nombres[3] = jT_nombreJugador3.getText();
         } else
             nombres = new String[3];
         
-        nombres[0] = nombre1.getText();
-        nombres[1] = nombre2.getText();
-        nombres[2] = nombre3.getText();
+        nombres[0] = jT_nombreJugador0.getText();
+        nombres[1] = jT_nombreJugador1.getText();
+        nombres[2] = jT_nombreJugador2.getText();
         this.dispose();
 
     }//GEN-LAST:event_comenzarActionPerformed
@@ -187,13 +187,13 @@ public class JD_nombresJugadores extends javax.swing.JDialog {
         System.exit(0);
     }//GEN-LAST:event_cancelarActionPerformed
 
-    private void nombre1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombre1ActionPerformed
+    private void jT_nombreJugador0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_nombreJugador0ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_nombre1ActionPerformed
+    }//GEN-LAST:event_jT_nombreJugador0ActionPerformed
 
-    private void nombre2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombre2ActionPerformed
+    private void jT_nombreJugador1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_nombreJugador1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_nombre2ActionPerformed
+    }//GEN-LAST:event_jT_nombreJugador1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -207,13 +207,13 @@ public class JD_nombresJugadores extends javax.swing.JDialog {
     private javax.swing.JButton cancelar;
     private javax.swing.JButton comenzar;
     private javax.swing.JCheckBox cuatroJugadores;
-    private javax.swing.JLabel jugador1;
-    private javax.swing.JLabel jugador2;
-    private javax.swing.JLabel jugador3;
-    private javax.swing.JLabel jugador4;
-    private javax.swing.JTextField nombre1;
-    private javax.swing.JTextField nombre2;
-    private javax.swing.JTextField nombre3;
-    private javax.swing.JTextField nombre4;
+    private javax.swing.JLabel jL_jugador0;
+    private javax.swing.JLabel jL_jugador1;
+    private javax.swing.JLabel jL_jugador2;
+    private javax.swing.JLabel jL_jugador3;
+    private javax.swing.JTextField jT_nombreJugador0;
+    private javax.swing.JTextField jT_nombreJugador1;
+    private javax.swing.JTextField jT_nombreJugador2;
+    private javax.swing.JTextField jT_nombreJugador3;
     // End of variables declaration//GEN-END:variables
 }

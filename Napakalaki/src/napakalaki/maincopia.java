@@ -12,15 +12,11 @@
  * CAMBIAR MALROLLO - HECHO
  * Arreglar tesoros - HECHO
  * Mostrar en la interfaz cuántos tesoros sobran - HECHO
+ * MODIFICAR DADOS EXISTENTES - HECHO
+ * Comentado MalRollo para que la profe lo entienda - HECHO
  * 
  * Ver alternativa a instanceof
- * MODIFICAR DADOS EXISTENTES - PrimerJugador no lo hace bien (Adrián, míralo porque no sé por qué no lo hace bien)
- *      Si sale 1, coge Pepe2
- *      Si sale 2, coge Adrian3
- *      Si sale 3, coge Juan1
- *      No sé por qué pasa esto...
-
- * Algo de miMalRollo de la profesora o algo me dijiste xDDD
+ * Eliminar metodos toString() comentados (o no?)
  */
 
 package napakalaki;
@@ -28,7 +24,7 @@ package napakalaki;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-
+/*
 public class maincopia {
     public static class LectorCartas{
         public Scanner sc = new Scanner(System.in);
@@ -155,3 +151,4 @@ public class maincopia {
         
     }//fin maincopia
 }
+*/

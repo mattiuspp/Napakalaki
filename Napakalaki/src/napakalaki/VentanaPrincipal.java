@@ -272,7 +272,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
         jP_malRolloPendienteLayout.setVerticalGroup(
             jP_malRolloPendienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jP_malRolloPendienteLayout.createSequentialGroup()
-                .addContainerGap(13, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jL_ocultosPerdidos)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jL_tipoOcultosPerdidos)
@@ -285,7 +285,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
 
         jL_nivelBasico.setText("Nivel Básico");
 
-        jL_excesoCartas.setText("Exceso de cartas");
+        jL_excesoCartas.setText("");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Resultado del Combate"));
 
@@ -447,7 +447,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
                     .addComponent(jB_descartarseTesoros)
                     .addComponent(jB_comprarNivel)
                     .addComponent(jB_equiparse))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pack();
@@ -587,10 +587,8 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
         dado = new JD_dado (this,true);
         dialogoNombres = new JD_nombresJugadores (this,true);
         nombresJugadores = dialogoNombres.getNombres();
-        // Añadir aquí el código para comunicarse con la clase Napakalaki
-        // y comenzar el juego
+        
         juego.comenzarJuego(nombresJugadores);
-        jL_excesoCartas.setText(""); // No me gusta NADA ponerlo aquí, pero no sé cómo hacerlo si no, actualizarJugador no se encarga de esto =(
         actualizarJugador();
         actualizarMonstruo();
 
@@ -693,7 +691,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
         }
         
         if(jugadorActivo.obtenerMalRolloPendiente().obtenerVisiblesPerdidos()!=0 
-                || jugadorActivo.obtenerMalRolloPendiente().obtenerTipoVisiblesPerdidos().size()!=0)
+                || jugadorActivo.obtenerMalRolloPendiente().obtenerTipoVisiblesPerdidos().isEmpty())
         {
             jL_visiblesPerdidos.setText("Nº visibles perdidos: " + jugadorActivo.obtenerMalRolloPendiente().obtenerVisiblesPerdidos());
             

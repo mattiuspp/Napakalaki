@@ -9,13 +9,7 @@ public class Main {
             Vista v = new VentanaPrincipal(juego);
             juego.setVista(v);
             
-            v.mostrar(args);
-            
-//            ((VentanaPrincipal)v).actu
-
-//            String jugadores[] = {"Antonio", "Adrián", "Eva"};
-//            juego.comenzarJuego(jugadores);
-            
+            v.mostrar(args);            
         }
     
 }

@@ -5,7 +5,6 @@ package napakalaki;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Random;
 
 public class Napakalaki {
     private Jugador jugadorActivo;
@@ -18,7 +17,6 @@ public class Napakalaki {
     private ArrayList<Tesoro> mazoTesoros = new ArrayList();
     private ArrayList<Sectario> mazoSectarios = new ArrayList();
     
-//    private Random dado = new Random();
     private Vista vista;
     
     // Establecemos la clase como singleton
@@ -83,6 +81,15 @@ public class Napakalaki {
         mazoTesoros.add (new Tesoro ("Grabato mísitico",TipoTesoro.MANO,2,2,300));
         
         Collections.shuffle(mazoTesoros);
+        
+        /*
+         * NOTA: Como se representan los tesoros que hacen descartar los monstruos
+         *  - Si el array de tipos es vacio, se descartar cartas cualesquiera
+         *  - Si el tamaño del array de tipos coincide con el numero de cartas a descartar
+         *      se descartar una de cada tipo
+         *  - Si el tamaño del array de tipos es distinto de cero, y el numero de cartas a
+         *      descartar es el maximo (6), se descartan todas las cartas que sean de esos tipos
+         */
         
         // Inicializamos las cartas de monstruo
         ArrayList<TipoTesoro> tipoOcultosPerdidos = new ArrayList();
@@ -324,6 +331,8 @@ public class Napakalaki {
                 new BuenRollo(1,1) )
         );
         
+        
+        
         // Monstruos con Sectarios
         
         
@@ -460,7 +469,7 @@ public class Napakalaki {
         do {
             primerJugador = getVista().getDado("Primer Jugador","Se repite hasta que salga un índice menor que " + Jugadores.size());
         } while (primerJugador > Jugadores.size());
-        return Jugadores.get(primerJugador - 1);
+        return Jugadores.get(primerJugador-1);
     }
     
     private Monstruo siguienteMonstruo() {
@@ -543,6 +552,7 @@ public class Napakalaki {
         if(jugadorActivo == null){
             jugadorActivo = primerJugador();
             monstruoActivo = siguienteMonstruo();
+            return -1; //para que no avance de turno
         }
                 
         int fin = jugadorActivo.puedoPasar();

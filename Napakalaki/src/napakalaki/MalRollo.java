@@ -43,27 +43,27 @@ public class MalRollo {
         this.tipoVisiblesPerdidos = new ArrayList(malRollo.tipoVisiblesPerdidos);
     }
     
-    @Override
-    public String toString() {
-        String f = new String();
-            f+= "\n\tNiveles perdidos = " + nivelesPerdidos;
-            if(ocultosPerdidos!=0){
-                f+="\n\tTesoros ocultos perdidos = " + ocultosPerdidos + "  | ";
-                for (TipoTesoro t: tipoOcultosPerdidos)
-                    f+= t.toString() + " ";
-                f+="|";
-             }
-            if(visiblesPerdidos!=0){
-                f+= "\n\tTesoros visibles perdidos = " + visiblesPerdidos + "  | ";
-                for (TipoTesoro t: tipoVisiblesPerdidos)
-                    f+= t.toString() + " ";
-                f+="|";
-            }
-        if(muerte==true)
-            f+= "\n\tMuerte ON";
-        
-        return f;
-    }
+//    @Override
+//    public String toString() {
+//        String f = new String();
+//            f+= "\n\tNiveles perdidos = " + nivelesPerdidos;
+//            if(ocultosPerdidos!=0){
+//                f+="\n\tTesoros ocultos perdidos = " + ocultosPerdidos + "  | ";
+//                for (TipoTesoro t: tipoOcultosPerdidos)
+//                    f+= t.toString() + " ";
+//                f+="|";
+//             }
+//            if(visiblesPerdidos!=0){
+//                f+= "\n\tTesoros visibles perdidos = " + visiblesPerdidos + "  | ";
+//                for (TipoTesoro t: tipoVisiblesPerdidos)
+//                    f+= t.toString() + " ";
+//                f+="|";
+//            }
+//        if(muerte==true)
+//            f+= "\n\tMuerte ON";
+//        
+//        return f;
+//    }
     
     public boolean muerte() {
         return muerte;

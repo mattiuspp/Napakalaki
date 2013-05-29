@@ -38,25 +38,25 @@
                               <Component id="comenzar" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jugador1" min="-2" max="-2" attributes="0"/>
+                              <Component id="jL_jugador0" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="nombre1" min="-2" pref="123" max="-2" attributes="0"/>
+                              <Component id="jT_nombreJugador0" min="-2" pref="123" max="-2" attributes="0"/>
                           </Group>
                           <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jugador4" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jL_jugador3" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="nombre4" max="32767" attributes="0"/>
+                                  <Component id="jT_nombreJugador3" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jugador3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jL_jugador2" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="nombre3" max="32767" attributes="0"/>
+                                  <Component id="jT_nombreJugador2" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jugador2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jL_jugador1" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="nombre2" min="-2" pref="123" max="-2" attributes="0"/>
+                                  <Component id="jT_nombreJugador1" min="-2" pref="123" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -73,23 +73,23 @@
               <Component id="cuatroJugadores" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jugador1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="nombre1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jL_jugador0" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jT_nombreJugador0" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jugador2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="nombre2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jL_jugador1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jT_nombreJugador1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jugador3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="nombre3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jL_jugador2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jT_nombreJugador2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="jugador4" min="-2" max="-2" attributes="0"/>
-                  <Component id="nombre4" min="-2" max="-2" attributes="0"/>
+                  <Component id="jL_jugador3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jT_nombreJugador3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -110,48 +110,48 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cuatroJugadoresActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jugador1">
+    <Component class="javax.swing.JLabel" name="jL_jugador0">
       <Properties>
         <Property name="text" type="java.lang.String" value="Jugador 1"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jugador2">
+    <Component class="javax.swing.JLabel" name="jL_jugador1">
       <Properties>
         <Property name="text" type="java.lang.String" value="Jugador 2"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jugador3">
+    <Component class="javax.swing.JLabel" name="jL_jugador2">
       <Properties>
         <Property name="text" type="java.lang.String" value="Jugador 3"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jugador4">
+    <Component class="javax.swing.JLabel" name="jL_jugador3">
       <Properties>
         <Property name="text" type="java.lang.String" value="Jugador 4"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="nombre1">
+    <Component class="javax.swing.JTextField" name="jT_nombreJugador0">
       <Properties>
         <Property name="text" type="java.lang.String" value="Juan1"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nombre1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jT_nombreJugador0ActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="nombre2">
+    <Component class="javax.swing.JTextField" name="jT_nombreJugador1">
       <Properties>
         <Property name="text" type="java.lang.String" value="Pepe2"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nombre2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jT_nombreJugador1ActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="nombre3">
+    <Component class="javax.swing.JTextField" name="jT_nombreJugador2">
       <Properties>
         <Property name="text" type="java.lang.String" value="Adrian3"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="nombre4">
+    <Component class="javax.swing.JTextField" name="jT_nombreJugador3">
       <Properties>
         <Property name="text" type="java.lang.String" value="..."/>
         <Property name="enabled" type="boolean" value="false"/>

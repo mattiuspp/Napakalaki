@@ -17,11 +17,11 @@ public class Tesoro implements Carta {
         this.piezasOro = piezasOro;
     }
     
-    @Override
-    public String toString() {
-        return nombre + " (" + tipo.toString() + ") " + "\nBonus mínimo = " + bonusMinimo +
-                "\nBonus máximo = " + bonusMaximo + "\nPiezas de Oro = " + piezasOro;
-    }
+//    @Override
+//    public String toString() {
+//        return nombre + " (" + tipo.toString() + ") " + "\nBonus mínimo = " + bonusMinimo +
+//                "\nBonus máximo = " + bonusMaximo + "\nPiezas de Oro = " + piezasOro;
+//    }
 
     @Override
     public String getNombre() {
