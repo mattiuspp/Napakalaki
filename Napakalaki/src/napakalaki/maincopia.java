@@ -24,10 +24,15 @@
  *      Y encima no se equipa con lo que le digo xDDDD
  * Leches, ahora no me ha pasado. Voy a ver si lo reproduzco otra vez...
  * 
- * Me ha pasado algo raro. Un jugador ha comenzado un turno y combatido, y he equipado. Al siguiente turno no lo llevaba puesto -.-
- * 3:07 de la mañana xD.
  * Carga de imágenes conseguida. Ahora queda más bonito, a falta de editar las imágenes para que cuadren bien (de eso me encargo yo)
  * A ser posible quisiera meter también imágenes de los monstruos, si no te importa le haré un hueco =)
+ * 
+ * REPRODUCCIÓN DEL BUG
+ *      Si un jugador pierde, NO TIENE mal Rollo pendiente y se convierte en Sectario, el siguiente turno lo hace él
+ *      Si un jugador pierde, TIENE mal rollo pendiente y se convierte en Sectario, cumple su mal rollo, pasa de turno, y el siguiente turno
+ *          lo vuelve a hacer él (o sea, se adelanta un turno si hablamos de 3 jugadores), con los tesoros originales. Si gana, el mal rollo
+ *          pendiente se anula, si pierde, ha de cumplirlo.
+ *  No sé de dónde puede venir el bug, la verdad... pero es muy raro.
  */
 
 package napakalaki;
