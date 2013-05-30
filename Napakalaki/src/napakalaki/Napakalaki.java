@@ -47,11 +47,11 @@ public class Napakalaki {
     
     private void inicializarJuego() {
         // Inicializamos las cartas de tesoro
-        mazoTesoros.add (new Tesoro ("Sí mi amo!",TipoTesoro.CASCO ,4,7,0) );
-        mazoTesoros.add (new Tesoro ("Botas de investigación ",TipoTesoro.CALZADO,3,4,600) );
+        mazoTesoros.add (new Tesoro ("¡Sí mi amo!",TipoTesoro.CASCO ,4,7,0) );
+        mazoTesoros.add (new Tesoro ("Botas de investigación",TipoTesoro.CALZADO,3,4,600) );
         mazoTesoros.add (new Tesoro ("Capucha de Cthulhu ",TipoTesoro.CASCO,3,5,500) );
         mazoTesoros.add (new Tesoro ("A prueba de babas",TipoTesoro.ARMADURA,3,5,400) );
-        mazoTesoros.add (new Tesoro ("Botas de lluvia áácida",TipoTesoro.DOSMANOS ,1,1,800) );
+        mazoTesoros.add (new Tesoro ("Botas de lluvia ácida",TipoTesoro.DOSMANOS ,1,1,800) );
         mazoTesoros.add (new Tesoro ("Casco minero",TipoTesoro.CASCO,2,4,400) );
         mazoTesoros.add (new Tesoro ("Zapato deja-amigos",TipoTesoro.CALZADO,0,1,500));
         mazoTesoros.add (new Tesoro ("Fez alópodo" ,TipoTesoro.CASCO,3,5,700));
@@ -71,14 +71,14 @@ public class Napakalaki {
         mazoTesoros.add (new Tesoro ("Mazo de los antiguos",TipoTesoro.MANO,3,4,200));
         mazoTesoros.add (new Tesoro ("Insecticida",TipoTesoro.MANO,2,3,300));
         mazoTesoros.add (new Tesoro ("Hacha prehistórica",TipoTesoro.MANO,2,5,500));
-        mazoTesoros.add (new Tesoro ("El aparato de Pr.Tesla",TipoTesoro.ARMADURA,4,8,900));
+        mazoTesoros.add (new Tesoro ("El aparato de Pr. Tesla",TipoTesoro.ARMADURA,4,8,900));
         mazoTesoros.add (new Tesoro ("Varita de atizamiento",TipoTesoro.MANO,3,4,400));
         mazoTesoros.add (new Tesoro ("Escopeta de tres cañones",TipoTesoro.DOSMANOS,4,6,700));
         mazoTesoros.add (new Tesoro ("Necrocomicón",TipoTesoro.MANO,1,1,100));
-        mazoTesoros.add (new Tesoro ("La fuerza de Mr.T",TipoTesoro.COLLAR,0,0,1000));
-        mazoTesoros.add (new Tesoro ("Ametralladora Thomson",TipoTesoro.DOSMANOS,4,8,600));
+        mazoTesoros.add (new Tesoro ("La fuerza de Mr. T",TipoTesoro.COLLAR,0,0,1000));
+        mazoTesoros.add (new Tesoro ("Ametralladora Thompson",TipoTesoro.DOSMANOS,4,8,600));
         mazoTesoros.add (new Tesoro ("Necroplayboycón",TipoTesoro.MANO,3,5,300));
-        mazoTesoros.add (new Tesoro ("Grabato mísitico",TipoTesoro.MANO,2,2,300));
+        mazoTesoros.add (new Tesoro ("Garabato místico",TipoTesoro.MANO,2,2,300));
         
         Collections.shuffle(mazoTesoros);
         

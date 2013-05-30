@@ -1,6 +1,12 @@
 package napakalaki;
 
+import java.awt.Color;
+import static java.awt.Frame.NORMAL;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.util.ArrayList;
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -22,17 +28,30 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
         private JTextArea jL_nombre = new javax.swing.JTextArea();
         private JLabel jL_bonus = new JLabel();
         private JLabel jL_piezasOro = new JLabel();
-        private JLabel jL_tipo = new JLabel();       
+        private JLabel jL_tipo = new JLabel();
+        /* Prueba de imágenes */
+        private Image imagenTesoro;
         
 
         TesoroGrafico (Tesoro unTesoro) {
             tesoro = unTesoro;
+            System.out.println("Buscando imagen para "+unTesoro.getNombre());
+            Image tmp = (new ImageIcon(getClass().getClassLoader().getResource("resources/Tesoros/"+unTesoro.getNombre()+".png"))).getImage();
+            if (tmp != null)
+                imagenTesoro = tmp;
+            else
+            {
+                System.out.println("El tesoro " + unTesoro.getNombre() + ".png no existe"); // Para depurar la carga de imágenes
+                //JOptionPane.showMessageDialog(this,"El tesoro " + unTesoro.getNombre() + ".png no existe", "ERROR!!!", JOptionPane.ERROR_MESSAGE);
+            }
+            
+            
             this.setPreferredSize(new java.awt.Dimension(120, 150));
             this.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-            this.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
+            this.setBorder(javax.swing.BorderFactory.createLineBorder(Color.BLACK));
                        
             jL_nombre.setEditable(false);
-            jL_nombre.setBackground(new java.awt.Color(238, 238, 238));
+            jL_nombre.setBackground(Color.WHITE);
             jL_nombre.setColumns(15);
             jL_nombre.setFont(new java.awt.Font("Dialog", 3, 11)); // NOI18N
             jL_nombre.setOpaque(false);
@@ -47,21 +66,29 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
             jL_bonus.setText("+" + tesoro.getValorBasico() + "/+" + tesoro.getValorEspecial());
             jL_piezasOro.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
             jL_piezasOro.setText(tesoro.obtenerPiezasOro() + " oro");
-            jL_tipo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+            jL_tipo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
             jL_tipo.setText("" + tesoro.obtenerTipo());
             
-            this.setBackground (new java.awt.Color(200,200,0));
+            this.setBackground (Color.WHITE);
             this.setOpaque(false);
             
             this.add(jL_nombre,
                 new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 5, 110, -1));
             this.add(jL_tipo,
-                new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 65, 90, -1));
+                new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 120, 90, -1));
             this.add(jL_piezasOro,
-                new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 130, 90, -1));
+                new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 132, 90, -1));
             this.add(jL_bonus,
-                new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 90, -1));
+                new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 132, 90, -1));
 
+        }
+         /* Imagen */
+        @Override
+        public void paint(Graphics g)
+        {
+            if (imagenTesoro != null)
+                g.drawImage(imagenTesoro,0,0,null);
+            super.paint(g);
         }
     }
     
@@ -75,13 +102,16 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
                     if (tesorosVisiblesSeleccionados.contains(TesoroGraficoVisible.this.tesoro))
                     {
                         tesorosVisiblesSeleccionados.remove(TesoroGraficoVisible.this.tesoro);
-                        TesoroGraficoVisible.this.setOpaque(false);
+                        //TesoroGraficoVisible.this.setOpaque(false);
+                        TesoroGraficoVisible.this.setBorder(BorderFactory.createLineBorder(Color.black));
                         TesoroGraficoVisible.this.setEnabled(true);
                     }
                     else
                     {
                         tesorosVisiblesSeleccionados.add(TesoroGraficoVisible.this.tesoro);
-                        TesoroGraficoVisible.this.setOpaque(true); 
+                        //TesoroGraficoVisible.this.setOpaque(true); 
+                        TesoroGraficoVisible.this.setBorder(BorderFactory.createMatteBorder(
+                                    5, 5, 5, 5, Color.red));
                         TesoroGraficoVisible.this.setEnabled(false);
                     }
                     //
@@ -103,13 +133,16 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
                     if(tesorosOcultosSeleccionados.contains(TesoroGraficoOculto.this.tesoro))
                     {
                         tesorosOcultosSeleccionados.remove(TesoroGraficoOculto.this.tesoro);
-                        TesoroGraficoOculto.this.setOpaque(false);
+                        //TesoroGraficoOculto.this.setOpaque(false);
+                        TesoroGraficoOculto.this.setBorder(BorderFactory.createLineBorder(Color.black));
                         TesoroGraficoOculto.this.setEnabled(true);
                     }
                     else
                     {
                         tesorosOcultosSeleccionados.add(TesoroGraficoOculto.this.tesoro);
-                        TesoroGraficoOculto.this.setOpaque(true); 
+                        //TesoroGraficoOculto.this.setOpaque(true); 
+                        TesoroGraficoOculto.this.setBorder(BorderFactory.createMatteBorder(
+                                    5, 5, 5, 5, Color.red));
                         TesoroGraficoOculto.this.setEnabled(false);
                     }
                 }
@@ -333,8 +366,8 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
                                     .addComponent(jL_esSectario, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jL_nivelBasico, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jL_nombreJugador, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jL_bonusSectario, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jL_excesoCartas, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jL_excesoCartas, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jL_bonusSectario, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -447,7 +480,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
                     .addComponent(jB_descartarseTesoros)
                     .addComponent(jB_comprarNivel)
                     .addComponent(jB_equiparse))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pack();
@@ -678,7 +711,8 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
             jL_ocultosPerdidos.setText("");
             jL_tipoOcultosPerdidos.setText("");
         }
-        else{
+        else
+        {
             jL_ocultosPerdidos.setText("Nº ocultos perdidos: " + jugadorActivo.obtenerMalRolloPendiente().obtenerOcultosPerdidos());
            
             String f = new String();
@@ -690,8 +724,14 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
             jL_tipoOcultosPerdidos.setText(f);
         }
         
-        if(jugadorActivo.obtenerMalRolloPendiente().obtenerVisiblesPerdidos()!=0 
-                || jugadorActivo.obtenerMalRolloPendiente().obtenerTipoVisiblesPerdidos().isEmpty())
+        if(jugadorActivo.obtenerMalRolloPendiente().obtenerVisiblesPerdidos()==0 
+                && jugadorActivo.obtenerMalRolloPendiente().obtenerTipoVisiblesPerdidos().isEmpty())
+        {
+            jL_visiblesPerdidos.setText(""); 
+            jL_tipoVisiblesPerdidos.setText("");
+
+        }
+        else
         {
             jL_visiblesPerdidos.setText("Nº visibles perdidos: " + jugadorActivo.obtenerMalRolloPendiente().obtenerVisiblesPerdidos());
             
@@ -701,11 +741,6 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
                 f += t + " | ";
             }
             jL_tipoVisiblesPerdidos.setText(f);
-
-        }
-        else{
-            jL_visiblesPerdidos.setText(""); 
-            jL_tipoVisiblesPerdidos.setText("");
         }
 
 

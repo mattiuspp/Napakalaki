@@ -18,6 +18,16 @@
  * Ver alternativa a instanceof
  * Eliminar metodos toString() comentados (o no?) - Para qué quitarlos? Pueden servir para otra interfaz distinta xD.
  *      Creo que no está de más...
+ * 
+ * BUG BUG BUG BUG BUG BUG BUG BUG
+ *      Si alguien se convierte en Sectario, el siguiente turno también lo hace él!!!!! 
+ *      Y encima no se equipa con lo que le digo xDDDD
+ * Leches, ahora no me ha pasado. Voy a ver si lo reproduzco otra vez...
+ * 
+ * Me ha pasado algo raro. Un jugador ha comenzado un turno y combatido, y he equipado. Al siguiente turno no lo llevaba puesto -.-
+ * 3:07 de la mañana xD.
+ * Carga de imágenes conseguida. Ahora queda más bonito, a falta de editar las imágenes para que cuadren bien (de eso me encargo yo)
+ * A ser posible quisiera meter también imágenes de los monstruos, si no te importa le haré un hueco =)
  */
 
 package napakalaki;
