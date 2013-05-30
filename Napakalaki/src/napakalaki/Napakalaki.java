@@ -49,7 +49,7 @@ public class Napakalaki {
         // Inicializamos las cartas de tesoro
         mazoTesoros.add (new Tesoro ("¡Sí mi amo!",TipoTesoro.CASCO ,4,7,0) );
         mazoTesoros.add (new Tesoro ("Botas de investigación",TipoTesoro.CALZADO,3,4,600) );
-        mazoTesoros.add (new Tesoro ("Capucha de Cthulhu ",TipoTesoro.CASCO,3,5,500) );
+        mazoTesoros.add (new Tesoro ("Capucha de Cthulhu",TipoTesoro.CASCO,3,5,500) );
         mazoTesoros.add (new Tesoro ("A prueba de babas",TipoTesoro.ARMADURA,3,5,400) );
         mazoTesoros.add (new Tesoro ("Botas de lluvia ácida",TipoTesoro.DOSMANOS ,1,1,800) );
         mazoTesoros.add (new Tesoro ("Casco minero",TipoTesoro.CASCO,2,4,400) );
