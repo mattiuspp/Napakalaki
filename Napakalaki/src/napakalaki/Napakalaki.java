@@ -351,7 +351,7 @@ public class Napakalaki {
         
 
         mazoMonstruos.add(new Monstruo(
-                "Testigos oculares",6,
+                "Testigos Oculares",6,
                 new MalRollo("Pierdes tus tesoros visibles. Jajaja.",
                     1,0,6,false,
                     new ArrayList(),

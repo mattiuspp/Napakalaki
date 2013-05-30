@@ -4,7 +4,11 @@ import java.awt.Color;
 import static java.awt.Frame.NORMAL;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -17,6 +21,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
     private JD_dado dado;
     private String[] nombresJugadores;
     private Monstruo monstruoEnJuego;
+    private MonstruoGrafico imagenMonstruo;
     private Jugador jugadorActivo;
     private ArrayList<TesoroGrafico> tesorosVisiblesAlimpiar = new ArrayList();
     private ArrayList<Tesoro> tesorosVisiblesSeleccionados = new ArrayList();
@@ -29,6 +34,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
         private JLabel jL_bonus = new JLabel();
         private JLabel jL_piezasOro = new JLabel();
         private JLabel jL_tipo = new JLabel();
+        
         /* Prueba de imágenes */
         private Image imagenTesoro;
         
@@ -36,7 +42,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
         TesoroGrafico (Tesoro unTesoro) {
             tesoro = unTesoro;
             System.out.println("Buscando imagen para "+unTesoro.getNombre());
-            Image tmp = (new ImageIcon(getClass().getClassLoader().getResource("resources/Tesoros/"+unTesoro.getNombre()+".png"))).getImage();
+            Image tmp = (new ImageIcon(getClass().getClassLoader().getResource("resources/Tesoros/"+tesoro.getNombre()+".png"))).getImage();
             if (tmp != null)
                 imagenTesoro = tmp;
             else
@@ -69,7 +75,6 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
             jL_tipo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
             jL_tipo.setText("" + tesoro.obtenerTipo());
             
-            this.setBackground (Color.WHITE);
             this.setOpaque(false);
             
             this.add(jL_nombre,
@@ -149,6 +154,30 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
             });
          }
     }
+    
+    private class MonstruoGrafico extends JPanel{
+        private Monstruo monstruo;
+        private Image imagenMonstruo;
+        
+        MonstruoGrafico (Monstruo monstruo){
+            this.monstruo = monstruo;
+            System.out.println("Buscando imagen para "+this.monstruo.getNombre());
+            imagenMonstruo = (new ImageIcon(getClass().getClassLoader().getResource("resources/Monstruos/"+this.monstruo.getNombre()+".png"))).getImage();
+            this.setPreferredSize(new java.awt.Dimension(120, 150));
+            this.setBorder(javax.swing.BorderFactory.createLineBorder(Color.BLACK));
+            this.setOpaque(false);
+        }
+ 
+        @Override
+        public void paint(Graphics g)
+        {
+            if (imagenMonstruo != null)
+                g.drawImage(imagenMonstruo,0,0,null);
+            super.paint(g);
+        }
+                
+        
+    }
 
     public VentanaPrincipal(Napakalaki unJuego) {
         juego = unJuego;
@@ -173,6 +202,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
         jL_nivelesPerdidos = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jL_malRollo = new javax.swing.JTextArea();
+        jP_imgMonstruo = new javax.swing.JPanel();
         jP_jugadores = new javax.swing.JPanel();
         jL_nombreJugador = new javax.swing.JLabel();
         jP_tesorosVisibles = new javax.swing.JPanel();
@@ -199,6 +229,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jP_monstruos.setBorder(javax.swing.BorderFactory.createTitledBorder("Territorio del Terrible Monstruo"));
+        jP_monstruos.setPreferredSize(new java.awt.Dimension(904, 180));
 
         jL_nombreMonstruo.setText("Nombre Monstruo");
 
@@ -224,6 +255,10 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
         jL_malRollo.setAutoscrolls(false);
         jScrollPane1.setViewportView(jL_malRollo);
 
+        jP_imgMonstruo.setMaximumSize(new java.awt.Dimension(120, 150));
+        jP_imgMonstruo.setMinimumSize(new java.awt.Dimension(120, 150));
+        jP_imgMonstruo.setPreferredSize(new java.awt.Dimension(120, 150));
+
         javax.swing.GroupLayout jP_monstruosLayout = new javax.swing.GroupLayout(jP_monstruos);
         jP_monstruos.setLayout(jP_monstruosLayout);
         jP_monstruosLayout.setHorizontalGroup(
@@ -239,8 +274,10 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
                     .addComponent(jL_nivel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jL_nivelContraSectarios, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
                     .addComponent(jL_nivelesPerdidos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(32, 32, 32)
+                .addComponent(jP_imgMonstruo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jP_monstruosLayout.setVerticalGroup(
@@ -262,6 +299,9 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
                             .addComponent(jL_nivelesPerdidos)
                             .addComponent(jL_tesorosGanados))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jP_monstruosLayout.createSequentialGroup()
+                .addComponent(jP_imgMonstruo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 23, Short.MAX_VALUE))
         );
 
         jP_jugadores.setBorder(javax.swing.BorderFactory.createTitledBorder("Parcelita de los débiles jugadores"));
@@ -339,7 +379,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jL_resultadoCombate)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jP_jugadoresLayout = new javax.swing.GroupLayout(jP_jugadores);
@@ -463,14 +503,14 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jP_jugadores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jP_monstruos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jP_monstruos, javax.swing.GroupLayout.DEFAULT_SIZE, 959, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jP_monstruos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jP_monstruos, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jP_jugadores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -480,7 +520,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
                     .addComponent(jB_descartarseTesoros)
                     .addComponent(jB_comprarNivel)
                     .addComponent(jB_equiparse))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pack();
@@ -605,6 +645,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
     private javax.swing.JLabel jL_tipoOcultosPerdidos;
     private javax.swing.JLabel jL_tipoVisiblesPerdidos;
     private javax.swing.JLabel jL_visiblesPerdidos;
+    private javax.swing.JPanel jP_imgMonstruo;
     private javax.swing.JPanel jP_jugadores;
     private javax.swing.JPanel jP_malRolloPendiente;
     private javax.swing.JPanel jP_monstruos;
@@ -635,7 +676,10 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
     
     private void actualizarMonstruo()
     {
+        if (imagenMonstruo != null)
+            jP_imgMonstruo.remove(imagenMonstruo);
         monstruoEnJuego = juego.obtenerMonstruoActivo();
+        imagenMonstruo = new MonstruoGrafico(monstruoEnJuego);
         jL_nombreMonstruo.setText (monstruoEnJuego.getNombre());
         jL_nivelesGanados.setText("Niveles Ganados: " + monstruoEnJuego.cualEsTuBuenRollo().obtenerNivelesGanados());
         jL_tesorosGanados.setText("Tesoros Ganados: " + monstruoEnJuego.cualEsTuBuenRollo().obtenerTesorosGanados());
@@ -645,7 +689,13 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
         jL_resultadoCombate.setText("");
         jL_malRollo.setText (monstruoEnJuego.cualEsTuMalRollo().obtenerTexto());
         
+        //ImageLabel label = new ImageLabel(new ImageIcon("images/reactor.png"));
+        //BufferedImage myPicture = ImageIO.read(new File(getClass().getClassLoader().getResource("resources/Monstruos/"+monstruoEnJuego.getNombre()+".png")));
+        //JLabel picLabel = new JLabel(new ImageIcon( getClass().getClassLoader().getResource("resources/Monstruos/"+monstruoEnJuego.getNombre()+".png")));
+        jP_imgMonstruo.add(imagenMonstruo);
+        
         pack();
+        repaint();
 
     }
     
@@ -656,7 +706,6 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
 
         ////INCLUIR instrucciones para actualizar el nombre, el nivel, u otra
         // información del jugador activo distinta a los tesoros
-        jugadorActivo = juego.obtenerJugadorActivo();
         jL_nombreJugador.setText("" + jugadorActivo.obtenerNombre());
         jL_nivelBasico.setText("Nivel Básico: " + jugadorActivo.obtenerNivel());
         jL_nivelCombate.setText("Nivel de combate: " + jugadorActivo.obtenerNivelCombate());
