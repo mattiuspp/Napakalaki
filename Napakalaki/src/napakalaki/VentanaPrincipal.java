@@ -534,6 +534,12 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
     private void jB_descartarseTesorosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_descartarseTesorosActionPerformed
         juego.descartarTesoros(tesorosVisiblesSeleccionados, tesorosOcultosSeleccionados);
         actualizarJugador();
+        /* ¿Permitimos equipar después de cumplir un malRollo? Aquí lo dejo por si acaso */
+        if (jugadorActivo.obtenerMalRolloPendiente().esVacio() && !jB_comprarNivel.isEnabled() && !jB_equiparse.isEnabled())
+        {
+            jB_comprarNivel.setEnabled(true);
+            jB_equiparse.setEnabled(true);
+        }
     }//GEN-LAST:event_jB_descartarseTesorosActionPerformed
 
     private void jB_comprarNivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_comprarNivelActionPerformed
