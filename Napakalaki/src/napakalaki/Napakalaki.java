@@ -149,15 +149,6 @@ public class Napakalaki {
                 new BuenRollo(4,1) )
        );    
         
-
-        tipoVisiblesPerdidos.clear();
-        tipoVisiblesPerdidos.add(TipoTesoro.MANO);
-        tipoVisiblesPerdidos.add(TipoTesoro.MANO);
-        tipoVisiblesPerdidos.add(TipoTesoro.ARMADURA);
-        tipoVisiblesPerdidos.add(TipoTesoro.CALZADO);
-        tipoVisiblesPerdidos.add(TipoTesoro.CASCO);
-        tipoVisiblesPerdidos.add(TipoTesoro.COLLAR);
-        tipoVisiblesPerdidos.add(TipoTesoro.DOSMANOS);
         mazoMonstruos.add(new Monstruo(
             "El gorrón en el umbral",10, 
             new MalRollo("Pierdes todos tus tesoros visibles.",
@@ -328,11 +319,12 @@ public class Napakalaki {
 
         tipoVisiblesPerdidos.clear();
         tipoVisiblesPerdidos.add(TipoTesoro.MANO);
+        tipoVisiblesPerdidos.add(TipoTesoro.MANO);
         tipoVisiblesPerdidos.add(TipoTesoro.DOSMANOS);
         mazoMonstruos.add(new Monstruo(
                 "Bicéfalo",20,
                 new MalRollo("Te faltan manos para tanta cabeza. Pierdes 3 niveles y tus tesoros visibles de las manos.",
-                    3,0,6,false,
+                    3,0,3,false,
                     new ArrayList(),
                     tipoVisiblesPerdidos
                 ),
@@ -341,9 +333,7 @@ public class Napakalaki {
         
         
         
-        // Monstruos con Sectarios
-        
-        
+        // Monstruos con Sectarios        
         tipoVisiblesPerdidos.clear();
         tipoVisiblesPerdidos.add(TipoTesoro.MANO);
         mazoMonstruos.add(new Monstruo(
