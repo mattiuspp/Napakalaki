@@ -694,9 +694,6 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
         jL_resultadoCombate.setText("");
         jL_malRollo.setText (monstruoEnJuego.cualEsTuMalRollo().obtenerTexto());
         
-        //ImageLabel label = new ImageLabel(new ImageIcon("images/reactor.png"));
-        //BufferedImage myPicture = ImageIO.read(new File(getClass().getClassLoader().getResource("resources/Monstruos/"+monstruoEnJuego.getNombre()+".png")));
-        //JLabel picLabel = new JLabel(new ImageIcon( getClass().getClassLoader().getResource("resources/Monstruos/"+monstruoEnJuego.getNombre()+".png")));
         jP_imgMonstruo.add(imagenMonstruo);
         
         pack();
