@@ -327,7 +327,7 @@ public class Jugador {
     }
     
     public boolean puedoConvertirme(){        
-        if(Napakalaki.getInstance().getVista().getDado("Tira para convertirte.", "6 te conviertes") ==  6)
+        if(Napakalaki.getInstance().getVista().getDado("Tira para convertirte.", "6 te conviertes") <=  3)
             return true;
         else
             return false;
