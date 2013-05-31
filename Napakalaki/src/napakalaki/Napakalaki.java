@@ -84,11 +84,8 @@ public class Napakalaki {
         
         /*
          * NOTA: Como se representan los tesoros que hacen descartar los monstruos
-         *  - Si el array de tipos es vacio, se descartar cartas cualesquiera
-         *  - Si el tamaño del array de tipos coincide con el numero de cartas a descartar
-         *      se descartar una de cada tipo
-         *  - Si el tamaño del array de tipos es distinto de cero, y el numero de cartas a
-         *      descartar es el maximo (6), se descartan todas las cartas que sean de esos tipos
+         *  - Si el array de tipos es vacio, se descartan cartas cualesquiera
+         *  - En cualquier otro caso, se descarta una carta por cada tipo que tenga el jugador
          */
         
         // Inicializamos las cartas de monstruo
