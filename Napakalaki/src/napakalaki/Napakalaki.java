@@ -494,7 +494,6 @@ public class Napakalaki {
             Collections.shuffle(mazoTesoros);
         }
         Tesoro tesoro = mazoTesoros.get(mazoTesoros.size()-1);
-        descarteTesoros.add(tesoro); /* Aquí se está generando un duplicado, en descartarTesoros también se hace */
         mazoTesoros.remove(tesoro);
         return tesoro;
     }
