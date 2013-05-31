@@ -265,27 +265,12 @@ public class Jugador {
         if(malRollo.obtenerTipoOcultosPerdidos().isEmpty()){ 
             ocuPerdidos = Math.min(tesorosOcultos.size(),malRollo.obtenerOcultosPerdidos());
         }
-        else{
-            //Caso 2: descartamos uno por cada tipo
-            if(malRollo.obtenerTipoOcultosPerdidos().size()==malRollo.obtenerOcultosPerdidos()){
-                for (TipoTesoro tipo:malRollo.obtenerTipoOcultosPerdidos())
-                    if(tipoOcuJug.contains(tipo)){
-                        tipoOcuPerdidos.add(tipo);
-                        ocuPerdidos++;
-                    }
-            }
-            //Caso 3: descartamos todos los posibles por cada tipo
-            else{    
-                for (TipoTesoro tipo:malRollo.obtenerTipoOcultosPerdidos()){                    
-                    for(TipoTesoro tipoJugador:tipoOcuJug)
-                        if(tipo == tipoJugador && ocuPerdidos<malRollo.obtenerOcultosPerdidos()){
-                            if(!tipoOcuPerdidos.contains(tipo)) //lo añadimos solo una vez
-                                tipoOcuPerdidos.add(tipo);
-                            
-                            ocuPerdidos++;
-                        }
+        else{   //Caso 2: descartamos uno por cada tipo
+            for (TipoTesoro tipo:malRollo.obtenerTipoOcultosPerdidos())
+                if(tipoOcuJug.contains(tipo)){
+                    tipoOcuPerdidos.add(tipo);
+                    ocuPerdidos++;
                 }
-            }
         }
         
         // CARTAS VISIBLES - Analogo
@@ -293,24 +278,11 @@ public class Jugador {
             visPerdidos = Math.min(tesorosVisibles.size(),malRollo.obtenerVisiblesPerdidos());
         }
         else{
-            if(malRollo.obtenerTipoVisiblesPerdidos().size()==malRollo.obtenerVisiblesPerdidos()){
-                for (TipoTesoro tipo:malRollo.obtenerTipoVisiblesPerdidos())
-                    if(tipoVisJug.contains(tipo)){
-                        tipoVisPerdidos.add(tipo);
-                        visPerdidos++;
-                    }
-            }
-            else{    
-                for (TipoTesoro tipo:malRollo.obtenerTipoVisiblesPerdidos()){                    
-                    for(TipoTesoro tipoJugador:tipoVisPerdidos)
-                        if(tipo == tipoJugador && visPerdidos<malRollo.obtenerVisiblesPerdidos()){
-                            if(!tipoVisPerdidos.contains(tipo)) 
-                                tipoVisPerdidos.add(tipo);
-                            
-                            visPerdidos++;
-                        }
+            for (TipoTesoro tipo:malRollo.obtenerTipoVisiblesPerdidos())
+                if(tipoVisJug.contains(tipo)){
+                    tipoVisPerdidos.add(tipo);
+                    visPerdidos++;
                 }
-            }
         }
         
         malRolloPendiente = new MalRollo("MalRollo pendiente",malRollo.obtenerNivelesPerdidos(),
@@ -369,3 +341,17 @@ public class Jugador {
     
 
     
+/*
+ *             //Caso 3: descartamos todos los posibles por cada tipo
+            else{    
+                for (TipoTesoro tipo:malRollo.obtenerTipoOcultosPerdidos()){                    
+                    for(TipoTesoro tipoJugador:tipoOcuJug)
+                        if(tipo == tipoJugador && ocuPerdidos<malRollo.obtenerOcultosPerdidos()){
+                            if(!tipoOcuPerdidos.contains(tipo)) //lo añadimos solo una vez
+                                tipoOcuPerdidos.add(tipo);
+                            
+                            ocuPerdidos++;
+                        }
+                }
+            }
+ */
