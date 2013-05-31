@@ -255,9 +255,9 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
         jL_malRollo.setAutoscrolls(false);
         jScrollPane1.setViewportView(jL_malRollo);
 
-        jP_imgMonstruo.setMaximumSize(new java.awt.Dimension(120, 150));
+        jP_imgMonstruo.setMaximumSize(new java.awt.Dimension(120, 155));
         jP_imgMonstruo.setMinimumSize(new java.awt.Dimension(120, 150));
-        jP_imgMonstruo.setPreferredSize(new java.awt.Dimension(120, 150));
+        jP_imgMonstruo.setPreferredSize(new java.awt.Dimension(120, 155));
 
         javax.swing.GroupLayout jP_monstruosLayout = new javax.swing.GroupLayout(jP_monstruos);
         jP_monstruos.setLayout(jP_monstruosLayout);
@@ -301,7 +301,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jP_monstruosLayout.createSequentialGroup()
                 .addComponent(jP_imgMonstruo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 23, Short.MAX_VALUE))
+                .addGap(0, 17, Short.MAX_VALUE))
         );
 
         jP_jugadores.setBorder(javax.swing.BorderFactory.createTitledBorder("Parcelita de los débiles jugadores"));
@@ -379,7 +379,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jL_resultadoCombate)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jP_jugadoresLayout = new javax.swing.GroupLayout(jP_jugadores);
@@ -520,7 +520,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
                     .addComponent(jB_descartarseTesoros)
                     .addComponent(jB_comprarNivel)
                     .addComponent(jB_equiparse))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pack();
