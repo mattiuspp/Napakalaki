@@ -564,25 +564,24 @@ public class Napakalaki {
             boolean tieneTesoros = jugadorActivo.tienesTesoros();
             
             if(!tieneTesoros){
-                System.out.println("Soy" + jugadorActivo.obtenerNombre() + siguienteJugador().obtenerNombre());
-//                int numTesoros;
-//                switch (getVista().getDado("Numero de Tesoros a repartir | 1:1,6:3,*:2",
-//                        "Jugador: " + jugadorActivo.obtenerNombre())){
-//                        case 1:{
-//                            numTesoros = 1;
-//                            break;
-//                        }
-//                        case 6:{
-//                            numTesoros = 3;
-//                            break;
-//                        }
-//                        default:{
-//                            numTesoros = 2;
-//                            break;
-//                        }   
-//                }
-//                for (int i = 1; i <= numTesoros; i++)
-//                    jugadorActivo.robarTesoro(siguienteTesoro());
+                int numTesoros;
+                switch (getVista().getDado("Numero de Tesoros a repartir | 1:1,6:3,*:2",
+                        "Jugador: " + jugadorActivo.obtenerNombre())){
+                        case 1:{
+                            numTesoros = 1;
+                            break;
+                        }
+                        case 6:{
+                            numTesoros = 3;
+                            break;
+                        }
+                        default:{
+                            numTesoros = 2;
+                            break;
+                        }   
+                }
+                for (int i = 1; i <= numTesoros; i++)
+                    jugadorActivo.robarTesoro(siguienteTesoro());
             } 
             
             monstruoActivo = siguienteMonstruo();

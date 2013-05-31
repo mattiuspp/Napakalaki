@@ -29,6 +29,7 @@
  *      ·· Arreglado segunda parte, el malRollo funciona correctamente y el jugador
  *          pierde sus tesoros
  * Alternativa a instaceof - HECHO (Comentado en actuzliarJugador en VentanaPrinciapal)
+ * Arreglado un bug que algunas veces pasaba dos veces de turno - HECHO
  * 
  * 
  * Queda por hacer:

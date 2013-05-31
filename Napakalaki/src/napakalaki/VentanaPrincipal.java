@@ -574,7 +574,6 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
             int fin = juego.siguienteTurno();
             if(fin == 0)
             {
-                juego.siguienteTurno();
                 jB_comprarNivel.setEnabled(false);
                 jB_equiparse.setEnabled(false);
                 jB_descartarseTesoros.setEnabled(false);
