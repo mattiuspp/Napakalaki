@@ -516,7 +516,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jP_monstruos, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jP_jugadores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -525,7 +525,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
                     .addComponent(jB_descartarseTesoros)
                     .addComponent(jB_comprarNivel)
                     .addComponent(jB_equiparse))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -722,7 +722,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
         {
             jL_esSectario.setText("Sectario");
             jL_bonusSectario.setText("+" + ((JugadorSectario)jugadorActivo).getMiCartaSectario().getValorBasico() 
-                                      + " por cada sectario en juego.");
+                                      + " por cada sectario en juego. » " + ((JugadorSectario)jugadorActivo).getNumeroSectarios());
         }
         else
         {
