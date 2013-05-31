@@ -15,24 +15,20 @@
  * MODIFICAR DADOS EXISTENTES - HECHO
  * Comentado MalRollo para que la profe lo entienda - HECHO
  * 
- * Ver alternativa a instanceof
- * Eliminar metodos toString() comentados (o no?) - Para qué quitarlos? Pueden servir para otra interfaz distinta xD.
- *      Creo que no está de más...
- * 
- * BUG BUG BUG BUG BUG BUG BUG BUG
- *      Si alguien se convierte en Sectario, el siguiente turno también lo hace él!!!!! 
- *      Y encima no se equipa con lo que le digo xDDDD
- * Leches, ahora no me ha pasado. Voy a ver si lo reproduzco otra vez...
- * 
- * Carga de imágenes conseguida. Ahora queda más bonito, a falta de editar las imágenes para que cuadren bien (de eso me encargo yo)
- * A ser posible quisiera meter también imágenes de los monstruos, si no te importa le haré un hueco =)
- * 
- * REPRODUCCIÓN DEL BUG
- *      Si un jugador pierde, NO TIENE mal Rollo pendiente y se convierte en Sectario, el siguiente turno lo hace él
- *      Si un jugador pierde, TIENE mal rollo pendiente y se convierte en Sectario, cumple su mal rollo, pasa de turno, y el siguiente turno
- *          lo vuelve a hacer él (o sea, se adelanta un turno si hablamos de 3 jugadores), con los tesoros originales. Si gana, el mal rollo
+ * Queda por hacer:
+ *  - Alternativa a instaceof
+ *  - Descomentar o dejar comentados los toString()
+ *  - Arreglar imagenes de los monstruos
+ *  - Arreglas el bug del Sectario:
+ *      ·  Si un jugador pierde, NO TIENE mal Rollo pendiente 
+ *          y se convierte en Sectario, el siguiente turno lo hace él
+ *      ·  Si un jugador pierde, TIENE mal rollo pendiente y se convierte en Sectario, 
+ *          cumple su mal rollo, pasa de turno, y el siguiente turno
+ *          lo vuelve a hacer él (o sea, se adelanta un turno si hablamos de 3 jugadores), 
+ *          con los tesoros originales. Si gana, el mal rollo
  *          pendiente se anula, si pierde, ha de cumplirlo.
- *  No sé de dónde puede venir el bug, la verdad... pero es muy raro.
+ * 
+ * 
  */
 
 package napakalaki;

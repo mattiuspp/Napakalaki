@@ -717,7 +717,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
         jL_nivelCombate.setText("Nivel de combate: " + jugadorActivo.obtenerNivelCombate());
 
 
-        if (jugadorActivo instanceof JugadorSectario)
+        if (jugadorActivo.convertirme(new Sectario("", 0)) == jugadorActivo) //altenativa a instaceOF
         {
             jL_esSectario.setText("Sectario");
             jL_bonusSectario.setText("+" + ((JugadorSectario)jugadorActivo).getMiCartaSectario().getValorBasico() 

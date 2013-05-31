@@ -531,6 +531,7 @@ public class Napakalaki {
             if(jugadorActivo.puedoConvertirme()){
                 JugadorSectario jugadorSectario = jugadorActivo.convertirme(siguienteSectario());
                 Jugadores.set(Jugadores.indexOf(jugadorActivo), jugadorSectario);
+                jugadorActivo = jugadorActivo;
             }
         }
         
