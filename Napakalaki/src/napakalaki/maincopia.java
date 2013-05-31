@@ -14,12 +14,7 @@
  * Mostrar en la interfaz cuántos tesoros sobran - HECHO
  * MODIFICAR DADOS EXISTENTES - HECHO
  * Comentado MalRollo para que la profe lo entienda - HECHO
- * 
- * Queda por hacer:
- *  - Alternativa a instaceof
- *  - Descomentar o dejar comentados los toString()
- *  - Arreglar imagenes de los monstruos
- *  - Arreglas el bug del Sectario:
+ * Arreglado el bug del Sectario - HECHO
  *      ·  Si un jugador pierde, NO TIENE mal Rollo pendiente 
  *          y se convierte en Sectario, el siguiente turno lo hace él
  *      ·  Si un jugador pierde, TIENE mal rollo pendiente y se convierte en Sectario, 
@@ -27,6 +22,20 @@
  *          lo vuelve a hacer él (o sea, se adelanta un turno si hablamos de 3 jugadores), 
  *          con los tesoros originales. Si gana, el mal rollo
  *          pendiente se anula, si pierde, ha de cumplirlo.
+ * 
+ *      ·· Arreglado una cosa: cuando un jugador se hace sectario, al segundo se muestra
+ *          en pantalla como sectario y de esta forma el siguiente turno lo juega el    
+ *          jugador que lo tiene que jugar
+ *      ·· Arreglado segunda parte, el malRollo funciona correctamente y el jugador
+ *          pierde sus tesoros
+ * Alternativa a instaceof - HECHO (Comentado en actuzliarJugador en VentanaPrinciapal)
+ * 
+ * 
+ * Queda por hacer:
+ *  - Descomentar o dejar comentados los toString()
+ *  - Arreglar imagenes de los monstruos
+ *  - Arreglar la imagen del casco minero
+
  * 
  * 
  */
