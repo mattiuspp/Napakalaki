@@ -1,14 +1,9 @@
 package napakalaki;
 
 import java.awt.Color;
-import static java.awt.Frame.NORMAL;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
-import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -30,32 +25,32 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
     
     private class TesoroGrafico extends JPanel {
         protected Tesoro tesoro; // asociación con el tesoro que representa 
-        private JTextArea jL_nombre = new javax.swing.JTextArea();
+        private JTextArea jL_nombre = new JTextArea();
         private JLabel jL_bonus = new JLabel();
         private JLabel jL_piezasOro = new JLabel();
         private JLabel jL_tipo = new JLabel();
         
-        /* Prueba de imágenes */
+        /* Imagen correspondiente al tesoro */
         private Image imagenTesoro;
         
 
         TesoroGrafico (Tesoro unTesoro) {
             tesoro = unTesoro;
-            System.out.println("Buscando imagen para "+unTesoro.getNombre());
-            Image tmp = (new ImageIcon(getClass().getClassLoader().getResource("resources/Tesoros/"+tesoro.getNombre()+".png"))).getImage();
-            if (tmp != null)
-                imagenTesoro = tmp;
-            else
-            {
-                System.out.println("El tesoro " + unTesoro.getNombre() + ".png no existe"); // Para depurar la carga de imágenes
-                //JOptionPane.showMessageDialog(this,"El tesoro " + unTesoro.getNombre() + ".png no existe", "ERROR!!!", JOptionPane.ERROR_MESSAGE);
+            try{
+                imagenTesoro = (new ImageIcon(getClass().getClassLoader().getResource("resources/Tesoros/"+tesoro.getNombre()+".png"))).getImage();
+            } catch (Exception e){
+                JOptionPane.showMessageDialog(this,"La imagen resources/Tesoros/"+tesoro.getNombre()+".png no está disponible.\n"
+                        + "Contactar con los programadores para subsanar el fallo: " + e.getMessage(), "Error!!!", JOptionPane.ERROR_MESSAGE);
+                System.exit(0);
             }
+
             
             
             this.setPreferredSize(new java.awt.Dimension(120, 150));
             this.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
             this.setBorder(javax.swing.BorderFactory.createLineBorder(Color.BLACK));
                        
+            jL_nombre.setFocusable(false);
             jL_nombre.setEditable(false);
             jL_nombre.setBackground(Color.WHITE);
             jL_nombre.setColumns(15);
@@ -87,7 +82,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
                 new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 132, 90, -1));
 
         }
-         /* Imagen */
+         /* Sobreescritura del método paint del JPanel para añadir la imagen del tesoro */
         @Override
         public void paint(Graphics g)
         {
@@ -107,19 +102,16 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
                     if (tesorosVisiblesSeleccionados.contains(TesoroGraficoVisible.this.tesoro))
                     {
                         tesorosVisiblesSeleccionados.remove(TesoroGraficoVisible.this.tesoro);
-                        //TesoroGraficoVisible.this.setOpaque(false);
                         TesoroGraficoVisible.this.setBorder(BorderFactory.createLineBorder(Color.black));
                         TesoroGraficoVisible.this.setEnabled(true);
                     }
                     else
                     {
                         tesorosVisiblesSeleccionados.add(TesoroGraficoVisible.this.tesoro);
-                        //TesoroGraficoVisible.this.setOpaque(true); 
                         TesoroGraficoVisible.this.setBorder(BorderFactory.createMatteBorder(
                                     5, 5, 5, 5, Color.red));
                         TesoroGraficoVisible.this.setEnabled(false);
                     }
-                    //
                 }
             });
          }
@@ -131,21 +123,16 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
             addMouseListener(new java.awt.event.MouseAdapter() 
             {
                 @Override
-                public void mouseClicked(java.awt.event.MouseEvent evt) {
-//                    TesoroGraficoOculto.this.setOpaque(true); 
-//                    TesoroGraficoOculto.this.setEnabled(false);
-                    
+                public void mouseClicked(java.awt.event.MouseEvent evt) {                 
                     if(tesorosOcultosSeleccionados.contains(TesoroGraficoOculto.this.tesoro))
                     {
                         tesorosOcultosSeleccionados.remove(TesoroGraficoOculto.this.tesoro);
-                        //TesoroGraficoOculto.this.setOpaque(false);
                         TesoroGraficoOculto.this.setBorder(BorderFactory.createLineBorder(Color.black));
                         TesoroGraficoOculto.this.setEnabled(true);
                     }
                     else
                     {
                         tesorosOcultosSeleccionados.add(TesoroGraficoOculto.this.tesoro);
-                        //TesoroGraficoOculto.this.setOpaque(true); 
                         TesoroGraficoOculto.this.setBorder(BorderFactory.createMatteBorder(
                                     5, 5, 5, 5, Color.red));
                         TesoroGraficoOculto.this.setEnabled(false);
@@ -161,13 +148,19 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
         
         MonstruoGrafico (Monstruo monstruo){
             this.monstruo = monstruo;
-            System.out.println("Buscando imagen para "+this.monstruo.getNombre());
-            imagenMonstruo = (new ImageIcon(getClass().getClassLoader().getResource("resources/Monstruos/"+this.monstruo.getNombre()+".png"))).getImage();
+            try {
+                imagenMonstruo = (new ImageIcon(getClass().getClassLoader().getResource("resources/Monstruos/"+this.monstruo.getNombre()+".png"))).getImage();
+            } catch (Exception e){
+                JOptionPane.showMessageDialog(this,"La imagen resources/Monstruos/"+this.monstruo.getNombre()+".png no está disponible.\n"
+                        + "Contactar con los programadores para subsanar el fallo: " + e.getMessage(), "Error!!!", JOptionPane.ERROR_MESSAGE);
+                System.exit(0);
+            }
             this.setPreferredSize(new java.awt.Dimension(120, 150));
             this.setBorder(javax.swing.BorderFactory.createLineBorder(Color.BLACK));
             this.setOpaque(false);
         }
  
+        /* Sobreescritura del método paint de JPanel para dibujar la imagen del monstruo */
         @Override
         public void paint(Graphics g)
         {
@@ -412,13 +405,14 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
                                     .addComponent(jL_esSectario, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jL_nivelBasico, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jL_nombreJugador, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jL_excesoCartas, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jL_bonusSectario, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 30, Short.MAX_VALUE)))
+                                    .addComponent(jL_excesoCartas, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 117, Short.MAX_VALUE)))
                         .addContainerGap())
                     .addGroup(jP_jugadoresLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jP_malRolloPendiente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jP_jugadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jL_bonusSectario, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jP_malRolloPendiente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jP_jugadoresLayout.setVerticalGroup(
@@ -526,7 +520,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
                     .addComponent(jB_descartarseTesoros)
                     .addComponent(jB_comprarNivel)
                     .addComponent(jB_equiparse))
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         pack();
@@ -540,7 +534,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
     private void jB_descartarseTesorosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_descartarseTesorosActionPerformed
         juego.descartarTesoros(tesorosVisiblesSeleccionados, tesorosOcultosSeleccionados);
         actualizarJugador();
-        /* ¿Permitimos equipar después de cumplir un malRollo? Aquí lo dejo por si acaso */
+
         if (jugadorActivo.obtenerMalRolloPendiente().esVacio() && !jB_comprarNivel.isEnabled() && !jB_equiparse.isEnabled())
         {
             jB_comprarNivel.setEnabled(true);
@@ -558,11 +552,13 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
     private void jB_combatirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_combatirActionPerformed
         ResultadoCombate resultado = juego.desarrollarCombate();
         jL_resultadoCombate.setText(""+resultado);
+        
         if (resultado == ResultadoCombate.VENCEYFIN)
         {
             JOptionPane.showMessageDialog(this,"El jugador " + jugadorActivo.obtenerNombre() + " ha ganado la partida!!!", "Ganador!!!", JOptionPane.INFORMATION_MESSAGE);
             System.exit(0);
         }
+        
         boolean cumplioMalRollo = jugadorActivo.obtenerMalRolloPendiente().esVacio();
         if(cumplioMalRollo == true)
         {
@@ -724,7 +720,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
         {
             jL_esSectario.setText("Sectario");
             jL_bonusSectario.setText("+" + ((JugadorSectario)jugadorActivo).getMiCartaSectario().getValorBasico() 
-                                      + " por cada... » " + ((JugadorSectario)jugadorActivo).getNumeroSectarios());
+                                      + " por cada Sectario en juego -> " + JugadorSectario.getNumeroSectarios());
         }
         else
         {
