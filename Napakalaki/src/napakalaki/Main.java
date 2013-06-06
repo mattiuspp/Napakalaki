@@ -1,5 +1,8 @@
-package napakalaki;
+/*
+ * Equipo: Antonio Álvarez Caballero y Adrián Ranea Robles
+ */
 
+package napakalaki;
 
 public class Main {
         public static void main(String args[]) {

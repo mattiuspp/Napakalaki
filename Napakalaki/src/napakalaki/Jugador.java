@@ -1,7 +1,6 @@
 package napakalaki;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 public class Jugador {
     private String nombre;
@@ -14,23 +13,23 @@ public class Jugador {
     private ArrayList<Tesoro> tesorosOcultos = new ArrayList();
     private ArrayList<Tesoro> tesorosVisibles = new ArrayList();    
 
-//    @Override
-//    public String toString() {
-//        String f = new String();
-//        f+=nombre + ", nivel: " + nivel;
-//        f+="\n\tCartas en mano(ocultas): ";
-//        for(Tesoro t:tesorosOcultos)
-//            f+=t.getNombre() + " | ";
-//                f+="\n\tCartas equipadas(visibles): ";
-//        for(Tesoro t:tesorosVisibles)
-//            f+=t.getNombre() + " | ";
-//        
-//        if (!malRolloPendiente.esVacio())
-//            f+= "\nMal rollo pendiente: " + malRolloPendiente.toString();
-//        f+="\n\tNivel de combate: " + obtenerNivelCombate();
-//        
-//        return f;
-//    }
+    @Override
+    public String toString() {
+        String f = new String();
+        f+=nombre + ", nivel: " + nivel;
+        f+="\n\tCartas en mano(ocultas): ";
+        for(Tesoro t:tesorosOcultos)
+            f+=t.getNombre() + " | ";
+                f+="\n\tCartas equipadas(visibles): ";
+        for(Tesoro t:tesorosVisibles)
+            f+=t.getNombre() + " | ";
+        
+        if (!malRolloPendiente.esVacio())
+            f+= "\nMal rollo pendiente: " + malRolloPendiente.toString();
+        f+="\n\tNivel de combate: " + obtenerNivelCombate();
+        
+        return f;
+    }
     
     public Jugador(String nombre) {
         this.nombre = nombre;
