@@ -443,7 +443,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
                         .addComponent(jP_tesorosVisibles, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(14, 14, 14)
                 .addGroup(jP_jugadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jP_tesorosOcultos, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+                    .addComponent(jP_tesorosOcultos, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jP_malRolloPendiente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -524,7 +524,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
                     .addComponent(jB_descartarseTesoros)
                     .addComponent(jB_comprarNivel)
                     .addComponent(jB_equiparse))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
