@@ -483,7 +483,6 @@
     <Component class="javax.swing.JButton" name="jB_equiparse">
       <Properties>
         <Property name="text" type="java.lang.String" value="Equiparse"/>
-        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB_equiparseActionPerformed"/>
@@ -492,7 +491,6 @@
     <Component class="javax.swing.JButton" name="jB_comprarNivel">
       <Properties>
         <Property name="text" type="java.lang.String" value="Comprar Nivel"/>
-        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB_comprarNivelActionPerformed"/>
