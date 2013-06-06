@@ -571,6 +571,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
         
         jB_siguiente.setEnabled(true);
         jB_descartarseTesoros.setEnabled(true);
+        jB_comprarNivel.setEnabled(false);
         jB_combatir.setEnabled(false);
         actualizarJugador();
     }//GEN-LAST:event_jB_combatirActionPerformed
@@ -579,7 +580,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
             int fin = juego.siguienteTurno();
             if(fin == 0)
             {
-                jB_comprarNivel.setEnabled(false);
+                jB_comprarNivel.setEnabled(true);
                 jB_equiparse.setEnabled(false);
                 jB_descartarseTesoros.setEnabled(false);
                 jB_siguiente.setEnabled(false);
