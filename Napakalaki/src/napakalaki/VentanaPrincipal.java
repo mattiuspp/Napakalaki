@@ -15,6 +15,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
     private Napakalaki juego;
     private JD_dado dado;
     private String[] nombresJugadores;
+    private ArrayList<Boolean> jugadoresVivos;
     private Monstruo monstruoEnJuego;
     private MonstruoGrafico imagenMonstruo;
     private Jugador jugadorActivo;
@@ -561,6 +562,8 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
             JOptionPane.showMessageDialog(this,"El jugador " + jugadorActivo.obtenerNombre() + " ha ganado la partida!!!", "Ganador!!!", JOptionPane.INFORMATION_MESSAGE);
             System.exit(0);
         }
+        else if(resultado == ResultadoCombate.PIERDEYMUERE)
+            jugadoresVivos.set( buscaJugador(jugadorActivo.obtenerNombre()), false);
         
         boolean cumplioMalRollo = jugadorActivo.obtenerMalRolloPendiente().esVacio();
         if(cumplioMalRollo == true)
@@ -582,10 +585,13 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
             {
                 actualizarJugador();
                 
-                if(jugadorActivo.obtenerNivel() == 1)
+                if(jugadoresVivos.get( buscaJugador(jugadorActivo.obtenerNombre())) == false){
                     jB_equiparse.setEnabled(true);
+                    jugadoresVivos.set( buscaJugador(jugadorActivo.obtenerNombre()), true);
+                }
                 else
                     jB_equiparse.setEnabled(false);
+                
                 jB_comprarNivel.setEnabled(true);
                 jB_descartarseTesoros.setEnabled(false);
                 jB_siguiente.setEnabled(false);
@@ -677,6 +683,9 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
         dado = new JD_dado (this,true);
         dialogoNombres = new JD_nombresJugadores (this,true);
         nombresJugadores = dialogoNombres.getNombres();
+        
+        for (int i = 0; i < nombresJugadores.length; i++)
+            jugadoresVivos.add(true);
         
         juego.comenzarJuego(nombresJugadores);
         actualizarJugador();
@@ -826,5 +835,13 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
         jL_nivelesPerdidos.setText("");
         jL_resultadoCombate.setText("");
         jL_malRollo.setText ("");
+    }
+    
+    private int buscaJugador(String nombre){
+        for (int i = 0; i < nombresJugadores.length; i++) {
+            if(nombresJugadores[i].equals(nombre))
+                return i;
+        }
+        return -1;
     }
 }
