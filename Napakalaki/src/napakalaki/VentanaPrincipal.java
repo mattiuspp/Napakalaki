@@ -451,6 +451,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
         );
 
         jB_equiparse.setText("Equiparse");
+        jB_equiparse.setEnabled(false);
         jB_equiparse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jB_equiparseActionPerformed(evt);
