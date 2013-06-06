@@ -524,7 +524,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
                     .addComponent(jB_descartarseTesoros)
                     .addComponent(jB_comprarNivel)
                     .addComponent(jB_equiparse))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pack();
