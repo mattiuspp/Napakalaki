@@ -259,7 +259,6 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Resultado del Combate"));
 
-        jL_resultadoCombate.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jL_resultadoCombate.setText("Resultado del Combate");
         jL_resultadoCombate.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 

@@ -262,7 +262,6 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jL_resultadoCombate">
               <Properties>
-                <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="text" type="java.lang.String" value="Resultado del Combate"/>
                 <Property name="verticalAlignment" type="int" value="1"/>
               </Properties>
