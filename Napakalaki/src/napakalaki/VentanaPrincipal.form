@@ -73,7 +73,7 @@
                   <Component id="jB_comprarNivel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jB_equiparse" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="14" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -481,7 +481,6 @@
     <Component class="javax.swing.JButton" name="jB_equiparse">
       <Properties>
         <Property name="text" type="java.lang.String" value="Equiparse"/>
-        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB_equiparseActionPerformed"/>
@@ -490,7 +489,6 @@
     <Component class="javax.swing.JButton" name="jB_comprarNivel">
       <Properties>
         <Property name="text" type="java.lang.String" value="Comprar Nivel"/>
-        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB_comprarNivelActionPerformed"/>

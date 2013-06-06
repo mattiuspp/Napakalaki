@@ -15,6 +15,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
     private Napakalaki juego;
     private JD_dado dado;
     private String[] nombresJugadores;
+    private ArrayList<Boolean> jugadoresVivos;
     private Monstruo monstruoEnJuego;
     private MonstruoGrafico imagenMonstruo;
     private Jugador jugadorActivo;
@@ -448,7 +449,6 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
         );
 
         jB_equiparse.setText("Equiparse");
-        jB_equiparse.setEnabled(false);
         jB_equiparse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jB_equiparseActionPerformed(evt);
@@ -456,7 +456,6 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
         });
 
         jB_comprarNivel.setText("Comprar Nivel");
-        jB_comprarNivel.setEnabled(false);
         jB_comprarNivel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jB_comprarNivelActionPerformed(evt);
@@ -523,7 +522,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
                     .addComponent(jB_descartarseTesoros)
                     .addComponent(jB_comprarNivel)
                     .addComponent(jB_equiparse))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -553,6 +552,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
     }//GEN-LAST:event_jB_comprarNivelActionPerformed
 
     private void jB_combatirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_combatirActionPerformed
+        actualizarMonstruo();
         ResultadoCombate resultado = juego.desarrollarCombate();
         jL_resultadoCombate.setText(""+resultado);
         
@@ -561,6 +561,8 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
             JOptionPane.showMessageDialog(this,"El jugador " + jugadorActivo.obtenerNombre() + " ha ganado la partida!!!", "Ganador!!!", JOptionPane.INFORMATION_MESSAGE);
             System.exit(0);
         }
+        else if(resultado == ResultadoCombate.PIERDEYMUERE)
+            jugadoresVivos.set( buscaJugador(jugadorActivo.obtenerNombre()), false);
         
         boolean cumplioMalRollo = jugadorActivo.obtenerMalRolloPendiente().esVacio();
         if(cumplioMalRollo == true)
@@ -580,15 +582,23 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
             int fin = juego.siguienteTurno();
             if(fin == 0)
             {
+                actualizarJugador();
+                
+                if(jugadoresVivos.get( buscaJugador(jugadorActivo.obtenerNombre())) == false){
+                    jB_equiparse.setEnabled(true);
+                    jugadoresVivos.set( buscaJugador(jugadorActivo.obtenerNombre()), true);
+                }
+                else
+                    jB_equiparse.setEnabled(false);
+                
                 jB_comprarNivel.setEnabled(true);
-                jB_equiparse.setEnabled(false);
                 jB_descartarseTesoros.setEnabled(false);
                 jB_siguiente.setEnabled(false);
                 jB_combatir.setEnabled(true);
                 jL_malRolloPendiente.setText("");
                 jL_excesoCartas.setText("");
-                actualizarJugador();
-                actualizarMonstruo();
+                
+                limpiaMonstruo();
             }
             else if (fin > 0)
             {
@@ -673,9 +683,12 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
         dialogoNombres = new JD_nombresJugadores (this,true);
         nombresJugadores = dialogoNombres.getNombres();
         
+        for (int i = 0; i < nombresJugadores.length; i++)
+            jugadoresVivos.add(true);
+        
         juego.comenzarJuego(nombresJugadores);
         actualizarJugador();
-        actualizarMonstruo();
+        limpiaMonstruo();
 
         this.setVisible(true);
     }
@@ -807,8 +820,27 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
         // No sólo se requiere pack(), sino también repaint()
         repaint();
         pack();
-
-
-
+    }
+    
+    private void limpiaMonstruo(){
+        //liampiamos info del monstruo
+        if (imagenMonstruo != null)
+            jP_imgMonstruo.remove(imagenMonstruo);
+        jL_nombreMonstruo.setText ("");
+        jL_nivelesGanados.setText("");
+        jL_tesorosGanados.setText("");
+        jL_nivel.setText("");
+        jL_nivelContraSectarios.setText("");
+        jL_nivelesPerdidos.setText("");
+        jL_resultadoCombate.setText("");
+        jL_malRollo.setText ("");
+    }
+    
+    private int buscaJugador(String nombre){
+        for (int i = 0; i < nombresJugadores.length; i++) {
+            if(nombresJugadores[i].equals(nombre))
+                return i;
+        }
+        return -1;
     }
 }
