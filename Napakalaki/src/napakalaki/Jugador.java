@@ -268,6 +268,7 @@ public class Jugador {
             for (TipoTesoro tipo:malRollo.obtenerTipoOcultosPerdidos())
                 if(tipoOcuJug.contains(tipo)){
                     tipoOcuPerdidos.add(tipo);
+                    tipoOcuJug.remove(tipo);
                     ocuPerdidos++;
                 }
         }
@@ -280,6 +281,7 @@ public class Jugador {
             for (TipoTesoro tipo:malRollo.obtenerTipoVisiblesPerdidos())
                 if(tipoVisJug.contains(tipo)){
                     tipoVisPerdidos.add(tipo);
+                    tipoVisJug.remove(tipo);
                     visPerdidos++;
                 }
         }
