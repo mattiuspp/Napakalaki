@@ -73,7 +73,7 @@
                   <Component id="jB_comprarNivel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jB_equiparse" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="15" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -286,7 +286,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="jP_tesorosVisibles" pref="649" max="32767" attributes="0"/>
-                      <Component id="jP_tesorosOcultos" max="32767" attributes="0"/>
+                      <Component id="jP_tesorosOcultos" pref="649" max="32767" attributes="0"/>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
@@ -296,25 +296,30 @@
                                   <Component id="jL_malRolloPendiente" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jL_nivelCombate" min="-2" pref="150" max="-2" attributes="0"/>
-                                      <Component id="jL_esSectario" min="-2" pref="150" max="-2" attributes="0"/>
-                                      <Component id="jL_nivelBasico" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                                      <Component id="jL_nombreJugador" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                                      <Component id="jL_excesoCartas" alignment="0" min="-2" pref="138" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jL_nivelCombate" min="-2" pref="150" max="-2" attributes="0"/>
+                                              <Component id="jL_esSectario" min="-2" pref="150" max="-2" attributes="0"/>
+                                              <Component id="jL_nivelBasico" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                                              <Component id="jL_nombreJugador" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                                              <Component id="jL_excesoCartas" alignment="0" min="-2" pref="138" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                                          <Component id="jL_bonusSectario" min="-2" pref="255" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
-                                  <EmptySpace min="0" pref="117" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="12" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="jL_bonusSectario" alignment="1" min="-2" pref="255" max="-2" attributes="0"/>
-                              <Component id="jP_malRolloPendiente" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="jP_malRolloPendiente" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -348,8 +353,8 @@
                   </Group>
                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="jP_tesorosOcultos" pref="195" max="32767" attributes="0"/>
-                      <Component id="jP_malRolloPendiente" max="32767" attributes="0"/>
+                      <Component id="jP_tesorosOcultos" max="32767" attributes="0"/>
+                      <Component id="jP_malRolloPendiente" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
               </Group>
@@ -430,7 +435,7 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="78" max="32767" attributes="0"/>
                       <Component id="jL_ocultosPerdidos" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jL_tipoOcultosPerdidos" min="-2" max="-2" attributes="0"/>
