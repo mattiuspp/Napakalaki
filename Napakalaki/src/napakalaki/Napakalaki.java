@@ -83,9 +83,9 @@ public class Napakalaki {
         Collections.shuffle(mazoTesoros);
         
         /*
-         * NOTA: Como se representan los tesoros que hacen descartar los monstruos
-         *  - Si el array de tipos es vacio, se descartan cartas cualesquiera
-         *  - En cualquier otro caso, se descarta una carta por cada tipo que tenga el jugador
+         * NOTA: Forma de representar los tesoros que hacen descartar los monstruos
+         *  - Si el array de tipos es vacio, se descartan cartas de tipos cualesquiera
+         *  - En otro caso, se descarta una carta por de cada tipo presente.
          */
         
         // Inicializamos las cartas de monstruo
@@ -544,41 +544,43 @@ public class Napakalaki {
     }
     
     public int siguienteTurno() {
+        int fin = 0;
+        
         if(jugadorActivo == null){
             jugadorActivo = primerJugador();
             monstruoActivo = siguienteMonstruo();
-            return -1; //para que no avance de turno
         }
-                
-        int fin = jugadorActivo.puedoPasar();
-        
-        if (fin == 0){
-            jugadorActivo = siguienteJugador();
-            
-            boolean tieneTesoros = jugadorActivo.tienesTesoros();
-            
-            if(!tieneTesoros){
-                int numTesoros;
-                switch (getVista().getDado("Numero de Tesoros a repartir | 1:1,6:3,*:2",
-                        "Jugador: " + jugadorActivo.obtenerNombre())){
-                        case 1:{
-                            numTesoros = 1;
-                            break;
-                        }
-                        case 6:{
-                            numTesoros = 3;
-                            break;
-                        }
-                        default:{
-                            numTesoros = 2;
-                            break;
-                        }   
-                }
-                for (int i = 1; i <= numTesoros; i++)
-                    jugadorActivo.robarTesoro(siguienteTesoro());
-            } 
-            
-            monstruoActivo = siguienteMonstruo();
+        else{
+            fin = jugadorActivo.puedoPasar();
+
+            if (fin == 0){
+                jugadorActivo = siguienteJugador();
+
+                boolean tieneTesoros = jugadorActivo.tienesTesoros();
+
+                if(!tieneTesoros){
+                    int numTesoros;
+                    switch (getVista().getDado("Numero de Tesoros a repartir | 1:1,6:3,*:2",
+                            "Jugador: " + jugadorActivo.obtenerNombre())){
+                            case 1:{
+                                numTesoros = 1;
+                                break;
+                            }
+                            case 6:{
+                                numTesoros = 3;
+                                break;
+                            }
+                            default:{
+                                numTesoros = 2;
+                                break;
+                            }   
+                    }
+                    for (int i = 1; i <= numTesoros; i++)
+                        jugadorActivo.robarTesoro(siguienteTesoro());
+                } 
+
+                monstruoActivo = siguienteMonstruo();
+            }
         }
         
         return fin;        
@@ -597,7 +599,6 @@ public class Napakalaki {
         return cumpleMR;
     }
     
-    // Metodos auxiliares para la prueba del main
     public Jugador obtenerJugadorActivo() {
         return jugadorActivo;
     }
@@ -605,7 +606,7 @@ public class Napakalaki {
         return monstruoActivo;
     }
     
-    // Sesión sectarios
+    // Sesioón sectarios
     public Sectario siguienteSectario(){
         Sectario sectario = mazoSectarios.get(mazoSectarios.size()-1);
         mazoSectarios.remove(sectario);

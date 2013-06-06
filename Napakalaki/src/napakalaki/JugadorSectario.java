@@ -16,12 +16,12 @@ public class JugadorSectario extends Jugador{
         return miCartaSectario;
     }
     
-//    @Override
-//    public String toString() {
-//        return super.toString() + "\n\tJugador sectario: " 
-//                + "\n\t\tBonus basico: " + miCartaSectario.getValorBasico() 
-//                + " | Bonus especial: " + miCartaSectario.getValorEspecial();
-//    }
+    @Override
+    public String toString() {
+        return super.toString() + "\n\tJugador sectario: " 
+                + "\n\t\tBonus basico: " + miCartaSectario.getValorBasico() 
+                + " | Bonus especial: " + miCartaSectario.getValorEspecial();
+    }
 
     public static int getNumeroSectarios() {
         return numeroSectarios;

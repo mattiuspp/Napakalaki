@@ -13,23 +13,23 @@ public class Jugador {
     private ArrayList<Tesoro> tesorosOcultos = new ArrayList();
     private ArrayList<Tesoro> tesorosVisibles = new ArrayList();    
 
-//    @Override
-//    public String toString() {
-//        String f = new String();
-//        f+=nombre + ", nivel: " + nivel;
-//        f+="\n\tCartas en mano(ocultas): ";
-//        for(Tesoro t:tesorosOcultos)
-//            f+=t.getNombre() + " | ";
-//                f+="\n\tCartas equipadas(visibles): ";
-//        for(Tesoro t:tesorosVisibles)
-//            f+=t.getNombre() + " | ";
-//        
-//        if (!malRolloPendiente.esVacio())
-//            f+= "\nMal rollo pendiente: " + malRolloPendiente.toString();
-//        f+="\n\tNivel de combate: " + obtenerNivelCombate();
-//        
-//        return f;
-//    }
+    @Override
+    public String toString() {
+        String f = new String();
+        f+=nombre + ", nivel: " + nivel;
+        f+="\n\tCartas en mano(ocultas): ";
+        for(Tesoro t:tesorosOcultos)
+            f+=t.getNombre() + " | ";
+                f+="\n\tCartas equipadas(visibles): ";
+        for(Tesoro t:tesorosVisibles)
+            f+=t.getNombre() + " | ";
+        
+        if (!malRolloPendiente.esVacio())
+            f+= "\nMal rollo pendiente: " + malRolloPendiente.toString();
+        f+="\n\tNivel de combate: " + obtenerNivelCombate();
+        
+        return f;
+    }
     
     public Jugador(String nombre) {
         this.nombre = nombre;
@@ -326,7 +326,7 @@ public class Jugador {
     }
     
     public boolean puedoConvertirme(){        
-        if(Napakalaki.getInstance().getVista().getDado("Tira para convertirte.", "6 te conviertes") <=  3)
+        if(Napakalaki.getInstance().getVista().getDado("Tira para convertirte.", "6 te conviertes") == 6)
             return true;
         else
             return false;
@@ -337,20 +337,3 @@ public class Jugador {
     }
     
 }
-    
-
-    
-/*
- *             //Caso 3: descartamos todos los posibles por cada tipo
-            else{    
-                for (TipoTesoro tipo:malRollo.obtenerTipoOcultosPerdidos()){                    
-                    for(TipoTesoro tipoJugador:tipoOcuJug)
-                        if(tipo == tipoJugador && ocuPerdidos<malRollo.obtenerOcultosPerdidos()){
-                            if(!tipoOcuPerdidos.contains(tipo)) //lo añadimos solo una vez
-                                tipoOcuPerdidos.add(tipo);
-                            
-                            ocuPerdidos++;
-                        }
-                }
-            }
- */

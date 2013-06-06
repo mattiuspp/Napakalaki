@@ -1,13 +1,5 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package napakalaki;
 
-/**
- *
- * @author antonio
- */
 public class JD_nombresJugadores extends javax.swing.JDialog {
 
     private String[] nombres;
@@ -64,21 +56,26 @@ public class JD_nombresJugadores extends javax.swing.JDialog {
 
         jL_jugador3.setText("Jugador 4");
 
-        jT_nombreJugador0.setText("Juan1");
+        jT_nombreJugador0.setText("...");
         jT_nombreJugador0.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jT_nombreJugador0ActionPerformed(evt);
             }
         });
 
-        jT_nombreJugador1.setText("Pepe2");
+        jT_nombreJugador1.setText("...");
         jT_nombreJugador1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jT_nombreJugador1ActionPerformed(evt);
             }
         });
 
-        jT_nombreJugador2.setText("Adrian3");
+        jT_nombreJugador2.setText("...");
+        jT_nombreJugador2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jT_nombreJugador2ActionPerformed(evt);
+            }
+        });
 
         jT_nombreJugador3.setText("...");
         jT_nombreJugador3.setEnabled(false);
@@ -194,6 +191,10 @@ public class JD_nombresJugadores extends javax.swing.JDialog {
     private void jT_nombreJugador1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_nombreJugador1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jT_nombreJugador1ActionPerformed
+
+    private void jT_nombreJugador2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_nombreJugador2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jT_nombreJugador2ActionPerformed
 
     /**
      * @param args the command line arguments
