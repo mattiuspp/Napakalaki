@@ -1,4 +1,11 @@
 /*
+ * Que queda
+ *  - si el jugador es nivel 1 y no tiene tesoros equipados -> permitirle equipar
+ *  - solo se pueden vendenr objetos al principio del turno
+ */
+
+
+/*
  * Autores: Antonio Álvarez Caballero y Adrián Ranea Robles
  */
 

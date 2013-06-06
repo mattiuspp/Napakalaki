@@ -132,7 +132,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="jT_nombreJugador0">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Juan1"/>
+        <Property name="text" type="java.lang.String" value="..."/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jT_nombreJugador0ActionPerformed"/>
@@ -140,7 +140,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="jT_nombreJugador1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Pepe2"/>
+        <Property name="text" type="java.lang.String" value="..."/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jT_nombreJugador1ActionPerformed"/>
@@ -148,8 +148,11 @@
     </Component>
     <Component class="javax.swing.JTextField" name="jT_nombreJugador2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Adrian3"/>
+        <Property name="text" type="java.lang.String" value="..."/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jT_nombreJugador2ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jT_nombreJugador3">
       <Properties>
