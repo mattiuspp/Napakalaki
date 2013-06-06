@@ -15,7 +15,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
     private Napakalaki juego;
     private JD_dado dado;
     private String[] nombresJugadores;
-    private ArrayList<Boolean> jugadoresVivos;
+    
     private Monstruo monstruoEnJuego;
     private MonstruoGrafico imagenMonstruo;
     private Jugador jugadorActivo;
@@ -23,6 +23,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
     private ArrayList<Tesoro> tesorosVisiblesSeleccionados = new ArrayList();
     private ArrayList<TesoroGrafico> tesorosOcultosAlimpiar = new ArrayList();
     private ArrayList<Tesoro> tesorosOcultosSeleccionados = new ArrayList();
+    private ArrayList<Boolean> jugadoresVivos = new ArrayList();
     
     private class TesoroGrafico extends JPanel {
         protected Tesoro tesoro; // asociación con el tesoro que representa 
