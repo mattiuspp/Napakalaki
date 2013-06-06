@@ -539,11 +539,8 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
         juego.descartarTesoros(tesorosVisiblesSeleccionados, tesorosOcultosSeleccionados);
         actualizarJugador();
 
-        if (jugadorActivo.obtenerMalRolloPendiente().esVacio() && !jB_comprarNivel.isEnabled() && !jB_equiparse.isEnabled())
-        {
-            jB_comprarNivel.setEnabled(true);
+        if (jugadorActivo.obtenerMalRolloPendiente().esVacio())
             jB_equiparse.setEnabled(true);
-        }
     }//GEN-LAST:event_jB_descartarseTesorosActionPerformed
 
     private void jB_comprarNivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_comprarNivelActionPerformed
