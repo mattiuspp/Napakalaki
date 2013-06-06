@@ -223,6 +223,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Vista{
         setTitle("Napakalaki");
         setBackground(new java.awt.Color(255, 255, 255));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setMaximumSize(new java.awt.Dimension(2147483647, 701));
         setResizable(false);
 
         jP_monstruos.setBorder(javax.swing.BorderFactory.createTitledBorder("Territorio del Terrible Monstruo"));
