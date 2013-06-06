@@ -1,7 +1,6 @@
 package napakalaki;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 public class Jugador {
     private String nombre;
