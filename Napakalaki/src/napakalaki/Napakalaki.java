@@ -1,5 +1,5 @@
 /*
- * Equipo: Antonio Álvarez Caballero y Adrián Ranea Robles
+ * Equipo: Antonio y Adrian
  */
 package napakalaki;
 
